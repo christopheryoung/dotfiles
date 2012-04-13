@@ -1,0 +1,68 @@
+################
+#
+# xterm tweaks (entire file stolen from elsewhere; no credit to me)
+#
+
+#xterm understands both im/ic and doesn't have a status line.
+#Note: Do not specify im and ic in the real termcap/info file as
+#some programs (e.g. vi) will not work anymore.
+termcap  xterm hs@:cs=\E[%i%d;%dr:im=\E[4h:ei=\E[4l
+terminfo xterm hs@:cs=\E[%i%p1%d;%p2%dr:im=\E[4h:ei=\E[4l
+
+#80/132 column switching must be enabled for ^AW to work
+#change init sequence to not switch width
+termcapinfo  xterm Z0=\E[?3h:Z1=\E[?3l:is=\E[r\E[m\E[2J\E[H\E[?7h\E[?1;4;6l
+
+# Make the output buffer large for (fast) xterms.
+termcapinfo xterm* OL=10000
+
+defscrollback 10000
+pow_detach_msg "Screen session of \$LOGNAME \$:cr:\$:nl:ended."
+#caption always "%{= gk}%-Lw%{= rW}%50> %n%f* %t %{-}%+Lw%< %= %{= Gk}"
+# #caption always '%{= wb}%50=%n%f %t%{= wb}'
+# caption always "%>%{wk}%?%-Lw%?%{bw}%n*%f %t%?(%u)%?%{wk}%?%+Lw%?%<"
+# # caption always "%-Lw%{= BW}%50>%n%f* %t%{-}%+Lw%<"
+# # caption always "%?%F%{.RW}%?%3n %t%? [%h]%?"
+# # caption always "%{rk}%H %{gk}%c %{yk}%M%d %{wk}%?%-Lw%?%{bw}%n*%f %t%?(%u)%?%{wk}%?%+Lw%?"
+# #
+caption always "%{kG}%?%-Lw%?%{bw}%n*%f %t%?(%u)%?%{kG}%?%+Lw%?"
+
+# # This makes it possible to actually scroll . . . 
+termcapinfo xterm ti@:te@
+
+shell -$SHELL
+
+# bind ' ' windowlist -b 
+
+screen -t shell
+# screen -t shell2
+
+escape ``
+autodetach on
+vbell on
+vbell_msg "~~OH SNAP~~"
+startup_message off
+shelltitle "$|bash"
+
+bind ^w windowlist -m
+bind w windowlist -m
+bind ^n next
+bind n next
+bind ^h prev
+bind h prev
+bind ^t focus
+bind t focus
+bind ^r title
+bind ^m colon
+bind 0 remove
+bind 1 only
+bind 2 split
+bind = resize =
+bind + resize +3
+bind - resize -3
+
+#hardstatus alwayslastline "%{= KW}%-w%{= wk}%50>%n %t%{-}%+w%< %=[%H | %l | %D \
+#%C %a]"
+
+screen 0
+select 0
