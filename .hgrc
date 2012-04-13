@@ -1,0 +1,21 @@
+[ui]
+username = Christopher Young <chris@chrisyoung.net>
+editor = vi
+merge = meld
+vdiff = meld
+
+[extensions]
+hgext.gpg = 
+hgext.convert = 
+hgext.mq = 
+hgext.extdiff = 
+hgext.graphlog = 
+hgext.record=
+hgext.hgk=
+
+[extdiff]
+mydiff = meld
+myapp = meld
+
+%include ~/.hgrc_fingerprints
+
