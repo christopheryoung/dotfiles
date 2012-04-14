@@ -105,7 +105,8 @@
     ;; it once
     (package-install p)))
 
-
+;; A place to put any packages not on elpa or marmalade
+(add-to-list 'load-path "~/.emacs.d/vendor/")
 
 ;; APPEARANCE
 
