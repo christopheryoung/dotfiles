@@ -230,10 +230,8 @@
 (global-set-key [f10] 'split-window-vertically)
 (global-set-key [f11] 'other-window)
 
-;; Expand Region
-
-(require 'expand-region)
-(global-set-key (kbd "C-=") 'er/expand-region)
+(require 'key-chord)
+(key-chord-mode 1)
 
 ;; Hippie Expand
 ;; Willing to part with C-j (new line and indent)
@@ -266,12 +264,18 @@
 (setq auto-mode-alist (cons '("README" . text-mode) auto-mode-alist))
 (setq auto-mode-alist (cons '("\\.txt$" . text-mode) auto-mode-alist))
 
-;; MOVING AND SEARCHING
+;; MOVING AND SEARCHING AND MANIPULATING THE REGION
 
-;; Windmove
+;; Windmove helps you move between open buffers when the screen is
+;; split
 
 (when (fboundp 'windmove-default-keybindings)
   (windmove-default-keybindings))
+
+;; Make it easy to switch buffers
+(global-set-key [(control tab)] 'next-buffer)
+(global-set-key [(control shift tab)] 'previous-buffer)
+(key-chord-define-global "bb" 'ido-switch-buffer)
 
 ;; Better scrolling
 (setq scroll-step 1)
@@ -283,8 +287,8 @@
 (global-set-key "\C-p" 'bookmark-bmenu-list)
 
 (require 'ace-jump-mode)
-;; First remap return so we can free up C-m
 (define-key global-map (kbd "C-c SPC") 'ace-jump-mode)
+(key-chord-define-global "jj" 'ace-jump-mode)
 
 ;; Make searches case insensitive
 (setq case-fold-search t)
@@ -295,6 +299,11 @@
 ;; occur
 
 (global-set-key (kbd "C-c o") 'occur)
+
+;; Expand Region
+
+(require 'expand-region)
+(global-set-key (kbd "C-=") 'er/expand-region)
 
 ;; MODES
 
