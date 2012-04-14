@@ -105,6 +105,8 @@
     ;; it once
     (package-install p)))
 
+
+
 ;; APPEARANCE
 
 ;; Theme
@@ -280,6 +282,7 @@
 (global-set-key "\C-p" 'bookmark-bmenu-list)
 
 (require 'ace-jump-mode)
+;; First remap return so we can free up C-m
 (define-key global-map (kbd "C-c SPC") 'ace-jump-mode)
 
 ;; Make searches case insensitive
@@ -303,7 +306,7 @@
 
 ;; Better navigation in dired. Stop the proliferation of unnecessary
 ;; directories! Stop it now!
-(require 'dired-single)
+;;(require 'dired-single)
 
 ;;and then . . . 
 
