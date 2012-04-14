@@ -8,9 +8,13 @@
 ;; C-a = Move to the beginning of the line
 ;; C-e = Move to the end of the line
 ;; C-t = Transpose two letters
+;; C-u <n> <command> = repeat the command n times
 ;; C-x z = Redo last change
+;; C-x RET = shell
 ;; C-x C-t = Transpose two lines
+;; C-x C-x = swap point and mark
 ;; C-/ = Undo
+;; C-= = Expand Region
 ;; M-^ = Attach this line to previous
 ;; M-a = Move backwards one sentence
 ;; M-c = Capitalize word
@@ -85,7 +89,10 @@
                      magit
                      rainbow-delimiters
                      maxframe
-                     dired-single)
+                     dired-single
+                     windmove
+                     ace-jump-mode
+                     expand-region)
  "A list of packages to ensure are installed at launch.")
 
 (setq my-packages-refreshed nil)
@@ -99,6 +106,10 @@
     (package-install p)))
 
 ;; APPEARANCE
+
+;; Theme
+
+(load-theme 'manoj-dark)
 
 ;; Maxmize emacs
 
@@ -208,10 +219,6 @@
 ;; Commented out for now, but would be great to find a default for this.
 ;;(global-set-key "\C-r" 'recentf-open-files)
 
-;; Better scrolling
-(setq scroll-step 1)
-(setq scroll-conservatively 1)
-
 ;; Some more useful commands
 
 (global-set-key [f2] 'comment-region)  
@@ -220,10 +227,10 @@
 (global-set-key [f10] 'split-window-vertically)
 (global-set-key [f11] 'other-window)
 
-;; Bookmarks
-;; I'm willing to part with C-b and C-p for these
-(global-set-key "\C-b" 'bookmark-set)
-(global-set-key "\C-p" 'bookmark-bmenu-list)
+;; Expand Region
+
+(require 'expand-region)
+(global-set-key (kbd "C-=") 'er/expand-region)
 
 ;; Hippie Expand
 ;; Willing to part with C-j (new line and indent)
@@ -256,7 +263,24 @@
 (setq auto-mode-alist (cons '("README" . text-mode) auto-mode-alist))
 (setq auto-mode-alist (cons '("\\.txt$" . text-mode) auto-mode-alist))
 
-;; SEARCHING
+;; MOVING AND SEARCHING
+
+;; Windmove
+
+(when (fboundp 'windmove-default-keybindings)
+  (windmove-default-keybindings))
+
+;; Better scrolling
+(setq scroll-step 1)
+(setq scroll-conservatively 1)
+
+;; Bookmarks
+;; I'm willing to part with C-b and C-p for these
+(global-set-key "\C-b" 'bookmark-set)
+(global-set-key "\C-p" 'bookmark-bmenu-list)
+
+(require 'ace-jump-mode)
+(define-key global-map (kbd "C-c SPC") 'ace-jump-mode)
 
 ;; Make searches case insensitive
 (setq case-fold-search t)
@@ -264,7 +288,16 @@
 ;; easy searching
 (global-set-key (kbd "C-x f") 'find-file-in-project)
 
+;; occur
+
+(global-set-key (kbd "C-c o") 'occur)
+
 ;; MODES
+
+;; MAGIT
+
+(autoload 'magit-status "magit" nil t)
+(global-set-key (kbd "C-x m") 'magit-status)
 
 ;; DIRED-SINGLE
 
