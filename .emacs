@@ -96,7 +96,9 @@
                      dired-single
                      windmove
                      ace-jump-mode
-                     expand-region)
+                     expand-region
+                     multi-term
+                     undo-tree)
  "A list of packages to ensure are installed at launch.")
 
 (setq my-packages-refreshed nil)
@@ -163,8 +165,8 @@
 
 ;; highlight and colourize balanced parens always
 (show-paren-mode 1)
-;(require 'rainbow-delimiters)
-;(global-rainbow-delimiters-mode)
+(require 'rainbow-delimiters)
+(global-rainbow-delimiters-mode)
 
 ;; Ensures that same-name buffers have longer, sensible names.
 (require 'uniquify)
@@ -241,8 +243,12 @@
 ;; Willing to part with C-j (new line and indent)
 (global-set-key (kbd "C-j") 'hippie-expand)
 
-;; Now let's make it easy to get to the shell . . . 
-(global-set-key [f5] 'eshell) 
+;; Now let's make it easy to get to a shell . . .
+
+(autoload 'multi-term "multi-term" nil t)
+(autoload 'multi-term-next "multi-term" nil t)
+(setq multi-term-program "/bin/bash")
+(global-set-key [f5] 'multi-term)
 
 ;; M-q is very handy for formatting text, but sometimes you want to remove the formatting . . .
 (defun remove-line-breaks () 
@@ -279,7 +285,7 @@
 ;; Make it easy to switch buffers
 (global-set-key [(control tab)] 'next-buffer)
 (global-set-key [(control shift tab)] 'previous-buffer)
-(key-chord-define-global "bb" 'ido-switch-buffer)
+(global-set-key [(control return)] 'ido-switch-buffer) 
 
 ;; Better scrolling
 (setq scroll-step 1)
@@ -294,10 +300,13 @@
 (define-key global-map (kbd "C-c SPC") 'ace-jump-mode)
 (key-chord-define-global "jj" 'ace-jump-mode)
 
+;; goto
+(global-set-key (kbd "M-g") 'goto-line)
+
 ;; Make searches case insensitive
 (setq case-fold-search t)
 
-;; easy searching
+;; easy searching across project
 (global-set-key (kbd "C-x f") 'find-file-in-project)
 
 ;; occur
