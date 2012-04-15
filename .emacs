@@ -9,10 +9,13 @@
 ;; C-e = Move to the end of the line
 ;; C-t = Transpose two letters
 ;; C-u <n> <command> = repeat the command n times
+;; C-u C-SPC = Cycle through positions in the mark ring
 ;; C-x z = Redo last change
 ;; C-x RET = shell
 ;; C-x C-t = Transpose two lines
 ;; C-x C-x = swap point and mark
+;; C-x C-SPC = pop-global-mark
+;; C-<SPC> C-<SPC> - Set the mark, pushing it onto the mark ring
 ;; C-/ = Undo
 ;; C-= = Expand Region
 ;; M-^ = Attach this line to previous
@@ -21,6 +24,7 @@
 ;; M-e = Move forwards one sentence
 ;; M-h = Highlight paragraph
 ;; M-k = Kill sentence
+;; M-m = Jump to first non-whitespace character in line
 ;; M-t = Transpose two words
 ;; M-u = Uppercase word
 ;; M-x ispell-buffer = turns on spell checking for whole buffer
