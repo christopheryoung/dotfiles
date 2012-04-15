@@ -318,7 +318,18 @@
 (require 'expand-region)
 (global-set-key (kbd "C-=") 'er/expand-region)
 
-;; MODES
+;; undo tree
+
+(require 'undo-tree)
+(global-undo-tree-mode)
+(global-set-key (kbd "C-?") 'undo-tree-visualize)
+
+
+;; OTHER MODES, ETC.
+
+;; ASPELL
+
+(setq-default ispell-program-name "/usr/local/bin/aspell")
 
 ;; MAGIT
 
