@@ -410,6 +410,10 @@ it's loaded."
 
 ;; LANGUAGES
 
+;; generic 
+
+(key-chord-define-global "qq" 'eval-region)
+
 ;;auto-complete
 
 (require 'auto-complete-config)
