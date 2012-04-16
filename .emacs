@@ -137,8 +137,10 @@
 
 ;; Show more info in taskbar/icon than just "Emacs"
 
-(setq-default frame-title-format (list "%f"))
-(setq-default icon-title-format (list "%b"))
+(setq frame-title-format
+  '("" invocation-name ": "(:eval (if (buffer-file-name)
+                (abbreviate-file-name (buffer-file-name))
+                  "%b"))))
 
 ;; Get rid of the startup message
 (setq inhibit-startup-message t)
@@ -295,10 +297,10 @@
 ;; Make it easy to switch buffers
 (global-set-key [(control tab)] 'next-buffer)
 (global-set-key [(control shift tab)] 'previous-buffer)
-(global-set-key [(control return)] 'ido-switch-buffer) 
+(global-set-key (kbd "C-.") 'ido-switch-buffer)
 
 ;; and kill them, cause I do that all day long
-(global-set-key (kbd "C-.") 'ido-kill-buffer)
+(global-set-key [(control return)] 'ido-kill-buffer)
 
 ;; Better scrolling
 (setq scroll-step 1)
