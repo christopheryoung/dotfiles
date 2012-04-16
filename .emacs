@@ -8,6 +8,9 @@
 ;;
 ;; C-a = Move to the beginning of the line
 ;; C-e = Move to the end of the line
+;; C-l = Center buffer around point
+;; C-l C-l = put point at top of buffer
+;; C-l C-l C-l = put point at buttom of buffer
 ;; C-t = Transpose two letters
 ;; C-u <n> <command> = repeat the command n times
 ;; C-u C-SPC = Cycle through positions in the mark ring
@@ -16,9 +19,12 @@
 ;; C-x C-t = Transpose two lines
 ;; C-x C-x = swap point and mark
 ;; C-x C-SPC = pop-global-mark
+;; C-x F1 = Show every command starting with C-x
 ;; C-<SPC> C-<SPC> - Set the mark, pushing it onto the mark ring
 ;; C-/ = Undo
 ;; C-= = Expand Region
+;; C-M-f = forward over balanced expression
+;; C-M-b = backward over balanced expression
 ;; M-^ = Attach this line to previous
 ;; M-a = Move backwards one sentence
 ;; M-c = Capitalize word
