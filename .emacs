@@ -331,6 +331,10 @@
 (require 'expand-region)
 (global-set-key (kbd "C-=") 'er/expand-region)
 
+;; imenu
+
+(global-set-key (kbd "M-i") 'imenu)
+
 ;; undo tree
 
 (require 'undo-tree)
