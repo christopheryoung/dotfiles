@@ -20,7 +20,8 @@
 ;; C-x C-x = swap point and mark
 ;; C-x C-SPC = pop-global-mark
 ;; C-x F1 = Show every command starting with C-x
-;; C-<SPC> C-<SPC> - Set the mark, pushing it onto the mark ring
+;; C-<SPC> C-<SPC> - Push the mark onto the mark ring *without*
+;; setting it
 ;; C-/ = Undo
 ;; C-= = Expand Region
 ;; C-M-f = forward over balanced expression
