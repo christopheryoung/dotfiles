@@ -301,6 +301,9 @@
 (global-set-key [(control shift tab)] 'previous-buffer)
 (global-set-key [(control return)] 'ido-switch-buffer) 
 
+;; and kill them, cause I do that all day long
+(global-set-key (kbd "C-.") 'ido-kill-buffer)
+
 ;; Better scrolling
 (setq scroll-step 1)
 (setq scroll-conservatively 1)
