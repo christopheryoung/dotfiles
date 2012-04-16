@@ -105,7 +105,9 @@
                      ace-jump-mode
                      expand-region
                      multi-term
-                     undo-tree)
+                     undo-tree
+                     auto-complete
+                     ac-slime)
  "A list of packages to ensure are installed at launch.")
 
 (setq my-packages-refreshed nil)
@@ -398,7 +400,12 @@ it's loaded."
 ;; This is your old M-x.
 (global-set-key (kbd "C-c C-c M-x") 'execute-extended-command)
 
-;; LANGUAGE SPECIFIC STUFF
+;; LANGUAGES
+
+;;auto-complete
+
+(require 'auto-complete-config)
+(ac-config-default)
 
 ;;; SCHEME
 
@@ -419,3 +426,7 @@ it's loaded."
 
 (setenv "PATH" (shell-command-to-string "echo $PATH"))
 
+;; ac-slime (autocomplete)
+(require 'ac-slime)
+(add-hook 'slime-mode-hook 'set-up-slime-ac)
+    
