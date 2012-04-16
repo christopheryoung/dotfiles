@@ -154,6 +154,9 @@
 ;; Get rid of the startup message
 (setq inhibit-startup-message t)
 
+;; Show the menu bar
+(menu-bar-mode t)
+
 ;; Cause the region to be highlighted and prevent region-based
 ;; commands from running when the mark isn't active.
 (pending-delete-mode t)
