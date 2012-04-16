@@ -8,6 +8,9 @@
 ;;
 ;; C-a = Move to the beginning of the line
 ;; C-e = Move to the end of the line
+;; C-h c = Command bound to key combination
+;; C-h f = Describe function
+;; C-h k = Describe key combination
 ;; C-l = Center buffer around point
 ;; C-l C-l = put point at top of buffer
 ;; C-l C-l C-l = put point at buttom of buffer
@@ -15,17 +18,23 @@
 ;; C-u <n> <command> = repeat the command n times
 ;; C-u C-SPC = Cycle through positions in the mark ring
 ;; C-x z = Redo last change
-;; C-x RET = shell
+;; C-x C-b = Show buffer list
 ;; C-x C-t = Transpose two lines
+;; C-x ^ = Enlarge the window
+;; C-x ( = Start macro definition
+;; C-x ) = End macro definition
 ;; C-x C-x = swap point and mark
+;; C-x RET = shell
 ;; C-x C-SPC = pop-global-mark
 ;; C-x F1 = Show every command starting with C-x
 ;; C-<SPC> C-<SPC> - Push the mark onto the mark ring *without*
 ;; setting it
 ;; C-/ = Undo
 ;; C-= = Expand Region
-;; C-M-f = forward over balanced expression
 ;; C-M-b = backward over balanced expression
+;; C-M-f = forward over balanced expression 
+;; C-M-s = regular expression search forward
+;; C-M-v = scroll other window
 ;; M-^ = Attach this line to previous
 ;; M-a = Move backwards one sentence
 ;; M-c = Capitalize word
