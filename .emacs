@@ -172,6 +172,9 @@
 ;; Let's see column numbers.
 (column-number-mode t)
 
+;; Show whitespace except in terminal
+(whitespace-mode t)
+
 ;; Fonts are automatically highlighted.  For more information
 ;; type M-x describe-mode font-lock-mode 
 (global-font-lock-mode t)
