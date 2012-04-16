@@ -335,8 +335,8 @@
 
 (require 'undo-tree)
 (global-undo-tree-mode)
-(global-set-key (kbd "C-?") 'undo-tree-visualize)
-
+;; C-x C-u originally: uppercase region
+(global-set-key (kbd "C-x C-u") 'undo-tree-visualize)
 
 ;; OTHER MODES, ETC.
 
