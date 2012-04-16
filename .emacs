@@ -124,10 +124,6 @@
 ;; A place to put any packages not on elpa or marmalade
 (add-to-list 'load-path "~/.emacs.d/vendor/")
 
-;; And then byte compile it all
-
-(byte-recompile-directory (expand-file-name "~/.emacs.d") 0)
-
 ;; APPEARANCE
 
 ;; Theme
