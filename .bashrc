@@ -115,11 +115,14 @@ if [ -x /usr/bin/dircolors ]; then
     alias ls='ls --color=auto'
     alias dir='dir --color=auto'
     #alias vdir='vdir --color=auto'
-
     alias grep='grep --color=auto'
     #alias fgrep='fgrep --color=auto'
     #alias egrep='egrep --color=auto'
 fi
+
+#I rarely use emacs in a terminal, but for those cases where I do, I
+#want to just skip all my customizations
+alias emacs='emacs -q'
 
 # some more ls aliases
 alias ll='ls -la --color=auto | less'
