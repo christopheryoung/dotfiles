@@ -217,10 +217,6 @@
 ;; Don't make backup files.
 (setq make-backup-files nil)
 
-;; Browse the kill ring easily
-(global-set-key "\C-cy" '(lambda ()
-    (interactive) (popup-menu 'yank-menu)))
-
 ;; Save the desktop
 (setq desktop-load-locked-desktop t)
 (desktop-save-mode 1)
@@ -288,6 +284,10 @@
 (setq auto-mode-alist (cons '("\\.txt$" . text-mode) auto-mode-alist))
 
 ;; MOVING AND SEARCHING AND MANIPULATING THE REGION
+
+;; Browse the kill ring easily
+(global-set-key "\C-cy" '(lambda ()
+    (interactive) (popup-menu 'yank-menu)))
 
 ;; Windmove helps you move between open buffers when the screen is
 ;; split
