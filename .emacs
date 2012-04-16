@@ -32,7 +32,7 @@
 ;; C-/ = Undo
 ;; C-= = Expand Region
 ;; C-M-b = backward over balanced expression
-;; C-M-f = forward over balanced expression 
+;; C-M-f = forward over balanced expression
 ;; C-M-s = regular expression search forward
 ;; C-M-v = scroll other window
 ;; M-^ = Attach this line to previous
@@ -54,11 +54,11 @@
 ;; M-} = Move forward one paragraph.
 ;; M-{ = Move backward one paragraph.
 
-;; . . . Dired . . . 
+;; . . . Dired . . .
 ;;
 ;; M-x tumme = Create thumbnails of a directory
 ;;
-;; . . . In the Auctex and RefTeX modes . . . 
+;; . . . In the Auctex and RefTeX modes . . .
 ;;
 ;; C-c = Run LaTeX
 ;; C-c = = RefTeX table of contents
@@ -77,7 +77,7 @@
 ;; C-[down] = forward-paragraph
 ;; C-[up] = backward-paragraph
 ;;
-;; . . . In HTML mode . . . 
+;; . . . In HTML mode . . .
 ;;
 ;; C-c C-c h = inserts a link
 ;; C-c C-c i = html-image
@@ -88,9 +88,9 @@
 ;; C-c C-p = move to previous heading.
 ;; C-c C-f = Move to next heading same level.
 ;; C-c C-b = Move to previous heading same level.
-;; C-c C-u = Move backward to higher level heading. 
+;; C-c C-u = Move backward to higher level heading.
 
-;; CHECK FOR PACKAGES 
+;; CHECK FOR PACKAGES
 
 (require 'package)
  (add-to-list 'package-archives
@@ -172,11 +172,11 @@
 ;; Let's see column numbers.
 (column-number-mode t)
 
-;; Show whitespace except in terminal
+;; Show whitespace
 (whitespace-mode t)
 
 ;; Fonts are automatically highlighted.  For more information
-;; type M-x describe-mode font-lock-mode 
+;; type M-x describe-mode font-lock-mode
 (global-font-lock-mode t)
 (set-face-bold-p 'font-lock-keyword-face t)
 (set-face-italic-p 'font-lock-comment-face t)
@@ -239,8 +239,8 @@
 ;; everything up.
 
 (setq desktop-buffers-not-to-save
-      (concat "\\(" "^nn\\.a[0-9]+\\|\\.log\\|(ftp)\\|^tags\\|^TAGS"	       
-              "\\|\\.emacs.*\\|\\.diary\\|\\.newsrc-dribble\\|\\.bbdb" 
+      (concat "\\(" "^nn\\.a[0-9]+\\|\\.log\\|(ftp)\\|^tags\\|^TAGS"
+              "\\|\\.emacs.*\\|\\.diary\\|\\.newsrc-dribble\\|\\.bbdb"
               "\\)$"))
    (add-to-list 'desktop-modes-not-to-save 'dired-mode)
    (add-to-list 'desktop-modes-not-to-save 'Info-mode)
@@ -253,7 +253,7 @@
 
 ;; Some more useful commands
 
-(global-set-key [f2] 'comment-region)  
+(global-set-key [f2] 'comment-region)
 (global-set-key [(shift f2)] 'universal-argument) ;uncomment is Shift-F2 F2
 (global-set-key [f9] 'split-window-horizontally)
 (global-set-key [f10] 'split-window-vertically)
@@ -274,13 +274,13 @@
 (global-set-key [f5] 'multi-term)
 
 ;; M-q is very handy for formatting text, but sometimes you want to remove the formatting . . .
-(defun remove-line-breaks () 
+(defun remove-line-breaks ()
   "Remove line endings in a paragraph."
-  (interactive) 
-  (let ((fill-column (point-max))) 
+  (interactive)
+  (let ((fill-column (point-max)))
     (fill-paragraph nil)))
 
-;;TODO: Find binding for this. 
+;;TODO: Find binding for this.
 ;;(global-set-key "\M-z" 'remove-line-breaks)
 
 
@@ -376,7 +376,7 @@
 ;; directories! Stop it now!
 ;;(require 'dired-single)
 
-;;and then . . . 
+;;and then . . .
 
 (defun my-dired-init ()
   "Bunch of stuff to run for dired, either immediately or when
@@ -427,7 +427,7 @@ it's loaded."
 
 ;; LANGUAGES
 
-;; generic 
+;; generic
 
 (key-chord-define-global "qq" 'eval-region)
 
@@ -458,4 +458,3 @@ it's loaded."
 ;; ac-slime (autocomplete)
 (require 'ac-slime)
 (add-hook 'slime-mode-hook 'set-up-slime-ac)
-    
