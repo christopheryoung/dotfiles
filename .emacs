@@ -433,7 +433,7 @@ it's loaded."
 (require 'magit)
 
 ;; VIPER
-;; Don't laugh. This emacs may be a better editor, but modal editing
+;; Don't laugh. Emacs may be a better editor, but modal editing
 ;; is superior editing.
 
 ;;(setq viper-mode t)
