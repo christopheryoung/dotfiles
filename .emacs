@@ -108,6 +108,14 @@
 ;; M-. = jump to definition
 ;;
 
+;; . . . In Magit
+;; When operating on hunks:
+;;   k - revert this hunk
+;;   n - next hunk
+;;   p - previous hunk
+;;   s - stage the hunk
+;;   u - unstage the hunk
+;;
 
 ;; CHECK FOR PACKAGES
 
