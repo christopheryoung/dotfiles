@@ -344,11 +344,6 @@
 (setq scroll-step 1)
 (setq scroll-conservatively 1)
 
-;; Bookmarks
-;; I'm willing to part with C-b and C-p for these
-(global-set-key "\C-b" 'bookmark-set)
-(global-set-key "\C-p" 'bookmark-bmenu-list)
-
 (require 'ace-jump-mode)
 (define-key global-map (kbd "C-c SPC") 'ace-jump-mode)
 (key-chord-define-global "jj" 'ace-jump-mode)
