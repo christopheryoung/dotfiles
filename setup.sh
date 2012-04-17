@@ -15,7 +15,7 @@ backup_dir=~/archive/dotfiles_old             # old dotfiles backup directory
 vendor_repo=~/code/dotfiles/vendor
 vendor_emacs=~/.emacs.d/vendor
 # list of files/folders to symlink in homedir
-files="bashrc bash_profile emacs hgrc screenrc viper vimrc git-completion.sh gitconfig"
+files="bashrc bash_profile emacs hgrc screenrc viper vimrc git-completion.sh gitconfig gitignore"
 
 ##########
 
