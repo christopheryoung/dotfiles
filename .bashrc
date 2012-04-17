@@ -57,10 +57,14 @@ if [ -n "$force_color_prompt" ]; then
     fi
 fi
 
+GIT_PS1_SHOWDIRTYSTATE=1
+GIT_PS1_SHOWSTASHSTATE=1
+GIT_PS1_SHOWUNTRACKEDFILES=1
+
 if [ "$color_prompt" = yes ]; then
-    PS1='\033[01;32m\]$(__git_ps1 "(%s):")\033[00m\]\[\033[01;34m\]\w\[\033[00m\]\$ '
+    PS1='\033[01;34m\]\w\033[00m\]\033[01;32m\]$(__git_ps1 " (%s)")\033[00m\]\$ '
 else
-    PS1='(__git_ps1 "(%s)"):\w\$ '
+    PS1='\w(__git_ps1 " (%s)")\$ '
 fi
 
 unset color_prompt force_color_prompt
