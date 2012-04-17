@@ -46,6 +46,7 @@ if [ -d $vendor_emacs ]; then
     mv -f $vendor_emacs $backup_dir
 fi
 
-echo "Copying emacs vendor dir to repo vendor dir"
-cp -r $vendor_repo ~/.emacs.d
+mkdir -p $vendor_emacs
 
+echo "Copying emacs vendor dir to repo vendor dir"
+cp -r $vendor_repo/* $vendor_emacs
