@@ -154,10 +154,6 @@
 
 ;; APPEARANCE
 
-;; Theme
-
-(load-theme 'manoj-dark)
-
 ;; Maxmize emacs
 
 (require 'maxframe)
