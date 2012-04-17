@@ -7,6 +7,7 @@
 ;; . . . General . . .
 ;;
 ;; C-a = Move to the beginning of the line
+;; C-b = Move back one character
 ;; C-e = Move to the end of the line
 ;; C-h c = Command bound to key combination
 ;; C-h f = Describe function
@@ -14,9 +15,14 @@
 ;; C-l = Center buffer around point
 ;; C-l C-l = put point at top of buffer
 ;; C-l C-l C-l = put point at buttom of buffer
+;; C-p = Move back a line
 ;; C-t = Transpose two letters
 ;; C-u <n> <command> = repeat the command n times
 ;; C-u C-SPC = Cycle through positions in the mark ring
+;; C-u M-! = inserts results of a shell command directly into the buffer
+;; C-w = kill region (but in isearch will insert word after point into
+;;the search)
+;; C-x d = Change directory
 ;; C-x z = Redo last change
 ;; C-x C-b = Show buffer list
 ;; C-x C-t = Transpose two lines
@@ -49,6 +55,7 @@
 ;; M-y = Yank pop (if you don't know how to use this, you must learn
 ;; immediately)
 ;; M-z = Zap to char
+;; M-. = edit definition (jumps to definition when supported in mode)
 ;; M-$ = spell-check word
 ;; M-% = Query/replace (space accepts change; n goes on to next)
 ;; M-} = Move forward one paragraph.
@@ -89,6 +96,18 @@
 ;; C-c C-f = Move to next heading same level.
 ;; C-c C-b = Move to previous heading same level.
 ;; C-c C-u = Move backward to higher level heading.
+
+;; . . . In Slime mode
+;; C-c C-l = load current buffer and force required namespaces to
+;; reload
+;; C-c I = Inspect a value
+;; C-c M-p = Switch repl namespace to match current buffer
+;; C-c C-w c = List all callers of a function
+;; C-c C-d C-d = show documentation in other buffer
+;; C-M-x = compile whole top level form under point
+;; M-. = jump to definition
+;;
+
 
 ;; CHECK FOR PACKAGES
 
