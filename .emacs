@@ -281,10 +281,6 @@
 (require 'key-chord)
 (key-chord-mode 1)
 
-;; Hippie Expand
-;; Willing to part with C-j (new line and indent)
-(global-set-key (kbd "C-j") 'hippie-expand)
-
 ;; Now let's make it easy to get to a shell . . .
 
 (autoload 'multi-term "multi-term" nil t)
@@ -335,6 +331,14 @@
 
 ;; and kill them, cause I do that all day long
 (global-set-key [(control return)] 'ido-kill-buffer)
+
+;; and close other windows . . .
+;; willing to part with C-j (new line and indent)
+(global-set-key (kbd "C-j") 'delete-other-windows)
+;; And make it work in paredit mode
+(eval-after-load 'paredit
+  '(progn
+     (define-key paredit-mode-map (kbd "C-j") 'delete-other-windows)))
 
 ;; Better scrolling
 (setq scroll-step 1)
