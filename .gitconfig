@@ -23,3 +23,6 @@
         logb = log --graph --decorate # branch log
         logd = log -p                 # diff log
         logf = log --stat             # file log
+        unstage = reset HEAD --
+        last = log -1 HEAD
+        lastp = log -1 -p HEAD
