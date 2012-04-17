@@ -49,3 +49,19 @@ cp -r $vendor_repo/* $vendor_emacs
 
 echo "Stitching together .gitconfig file with local private info"
 cat ~/.git_private >> ~/.gitconfig
+
+############################
+#Install software
+###########################
+
+#leinigen
+if type -p lein; then
+    echo "leinigen already installed . . . skipping"
+else
+    echo "installing leinigen"
+    curl -O https://raw.github.com/technomancy/leiningen/stable/bin/lein
+    mkdir ~/bin
+    mv lein ~/bin
+    chmod 755 ~/bin/lein
+    lein
+fi
