@@ -1,0 +1,25 @@
+[user]
+	name = Christopher Young
+	email = chris@chrisyoung.net
+
+[apply]
+	# Detect whitespace errors when applying a patch
+	whitespace = fix
+
+[color]
+	diff = auto
+	status = auto
+	branch = auto
+	# Use colors in Git commands that are capable of colored output when outputting to the terminal
+	ii = auto
+
+[alias]
+        st = status
+        ci = commit
+        br = branch
+        co = checkout
+        df = diff
+        stg = diff --staged
+        logb = log --graph --decorate # branch log
+        logd = log -p                 # diff log
+        logf = log --stat             # file log
