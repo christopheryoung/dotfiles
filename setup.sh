@@ -1,12 +1,10 @@
 
-#!/bin/bash
-############################
-# .make.sh
-# This script creates symlinks from the home directory to any desired
-#dotfiles in ~/dotfiles
+# #!/bin/bash
+# ############################
+# #Sets up my environment, including dot files
+# ############################
 
-# Adapted from here: https://github.com/michaeljsmalley/dotfiles/blob/master/makesymlinks.sh
-############################
+# ########## Variables
 
 ########## Variables
 
