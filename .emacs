@@ -107,15 +107,17 @@
 ;; C-M-x = compile whole top level form under point
 ;; M-. = jump to definition
 ;;
-
 ;; . . . In Magit
+;; In magit-status:
+;;   f f - fetch
+;;   P - push
 ;; When operating on hunks:
 ;;   k - revert this hunk
 ;;   n - next hunk
 ;;   p - previous hunk
 ;;   s - stage the hunk
 ;;   u - unstage the hunk
-;;
+;; 
 
 ;; CHECK FOR PACKAGES
 
