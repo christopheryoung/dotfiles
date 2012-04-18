@@ -106,6 +106,8 @@
 ;; C-c C-w c = List all callers of a function
 ;; C-c C-d C-d = show documentation in other buffer
 ;; C-M-x = compile whole top level form under point
+;; C-c C-, = run all tests in buffer (clojure-test-mode)
+;; C-c k = clear failing test overlays (clojure-test-mode)
 ;; M-. = jump to definition
 ;;
 ;; . . . In Magit
