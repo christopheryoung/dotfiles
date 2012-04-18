@@ -97,11 +97,12 @@
 ;; C-c C-b = Move to previous heading same level.
 ;; C-c C-u = Move backward to higher level heading.
 
-;; . . . In Slime mode
+;; . . . When using Slime/Swank/Clojure
 ;; C-c C-l = load current buffer and force required namespaces to
 ;; reload
 ;; C-c I = Inspect a value
-;; C-c M-p = Switch repl namespace to match current buffer
+;; C-c M-p = Switch repl namespace to match current buffer (make sure
+;; to C-c C-l the buffer first)
 ;; C-c C-w c = List all callers of a function
 ;; C-c C-d C-d = show documentation in other buffer
 ;; C-M-x = compile whole top level form under point
@@ -109,6 +110,7 @@
 ;;
 ;; . . . In Magit
 ;; In magit-status:
+;;   b - branch menu
 ;;   f f - fetch
 ;;   P - push
 ;; When operating on hunks:
