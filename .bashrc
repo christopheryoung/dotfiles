@@ -72,6 +72,7 @@ alias ls='ls -a'
 alias cp='cp -i'
 alias mkdir='mkdir -p'
 alias ..='cd ..'
+alias c='cd ~/code'
 
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
