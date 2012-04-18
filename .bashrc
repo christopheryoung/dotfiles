@@ -58,15 +58,32 @@ xterm*|rxvt*)
     ;;
 esac
 
+##Colors for a mac
+
+export CLICOLOR=1
+export LSCOLORS=ExFxCxDxBxegedabagacad
+
 # Alias definitions.
-# You may want to put all your additions into a separate file like
-# ~/.bash_aliases, instead of adding them here directly.
-# See /usr/share/doc/bash-doc/examples in the bash-doc package.
 
-#if [ -f ~/.bash_aliases ]; then
-#    . ~/.bash_aliases
-#fi
+alias mit-scheme='/Applications/mit-scheme.app/Contents/Resources/mit-scheme'
 
+alias lm='ls -al |more'    # pipe through 'more'
+alias ls='ls -a'
+alias cp='cp -i'
+alias mkdir='mkdir -p'
+alias ..='cd ..'
+
+# enable color support of ls and also add handy aliases
+if [ -x /usr/bin/dircolors ]; then
+    eval "`dircolors -b`"
+    alias ls='ls --color=auto'
+    alias dir='dir --color=auto'
+    alias grep='grep --color=auto'
+fi
+
+#I rarely use emacs in a terminal, but for those cases where I do, I
+#want to just skip all my customizations
+alias emacs='emacs -q'
 
 # Home bin path
 
@@ -78,10 +95,6 @@ export WORKON_HOME=~/code/virtualenvs
 export PROJECT_HOME=~/code/
 source /usr/local/bin/virtualenvwrapper.sh
 
-#Scheme
-
-alias mit-scheme='/Applications/mit-scheme.app/Contents/Resources/mit-scheme'
-
 # navigate to source for any Python module
 # http://chris-lamb.co.uk/2010/04/22/locating-source-any-python-module/
 cdp () {
@@ -89,38 +102,6 @@ cdp () {
     print _.dirname(_.realpath(${1}.__file__[:-1]))"
   )"
 }
-
-# enable color support of ls and also add handy aliases
-if [ -x /usr/bin/dircolors ]; then
-    eval "`dircolors -b`"
-    alias ls='ls --color=auto'
-    alias dir='dir --color=auto'
-    #alias vdir='vdir --color=auto'
-    alias grep='grep --color=auto'
-    #alias fgrep='fgrep --color=auto'
-    #alias egrep='egrep --color=auto'
-fi
-
-#I rarely use emacs in a terminal, but for those cases where I do, I
-#want to just skip all my customizations
-alias emacs='emacs -q'
-
-# some more ls aliases
-alias ll='ls -la --color=auto | less'
-alias lm='ls -al |more'    # pipe through 'more'
-#alias la='ls -A'
-#alias l='ls -CF'
-
-# prevent accidentally clobbering files
-
-#alias rm='rm -i'
-alias cp='cp -i'
-#alias mv='mv -i'
-alias mkdir='mkdir -p'
-
-# make navigation easier
-
-alias ..='cd ..'
 
 # Find a file with a pattern in name:
 function ff() { find . -type f -iname '*'$*'*' -ls ; }
@@ -130,8 +111,6 @@ function fp() { find . -name '*.py' | xargs grep -n $1;  }
 
 # grep expression in all html files in dir and subdirs
 function fh() { find . -name '*.html' | xargs grep -n $1;  }
-
-# colors
 
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
