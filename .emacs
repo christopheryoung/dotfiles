@@ -250,6 +250,13 @@
 (require 'saveplace)
 (setq-default save-place t)
 
+;; When we save a buffer to a file, if the path contains dirs that
+;; don't exist yet, just create them for me
+(add-hook 'before-save-hook
+          '(lambda ()
+             (or (file-exists-p (file-name-directory buffer-file-name))
+                 (make-directory (file-name-directory buffer-file-name) t))))
+
 ;; Changes default mode to Text (instead of Fundamental)
 (setq default-major-mode 'text-mode)
 
