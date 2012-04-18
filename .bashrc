@@ -113,6 +113,9 @@ function fp() { find . -name '*.py' | xargs grep -n $1;  }
 # grep expression in all html files in dir and subdirs
 function fh() { find . -name '*.html' | xargs grep -n $1;  }
 
+#get help quick!
+rtfm() { help $@ || man $@ || open "http://www.google.com/search?q=$@"; }
+
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
 # sources /etc/bash.bashrc).
