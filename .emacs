@@ -135,6 +135,7 @@
                      ispell
                      haskell-mode
                      clojure-mode
+                     clojure-test-mode
                      paredit
                      smex
                      find-file-in-project
@@ -476,6 +477,10 @@ it's loaded."
 (require 'xscheme)
 
 ;; CLOJURE
+
+(eval-after-load "clojure-mode"
+  '(progn
+     (require 'clojure-test-mode)))
 
 (add-hook 'slime-repl-mode-hook
           (defun clojure-mode-slime-font-lock ()
