@@ -488,7 +488,6 @@ it's loaded."
 
 ;; CLOJURE
 
-
 (add-hook 'clojure-mode-hook
           (lambda ()
             (require 'clojure-test-mode)
@@ -498,6 +497,11 @@ it's loaded."
           (defun clojure-mode-slime-font-lock ()
             (let (font-lock-mode)
               (clojure-mode-font-lock-setup))))
+
+(add-hook 'slime-repl-mode-hook
+          (lambda ()
+            (local-set-key [(up)] 'slime-repl-backward-input)
+            (local-set-key [(down)] 'slime-repl-forward-input)))
 
 ;; Mac's are odd; had to do this to get clojure-jack-in working
 (if (eq system-type 'darwin)
