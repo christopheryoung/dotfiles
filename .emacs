@@ -400,6 +400,11 @@
 
 ;; OTHER MODES, ETC.
 
+;; FLYSPELL
+
+;; Checks spelling in comments and doc strings
+(flyspell-prog-mode)
+
 ;; ASPELL
 
 (setq-default ispell-program-name "/usr/local/bin/aspell")
