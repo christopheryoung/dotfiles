@@ -1,0 +1,25 @@
+
+# Create a new directory and enter it
+function md() {
+	mkdir -p "$@" && Cd "$@"
+}
+
+# navigate to source for any Python module
+# http://chris-lamb.co.uk/2010/04/22/locating-source-any-python-module/
+cdp () {
+  cd "$(python -c "import os.path as _, ${1}; \
+    print _.dirname(_.realpath(${1}.__file__[:-1]))"
+  )"
+}
+
+# Find a file with a pattern in name:
+function ff() { find . -type f -iname '*'$*'*' -ls ; }
+
+# grep expression in all python files in dir and subdirs
+function fp() { find . -name '*.py' | xargs grep -n $1;  }
+
+# grep expression in all html files in dir and subdirs
+function fh() { find . -name '*.html' | xargs grep -n $1;  }
+
+#get help quick!
+rtfm() { help $@ || man $@ || open "http://www.google.com/search?q=$@"; }

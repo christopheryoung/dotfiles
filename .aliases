@@ -1,0 +1,39 @@
+
+# Aliases, some borrowed from here: https://github.com/mathiasbynens/dotfiles/blob/master/.aliases
+# Programs
+
+alias mit-scheme='/Applications/mit-scheme.app/Contents/Resources/mit-scheme'
+
+# Navigation
+alias cp="cp -i"
+alias ..="cd .."
+alias ...="cd ../.."
+alias c="cd ~/code"
+alias d="cd ~/Dropbox"
+alias g="git="
+
+# Listings
+# List all files colorized in long format, including dot files
+alias l="ls -Gla"
+alias lm='ls -al | more'    # pipe through 'more'
+alias ls='ls -a'
+
+alias mkdir='mkdir -p'
+
+# enable color support of ls and also add handy aliases
+if [ -x /usr/bin/dircolors ]; then
+    eval "`dircolors -b`"
+    alias ls='ls --color=auto'
+    alias dir='dir --color=auto'
+    alias grep='grep --color=auto'
+fi
+
+# Enhanced WHOIS lookups
+alias whois="whois -h whois-servers.net"
+
+# Flush Directory Service cache
+alias flush="dscacheutil -flushcache"
+
+# View HTTP traffic
+alias sniff="sudo ngrep -d 'en1' -t '^(GET|POST) ' 'tcp and port 80'"
+alias httpdump="sudo tcpdump -i en1 -n -s 0 -w - | grep -a -o -E \"Host\: .*|GET \/.*\""

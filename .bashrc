@@ -64,23 +64,7 @@ export CLICOLOR=1
 export LSCOLORS=ExFxCxDxBxegedabagacad
 
 # Alias definitions.
-
-alias mit-scheme='/Applications/mit-scheme.app/Contents/Resources/mit-scheme'
-
-alias lm='ls -al |more'    # pipe through 'more'
-alias ls='ls -a'
-alias cp='cp -i'
-alias mkdir='mkdir -p'
-alias ..='cd ..'
-alias c='cd ~/code'
-
-# enable color support of ls and also add handy aliases
-if [ -x /usr/bin/dircolors ]; then
-    eval "`dircolors -b`"
-    alias ls='ls --color=auto'
-    alias dir='dir --color=auto'
-    alias grep='grep --color=auto'
-fi
+source ~/.aliases
 
 #I rarely use emacs in a terminal, but for those cases where I do, I
 #want to just skip all my customizations
@@ -96,25 +80,12 @@ export WORKON_HOME=~/code/virtualenvs
 export PROJECT_HOME=~/code/
 source /usr/local/bin/virtualenvwrapper.sh
 
-# navigate to source for any Python module
-# http://chris-lamb.co.uk/2010/04/22/locating-source-any-python-module/
-cdp () {
-  cd "$(python -c "import os.path as _, ${1}; \
-    print _.dirname(_.realpath(${1}.__file__[:-1]))"
-  )"
-}
+# Functions
+source ~/.functions
 
-# Find a file with a pattern in name:
-function ff() { find . -type f -iname '*'$*'*' -ls ; }
-
-# grep expression in all python files in dir and subdirs
-function fp() { find . -name '*.py' | xargs grep -n $1;  }
-
-# grep expression in all html files in dir and subdirs
-function fh() { find . -name '*.html' | xargs grep -n $1;  }
-
-#get help quick!
-rtfm() { help $@ || man $@ || open "http://www.google.com/search?q=$@"; }
+# Many thanks: https://raw.github.com/mathiasbynens/dotfiles/master/.bash_profile
+# Add tab completion for SSH hostnames based on ~/.ssh/config, ignoring wildcards
+[ -e "$HOME/.ssh/config" ] && complete -o "default" -o "nospace" -W "$(grep "^Host" ~/.ssh/config | grep -v "[?*]" | cut -d " " -f2)" scp sftp ssh
 
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile

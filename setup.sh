@@ -11,7 +11,7 @@ backup_dir=~/archive/dotfiles_old             # old dotfiles backup directory
 vendor_repo=~/code/dotfiles/vendor
 vendor_emacs=~/.emacs.d/vendor
 # list of files/folders to copy to homedir
-files="bashrc bash_profile emacs hgrc screenrc viper vimrc git-completion.sh gitconfig gitignore"
+files="bashrc bash_profile emacs hgrc screenrc viper vimrc git-completion.sh gitconfig gitignore osx"
 
 ##########
 
@@ -49,27 +49,3 @@ cp -r $vendor_repo/* $vendor_emacs
 
 echo "Stitching together .gitconfig file with local private info"
 cat ~/.git_private >> ~/.gitconfig
-
-############################
-#Install software
-###########################
-
-#leinigen
-if type -p lein; then
-    echo "leinigen already installed . . . skipping install"
-else
-    echo "installing leinigen"
-    curl -O https://raw.github.com/technomancy/leiningen/stable/bin/lein
-    mkdir ~/bin
-    mv lein ~/bin
-    chmod 755 ~/bin/lein
-    lein
-fi
-
-#aspell
-if type -p aspell; then
-    echo "aspell already installed . . . skipping install"
-else
-    echo "installing aspell"
-    brew install aspell --lang=en
-fi
