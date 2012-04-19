@@ -329,6 +329,10 @@
 (setq auto-mode-alist (cons '("README" . text-mode) auto-mode-alist))
 (setq auto-mode-alist (cons '("\\.txt$" . text-mode) auto-mode-alist))
 
+;; Completions
+(add-to-list 'completion-ignored-extensions ".hi")
+(add-to-list 'completion-ignored-extensions ".pyc")
+
 ;; MOVING AND SEARCHING AND MANIPULATING THE REGION
 
 ;; Browse the kill ring easily
