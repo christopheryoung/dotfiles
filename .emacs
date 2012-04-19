@@ -16,6 +16,9 @@
 ;; C-l C-l = put point at top of buffer
 ;; C-l C-l C-l = put point at buttom of buffer
 ;; C-p = Move back a line
+;; C-s = interactive search
+;; C-s C-s = interactive search using the previous search
+;; C-s C-w = search the string under the point
 ;; C-t = Transpose two letters
 ;; C-u <n> <command> = repeat the command n times
 ;; C-u C-SPC = Cycle through positions in the mark ring
@@ -60,6 +63,9 @@
 ;; M-% = Query/replace (space accepts change; n goes on to next)
 ;; M-} = Move forward one paragraph.
 ;; M-{ = Move backward one paragraph.
+;; apropos-documentation -- search doc strings of functions and
+;;                           variables
+;; apropos -- searches all function and variables
 
 ;; . . . Dired . . .
 ;;
