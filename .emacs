@@ -494,12 +494,10 @@ it's loaded."
             (local-set-key (kbd "C-c C-j") 'clojure-jack-in)))
 
 (add-hook 'slime-repl-mode-hook
-          (defun clojure-mode-slime-font-lock ()
-            (let (font-lock-mode)
-              (clojure-mode-font-lock-setup))))
-
-(add-hook 'slime-repl-mode-hook
           (lambda ()
+            (defun clojure-mode-slime-font-lock ()
+              (let (font-lock-mode)
+                (clojure-mode-font-lock-setup)))
             (local-set-key [(up)] 'slime-repl-backward-input)
             (local-set-key [(down)] 'slime-repl-forward-input)))
 
