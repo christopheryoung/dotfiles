@@ -473,7 +473,7 @@ it's loaded."
 
 ;; generic
 
-(key-chord-define-global "qq" 'eval-region)
+(key-chord-define-global "qq" 'slime-eval-defun)
 
 ;;auto-complete
 
