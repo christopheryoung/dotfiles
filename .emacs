@@ -208,8 +208,8 @@
 ;; Let's see column numbers.
 (column-number-mode t)
 
-;; Show whitespace
-(whitespace-mode t)
+;; Show trailing whitespace
+(setq show-trailing-whitespace t)
 
 ;; Fonts are automatically highlighted.  For more information
 ;; type M-x describe-mode font-lock-mode
