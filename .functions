@@ -1,7 +1,7 @@
 
 # Create a new directory and enter it
-function md() {
-	mkdir -p "$@" && Cd "$@"
+function mkd() {
+	mkdir -p "$@" && cd "$@"
 }
 
 # navigate to source for any Python module
