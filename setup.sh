@@ -56,7 +56,7 @@ cat ~/.git_private >> ~/.gitconfig
 
 #leinigen
 if type -p lein; then
-    echo "leinigen already installed . . . skipping"
+    echo "leinigen already installed . . . skipping install"
 else
     echo "installing leinigen"
     curl -O https://raw.github.com/technomancy/leiningen/stable/bin/lein
@@ -64,4 +64,12 @@ else
     mv lein ~/bin
     chmod 755 ~/bin/lein
     lein
+fi
+
+#aspell
+if type -p aspell; then
+    echo "aspell already installed . . . skipping install"
+else
+    echo "installing aspell"
+    brew install aspell --lang=en
 fi
