@@ -256,6 +256,9 @@
 ;; And let me just hit return for "yes" when I'm feeling really lazy.
 (define-key query-replace-map [return] 'act)
 
+;; No need to see byte compile warnings
+(setq byte-compile-warnings nil)
+
 ;; SavePlace- this puts the cursor in the last place you edited
 ;; a particular file. This is very useful for large files.
 (require 'saveplace)
