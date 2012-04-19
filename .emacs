@@ -480,9 +480,11 @@ it's loaded."
 
 ;; CLOJURE
 
-(eval-after-load "clojure-mode"
-  '(progn
-     (require 'clojure-test-mode)))
+
+(add-hook 'clojure-mode-hook
+          (lambda ()
+            (require 'clojure-test-mode)
+            (local-set-key (kbd "C-c C-j") 'clojure-jack-in)))
 
 (add-hook 'slime-repl-mode-hook
           (defun clojure-mode-slime-font-lock ()
