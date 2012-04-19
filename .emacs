@@ -325,16 +325,6 @@
 ;;TODO: Find binding for this.
 ;;(global-set-key "\M-z" 'remove-line-breaks)
 
-
-;; Nice to be able to edit .emacs quickly.
-
-(defun open-dot-emacs ()
-  "opening-dot-emacs"
-  (interactive)                ; this makes the function a command too
-  (find-file "/home/chris/.emacs"))
-
-(global-set-key [(shift f1)] 'open-dot-emacs)
-
 ;; This is how emacs tells the file type by the file suffix.
 (setq auto-mode-alist (cons '("README" . text-mode) auto-mode-alist))
 (setq auto-mode-alist (cons '("\\.txt$" . text-mode) auto-mode-alist))
