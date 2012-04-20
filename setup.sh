@@ -1,4 +1,3 @@
-
 #!/bin/bash
 ############################
 #Sets up my environment, including dot files
@@ -6,46 +5,49 @@
 
 ########## Variables
 
-repo_dir=~/code/dotfiles                    # dotfiles directory
-backup_dir=~/archive/dotfiles_old             # old dotfiles backup directory
-vendor_repo=~/code/dotfiles/vendor
-vendor_emacs=~/.emacs.d/vendor
+SETUP_SCRIPT_DIR_PATH=`dirname "$0"`
+SETUP_SCRIPT_DIR_PATH=`( cd "$MY_PATH" && pwd )`
+
+BACKUP_DIR=~/archive/dotfiles_old
+VENDOR_REPO=$SETUP_SCRIPT_DIR_PATH/vendor
+VENDOR_EMACS=~/.emacs.d/vendor
+
 # list of files/folders to copy to homedir
 files="bashrc bash_profile emacs hgrc screenrc viper vimrc git-completion.sh gitconfig gitignore osx functions aliases"
 
 ##########
 
 # create dotfiles_old in homedir
-echo "Creating $backup_dir for backup of any existing dotfiles in ~"
-if [ ! -d $backup_dir ]; then
-    mkdir -p $backup_dir
+echo "Creating $BACKUP_DIR for backup of any existing dotfiles in ~"
+if [ ! -d $BACKUP_DIR ]; then
+    mkdir -p $BACKUP_DIR
     echo "Created backup dir"
 fi
 
 # change to the dotfiles directory
-echo "Changing to the $repo_dir directory"
-cd $repo_dir
+echo "Changing to the $SETUP_SCRIPT_DIR_PATH directory"
+cd $SETUP_SCRIPT_DIR_PATH
 echo "...done"
 
+echo "Moving selected dotfiles from ~ to $BACKUP_DIR"
 for file in $files; do
-    echo "Moving selected dotfiles from ~ to $backup_dir"
-    mv ~/.$file $backup_dir
+    mv ~/.$file $BACKUP_DIR
     echo "Copying $file to home directory."
-    cp -f $repo_dir/.$file ~/.$file
+    cp -f $SETUP_SCRIPT_DIR_PATH/.$file ~/.$file
 done
 
 # copy the vendor dir for any emacs packages which aren't
 # available on elpa or marmalade
 
-if [ -d $vendor_emacs ]; then
+if [ -d $VENDOR_EMACS ]; then
     echo "Moving any existing vendor files to backup"
-    mv -f $vendor_emacs $backup_dir
+    mv -f $VENDOR_EMACS $BACKUP_DIR
 fi
 
-mkdir -p $vendor_emacs
+mkdir -p $VENDOR_EMACS
 
 echo "Copying emacs vendor dir to repo vendor dir"
-cp -r $vendor_repo/* $vendor_emacs
+cp -rf ~/.emacs.d $BACKUP_DIR
 
 echo "Stitching together .gitconfig file with local private info"
 cat ~/.git_private >> ~/.gitconfig
