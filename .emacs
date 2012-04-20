@@ -114,6 +114,7 @@
 ;; C-M-x = compile whole top level form under point
 ;; C-c C-, = run all tests in buffer (clojure-test-mode)
 ;; C-c k = clear failing test overlays (clojure-test-mode)
+;; C-c s = show reason for test failure (clojure-test-mode, my binding)
 ;; M-. = jump to definition
 ;;
 ;; . . . In Magit
@@ -491,7 +492,8 @@ it's loaded."
 (add-hook 'clojure-mode-hook
           (lambda ()
             (require 'clojure-test-mode)
-            (local-set-key (kbd "C-c C-j") 'clojure-jack-in)))
+            (local-set-key (kbd "C-c C-j") 'clojure-jack-in)
+            (local-set-key (kbd "C-c s") 'clojure-test-show-result)))
 
 (add-hook 'slime-repl-mode-hook
           (lambda ()
