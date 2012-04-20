@@ -5,7 +5,6 @@
 alias mit-scheme='/Applications/mit-scheme.app/Contents/Resources/mit-scheme'
 
 # Navigation
-alias cp="cp -i"
 alias ..="cd .."
 alias ...="cd ../.."
 alias c="cd ~/code"
