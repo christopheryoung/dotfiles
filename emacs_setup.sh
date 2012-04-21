@@ -9,7 +9,7 @@ SETUP_SCRIPT_DIR_PATH=`dirname "$0"`
 SETUP_SCRIPT_DIR_PATH=`( cd "$MY_PATH" && pwd )`
 BACKUP_DIR=~/archive/dotfiles_old
 
-VENDOR_REPO=$SETUP_SCRIPT_DIR_PATH/vendor
+VENDOR_REPO=$SETUP_SCRIPT_DIR_PATH/emacs/vendor
 EMACSD=~/.emacs.d
 
 ##########
