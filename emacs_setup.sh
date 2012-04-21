@@ -34,4 +34,23 @@ fi
 # available on elpa or marmalade
 
 echo "Copying repo vendor to ~/.emacs.d"
-cp -rf $VENDOR_REPO $EMACSD
+cp -rf $VENDOR_REPO $EMACSD/
+
+# check out certain packages from repos
+
+cd $EMACSD
+
+if [ -f extra-loadpaths.el ]; then
+    echo "deleting old extra_loadpaths.el"
+    rm extra-loadpaths.el
+fi
+
+echo "creating new extra_loadpaths.el"
+touch extra-loadpaths.el
+
+if [ ! -d $EMACSD/tomatinho ]; then
+    echo "installing tomatinho"
+    git clone https://github.com/konr/tomatinho.git 
+fi
+
+echo "(add-to-list 'load-path \"$EMACSD/tomatinho/\")" >> extra-loadpaths.el
