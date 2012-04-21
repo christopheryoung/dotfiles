@@ -130,6 +130,11 @@
 ;;   u - unstage the hunk
 ;; 
 
+;; EXTRA LOADPATHS
+;; Set by my install script
+(if (file-exists-p "~/.emacs.d/extra-loadpaths.el")
+    (load "~/.emacs.d/extra-loadpaths.el"))
+
 ;; CHECK FOR PACKAGES
 
 (require 'package)
