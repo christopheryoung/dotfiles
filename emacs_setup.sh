@@ -1,9 +1,11 @@
 #!/bin/bash
-############################
+################################################################################
 #Sets up .emacs.d
-############################
+################################################################################
 
-########## Variables
+########################################
+#Variables
+########################################
 
 SETUP_SCRIPT_DIR_PATH=`dirname "$0"`
 SETUP_SCRIPT_DIR_PATH=`( cd "$MY_PATH" && pwd )`
@@ -12,8 +14,9 @@ BACKUP_DIR=~/archive/dotfiles_old
 VENDOR_REPO=$SETUP_SCRIPT_DIR_PATH/emacs/vendor
 EMACSD=~/.emacs.d
 
-##########
-
+########################################
+#Backup .emacs.d
+########################################
 cd $SETUP_SCRIPT_DIR_PATH
 
 if [ -d $EMACSD ]; then
@@ -22,6 +25,10 @@ if [ -d $EMACSD ]; then
 else 
     echo "No ~/.emacs.d found to back up"
 fi
+
+########################################
+#Copy and checkout
+########################################
 
 # copy the vendor dir for any emacs packages which aren't
 # available on elpa or marmalade
