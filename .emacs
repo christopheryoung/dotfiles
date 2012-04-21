@@ -405,6 +405,10 @@
 (global-set-key (kbd "C-x C-u") 'undo-tree-visualize)
 
 ;; OTHER MODES, ETC.
+'
+;; Tomatinho, a productivity tool
+(require 'tomatinho)
+(global-set-key (kbd "<f6>") 'tomatinho)
 
 ;; FLYSPELL
 
