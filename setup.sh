@@ -54,13 +54,27 @@ echo "Setting up .emacs.d"
 echo "Setting up .lein"
 cp -f $SETUP_SCRIPT_DIR_PATH/lein/init.clj ~/.lein/
 
-lein_plugins='clj-stacktrace-0.2.4.jar swank-clojure-1.3.4.jar'
+stacktrace_version="0.2.4"
+swank_clojure_version="1.4.2"
+lein_swank_version="1.4.2"
 
-for plugin in $lein_plugins; do
-    if [ ! -f ~/.lein/plugins/$plugin ]; then
-    echo "Installing $plugin"
-    lein plugin install $plugin
-    else
-        echo "$plugin already installed"
-    fi
-done
+#TODO: This is nuts. I should either learn shell scripting or just
+#rewrite this in Python
+
+if [ ! -f ~/.lein/plugins/clj-stacktrace-$stacktrace_version.jar ]; then
+    lein plugin install clj-stacktrace $stacktrace_version
+else
+    echo "clj-stacktrace-$stacktrace_version already installed"
+fi
+
+if [ ! -f ~/.lein/plugins/swank-clojure-$swank_clojure_version.jar ]; then
+    lein plugin install swank-clojure $swank_clojure_version
+else
+    echo "swank-clojure-$swank_clojure_version already installed"
+fi
+
+if [ ! -f ~/.lein/plugins/lein-swank-$lein_swank_version.jar ]; then
+    lein plugin install lein-swank $lein_swank_version
+else
+    echo "lein-swank-$lein_swank_version already installed"
+fi
