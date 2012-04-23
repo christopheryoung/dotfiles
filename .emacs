@@ -521,3 +521,9 @@ it's loaded."
 ;; ac-slime (autocomplete)
 (require 'ac-slime)
 (add-hook 'slime-mode-hook 'set-up-slime-ac)
+
+;; HASKELL
+
+(add-hook 'haskell-mode-hook 'turn-on-haskell-doc-mode)
+(add-hook 'haskell-mode-hook 'turn-on-haskell-indent)
+
