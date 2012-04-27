@@ -29,8 +29,8 @@ echo "Moving selected dotfiles from ~ to $BACKUP_DIR"
 for file in $files; do
     echo "Backing up old .$file to $BACKUP_DIR"
     mv ~/.$file $BACKUP_DIR
-    echo "Copying new .$file to home directory."
-    cp -f $SETUP_SCRIPT_DIR_PATH/.$file ~/.$file
+    echo "Creating symbolic link to .$file to home directory."
+    ln -s $SETUP_SCRIPT_DIR_PATH/.$file ~/.$file
 done
 
 ########################################
