@@ -10,28 +10,22 @@
 
 SETUP_SCRIPT_DIR_PATH=`dirname "$0"`
 SETUP_SCRIPT_DIR_PATH=`( cd "$MY_PATH" && pwd )`
-BACKUP_DIR=~/archive/dotfiles_old
 
 ########################################
 #Dotfiles
 ########################################
 
 # list of files/folders to copy to homedir
-files="bashrc bash_profile emacs hgrc screenrc viper vimrc git-completion.sh gitconfig gitignore osx functions aliases"
+files="bashrc bash_profile emacs hgrc screenrc viper vimrc git-completion.sh gitignore osx functions aliases"
 
-if [ ! -d $BACKUP_DIR ]; then
-    echo "Creating $BACKUP_DIR for backup of any existing dotfiles in ~"
-    mkdir -p $BACKUP_DIR
-    echo "Created backup dir"
-fi
-
-echo "Moving selected dotfiles from ~ to $BACKUP_DIR"
+echo "Creating symbolic links in home directory"
 for file in $files; do
-    echo "Backing up old .$file to $BACKUP_DIR"
-    mv ~/.$file $BACKUP_DIR
     echo "Creating symbolic link to .$file to home directory."
     ln -s $SETUP_SCRIPT_DIR_PATH/.$file ~/.$file
 done
+
+#gitconfig has special stuff, so we copy it over
+cp $SETUP_SCRIPT_DIR_PATH/.gitconfig ~/
 
 ########################################
 #Privacy preserving dotfiles surgery
