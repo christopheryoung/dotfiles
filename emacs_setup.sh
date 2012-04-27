@@ -22,14 +22,36 @@ cd $SETUP_SCRIPT_DIR_PATH
 if [ -d $EMACSD ]; then
     echo "Backing up old .emacs.d"
     cp -rf $EMACSD $BACKUP_DIR
-else 
+else
     echo "No ~/.emacs.d found to back up"
     mkdir $EMACSD
 fi
 
+cd $EMACSD
+
+if [ -f extra-loadpaths.el ]; then
+    echo "deleting old extra_loadpaths.el"
+    rm extra-loadpaths.el
+fi
+
+echo "creating new extra_loadpaths.el"
+touch extra-loadpaths.el
+
 ########################################
 #Copy and checkout
 ########################################
+
+# midje-mode
+
+if [ -d $EMACSD/midje-mode ]; then
+    echo "midje-mode already present."
+else
+    echo "Cloning midje-mode"
+    git clone git@github.com:christopheryoung/midje-mode.git
+fi
+
+echo "(add-to-list 'load-path \"$EMACSD/midje-mode/\")" >> extra-loadpaths.el
+
 
 # copy the vendor dir for any emacs packages which aren't
 # available on elpa or marmalade or via el-get
