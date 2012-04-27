@@ -24,6 +24,7 @@ if [ -d $EMACSD ]; then
     cp -rf $EMACSD $BACKUP_DIR
 else 
     echo "No ~/.emacs.d found to back up"
+    mkdir $EMACSD
 fi
 
 ########################################
@@ -34,4 +35,4 @@ fi
 # available on elpa or marmalade or via el-get
 
 echo "Copying repo vendor to ~/.emacs.d"
-cp -rf $VENDOR_REPO $EMACSD/
+cp -rf $VENDOR_REPO $EMACSD
