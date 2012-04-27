@@ -407,10 +407,6 @@
 
 ;; OTHER MODES, ETC.
 '
-;; Tomatinho, a productivity tool
-(require 'tomatinho)
-(global-set-key (kbd "<f6>") 'tomatinho)
-
 ;; FLYSPELL
 
 ;; Checks spelling in comments and doc strings
