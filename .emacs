@@ -163,7 +163,8 @@
                      multi-term
                      undo-tree
                      auto-complete
-                     ac-slime)
+                     ac-slime
+                     midje-mode)
  "A list of packages to ensure are installed at launch.")
 
 (setq my-packages-refreshed nil)
@@ -475,9 +476,10 @@
 
 (add-hook 'clojure-mode-hook
           (lambda ()
-            (require 'clojure-test-mode)
             (local-set-key (kbd "C-c C-j") 'clojure-jack-in)
-            (local-set-key (kbd "C-c s") 'clojure-test-show-result)))
+            ))
+
+(add-hook 'clojure-mode-hook 'midje-mode)
 
 (add-hook 'slime-repl-mode-hook
           (lambda ()
