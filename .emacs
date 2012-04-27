@@ -181,6 +181,11 @@
 ;; A place to put any packages not on elpa or marmalade
 (add-to-list 'load-path "~/.emacs.d/vendor/")
 
+;; EXTRA LOADPATHS
+;; Set by my install script
+(if (file-exists-p "~/.emacs.d/extra-loadpaths.el")
+    (load "~/.emacs.d/extra-loadpaths.el"))
+
 ;; APPEARANCE
 
 ;; Maxmize emacs
