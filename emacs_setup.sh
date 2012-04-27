@@ -17,6 +17,13 @@ EMACSD=~/.emacs.d
 ########################################
 #Backup .emacs.d
 ########################################
+
+if [ ! -d $BACKUP_DIR ]; then
+    echo "Creating $BACKUP_DIR for backup of any existing dotfiles in ~"
+    mkdir -p $BACKUP_DIR
+    echo "Created backup dir"
+fi
+
 cd $SETUP_SCRIPT_DIR_PATH
 
 if [ -d $EMACSD ]; then
