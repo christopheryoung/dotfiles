@@ -31,7 +31,7 @@ fi
 ########################################
 
 # copy the vendor dir for any emacs packages which aren't
-# available on elpa or marmalade
+# available on elpa or marmalade or via el-get
 
 echo "Copying repo vendor to ~/.emacs.d"
 cp -rf $VENDOR_REPO $EMACSD/
