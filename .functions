@@ -4,6 +4,11 @@ function mkd() {
 	mkdir -p "$@" && cd "$@"
 }
 
+# cd into a dir and ls
+function cdl() {
+         cd "$@" && ls
+}
+
 # navigate to source for any Python module
 # http://chris-lamb.co.uk/2010/04/22/locating-source-any-python-module/
 cdp () {
