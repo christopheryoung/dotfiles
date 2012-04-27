@@ -130,47 +130,42 @@
 ;;   u - unstage the hunk
 ;; 
 
-
-;; EXTRA LOADPATHS
-;; Set by my install script
-(if (file-exists-p "~/.emacs.d/extra-loadpaths.el")
-    (load "~/.emacs.d/extra-loadpaths.el"))
-
-;; CHECK FOR PACKAGES
+;; PACKAGE, for managing packages in elpa and marmalade, etc.
 
 (require 'package)
  (add-to-list 'package-archives
               '("marmalade" . "http://marmalade-repo.org/packages/") t)
  (package-initialize)
 
-(defvar my-packages '(starter-kit
-                     starter-kit-lisp
-                     starter-kit-bindings
-                     erlang
-                     ispell
-                     haskell-mode
-                     clojure-mode
-                     clojure-test-mode
-                     paredit
-                     smex
-                     find-file-in-project
-                     magit
-                     rainbow-delimiters
-                     maxframe
-                     dired-single
-                     windmove
-                     ace-jump-mode
-                     expand-region
-                     multi-term
-                     undo-tree
-                     auto-complete
-                     ac-slime
-                     midje-mode)
- "A list of packages to ensure are installed at launch.")
+(defvar my-package-packages '(
+                              starter-kit
+                              starter-kit-lisp
+                              starter-kit-bindings
+                              ispell
+                              haskell-mode
+                              clojure-mode
+                              clojure-test-mode
+                              paredit
+                              smex
+                              find-file-in-project
+                              magit
+                              rainbow-delimiters
+                              maxframe
+                              dired-single
+                              windmove
+                              ace-jump-mode
+                              expand-region
+                              multi-term
+                              undo-tree
+                              auto-complete
+                              ac-slime
+                              midje-mode
+                              )
+  "A list of packages to ensure are installed at launch.")
 
 (setq my-packages-refreshed nil)
 
-(dolist (p my-packages)
+(dolist (p my-package-packages)
   (when (not (package-installed-p p))
     (when (not my-packages-refreshed)
       (package-refresh-contents)
