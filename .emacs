@@ -491,7 +491,7 @@
             (local-set-key [(up)] 'slime-repl-backward-input)
             (local-set-key [(down)] 'slime-repl-forward-input)))
 
-;; Mac's are odd; had to do this to get clojure-jack-in working
+;; Macs are odd; had to do this to get clojure-jack-in working
 (if (eq system-type 'darwin)
     (setenv "PATH" (concat "~/bin:" (getenv "PATH"))))
 
