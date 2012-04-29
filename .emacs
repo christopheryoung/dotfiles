@@ -217,6 +217,9 @@
 (setq message-log-max nil)
 (kill-buffer "*Messages*")
 
+;; No need to see instructions in the scratch buffer
+(setq initial-scratch-message nil)
+
 ;; Let's see column numbers.
 (column-number-mode t)
 
