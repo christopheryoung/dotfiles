@@ -130,6 +130,10 @@
 ;;   u - unstage the hunk
 ;; 
 
+;; cl, to make life a little easier
+
+(require 'cl)
+
 ;; PACKAGE, for managing packages in elpa and marmalade, etc.
 
 (require 'package)
@@ -140,28 +144,28 @@
 ;; TODO: Add color-theme-library, csv mode, markdown-mode, quack
 
 (defvar my-package-packages '(
-                              starter-kit
-                              starter-kit-lisp
-                              starter-kit-bindings
-                              ispell
-                              haskell-mode
+                              ac-slime
+                              ace-jump-mode
+                              auto-complete
                               clojure-mode
                               clojure-test-mode
-                              paredit
-                              smex
-                              find-file-in-project
-                              magit
-                              rainbow-delimiters
-                              maxframe
                               dired-single
-                              windmove
-                              ace-jump-mode
                               expand-region
-                              multi-term
-                              undo-tree
-                              auto-complete
-                              ac-slime
+                              find-file-in-project
+                              haskell-mode
+                              ispell
+                              magit
+                              maxframe
                               midje-mode
+                              multi-term
+                              paredit
+                              rainbow-delimiters
+                              smex
+                              starter-kit
+                              starter-kit-bindings
+                              starter-kit-lisp
+                              undo-tree
+                              windmove
                               )
   "A list of packages to ensure are installed at launch.")
 
@@ -215,11 +219,14 @@
 (setq message-log-max nil)
 (kill-buffer "*Messages*")
 
+;; No need to see instructions in the scratch buffer
+(setq initial-scratch-message nil)
+
 ;; Let's see column numbers.
 (column-number-mode t)
 
 ;; Show trailing whitespace
-(setq show-trailing-whitespace t)
+(setq-default show-trailing-whitespace t)
 
 ;; Fonts are automatically highlighted.  For more information
 ;; type M-x describe-mode font-lock-mode
@@ -287,8 +294,9 @@
 ;; Changes default mode to Text (instead of Fundamental)
 (setq default-major-mode 'text-mode)
 
-;; Don't make backup files.
+;; Don't make backup files or auto-save.
 (setq make-backup-files nil)
+(setq auto-save-default nil)
 
 ;; Save the desktop
 (setq desktop-load-locked-desktop t)
@@ -307,8 +315,9 @@
    (add-to-list 'desktop-modes-not-to-save 'fundamental-mode)
 
 ;; Recent files
-;; Commented out for now, but would be great to find a default for this.
-;;(global-set-key "\C-r" 'recentf-open-files)
+(require 'recentf)
+(setq recentf-max-menu-items 100)
+(global-set-key (kbd "C-x C-r") 'recentf-open-files)
 
 ;; Some more useful commands
 
@@ -346,7 +355,27 @@
 (add-to-list 'completion-ignored-extensions ".hi")
 (add-to-list 'completion-ignored-extensions ".pyc")
 
+;; Safe deletes
+(setq delete-by-moving-to-trash t)
+
+
 ;; MOVING AND SEARCHING AND MANIPULATING THE REGION
+
+;; jump to matching paren
+;; Thanks to https://github.com/avar/dotemacs/blob/master/.emacs
+(defun match-paren (arg)
+  "Go to the matching  if on (){}[], similar to vi style of % "
+  (interactive "p")
+  ;; first, check for "outside of bracket" positions expected by forward-sexp, etc.
+  (cond ((looking-at "[\[\(\{]") (forward-sexp))
+        ((looking-back "[\]\)\}]" 1) (backward-sexp))
+        ;; now, try to succeed from inside of a bracket
+        ((looking-at "[\]\)\}]") (forward-char) (backward-sexp))
+        ((looking-back "[\[\(\{]" 1) (backward-char) (forward-sexp))
+        (t (self-insert-command (or arg 1)))))
+
+(global-set-key (kbd "C-]") 'match-paren)
+
 
 ;; Browse the kill ring easily
 (global-set-key "\C-cy" '(lambda ()
@@ -411,8 +440,35 @@
 ;; C-x C-u originally: uppercase region
 (global-set-key (kbd "C-x C-u") 'undo-tree-visualize)
 
+;; ONLINE SEARCH AND HELP
+
+(setq cheatsheets '(("Clojure" "http://clojure.org/cheatsheet")
+                    ("Paredit" "http://www.emacswiki.org/emacs/PareditCheatsheet")
+                    ("Magit" "http://cheat.errtheblog.com/s/magit/")
+                    ("Elisp Cookbook" "http://www.emacswiki.org/emacs/ElispCookbook")
+                    ))
+
+(defun search-interwebs(query)
+  (interactive "sSearch for: ")
+  (browse-url (concat "https://duckduckgo.com/?q=" query)))
+
+(defun get-cheatsheet ()
+  (interactive)
+  (setq choice (ido-completing-read "Cheatsheet: " (maplist 'caar cheatsheets)))
+  (when choice
+   (let ((cheatsheet-url (car (cdr (assoc choice cheatsheets))))) ;; Seriously? Gotta learn elisp!
+     (browse-url cheatsheet-url))))
+
+(global-set-key (kbd "C-h C-b") 'browse-url)
+(global-set-key (kbd "C-h C-s") 'search-interwebs)
+(global-set-key (kbd "C-h C-c") 'get-cheatsheet)
+
+;; Browse in new tabs instead of the current one
+(setq browse-url-new-window-flag t)
+
+
 ;; OTHER MODES, ETC.
-'
+
 ;; FLYSPELL
 
 ;; Checks spelling in comments and doc strings
@@ -421,11 +477,6 @@
 ;; ASPELL
 
 (setq-default ispell-program-name "/usr/local/bin/aspell")
-
-;; MAGIT
-
-(autoload 'magit-status "magit" nil t)
-(global-set-key (kbd "C-x m") 'magit-status)
 
 ;; IDO
 ;; Not necessary if used with emacs starter kit
@@ -436,9 +487,12 @@
 
 (setq tramp-default-method "ssh")
 
+
 ;; MAGIT
 
 (require 'magit)
+(global-set-key (kbd "C-x m") 'magit-status)
+
 
 ;; VIPER
 ;; Don't laugh. Emacs may be a better editor, but modal editing
@@ -464,9 +518,11 @@
 (key-chord-define-global "qq" 'slime-eval-defun)
 
 ;;auto-complete
-
 (require 'auto-complete-config)
 (ac-config-default)
+
+;; ELISP
+(add-hook 'emacs-lisp-mode-hook 'eldoc-mode t)
 
 ;;; SCHEME
 
@@ -478,10 +534,16 @@
 
 (add-hook 'clojure-mode-hook
           (lambda ()
+            (require 'midje-mode)
+            (require 'clojure-jump-to-file)
             (local-set-key (kbd "C-c C-j") 'clojure-jack-in)
+            (local-set-key (kbd "C-c C-,") 'midje-check-fact)
             ))
 
-(add-hook 'clojure-mode-hook 'midje-mode)
+(add-hook 'clojure-test-mode-hook
+          (lambda ()
+            (local-unset-key (kbd "C-c C-,"))
+            ))
 
 (add-hook 'slime-repl-mode-hook
           (lambda ()
