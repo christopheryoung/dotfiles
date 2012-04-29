@@ -517,6 +517,9 @@
 (require 'auto-complete-config)
 (ac-config-default)
 
+;; ELISP
+(add-hook 'emacs-lisp-mode-hook 'eldoc-mode t)
+
 ;;; SCHEME
 
 (setq scheme-program-name
