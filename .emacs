@@ -128,7 +128,7 @@
 ;;   p - previous hunk
 ;;   s - stage the hunk
 ;;   u - unstage the hunk
-;; 
+;;
 
 ;; cl, to make life a little easier
 
@@ -141,24 +141,25 @@
               '("marmalade" . "http://marmalade-repo.org/packages/") t)
  (package-initialize)
 
-;; TODO: Add color-theme-library, csv mode, markdown-mode, quack
-
 (defvar my-package-packages '(
                               ac-slime
                               ace-jump-mode
                               auto-complete
                               clojure-mode
                               clojure-test-mode
+                              csv-mode
                               dired-single
                               expand-region
                               find-file-in-project
                               haskell-mode
                               ispell
                               magit
+                              markdown-mode
                               maxframe
                               midje-mode
                               multi-term
                               paredit
+                              quack
                               rainbow-delimiters
                               smex
                               starter-kit
@@ -467,7 +468,10 @@
 (setq browse-url-new-window-flag t)
 
 
-;; OTHER MODES, ETC.
+;; OTHER MODES AND TOOLS
+
+;; Tail
+(require 'tail)
 
 ;; FLYSPELL
 
