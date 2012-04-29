@@ -517,6 +517,9 @@
 (add-hook 'clojure-mode-hook 'midje-mode)
 
 (add-hook 'slime-repl-mode-hook
+;; ELISP
+(add-hook 'emacs-lisp-mode-hook 'eldoc-mode t)
+
           (lambda ()
             (defun clojure-mode-slime-font-lock ()
               (let (font-lock-mode)
