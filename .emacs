@@ -350,6 +350,10 @@
 (add-to-list 'completion-ignored-extensions ".hi")
 (add-to-list 'completion-ignored-extensions ".pyc")
 
+;; Safe deletes
+(setq delete-by-moving-to-trash t)
+
+
 ;; MOVING AND SEARCHING AND MANIPULATING THE REGION
 
 ;; Browse the kill ring easily
