@@ -511,18 +511,18 @@
 
 (add-hook 'clojure-mode-hook
           (lambda ()
+            (require 'midje-mode)
+            (require 'clojure-jump-to-file)
             (local-set-key (kbd "C-c C-j") 'clojure-jack-in)
+            (local-set-key (kbd "C-c C-,") 'midje-check-fact)
             ))
 
-(add-hook 'clojure-mode-hook 'midje-mode)
+(add-hook 'clojure-test-mode-hook
+          (lambda ()
+            (local-unset-key (kbd "C-c C-,"))
+            ))
 
 (add-hook 'slime-repl-mode-hook
-;; ELISP
-(add-hook 'emacs-lisp-mode-hook 'eldoc-mode t)
-
-;; ELISP
-(add-hook 'emacs-lisp-mode-hook 'eldoc-mode t)
-
           (lambda ()
             (defun clojure-mode-slime-font-lock ()
               (let (font-lock-mode)
