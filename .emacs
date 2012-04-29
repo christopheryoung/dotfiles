@@ -463,6 +463,17 @@
 (setq browse-url-new-window-flag t)
 
 
+;; OTHER MODES, ETC.
+
+;; FLYSPELL
+
+;; Checks spelling in comments and doc strings
+(flyspell-prog-mode)
+
+;; ASPELL
+
+(setq-default ispell-program-name "/usr/local/bin/aspell")
+
 ;; IDO
 ;; Not necessary if used with emacs starter kit
 (require 'ido)
@@ -472,9 +483,12 @@
 
 (setq tramp-default-method "ssh")
 
+
 ;; MAGIT
 
 (require 'magit)
+(global-set-key (kbd "C-x m") 'magit-status)
+
 
 ;; VIPER
 ;; Don't laugh. Emacs may be a better editor, but modal editing
@@ -500,7 +514,6 @@
 (key-chord-define-global "qq" 'slime-eval-defun)
 
 ;;auto-complete
-
 (require 'auto-complete-config)
 (ac-config-default)
 
