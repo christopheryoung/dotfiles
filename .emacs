@@ -356,6 +356,22 @@
 
 ;; MOVING AND SEARCHING AND MANIPULATING THE REGION
 
+;; jump to matching paren
+;; Thanks to https://github.com/avar/dotemacs/blob/master/.emacs
+(defun match-paren (arg)
+  "Go to the matching  if on (){}[], similar to vi style of % "
+  (interactive "p")
+  ;; first, check for "outside of bracket" positions expected by forward-sexp, etc.
+  (cond ((looking-at "[\[\(\{]") (forward-sexp))
+        ((looking-back "[\]\)\}]" 1) (backward-sexp))
+        ;; now, try to succeed from inside of a bracket
+        ((looking-at "[\]\)\}]") (forward-char) (backward-sexp))
+        ((looking-back "[\[\(\{]" 1) (backward-char) (forward-sexp))
+        (t (self-insert-command (or arg 1)))))
+
+(global-set-key (kbd "C-]") 'match-paren)
+
+
 ;; Browse the kill ring easily
 (global-set-key "\C-cy" '(lambda ()
     (interactive) (popup-menu 'yank-menu)))
