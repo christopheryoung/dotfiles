@@ -224,7 +224,7 @@
 (column-number-mode t)
 
 ;; Show trailing whitespace
-(setq show-trailing-whitespace t)
+(setq-default show-trailing-whitespace t)
 
 ;; Fonts are automatically highlighted.  For more information
 ;; type M-x describe-mode font-lock-mode
