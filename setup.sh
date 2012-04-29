@@ -20,6 +20,7 @@ files="bashrc bash_profile emacs hgrc screenrc viper vimrc git-completion.sh git
 
 echo "Creating symbolic links in home directory"
 for file in $files; do
+    rm ~/.$file
     echo "Creating symbolic link to .$file to home directory."
     ln -s $SETUP_SCRIPT_DIR_PATH/.$file ~/.$file
 done
