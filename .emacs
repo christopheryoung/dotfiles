@@ -310,8 +310,9 @@
    (add-to-list 'desktop-modes-not-to-save 'fundamental-mode)
 
 ;; Recent files
-;; Commented out for now, but would be great to find a default for this.
-;;(global-set-key "\C-r" 'recentf-open-files)
+(require 'recentf)
+(setq recentf-max-menu-items 100)
+(global-set-key (kbd "C-x C-r") 'recentf-open-files)
 
 ;; Some more useful commands
 
