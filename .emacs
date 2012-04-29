@@ -142,28 +142,28 @@
  (package-initialize)
 
 (defvar my-package-packages '(
-                              starter-kit
-                              starter-kit-lisp
-                              starter-kit-bindings
-                              ispell
-                              haskell-mode
+                              ac-slime
+                              ace-jump-mode
+                              auto-complete
                               clojure-mode
                               clojure-test-mode
-                              paredit
-                              smex
-                              find-file-in-project
-                              magit
-                              rainbow-delimiters
-                              maxframe
                               dired-single
-                              windmove
-                              ace-jump-mode
                               expand-region
-                              multi-term
-                              undo-tree
-                              auto-complete
-                              ac-slime
+                              find-file-in-project
+                              haskell-mode
+                              ispell
+                              magit
+                              maxframe
                               midje-mode
+                              multi-term
+                              paredit
+                              rainbow-delimiters
+                              smex
+                              starter-kit
+                              starter-kit-bindings
+                              starter-kit-lisp
+                              undo-tree
+                              windmove
                               )
   "A list of packages to ensure are installed at launch.")
 
