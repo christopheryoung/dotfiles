@@ -289,8 +289,9 @@
 ;; Changes default mode to Text (instead of Fundamental)
 (setq default-major-mode 'text-mode)
 
-;; Don't make backup files.
+;; Don't make backup files or auto-save.
 (setq make-backup-files nil)
+(setq auto-save-default nil)
 
 ;; Save the desktop
 (setq desktop-load-locked-desktop t)
