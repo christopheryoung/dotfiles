@@ -419,22 +419,6 @@
 ;; C-x C-u originally: uppercase region
 (global-set-key (kbd "C-x C-u") 'undo-tree-visualize)
 
-;; OTHER MODES, ETC.
-'
-;; FLYSPELL
-
-;; Checks spelling in comments and doc strings
-(flyspell-prog-mode)
-
-;; ASPELL
-
-(setq-default ispell-program-name "/usr/local/bin/aspell")
-
-;; MAGIT
-
-(autoload 'magit-status "magit" nil t)
-(global-set-key (kbd "C-x m") 'magit-status)
-
 ;; ONLINE SEARCH AND HELP
 
 (setq cheatsheets '(("Clojure" "http://clojure.org/cheatsheet")
