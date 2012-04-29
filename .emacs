@@ -454,10 +454,9 @@
    (let ((cheatsheet-url (car (cdr (assoc choice cheatsheets))))) ;; Seriously? Gotta learn elisp!
      (browse-url cheatsheet-url))))
 
-(global-set-key (kbd "C-q p") 'browse-url-at-point)
-(global-set-key (kbd "C-q b") 'browse-url)
-(global-set-key (kbd "C-q s") 'search-interwebs)
-(global-set-key (kbd "C-h c") 'get-cheatsheet)
+(global-set-key (kbd "C-h C-b") 'browse-url)
+(global-set-key (kbd "C-h C-s") 'search-interwebs)
+(global-set-key (kbd "C-h C-c") 'get-cheatsheet)
 
 ;; Browse in new tabs instead of the current one
 (setq browse-url-new-window-flag t)
