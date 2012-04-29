@@ -130,6 +130,10 @@
 ;;   u - unstage the hunk
 ;; 
 
+;; cl, to make life a little easier
+
+(require 'cl)
+
 ;; PACKAGE, for managing packages in elpa and marmalade, etc.
 
 (require 'package)
