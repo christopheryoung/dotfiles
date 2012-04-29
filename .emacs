@@ -520,6 +520,9 @@
 ;; ELISP
 (add-hook 'emacs-lisp-mode-hook 'eldoc-mode t)
 
+;; ELISP
+(add-hook 'emacs-lisp-mode-hook 'eldoc-mode t)
+
           (lambda ()
             (defun clojure-mode-slime-font-lock ()
               (let (font-lock-mode)
