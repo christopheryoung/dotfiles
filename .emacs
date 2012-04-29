@@ -435,6 +435,34 @@
 (autoload 'magit-status "magit" nil t)
 (global-set-key (kbd "C-x m") 'magit-status)
 
+;; ONLINE SEARCH AND HELP
+
+(setq cheatsheets '(("Clojure" "http://clojure.org/cheatsheet")
+                    ("Paredit" "http://www.emacswiki.org/emacs/PareditCheatsheet")
+                    ("Magit" "http://cheat.errtheblog.com/s/magit/")
+                    ("Elisp Cookbook" "http://www.emacswiki.org/emacs/ElispCookbook")
+                    ))
+
+(defun search-interwebs(query)
+  (interactive "sSearch for: ")
+  (browse-url (concat "https://duckduckgo.com/?q=" query)))
+
+(defun get-cheatsheet ()
+  (interactive)
+  (setq choice (ido-completing-read "Cheatsheet: " (maplist 'caar cheatsheets)))
+  (when choice
+   (let ((cheatsheet-url (car (cdr (assoc choice cheatsheets))))) ;; Seriously? Gotta learn elisp!
+     (browse-url cheatsheet-url))))
+
+(global-set-key (kbd "C-q p") 'browse-url-at-point)
+(global-set-key (kbd "C-q b") 'browse-url)
+(global-set-key (kbd "C-q s") 'search-interwebs)
+(global-set-key (kbd "C-h c") 'get-cheatsheet)
+
+;; Browse in new tabs instead of the current one
+(setq browse-url-new-window-flag t)
+
+
 ;; IDO
 ;; Not necessary if used with emacs starter kit
 (require 'ido)
