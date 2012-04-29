@@ -137,6 +137,8 @@
               '("marmalade" . "http://marmalade-repo.org/packages/") t)
  (package-initialize)
 
+;; TODO: Add color-theme-library, csv mode, markdown-mode, quack
+
 (defvar my-package-packages '(
                               starter-kit
                               starter-kit-lisp
