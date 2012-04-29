@@ -241,6 +241,9 @@
 (require 'rainbow-delimiters)
 (global-rainbow-delimiters-mode)
 
+;; Let's see when we go out of bounds
+(require 'highlight-beyond-fill-column)
+
 ;; Ensures that same-name buffers have longer, sensible names.
 (require 'uniquify)
 (setq uniquify-buffer-name-style 'forward)
