@@ -529,6 +529,10 @@
 
 (key-chord-define-global "qq" 'slime-eval-defun)
 
+;; eldoc, how did I ever live without you?
+(add-hook 'clojure-mode-hook 'turn-on-eldoc-mode)
+(add-hook 'emacs-lisp-mode-hook 'turn-on-eldoc-mode)
+
 ;;auto-complete
 (require 'auto-complete-config)
 (ac-config-default)
