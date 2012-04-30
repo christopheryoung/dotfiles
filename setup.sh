@@ -50,6 +50,7 @@ echo "Checking for sitewide python packages."
 
 type pip >/dev/null 2>&1 || sudo easy_install pip
 type virtualenv >/dev/null 2>&1 || pip install virtualenv
+type ipython >/dev/null 2>&1 || pip install ipython
 
 type grin >/dev/null 2>&1 || sudo easy_install grin
 

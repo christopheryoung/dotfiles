@@ -159,6 +159,7 @@
                               midje-mode
                               multi-term
                               paredit
+                              python-mode
                               quack
                               rainbow-delimiters
                               smex
@@ -415,7 +416,6 @@
 ;; Better scrolling
 (setq scroll-step 1)
 (setq scroll-conservatively 1)
-
 (setq scroll-margin 2)
 
 (require 'ace-jump-mode)
@@ -585,3 +585,8 @@
 (add-hook 'haskell-mode-hook 'turn-on-haskell-indent)
 
 (require 'auto-complete-haskell)
+
+;; PYTHON
+
+(require 'python-mode)
+(setq py-shell-name "ipython")
