@@ -454,7 +454,7 @@
 
 ;; ONLINE SEARCH AND HELP
 
-(setq cheatsheets '(("Clojure" "http://clojure.org/cheatsheet")
+(setq cheatsheets '(("Clojure" "http://jafingerhut.github.com/cheatsheet-clj-1.3/cheatsheet-tiptip-cdocs-summary.html")
                     ("ClojureDocs" "http://clojuredocs.org/")
                     ("Elisp Cookbook" "http://www.emacswiki.org/emacs/ElispCookbook")
                     ("Magit" "http://cheat.errtheblog.com/s/magit/")
