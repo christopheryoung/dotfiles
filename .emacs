@@ -513,12 +513,9 @@
 ;;(setq viper-mode t)
 ;;(require 'viper)
 
-;; SMEX
-;; (better m-x)
-
+;; SMEX (better M-x)
 (require 'smex)
 (smex-initialize)
-
 (global-set-key (kbd "M-x") 'smex)
 ;; This is your old M-x.
 (global-set-key (kbd "C-c C-c M-x") 'execute-extended-command)
