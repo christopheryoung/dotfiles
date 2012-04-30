@@ -385,6 +385,11 @@
 (global-set-key "\C-cy" '(lambda ()
     (interactive) (popup-menu 'yank-menu)))
 
+;; And the mark ring
+
+;; Allow for mark ring traversal without popping them off the stack.
+(setq set-mark-command-repeat-pop t)
+
 ;; Windmove helps you move between open buffers when the screen is
 ;; split
 
