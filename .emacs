@@ -417,7 +417,9 @@
 (setq scroll-conservatively 1)
 
 (setq scroll-margin 2)
+
 (require 'ace-jump-mode)
+(setq ace-jump-mode-case-sensitive-search nil)
 (define-key global-map (kbd "C-c SPC") 'ace-jump-mode)
 (key-chord-define-global "jj" 'ace-jump-mode)
 
