@@ -317,7 +317,7 @@
    (add-to-list 'desktop-modes-not-to-save 'fundamental-mode)
 
 ;; Recent files
-(require 'recentf)
+(recentf-mode 1)
 (setq recentf-max-menu-items 100)
 (global-set-key (kbd "C-x C-r") 'recentf-open-files)
 
