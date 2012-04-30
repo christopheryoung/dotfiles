@@ -50,6 +50,7 @@ echo "Checking for sitewide python packages."
 
 type pip >/dev/null 2>&1 || sudo easy_install pip
 type virtualenv >/dev/null 2>&1 || pip install virtualenv
+type ipython >/dev/null 2>&1 || pip install ipython
 
 type grin >/dev/null 2>&1 || sudo easy_install grin
 
@@ -59,29 +60,7 @@ type grin >/dev/null 2>&1 || sudo easy_install grin
 ########################################
 
 echo "Setting up .lein"
-cp -f $SETUP_SCRIPT_DIR_PATH/lein/init.clj ~/.lein/
 
-stacktrace_version="0.2.4"
-swank_clojure_version="1.4.2"
-lein_swank_version="1.4.2"
+type lein2 >/dev/null 2>&1 || wget --no-check-certificate -O ~/bin/lein2 https://raw.github.com/technomancy/leiningen/preview/bin/lein && chmod 755 ~/bin/lein2
 
-#TODO: This is nuts. I should either learn shell scripting or just
-#rewrite this in Python
-
-if [ ! -f ~/.lein/plugins/clj-stacktrace-$stacktrace_version.jar ]; then
-    lein plugin install clj-stacktrace $stacktrace_version
-else
-    echo "clj-stacktrace-$stacktrace_version already installed"
-fi
-
-if [ ! -f ~/.lein/plugins/swank-clojure-$swank_clojure_version.jar ]; then
-    lein plugin install swank-clojure $swank_clojure_version
-else
-    echo "swank-clojure-$swank_clojure_version already installed"
-fi
-
-if [ ! -f ~/.lein/plugins/lein-swank-$lein_swank_version.jar ]; then
-    lein plugin install lein-swank $lein_swank_version
-else
-    echo "lein-swank-$lein_swank_version already installed"
-fi
+cp -f $SETUP_SCRIPT_DIR_PATH/lein/* ~/.lein/

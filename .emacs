@@ -159,6 +159,7 @@
                               midje-mode
                               multi-term
                               paredit
+                              python-mode
                               quack
                               rainbow-delimiters
                               smex
@@ -250,6 +251,7 @@
 (global-rainbow-delimiters-mode)
 
 ;; Let's see when we go out of bounds
+(setq-default fill-column 79)
 (require 'highlight-beyond-fill-column)
 
 ;; Ensures that same-name buffers have longer, sensible names.
@@ -316,7 +318,7 @@
    (add-to-list 'desktop-modes-not-to-save 'fundamental-mode)
 
 ;; Recent files
-(require 'recentf)
+(recentf-mode 1)
 (setq recentf-max-menu-items 100)
 (global-set-key (kbd "C-x C-r") 'recentf-open-files)
 
@@ -359,6 +361,8 @@
 ;; Safe deletes
 (setq delete-by-moving-to-trash t)
 
+;; Lets us edit tar/zip/jar files easily
+(auto-compression-mode 1)
 
 ;; MOVING AND SEARCHING AND MANIPULATING THE REGION
 
@@ -381,6 +385,11 @@
 ;; Browse the kill ring easily
 (global-set-key "\C-cy" '(lambda ()
     (interactive) (popup-menu 'yank-menu)))
+
+;; And the mark ring
+
+;; Allow for mark ring traversal without popping them off the stack.
+(setq set-mark-command-repeat-pop t)
 
 ;; Windmove helps you move between open buffers when the screen is
 ;; split
@@ -407,8 +416,10 @@
 ;; Better scrolling
 (setq scroll-step 1)
 (setq scroll-conservatively 1)
+(setq scroll-margin 2)
 
 (require 'ace-jump-mode)
+(setq ace-jump-mode-case-sensitive-search nil)
 (define-key global-map (kbd "C-c SPC") 'ace-jump-mode)
 (key-chord-define-global "jj" 'ace-jump-mode)
 
@@ -444,9 +455,10 @@
 ;; ONLINE SEARCH AND HELP
 
 (setq cheatsheets '(("Clojure" "http://jafingerhut.github.com/cheatsheet-clj-1.3/cheatsheet-tiptip-cdocs-summary.html")
-                    ("Paredit" "http://www.emacswiki.org/emacs/PareditCheatsheet")
-                    ("Magit" "http://cheat.errtheblog.com/s/magit/")
+                    ("ClojureDocs" "http://clojuredocs.org/")
                     ("Elisp Cookbook" "http://www.emacswiki.org/emacs/ElispCookbook")
+                    ("Magit" "http://cheat.errtheblog.com/s/magit/")
+                    ("Paredit" "http://www.emacswiki.org/emacs/PareditCheatsheet")
                     ))
 
 (defun search-interwebs(query)
@@ -570,3 +582,8 @@
 (add-hook 'haskell-mode-hook 'turn-on-haskell-indent)
 
 (require 'auto-complete-haskell)
+
+;; PYTHON
+
+(require 'python-mode)
+(setq py-shell-name "ipython")

@@ -4,34 +4,18 @@
 #dotfiles to appropriate places
 
 
-############################
-#Install software
-###########################
+########################################
+#Homebrew stuff
+########################################
 
-#homebrew
-if type -p brew; then
-    echo "homebrew already installed . . . skipping install"
-else
-    /usr/bin/ruby -e "$(/usr/bin/curl -fksSL https://raw.github.com/mxcl/homebrew/master/Library/Contributions/install_homebrew.rb)"
-fi
+#Make sure permissions on /usr/local are ok
+sudo chown -R `whoami` /usr/local
 
-#leinigen
-if type -p lein; then
-    echo "leinigen already installed . . . skipping install"
-else
-    echo "installing leinigen"
-    curl -O https://raw.github.com/technomancy/leiningen/stable/bin/lein
-    mkdir ~/bin
-    mv lein ~/bin
-    chmod 755 ~/bin/lein
-    lein
-fi
+type brew >/dev/null 2>&1 || /usr/bin/ruby -e "$(/usr/bin/curl -fksSL https://raw.github.com/mxcl/homebrew/master/Library/Contributions/install_homebrew.rb)"
 
-#aspell
-if type -p aspell; then
-    echo "aspell already installed . . . skipping install"
-else
-    echo "installing aspell"
-    brew install aspell --lang=en
-fi
+brew update
+brew upgrade
+
+type wget >/dev/null 2>&1 || brew install wget
+type aspell >/dev/null 2>&1 || brew install aspell
 
