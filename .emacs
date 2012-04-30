@@ -217,10 +217,6 @@
 ;; Visual bell instead of annoying beep
 (setq visible-bell t)
 
-;; the messages buffer is not necessary, until it is.
-(setq message-log-max nil)
-(kill-buffer "*Messages*")
-
 ;; No need to see instructions in the scratch buffer
 (setq initial-scratch-message nil)
 
