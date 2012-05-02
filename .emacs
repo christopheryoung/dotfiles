@@ -474,6 +474,7 @@
 (global-set-key (kbd "C-h C-c") 'get-cheatsheet)
 
 ;; Browse in new tabs instead of the current one
+;; Does not seem to work with chrome
 (setq browse-url-new-window-flag t)
 
 
