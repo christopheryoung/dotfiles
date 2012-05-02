@@ -147,6 +147,7 @@
                               auto-complete
                               clojure-mode
                               clojure-test-mode
+                              command-frequency
                               csv-mode
                               dired-single
                               expand-region
@@ -480,6 +481,12 @@
 
 
 ;; OTHER MODES AND TOOLS
+
+;; Statistical omphaloskepsis
+(require 'command-frequency)
+(command-frequency-table-load)
+(command-frequency-mode 1)
+(command-frequency-autosave-mode 1)
 
 ;; Tail
 (require 'tail)
