@@ -375,12 +375,15 @@
 
 (global-set-key (kbd "C-]") 'match-paren)
 
-
 ;; Browse the kill ring easily
 (global-set-key "\C-cy" '(lambda ()
     (interactive) (popup-menu 'yank-menu)))
 
 ;; And the mark ring
+
+;; Let me *see* the marks
+(require 'visible-mark)
+(visible-mark-mode 1)
 
 ;; Allow for mark ring traversal without popping them off the stack.
 (setq set-mark-command-repeat-pop t)
