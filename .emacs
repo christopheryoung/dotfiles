@@ -479,7 +479,7 @@
 
 ;; OTHER MODES AND TOOLS
 
-;; And now I will study my endlessly fascinating self
+;; Statistical omphaloskepsis
 (require 'command-frequency)
 (command-frequency-table-load)
 (command-frequency-mode 1)
