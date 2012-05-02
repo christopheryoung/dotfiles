@@ -13,6 +13,7 @@ BACKUP_DIR=~/archive/dotfiles_old
 
 VENDOR_REPO=$SETUP_SCRIPT_DIR_PATH/emacs/vendor
 EMACSD=~/.emacs.d
+EMACSD_VENDOR=$EMACSD/vendor
 
 ########################################
 #Backup .emacs.d
@@ -63,5 +64,6 @@ echo "(add-to-list 'load-path \"$EMACSD/midje-mode/\")" >> extra-loadpaths.el
 # copy the vendor dir for any emacs packages which aren't
 # available on elpa or marmalade or via el-get
 
-echo "Copying repo vendor to ~/.emacs.d"
-cp -rf $VENDOR_REPO $EMACSD
+echo "Creating symbolic links from ~/.emacs/vendor to vendor repo"
+rm -rf $EMACSD_VENDOR
+ln -s $VENDOR_REPO $EMACSD_VENDOR
