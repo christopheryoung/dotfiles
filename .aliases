@@ -9,6 +9,7 @@ alias ..="cd .."
 alias ...="cd ../.."
 alias c="cd ~/code"
 alias d="cd ~/Dropbox"
+alias h="cd ~/"
 alias g="git="
 
 # Listings
