@@ -419,6 +419,7 @@
 (setq ace-jump-mode-case-sensitive-search nil)
 (define-key global-map (kbd "C-c SPC") 'ace-jump-mode)
 (key-chord-define-global "jj" 'ace-jump-mode)
+(define-key global-map (kbd "C-o") 'ace-jump-mode) ;; was bound to <insertline>
 
 ;; goto
 (global-set-key (kbd "M-g") 'goto-line)
