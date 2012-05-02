@@ -357,8 +357,6 @@
 ;; Safe deletes
 (setq delete-by-moving-to-trash t)
 
-;; Lets us edit tar/zip/jar files easily
-(auto-compression-mode 1)
 
 ;; MOVING AND SEARCHING AND MANIPULATING THE REGION
 
