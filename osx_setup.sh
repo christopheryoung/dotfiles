@@ -19,8 +19,4 @@ brew upgrade
 type wget >/dev/null 2>&1 || brew install wget
 type aspell >/dev/null 2>&1 || brew install aspell
 
-########################################
-#Mac specific stuff
-########################################
 
-easy_install readline

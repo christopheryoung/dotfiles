@@ -54,7 +54,7 @@ type ipython >/dev/null 2>&1 || pip install ipython
 
 type grin >/dev/null 2>&1 || sudo easy_install grin
 
-easy_install readline #note easy_install, not pip
+sudo easy_install readline #note easy_install, not pip
 
 ########################################
 #Leiningen
