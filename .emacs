@@ -563,11 +563,6 @@
             (local-set-key (kbd "C-c C-,") 'midje-check-fact)
             ))
 
-(add-hook 'clojure-test-mode-hook
-          (lambda ()
-            (local-unset-key (kbd "C-c C-,"))
-            ))
-
 (add-hook 'slime-repl-mode-hook
           (lambda ()
             (defun clojure-mode-slime-font-lock ()
