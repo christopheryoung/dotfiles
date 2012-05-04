@@ -146,7 +146,6 @@
                               ace-jump-mode
                               auto-complete
                               clojure-mode
-                              clojure-test-mode
                               command-frequency
                               csv-mode
                               dired-single
