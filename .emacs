@@ -151,6 +151,7 @@
                               dired-single
                               expand-region
                               find-file-in-project
+                              go-mode
                               haskell-mode
                               ispell
                               magit
@@ -592,3 +593,7 @@
 
 (require 'python-mode)
 (setq py-shell-name "ipython")
+
+;; GO
+
+(require 'go-mode-load)
