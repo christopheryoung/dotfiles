@@ -455,6 +455,7 @@
 (setq cheatsheets '(("Clojure" "http://jafingerhut.github.com/cheatsheet-clj-1.3/cheatsheet-tiptip-cdocs-summary.html")
                     ("ClojureDocs" "http://clojuredocs.org/")
                     ("Elisp Cookbook" "http://www.emacswiki.org/emacs/ElispCookbook")
+                    ("HTML5" "http://www.nihilogic.dk/labs/canvas_sheet/HTML5_Canvas_Cheat_Sheet.pdf")
                     ("Magit" "http://cheat.errtheblog.com/s/magit/")
                     ("Paredit" "http://www.emacswiki.org/emacs/PareditCheatsheet")
                     ))
