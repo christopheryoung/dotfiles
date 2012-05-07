@@ -156,6 +156,7 @@
                               expand-region
                               find-file-in-project
                               go-mode
+                              javadoc-help
                               haskell-mode
                               ispell
                               magit
@@ -165,11 +166,13 @@
                               multi-term
                               paredit
                               python-mode
+                              pyregexp
                               quack
                               rainbow-delimiters
                               smex
                               starter-kit
                               starter-kit-bindings
+                              starter-kit-js
                               starter-kit-lisp
                               undo-tree
                               windmove
