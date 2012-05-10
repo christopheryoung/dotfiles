@@ -540,9 +540,21 @@
 
 ;; LANGUAGES
 
-;; generic
+;; SLIME (FOR LIPSY STUFF)
 
 (key-chord-define-global "qq" 'slime-eval-defun)
+
+(add-hook 'slime-repl-mode-hook
+          (lambda ()
+            (defun clojure-mode-slime-font-lock ()
+              (let (font-lock-mode)
+                (clojure-mode-font-lock-setup)))
+            (local-set-key [(up)] 'slime-repl-backward-input)
+            (local-set-key [(down)] 'slime-repl-forward-input)))
+
+;; ac-slime (autocomplete)
+(require 'ac-slime)
+(add-hook 'slime-mode-hook 'set-up-slime-ac)
 
 ;; eldoc, how did I ever live without you?
 (add-hook 'clojure-mode-hook 'turn-on-eldoc-mode)
@@ -561,6 +573,10 @@
       "/Applications/mit-scheme.app/Contents/Resources/mit-scheme")
 (require 'xscheme)
 
+;; JAVA
+
+(global-set-key (kbd "C-h C-j") 'javadoc-lookup)
+
 ;; CLOJURE
 
 (add-hook 'clojure-mode-hook
@@ -571,23 +587,11 @@
             (local-set-key (kbd "C-c C-,") 'midje-check-fact)
             ))
 
-(add-hook 'slime-repl-mode-hook
-          (lambda ()
-            (defun clojure-mode-slime-font-lock ()
-              (let (font-lock-mode)
-                (clojure-mode-font-lock-setup)))
-            (local-set-key [(up)] 'slime-repl-backward-input)
-            (local-set-key [(down)] 'slime-repl-forward-input)))
-
 ;; Macs are odd; had to do this to get clojure-jack-in working
 (if (eq system-type 'darwin)
     (setenv "PATH" (concat "~/bin:" (getenv "PATH"))))
 
 (setenv "PATH" (shell-command-to-string "echo $PATH"))
-
-;; ac-slime (autocomplete)
-(require 'ac-slime)
-(add-hook 'slime-mode-hook 'set-up-slime-ac)
 
 ;; HASKELL
 
