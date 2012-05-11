@@ -5,4 +5,4 @@
                   [lein-midje "2.0.0-SNAPSHOT"]
                   [jonase/eastwood "0.0.2"]]}}
 
-{:eastwood {:exclude-linters [:misplaced-docstring]}}
+{:eastwood {:exclude-linters [:misplaced-docstrings]}}
