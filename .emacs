@@ -1,6 +1,6 @@
 
-;; Pretty basic .emacs which I use with emacs starter kit.  Requires
-;; Emacs 24 at the moment.
+;; My .emacs. Lots of goodies, mostly scavaged from elsewhere. Requires Emacs
+;; 24 at the moment.
 
 ;; DEFAULT COMMANDS THAT I'VE FOUND ESPECIALLY USEFUL
 ;;
