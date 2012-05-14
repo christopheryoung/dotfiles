@@ -4,6 +4,9 @@
             [lein-pprint "1.1.1"]
             [lein-swank "1.4.3"]
             [lein-midje "2.0.0-SNAPSHOT"]
-            [jonase/eastwood "0.0.2"]]
+            [jonase/eastwood "0.0.2"]
+            [lein-outdated "0.1.0"]
+            [lein-licenses "0.1.0"]
+            ]
   :eastwood {:exclude-linters [:misplaced-docstrings]}}}
 
