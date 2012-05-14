@@ -130,6 +130,11 @@
 ;;   u - unstage the hunk
 ;;
 
+;; PRELIMINARIES
+
+(if (string-match "apple-darwin" system-configuration)
+    (setq *on-a-mac* t))
+
 ;; cl, to make life a little easier
 
 (require 'cl)
@@ -264,7 +269,7 @@
 
 ;; Mac Appearance Stuff
 
-(if (string-match "apple-darwin" system-configuration)
+(if *on-a-mac*
     (set-face-font 'default "Monaco-18")
   (set-frame-font "Monospace-10"))
 
@@ -588,7 +593,7 @@
             ))
 
 ;; Macs are odd; had to do this to get clojure-jack-in working
-(if (eq system-type 'darwin)
+(if *on-a-mac*
     (setenv "PATH" (concat "~/bin:" (getenv "PATH"))))
 
 (setenv "PATH" (shell-command-to-string "echo $PATH"))
