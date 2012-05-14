@@ -522,19 +522,10 @@
 
 (setq tramp-default-method "ssh")
 
-
 ;; MAGIT
 
 (require 'magit)
 (global-set-key (kbd "C-x m") 'magit-status)
-
-
-;; VIPER
-;; Don't laugh. Emacs may be a better editor, but modal editing
-;; is superior editing.
-
-;;(setq viper-mode t)
-;;(require 'viper)
 
 ;; SMEX (better M-x)
 (require 'smex)
