@@ -210,11 +210,7 @@
 (add-hook 'window-setup-hook 'maximize-frame t)
 
 ;; Show more info in taskbar/icon than just "Emacs"
-
-(setq frame-title-format
-  '("" invocation-name ": "(:eval (if (buffer-file-name)
-                (abbreviate-file-name (buffer-file-name))
-                  "%b"))))
+(setq frame-title-format '(buffer-file-name "%f" ("%b")))
 
 ;; Get rid of the startup message
 (setq inhibit-startup-message t)
