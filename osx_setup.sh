@@ -9,7 +9,7 @@
 ########################################
 
 #Make sure permissions on /usr/local are ok
-sudo chown -R `whoami` /usr/local
+chown -R `whoami` /usr/local
 
 type brew >/dev/null 2>&1 || /usr/bin/ruby -e "$(/usr/bin/curl -fksSL https://raw.github.com/mxcl/homebrew/master/Library/Contributions/install_homebrew.rb)"
 

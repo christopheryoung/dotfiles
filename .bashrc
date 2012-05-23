@@ -77,7 +77,7 @@ export PATH=$PATH:~/bin
 # virtualenvwrapper
 
 export WORKON_HOME=~/code/virtualenvs
-export PROJECT_HOME=~/code/
+export PROJECT_HOME=~/code
 source /usr/local/bin/virtualenvwrapper.sh
 
 # Functions
