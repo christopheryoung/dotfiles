@@ -563,7 +563,21 @@
 ;; This is your old M-x.
 (global-set-key (kbd "C-c C-c M-x") 'execute-extended-command)
 
-;; LANGUAGES
+;; PROGRAMMING LANGUAGES, ETC.
+
+;; GENERAL
+
+;; ac-slime (autocomplete)
+(require 'ac-slime)
+(add-hook 'slime-mode-hook 'set-up-slime-ac)
+
+;; eldoc, how did I ever live without you?
+(add-hook 'clojure-mode-hook 'turn-on-eldoc-mode)
+(add-hook 'emacs-lisp-mode-hook 'turn-on-eldoc-mode)
+
+;;auto-complete
+(require 'auto-complete-config)
+(ac-config-default)
 
 ;; GENERALLY LISPY STUFF
 
@@ -591,31 +605,6 @@
             (local-set-key [(up)] 'slime-repl-backward-input)
             (local-set-key [(down)] 'slime-repl-forward-input)))
 
-;; ac-slime (autocomplete)
-(require 'ac-slime)
-(add-hook 'slime-mode-hook 'set-up-slime-ac)
-
-;; eldoc, how did I ever live without you?
-(add-hook 'clojure-mode-hook 'turn-on-eldoc-mode)
-(add-hook 'emacs-lisp-mode-hook 'turn-on-eldoc-mode)
-
-;;auto-complete
-(require 'auto-complete-config)
-(ac-config-default)
-
-;; ELISP
-(add-hook 'emacs-lisp-mode-hook 'eldoc-mode t)
-
-;;; SCHEME
-
-(setq scheme-program-name
-      "/Applications/mit-scheme.app/Contents/Resources/mit-scheme")
-(require 'xscheme)
-
-;; JAVA
-
-(global-set-key (kbd "C-h C-j") 'javadoc-lookup)
-
 ;; CLOJURE
 
 (add-hook 'clojure-mode-hook
@@ -632,12 +621,23 @@
 
 (setenv "PATH" (shell-command-to-string "echo $PATH"))
 
+;; ELISP
+(add-hook 'emacs-lisp-mode-hook 'eldoc-mode t)
+
+;; GO
+
+(require 'go-mode-load)
+
 ;; HASKELL
 
 (add-hook 'haskell-mode-hook 'turn-on-haskell-doc-mode)
 (add-hook 'haskell-mode-hook 'turn-on-haskell-indent)
 
 (require 'auto-complete-haskell)
+
+;; JAVA
+
+(global-set-key (kbd "C-h C-j") 'javadoc-lookup)
 
 ;; PROTOBUF
 
@@ -648,6 +648,8 @@
 (require 'python-mode)
 (setq py-shell-name "ipython")
 
-;; GO
+;; SCHEME
 
-(require 'go-mode-load)
+(setq scheme-program-name
+      "/Applications/mit-scheme.app/Contents/Resources/mit-scheme")
+(require 'xscheme)
