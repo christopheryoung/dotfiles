@@ -170,6 +170,7 @@
                               midje-mode
                               multi-term
                               paredit
+                              protobuf-mode
                               python-mode
                               pyregexp
                               quack
@@ -637,6 +638,10 @@
 (add-hook 'haskell-mode-hook 'turn-on-haskell-indent)
 
 (require 'auto-complete-haskell)
+
+;; PROTOBUF
+
+(require 'protobuf-mode)
 
 ;; PYTHON
 
