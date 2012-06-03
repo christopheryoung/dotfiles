@@ -182,6 +182,7 @@
                               starter-kit-lisp
                               undo-tree
                               windmove
+                              wrap-region
                               )
   "A list of packages to ensure are installed at launch.")
 
@@ -414,6 +415,10 @@
         ((looking-at "[\]\)\}]") (forward-char) (backward-sexp))
         ((looking-back "[\[\(\{]" 1) (backward-char) (forward-sexp))
         (t (self-insert-command (or arg 1)))))
+
+;; And make it easy to wrap a region with parens, etc.
+(require 'wrap-region)
+(wrap-region-mode t)
 
 (global-set-key (kbd "C-]") 'match-paren)
 
