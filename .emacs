@@ -602,6 +602,8 @@
 
 (key-chord-define-global "qq" 'slime-eval-defun)
 
+(global-set-key (kbd "C-c m") 'slime-macroexpand-1)
+
 (add-hook 'slime-repl-mode-hook
           (lambda ()
             (defun clojure-mode-slime-font-lock ()
