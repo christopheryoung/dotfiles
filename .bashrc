@@ -95,3 +95,11 @@ source ~/.git-completion.sh
 if [ -f /etc/bash_completion ]; then
     . /etc/bash_completion
 fi
+
+# Postgres.app path configuration, only necessary on OSX
+
+if [[ $OSTYPE == darwin* ]]; then
+    PATH="/Applications/Postgres.app/Contents/MacOS/bin:$PATH"
+fi
+
+
