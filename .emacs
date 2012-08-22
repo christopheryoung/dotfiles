@@ -258,6 +258,7 @@
 (show-paren-mode 1)
 (require 'rainbow-delimiters)
 (global-rainbow-delimiters-mode)
+(setq show-paren-style 'expression)
 
 ;; Let's see when we go out of bounds
 (setq-default fill-column 79)
