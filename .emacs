@@ -162,6 +162,7 @@
                               find-file-in-project
                               go-mode
                               javadoc-help
+                              js2-mode
                               haskell-mode
                               ispell
                               magit
@@ -176,6 +177,7 @@
                               quack
                               rainbow-delimiters
                               smex
+                              slime-js
                               starter-kit
                               starter-kit-bindings
                               starter-kit-js
@@ -645,6 +647,17 @@
 ;; JAVA
 
 (global-set-key (kbd "C-h C-j") 'javadoc-lookup)
+
+;; JAVASCRIPT
+
+(add-to-list 'load-path "/path/to/js2-mode/directory")
+(autoload 'js2-mode "js2-mode" nil t)
+(add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))
+
+(global-set-key [f5] 'slime-js-reload)
+(add-hook 'js2-mode-hook
+          (lambda ()
+            (slime-js-minor-mode 1)))
 
 ;; PROTOBUF
 
