@@ -374,6 +374,10 @@
 
 ;; MOVING AND SEARCHING AND MANIPULATING THE REGION
 
+;; Sane scrolling
+(global-set-key (kbd "C-.") (lambda () (interactive) (scroll-up 1)))
+(global-set-key (kbd "C-,")   (lambda () (interactive) (scroll-down 1)))
+
 ;; The following section is a good idea until I've broken some bad habits.
 ;; The following courtesy of: http://danamlund.dk/emacs/no-easy-keys.html
 (defvar no-easy-keys-minor-mode-map (make-keymap)
