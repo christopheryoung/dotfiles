@@ -635,6 +635,22 @@
 
 (setenv "PATH" (shell-command-to-string "echo $PATH"))
 
+;; Functions that make it even easier to interact with clojure in emacs.
+
+(defun clojure-interns (string)
+  (let ((namespace-lookup (format "(keys (ns-interns '%s))" string)))
+    (slime-interactive-eval namespace-lookup)))
+
+(string-match "test" (buffer-string))
+
+(defun inspect-clojure-namespace (string)
+  (interactive (list (slime-read-from-minibuffer "Namespace: ")))
+  (clojure-interns string))
+
+(defun inspect-clojure-namespace-at-point ()
+  (interactive)
+  (clojure-interns (slime-symbol-at-point)))
+
 ;; ELISP
 (add-hook 'emacs-lisp-mode-hook 'eldoc-mode t)
 
