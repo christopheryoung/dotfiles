@@ -23,6 +23,9 @@ alias mkdir='mkdir -p'
 #Leiningen project status
 alias cljst='lein outdated && lein eastwood && lein midje'
 
+#jslint
+alias jslint='~/bin/node_modules/jslint/bin/jslint.js --nomen --vars'
+
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
     eval "`dircolors -b`"
