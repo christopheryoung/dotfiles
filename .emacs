@@ -677,14 +677,14 @@
 
 ;; JAVASCRIPT
 
-(add-to-list 'load-path "/path/to/js2-mode/directory")
 (autoload 'js2-mode "js2-mode" nil t)
 (add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))
 
-(global-set-key [f5] 'slime-js-reload)
-(add-hook 'js2-mode-hook
-          (lambda ()
-            (slime-js-minor-mode 1)))
+;; (global-set-key [f5] 'slime-js-reload)
+;; (add-hook 'js2-mode-hook
+;;           (lambda ()
+;;             (slime-js-minor-mode 1)
+;;             (set-variable 'indent-tabs-mode nil)))
 
 ;; PROTOBUF
 
