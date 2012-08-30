@@ -14,6 +14,8 @@ BACKUP_DIR=~/archive/dotfiles_old
 VENDOR_REPO=$SETUP_SCRIPT_DIR_PATH/emacs/vendor
 EMACSD=~/.emacs.d
 EMACSD_VENDOR=$EMACSD/vendor
+SNIPPETS_REPO=$SETUP_SCRIPT_DIR_PATH/emacs/snippets
+EMACS_SNIPPETS_DIR=$EMACSD/snippets
 
 ########################################
 #Backup .emacs.d
@@ -67,3 +69,7 @@ echo "(add-to-list 'load-path \"$EMACSD/midje-mode/\")" >> extra-loadpaths.el
 echo "Creating symbolic links from ~/.emacs/vendor to vendor repo"
 rm -rf $EMACSD_VENDOR
 ln -s $VENDOR_REPO $EMACSD_VENDOR
+
+echo "Creating symbolic links from ~/.emacs/snippets to snippets
+rm -rf $SNIPPETS_REPO
+ln -s $SNIPPET_REPO $EMACS_SNIPPETS_DIR

@@ -185,6 +185,7 @@
                               undo-tree
                               windmove
                               wrap-region
+                              yasnippet
                               )
   "A list of packages to ensure are installed at launch.")
 
@@ -535,6 +536,11 @@
 
 
 ;; OTHER MODES AND TOOLS
+
+;; yasnippet
+
+(require 'yasnippet)
+(yas-global-mode 1)
 
 ;; Statistical omphaloskepsis
 (require 'command-frequency)
