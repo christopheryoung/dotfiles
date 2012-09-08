@@ -170,6 +170,7 @@
                               maxframe
                               midje-mode
                               multi-term
+                              nrepl
                               paredit
                               protobuf-mode
                               python-mode
@@ -631,7 +632,7 @@
           (lambda ()
             (require 'midje-mode)
             (require 'clojure-jump-to-file)
-            (local-set-key (kbd "C-c C-j") 'clojure-jack-in)
+            (local-set-key (kbd "C-c C-j") 'nrepl-jack-in)
             (local-set-key (kbd "C-c C-,") 'midje-check-fact)
             ))
 
