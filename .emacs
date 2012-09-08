@@ -103,7 +103,7 @@
 ;; C-c C-b = Move to previous heading same level.
 ;; C-c C-u = Move backward to higher level heading.
 
-;; . . . When using Slime/Swank/Clojure
+;; . . . When using nRepl/Clojure
 ;; C-c C-l = load current buffer and force required namespaces to
 ;; reload
 ;; C-c I = Inspect a value
@@ -148,10 +148,10 @@
 (add-to-list 'package-archives
              '("melpa" . "http://melpa.milkbox.net/packages/") t)
 
- (package-initialize)
+(package-initialize)
 
 (defvar my-package-packages '(
-                              ac-slime
+                              ac-nrepl
                               ace-jump-mode
                               auto-complete
                               clojure-mode
@@ -586,10 +586,6 @@
 
 ;; GENERAL
 
-;; ac-slime (autocomplete)
-(require 'ac-slime)
-(add-hook 'slime-mode-hook 'set-up-slime-ac)
-
 ;; eldoc, how did I ever live without you?
 (add-hook 'clojure-mode-hook 'turn-on-eldoc-mode)
 (add-hook 'emacs-lisp-mode-hook 'turn-on-eldoc-mode)
@@ -605,26 +601,15 @@
 (autoload 'paredit-mode "paredit"
   "Minor mode for pseudo-structurally editing Lisp code."
   t)
-;(add-hook 'lisp-mode-hook (lambda () (paredit-mode +1)))
 (mapc (lambda (mode)
         (let ((hook (intern (concat (symbol-name mode)
                                     "-mode-hook"))))
           (add-hook hook (lambda () (paredit-mode +1)))))
       '(emacs-lisp lisp inferior-lisp slime slime-repl))
 
-;; And now slime stuff
+;; And now nrepl stuff
 
-(key-chord-define-global "qq" 'slime-eval-defun)
-
-(global-set-key (kbd "C-c m") 'slime-macroexpand-1)
-
-(add-hook 'slime-repl-mode-hook
-          (lambda ()
-            (defun clojure-mode-slime-font-lock ()
-              (let (font-lock-mode)
-                (clojure-mode-font-lock-setup)))
-            (local-set-key [(up)] 'slime-repl-backward-input)
-            (local-set-key [(down)] 'slime-repl-forward-input)))
+(key-chord-define-global "qq" 'nrepl-eval-expression-at-point)
 
 ;; CLOJURE
 
@@ -646,17 +631,17 @@
 
 (defun clojure-interns (string)
   (let ((namespace-lookup (format "(keys (ns-interns '%s))" string)))
-    (slime-interactive-eval namespace-lookup)))
+    (nrepl-interactive-eval namespace-lookup)))
 
 (string-match "test" (buffer-string))
 
 (defun inspect-clojure-namespace (string)
-  (interactive (list (slime-read-from-minibuffer "Namespace: ")))
+  (interactive (list (read-from-minibuffer "Namespace: ")))
   (clojure-interns string))
 
 (defun inspect-clojure-namespace-at-point ()
   (interactive)
-  (clojure-interns (slime-symbol-at-point)))
+  (clojure-interns (nrepl-symbol-at-point)))
 
 ;; ELISP
 (add-hook 'emacs-lisp-mode-hook 'eldoc-mode t)
