@@ -309,6 +309,10 @@
 ;; Changes default mode to Text (instead of Fundamental)
 (setq default-major-mode 'text-mode)
 
+;; Just pretend I hit key command for save-some-buffers everytime I
+;; accidentially hit key command for save-buffer
+(global-set-key (kbd "C-x C-s") 'save-some-buffers)
+
 ;; Don't make backup files or auto-save.
 (setq make-backup-files nil)
 (setq auto-save-default nil)
