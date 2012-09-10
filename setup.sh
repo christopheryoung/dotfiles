@@ -8,7 +8,6 @@
 #Directories
 ########################################
 
-SETUP_SCRIPT_DIR_PATH=`dirname "$0"`
 SETUP_SCRIPT_DIR_PATH=`( cd "$MY_PATH" && pwd )`
 
 ########################################
