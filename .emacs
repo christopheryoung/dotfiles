@@ -313,6 +313,10 @@
 ;; accidentially hit key command for save-buffer
 (global-set-key (kbd "C-x C-s") 'save-some-buffers)
 
+;; Reload buffers when they have changed on disk, unless they have their own
+;; local modifications
+(global-auto-revert-mode t)
+
 ;; Don't make backup files or auto-save.
 (setq make-backup-files nil)
 (setq auto-save-default nil)
