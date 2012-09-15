@@ -70,6 +70,6 @@ echo "Creating symbolic links from ~/.emacs/vendor to vendor repo"
 rm -rf $EMACSD_VENDOR
 ln -s $VENDOR_REPO $EMACSD_VENDOR
 
-echo "Creating symbolic links from ~/.emacs/snippets to snippets
+echo "Creating symbolic links from ~/.emacs/snippets to snippets"
 rm -rf $SNIPPETS_REPO
 ln -s $SNIPPET_REPO $EMACS_SNIPPETS_DIR
