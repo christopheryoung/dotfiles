@@ -12,10 +12,11 @@ SETUP_SCRIPT_DIR_PATH=`( cd "$MY_PATH" && pwd )`
 BACKUP_DIR=~/archive/dotfiles_old
 
 VENDOR_REPO=$SETUP_SCRIPT_DIR_PATH/emacs/vendor
+SNIPPETS_REPO=$SETUP_SCRIPT_DIR_PATH/emacs/snippets
 EMACSD=~/.emacs.d
 EMACSD_VENDOR=$EMACSD/vendor
-SNIPPETS_REPO=$SETUP_SCRIPT_DIR_PATH/emacs/snippets
-EMACS_SNIPPETS_DIR=$EMACSD/snippets
+EMACSD_SNIPPETS=$EMACSD/snippets
+
 
 ########################################
 #Backup .emacs.d
@@ -71,5 +72,5 @@ rm -rf $EMACSD_VENDOR
 ln -s $VENDOR_REPO $EMACSD_VENDOR
 
 echo "Creating symbolic links from ~/.emacs/snippets to snippets"
-rm -rf $SNIPPETS_REPO
-ln -s $SNIPPET_REPO $EMACS_SNIPPETS_DIR
+rm -rf $EMACSD_SNIPPETS
+ln -s $SNIPPETS_REPO $EMACSD_SNIPPETS
