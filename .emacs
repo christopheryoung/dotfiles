@@ -549,7 +549,6 @@
 ;; OTHER MODES AND TOOLS
 
 ;; yasnippet
-
 (require 'yasnippet)
 (setq yas/trigger-key "<C-tab>")
 (setq yas/prompt-functions '(yas/ido-prompt
@@ -570,6 +569,7 @@
 (require 'tail)
 
 ;; FLYSPELL
+
 ;; Checks spelling in comments and doc strings
 (flyspell-prog-mode)
 
@@ -687,12 +687,6 @@
 
 (autoload 'js2-mode "js2-mode" nil t)
 (add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))
-
-;; (global-set-key [f5] 'slime-js-reload)
-;; (add-hook 'js2-mode-hook
-;;           (lambda ()
-;;             (slime-js-minor-mode 1)
-;;             (set-variable 'indent-tabs-mode nil)))
 
 ;; PROTOBUF
 
