@@ -187,6 +187,7 @@
                               windmove
                               wrap-region
                               yasnippet
+                              zencoding-mode
                               )
   "A list of packages to ensure are installed at launch.")
 
@@ -459,8 +460,8 @@
   (windmove-default-keybindings))
 
 ;; Make it easy to switch buffers
-(global-set-key [(control tab)] 'next-buffer)
-(global-set-key [(control shift tab)] 'previous-buffer)
+;; (global-set-key [(control tab)] 'next-buffer)
+;; (global-set-key [(control shift tab)] 'previous-buffer)
 (global-set-key (kbd "C-.") 'ido-switch-buffer)
 
 ;; and kill them, cause I do that all day long
@@ -522,6 +523,7 @@
                     ("HTML5" "http://www.nihilogic.dk/labs/canvas_sheet/HTML5_Canvas_Cheat_Sheet.pdf")
                     ("Magit" "http://cheat.errtheblog.com/s/magit/")
                     ("Paredit" "http://www.emacswiki.org/emacs/PareditCheatsheet")
+                    ("ZenCoding" "https://github.com/rooney/zencoding")
                     ))
 
 (defun search-interwebs(query)
@@ -549,7 +551,14 @@
 ;; yasnippet
 
 (require 'yasnippet)
-(yas-global-mode 1)
+(setq yas/trigger-key "<C-tab>")
+(setq yas/prompt-functions '(yas/ido-prompt
+                             yas/completing-prompt))
+
+;; zencoding-mode
+(add-hook 'sgml-mode-hook 'zencoding-mode)
+(add-hook 'sgml-mode-hook ( lambda ()
+                            (local-set-key (kbd "C-c C-j") 'zencoding-expand-line)))
 
 ;; Statistical omphaloskepsis
 (require 'command-frequency)
@@ -561,7 +570,6 @@
 (require 'tail)
 
 ;; FLYSPELL
-
 ;; Checks spelling in comments and doc strings
 (flyspell-prog-mode)
 
