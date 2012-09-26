@@ -249,8 +249,7 @@
 (set-face-italic-p 'font-lock-comment-face t)
 
 ;; font size . . .
-(set-face-attribute 'default t :height 160)
-;(set-face-attribute 'default nil :height 180)
+(set-face-attribute 'default t :family "Inconsolata" :height 160 :weight 'normal)
 
 ;; Line numbers! Always!
 (require 'linum)
