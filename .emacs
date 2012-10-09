@@ -520,6 +520,9 @@
 (setq yas/trigger-key "<C-tab>")
 (setq yas/prompt-functions '(yas/ido-prompt
                              yas/completing-prompt))
+(yas-load-directory "~/.emacs.d/snippets")
+(yas-global-mode 1)
+
 
 ;; zencoding-mode
 (add-hook 'sgml-mode-hook 'zencoding-mode)
