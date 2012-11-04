@@ -345,6 +345,11 @@
 (setq recentf-max-menu-items 100)
 (global-set-key (kbd "C-x C-r") 'recentf-open-files)
 
+;; Make it easy to get to my worklog
+(defun open-worklog ()
+  (interactive)
+  (find-file "~/Dropbox/cy/notes/worklog.txt"))
+
 ;; Some more useful commands
 
 (global-set-key [f2] 'comment-region)
