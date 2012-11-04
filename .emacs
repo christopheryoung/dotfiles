@@ -239,9 +239,6 @@
 ;; Let's see column numbers.
 (column-number-mode t)
 
-;; Show trailing whitespace
-(setq-default show-trailing-whitespace t)
-
 ;; Fonts are automatically highlighted.  For more information
 ;; type M-x describe-mode font-lock-mode
 (global-font-lock-mode t)
@@ -336,6 +333,12 @@
    (add-to-list 'desktop-modes-not-to-save 'Info-mode)
    (add-to-list 'desktop-modes-not-to-save 'info-lookup-mode)
    (add-to-list 'desktop-modes-not-to-save 'fundamental-mode)
+
+;; clean up whitespace on save
+
+(add-hook 'before-save-hook
+          (lambda () (whitespace-cleanup)))
+
 
 ;; Recent files
 (recentf-mode 1)
