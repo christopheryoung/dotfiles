@@ -159,7 +159,7 @@
                               csv-mode
                               dired-single
                               expand-region
-                              find-file-in-project
+							  find-file-in-project
                               go-mode
                               javadoc-help
                               js2-mode
