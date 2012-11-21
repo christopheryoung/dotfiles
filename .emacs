@@ -435,9 +435,8 @@
   (windmove-default-keybindings))
 
 ;; Make it easy to switch buffers
-;; (global-set-key [(control tab)] 'next-buffer)
-;; (global-set-key [(control shift tab)] 'previous-buffer)
-(global-set-key (kbd "C-.") 'ido-switch-buffer)
+(global-set-key [(control tab)] 'next-buffer)
+(global-set-key [(control shift tab)] 'previous-buffer)
 
 ;; and kill them, cause I do that all day long
 (global-set-key [(control return)] 'ido-kill-buffer)
