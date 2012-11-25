@@ -705,3 +705,6 @@ https://github.com/magnars/.emacs.d/blob/master/defuns/lisp-defuns.el"
 
 (require 'web-mode)
 (add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
+(add-hook 'js2-mode-hook
+          (lambda ()
+            (imenu-add-menubar-index)))
