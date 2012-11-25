@@ -636,6 +636,7 @@ https://github.com/magnars/.emacs.d/blob/master/defuns/lisp-defuns.el"
             (require 'midje-mode)
             (require 'clojure-jump-to-file)
             (local-set-key (kbd "C-c C-j") 'nrepl-jack-in)
+            (imenu-add-menubar-index)
             (local-set-key (kbd "C-c C-,") 'midje-check-fact)
             (local-set-key (kbd "C-z") 'nrepl-eval-expression-at-point)))
 
