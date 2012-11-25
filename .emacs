@@ -708,3 +708,6 @@ https://github.com/magnars/.emacs.d/blob/master/defuns/lisp-defuns.el"
 (add-hook 'js2-mode-hook
           (lambda ()
             (imenu-add-menubar-index)))
+(add-hook 'js2-mode-hook
+          (lambda ()
+            (imenu-add-menubar-index)))
