@@ -159,8 +159,9 @@
                               csv-mode
                               dired-single
                               expand-region
-							  find-file-in-project
+                              find-file-in-project
                               go-mode
+                              igrep
                               javadoc-help
                               js2-mode
                               haskell-mode
@@ -533,6 +534,11 @@
                              yas/completing-prompt))
 (yas-load-directory "~/.emacs.d/snippets")
 (yas-global-mode 1)
+
+;; igrep
+
+(global-set-key (kbd "C-c C-g") 'igrep-find)
+(setq igrep-find-use-xargs nil) ;; os x's default xargs doesn't accept the -e option
 
 
 ;; zencoding-mode
