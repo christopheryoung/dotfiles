@@ -629,8 +629,6 @@ https://github.com/magnars/.emacs.d/blob/master/defuns/lisp-defuns.el"
 (eval-after-load "auto-complete"
   '(add-to-list 'ac-modes 'nrepl-mode))
 
-(key-chord-define-global "qq" 'nrepl-eval-expression-at-point)
-
 ;; CLOJURE
 
 (add-hook 'clojure-mode-hook
@@ -639,7 +637,7 @@ https://github.com/magnars/.emacs.d/blob/master/defuns/lisp-defuns.el"
             (require 'clojure-jump-to-file)
             (local-set-key (kbd "C-c C-j") 'nrepl-jack-in)
             (local-set-key (kbd "C-c C-,") 'midje-check-fact)
-            ))
+            (local-set-key (kbd "C-z") 'nrepl-eval-expression-at-point)))
 
 ;; Macs are odd; had to do this to get clojure-jack-in working
 (if *on-a-mac*
