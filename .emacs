@@ -527,6 +527,15 @@
 
 ;; OTHER MODES AND TOOLS
 
+;; indent entire buffer
+(defun indent-buffer ()
+    "Indent the buffer"
+    (interactive)
+    (save-excursion
+        (delete-trailing-whitespace)
+        (indent-region (point-min) (point-max) nil)
+        (untabify (point-min) (point-max))))
+
 ;; yasnippet
 (require 'yasnippet)
 (setq yas/trigger-key "<C-tab>")
