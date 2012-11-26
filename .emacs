@@ -631,6 +631,7 @@ https://github.com/magnars/.emacs.d/blob/master/defuns/lisp-defuns.el"
 
 ;; CLOJURE
 
+
 (add-hook 'clojure-mode-hook
           (lambda ()
             (require 'midje-mode)
@@ -645,14 +646,28 @@ https://github.com/magnars/.emacs.d/blob/master/defuns/lisp-defuns.el"
     (setenv "PATH" (concat "~/bin:" (getenv "PATH"))))
 
 (setenv "PATH" (shell-command-to-string "echo $PATH"))
+
 ;; Functions that make it even easier to interact with clojure in emacs.
 
+(defun symbol-at-point-to-string ()
+  (interactive)
+  (let* ((bounds (bounds-of-thing-at-point 'symbol))
+        (start (car bounds))
+        (end (cdr bounds)))
+    (buffer-substring-no-properties start end)))
+
+(defun get-symbols-in-buffer ()
+  (interactive)
+  (let ((symbols '()))
+    (save-excursion
+      (goto-char (point-min))
+      (while (forward-symbol 1)
+        (setq symbols (cons (symbol-at-point-to-string) symbols))))
+    symbols))
 
 (defun clojure-interns (string)
-  (let ((namespace-lookup (format "(keys (ns-interns '%s))" string)))
+  (let ((namespace-lookup (format "(map str (keys (ns-interns '%s)))" string)))
     (nrepl-interactive-eval namespace-lookup)))
-
-(string-match "test" (buffer-string))
 
 (defun inspect-clojure-namespace (string)
   (interactive (list (read-from-minibuffer "Namespace: ")))
@@ -660,7 +675,12 @@ https://github.com/magnars/.emacs.d/blob/master/defuns/lisp-defuns.el"
 
 (defun inspect-clojure-namespace-at-point ()
   (interactive)
-  (clojure-interns (nrepl-symbol-at-point)))
+  (listp (clojure-interns (nrepl-symbol-at-point))))
+
+(defun clj-use ()
+  "This doesn't work yet"
+  (interactive)
+  (mapconcat 'identity (intersection (get-symbols-in-buffer) (inspect-clojure-namespace-at-point) :test 'string=) ""))
 
 ;; ELISP
 (add-hook 'emacs-lisp-mode-hook 'eldoc-mode t)
@@ -681,6 +701,10 @@ https://github.com/magnars/.emacs.d/blob/master/defuns/lisp-defuns.el"
 (global-set-key (kbd "C-h C-j") 'javadoc-lookup)
 
 ;; JAVASCRIPT
+
+(add-hook 'js2-mode-hook
+          (lambda ()
+            (imenu-add-menubar-index)))
 
 (autoload 'js2-mode "js2-mode" nil t)
 (add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))
@@ -705,9 +729,3 @@ https://github.com/magnars/.emacs.d/blob/master/defuns/lisp-defuns.el"
 
 (require 'web-mode)
 (add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
-(add-hook 'js2-mode-hook
-          (lambda ()
-            (imenu-add-menubar-index)))
-(add-hook 'js2-mode-hook
-          (lambda ()
-            (imenu-add-menubar-index)))
