@@ -286,9 +286,9 @@
 ;; Don't, for the love of Pete, make me type out "Yes" whenever I want
 ;; to quit emacs.  "y" and "n" will do.
 (setq kill-emacs-query-functions
-  (list (function (lambda ()
-                    (ding)
-                    (y-or-n-p "Really quit? ")))))
+      (list (function (lambda ()
+                        (ding)
+                        (y-or-n-p "Really quit? ")))))
 
 ;; Answer y or n instead of yes or no at minibar prompts.
 (defalias 'yes-or-no-p 'y-or-n-p)
@@ -337,10 +337,10 @@
       (concat "\\(" "^nn\\.a[0-9]+\\|\\.log\\|(ftp)\\|^tags\\|^TAGS"
               "\\|\\.emacs.*\\|\\.diary\\|\\.newsrc-dribble\\|\\.bbdb"
               "\\)$"))
-   (add-to-list 'desktop-modes-not-to-save 'dired-mode)
-   (add-to-list 'desktop-modes-not-to-save 'Info-mode)
-   (add-to-list 'desktop-modes-not-to-save 'info-lookup-mode)
-   (add-to-list 'desktop-modes-not-to-save 'fundamental-mode)
+(add-to-list 'desktop-modes-not-to-save 'dired-mode)
+(add-to-list 'desktop-modes-not-to-save 'Info-mode)
+(add-to-list 'desktop-modes-not-to-save 'info-lookup-mode)
+(add-to-list 'desktop-modes-not-to-save 'fundamental-mode)
 
 ;; clean up whitespace on save
 
@@ -429,7 +429,7 @@
 
 ;; Browse the kill ring easily
 (global-set-key "\C-cy" '(lambda ()
-    (interactive) (popup-menu 'yank-menu)))
+                           (interactive) (popup-menu 'yank-menu)))
 
 ;; And the mark ring
 
@@ -523,8 +523,8 @@
   (interactive)
   (setq choice (ido-completing-read "Cheatsheet: " (maplist 'caar cheatsheets)))
   (when choice
-   (let ((cheatsheet-url (car (cdr (assoc choice cheatsheets))))) ;; Seriously? Gotta learn elisp!
-     (browse-url cheatsheet-url))))
+    (let ((cheatsheet-url (car (cdr (assoc choice cheatsheets))))) ;; Seriously? Gotta learn elisp!
+      (browse-url cheatsheet-url))))
 
 (global-set-key (kbd "C-h C-b") 'browse-url)
 (global-set-key (kbd "C-h C-s") 'search-interwebs)
@@ -539,12 +539,12 @@
 
 ;; indent entire buffer
 (defun indent-buffer ()
-    "Indent the buffer"
-    (interactive)
-    (save-excursion
-        (delete-trailing-whitespace)
-        (indent-region (point-min) (point-max) nil)
-        (untabify (point-min) (point-max))))
+  "Indent the buffer"
+  (interactive)
+  (save-excursion
+    (delete-trailing-whitespace)
+    (indent-region (point-min) (point-max) nil)
+    (untabify (point-min) (point-max))))
 
 ;; yasnippet
 (require 'yasnippet)
@@ -671,8 +671,8 @@ https://github.com/magnars/.emacs.d/blob/master/defuns/lisp-defuns.el"
 (defun symbol-at-point-to-string ()
   (interactive)
   (let* ((bounds (bounds-of-thing-at-point 'symbol))
-        (start (car bounds))
-        (end (cdr bounds)))
+         (start (car bounds))
+         (end (cdr bounds)))
     (buffer-substring-no-properties start end)))
 
 (defun get-symbols-in-buffer ()
