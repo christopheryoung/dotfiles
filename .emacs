@@ -129,6 +129,12 @@
 ;;   s - stage the hunk
 ;;   u - unstage the hunk
 ;;
+;; Other very helpful commands, not yet bound
+;; highlight-changes-mode
+;; indent-buffer
+;; sort-lines
+;; re-builder (for building regular expressions)
+
 
 ;; PRELIMINARIES
 
