@@ -161,6 +161,7 @@
                               expand-region
                               find-file-in-project
                               go-mode
+                              iedit
                               igrep
                               javadoc-help
                               js2-mode
@@ -486,6 +487,9 @@
 ;; imenu
 
 (global-set-key (kbd "M-i") 'imenu)
+
+;; iedit
+(global-set-key (kbd "C-c i") 'iedit-mode)
 
 ;; undo tree
 
