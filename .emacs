@@ -629,9 +629,11 @@
 (setq-default ispell-program-name "/usr/local/bin/aspell")
 
 ;; IDO
-;; Not necessary if used with emacs starter kit
+;; Override a few settings in emacs starter kit
 (require 'ido)
 (ido-mode t)
+(setq ido-enable-flex-matching t)
+(setq ido-use-virtual-buffers t)
 
 ;; TRAMP
 
