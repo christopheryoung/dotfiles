@@ -71,6 +71,9 @@
 ;;
 ;; M-x tumme = Create thumbnails of a directory
 ;;
+;; . . . In grep . . .
+;; C-` = Move to the next grep result
+;;
 ;; . . . In the Auctex and RefTeX modes . . .
 ;;
 ;; C-c = Run LaTeX
