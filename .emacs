@@ -457,12 +457,16 @@
 
 ;; breadcrumbs for nameless bookmarks
 (require 'breadcrumb)
-(global-set-key (kbd "M-`") 'bc-set) ;; Shift-SPACE to set breadcrumb
-(global-set-key [(up)] 'bc-previous) ;; jump to previous
-(global-set-key [(down)] 'bc-next)  ;;jump to next
-(global-set-key [(meta up)] 'bc-local-previous) ;; M-up-arrow for local previous
-(global-set-key [(meta down)]'bc-local-next) ;; M-down-arrow for local next
+(global-set-key (kbd "M-`") 'bc-set) ;;
+(global-set-key [(meta up)] 'bc-previous) ;; jump to previous
+(global-set-key [(meta down)] 'bc-next)  ;;jump to next
 ;; bc-list to see menu list
+;; bc-clear to clear breadcrumbs
+
+;; smartscan
+(require 'smartscan)
+(global-set-key (kbd "<up>") 'smart-symbol-go-backward)
+(global-set-key (kbd "<down>") 'smart-symbol-go-forward)
 
 ;; Allow for mark ring traversal without popping them off the stack.
 (setq set-mark-command-repeat-pop t)
