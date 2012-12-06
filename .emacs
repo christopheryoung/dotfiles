@@ -303,6 +303,9 @@
 ;; No need to see byte compile warnings
 (setq byte-compile-warnings nil)
 
+;; Sentences don't need a double space to end
+(set-default 'sentence-end-double-space nil)
+
 ;; SavePlace- this puts the cursor in the last place you edited
 ;; a particular file. This is very useful for large files.
 (require 'saveplace)
