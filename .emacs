@@ -469,13 +469,12 @@
 
 ;; Windmove helps you move between open buffers when the screen is
 ;; split
-
 (when (fboundp 'windmove-default-keybindings)
   (windmove-default-keybindings))
 
 ;; Make it easy to switch buffers
-(global-set-key [(control tab)] 'next-buffer)
-(global-set-key [(control shift tab)] 'previous-buffer)
+(global-set-key (kbd "<right>") 'next-buffer)
+(global-set-key (kbd "<left>") 'previous-buffer)
 
 ;; and kill them, cause I do that all day long
 (global-set-key [(control return)] 'ido-kill-buffer)
