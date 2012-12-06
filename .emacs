@@ -458,8 +458,8 @@
 ;; breadcrumbs for nameless bookmarks
 (require 'breadcrumb)
 (global-set-key (kbd "M-`") 'bc-set) ;;
-(global-set-key [(meta up)] 'bc-previous) ;; jump to previous
-(global-set-key [(meta down)] 'bc-next)  ;;jump to next
+(global-set-key (kbd "C-M-<up>") 'bc-previous) ;; jump to previous
+(global-set-key (kbd "C-M-<down>") 'bc-next) ;;jump to next
 ;; bc-list to see menu list
 ;; bc-clear to clear breadcrumbs
 
