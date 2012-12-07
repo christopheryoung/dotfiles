@@ -7,6 +7,7 @@ alias mit-scheme='/Applications/mit-scheme.app/Contents/Resources/mit-scheme'
 # Navigation
 alias ..="cd .."
 alias ...="cd ../.."
+alias ....="cd ../../.."
 alias c="cd ~/code"
 alias d="cd ~/Dropbox"
 alias h="cd ~/"
