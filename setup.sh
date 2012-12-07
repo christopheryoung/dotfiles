@@ -15,14 +15,17 @@ SETUP_SCRIPT_DIR_PATH=`( cd "$MY_PATH" && pwd )`
 ########################################
 
 # list of files/folders to copy to homedir
-files="bashrc bash_profile emacs hgrc screenrc viper vimrc git-completion.sh gitignore osx functions aliases jslintrc"
+files="bashrc bash_profile emacs hgrc screenrc viper vimrc git-completion.sh osx functions aliases jslintrc"
 
 echo "Creating symbolic links in home directory"
 for file in $files; do
     rm ~/.$file
     echo "Creating symbolic link to .$file to home directory."
-    ln -s $SETUP_SCRIPT_DIR_PATH/$file ~/.$file
+    ln -s $SETUP_SCRIPT_DIR_PATH/.$file ~/.$file
 done
+
+rm ~/.gitignore
+ln -s $SETUP_SCRIPT_DIR_PATH/gitignore ~/.gitignore
 
 #gitconfig has special stuff, so we copy it over
 cp -f $SETUP_SCRIPT_DIR_PATH/gitconfig ~/.gitconfig
@@ -40,14 +43,6 @@ cat ~/.git_private >> ~/.gitconfig
 
 rm -rf ~/.emacs.d
 ln -s $SETUP_SCRIPT_DIR_PATH/emacs.d ~/.emacs.d
-
-if [ -d ~/.emacs.d/midje-mode ]; then
-    echo "midje-mode already present."
-else
-    echo "Cloning midje-mode"
-    git clone git@github.com:christopheryoung/midje-mode.git
-fi
-
 
 ########################################
 #Python stuff
