@@ -174,6 +174,7 @@
                               igrep
                               javadoc-help
                               js2-mode
+                              js2-refactor
                               haskell-mode
                               ispell
                               magit
@@ -181,6 +182,7 @@
                               maxframe
                               midje-mode
                               multi-term
+                              multiple-cursors
                               nrepl
                               paredit
                               protobuf-mode
