@@ -166,7 +166,7 @@
                               clojure-mode
                               command-frequency
                               csv-mode
-                              dired-single
+                              dash
                               expand-region
                               find-file-in-project
                               go-mode
