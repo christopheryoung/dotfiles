@@ -21,11 +21,11 @@ echo "Creating symbolic links in home directory"
 for file in $files; do
     rm ~/.$file
     echo "Creating symbolic link to .$file to home directory."
-    ln -s $SETUP_SCRIPT_DIR_PATH/.$file ~/.$file
+    ln -s $SETUP_SCRIPT_DIR_PATH/$file ~/.$file
 done
 
 #gitconfig has special stuff, so we copy it over
-cp $SETUP_SCRIPT_DIR_PATH/.gitconfig ~/
+cp -f $SETUP_SCRIPT_DIR_PATH/gitconfig ~/.gitconfig
 
 ########################################
 #Privacy preserving dotfiles surgery
@@ -38,8 +38,16 @@ cat ~/.git_private >> ~/.gitconfig
 #.emacs.d
 ########################################
 
-echo "Setting up .emacs.d"
-./emacs_setup.sh
+rm -rf ~/.emacs.d
+ln -s $SETUP_SCRIPT_DIR_PATH/emacs.d ~/.emacs.d
+
+if [ -d ~/.emacs.d/midje-mode ]; then
+    echo "midje-mode already present."
+else
+    echo "Cloning midje-mode"
+    git clone git@github.com:christopheryoung/midje-mode.git
+fi
+
 
 ########################################
 #Python stuff
@@ -64,5 +72,9 @@ echo "Setting up .lein"
 
 type lein2 >/dev/null 2>&1 || wget --no-check-certificate -O ~/bin/lein2 https://raw.github.com/technomancy/leiningen/preview/bin/lein && chmod 755 ~/bin/lein2
 
-rm -rf ~/.lein
-ln -s $SETUP_SCRIPT_DIR_PATH/lein ~/.lein
+rm ~/.lein/init.clj
+rm ~/.lein/profiles.clj
+ln -s $SETUP_SCRIPT_DIR_PATH/lein ~/.lein/init.clj
+ln -s $SETUP_SCRIPT_DIR_PATH/lein ~/.lein/profiles.clj
+
+echo "Done!"

@@ -37,15 +37,4 @@ Thumbs.db
 *.pyc
 local_settings.py
 
-lein/*
-emacs.d/ac-comphist.dat
-emacs.d/auto-save-list
-emacs.d/backups
-emacs.d/bookmarks
-emacs.d/elpa
-emacs.d/eshell
-emacs.d/places
-emacs.d/url
-emacs.d/midje-mode
-emacs.d/org-mode
-emacs.d/.smex-items
+
