@@ -2,52 +2,27 @@
 ;; My .emacs. Lots of goodies, mostly scavaged from elsewhere. Requires Emacs
 ;; 24 at the moment.
 
-;; DEFAULT COMMANDS THAT I'VE FOUND ESPECIALLY USEFUL
-;;
-;; . . . General . . .
-;;
-;; C-a = Move to the beginning of the line
-;; C-b = Move back one character
-;; C-e = Move to the end of the line
-;; C-h c = Command bound to key combination
-;; C-h f = Describe function
-;; C-h k = Describe key combination
-;; C-l = Center buffer around point
-;; C-l C-l = put point at top of buffer
-;; C-l C-l C-l = put point at buttom of buffer
-;; C-p = Move back a line
-;; C-s = interactive search
-;; C-s C-s = interactive search using the previous search
-;; C-s C-w = search the string under the point
+;; Commands I still haven't committed to muscle memory
 ;; C-t = Transpose two letters
 ;; C-u <n> <command> = repeat the command n times
-;; C-u C-SPC = Cycle through positions in the mark ring
 ;; C-u M-! = inserts results of a shell command directly into the buffer
 ;; C-w = kill region (but in isearch will insert word after point into
 ;;the search)
 ;; C-x d = Change directory
 ;; C-x z = Redo last change
-;; C-x C-b = Show buffer list
 ;; C-x C-t = Transpose two lines
-;; C-x ^ = Enlarge the window
 ;; C-x ( = Start macro definition
 ;; C-x ) = End macro definition
-;; C-x C-x = swap point and mark
 ;; C-x RET = shell
 ;; C-x C-SPC = pop-global-mark
 ;; C-x F1 = Show every command starting with C-x
 ;; C-<SPC> C-<SPC> - Push the mark onto the mark ring *without*
 ;; setting it
-;; C-/ = Undo
-;; C-= = Expand Region
 ;; C-M-b = backward over balanced expression
 ;; C-M-f = forward over balanced expression
 ;; C-M-s = regular expression search forward
 ;; C-M-v = scroll other window
-;; M-^ = Attach this line to previous
-;; M-a = Move backwards one sentence
 ;; M-c = Capitalize word
-;; M-e = Move forwards one sentence
 ;; M-h = Highlight paragraph
 ;; M-k = Kill sentence
 ;; M-m = Jump to first non-whitespace character in line
@@ -55,51 +30,19 @@
 ;; M-u = Uppercase word
 ;; M-x ispell-buffer = turns on spell checking for whole buffer
 ;; M-x ispell-region = spell-checks highlighted region
-;; M-y = Yank pop (if you don't know how to use this, you must learn
-;; immediately)
 ;; M-z = Zap to char
 ;; M-. = edit definition (jumps to definition when supported in mode)
 ;; M-$ = spell-check word
-;; M-% = Query/replace (space accepts change; n goes on to next)
-;; M-} = Move forward one paragraph.
-;; M-{ = Move backward one paragraph.
 ;; apropos-documentation -- search doc strings of functions and
 ;;                           variables
 ;; apropos -- searches all function and variables
-
+;;
 ;; . . . Dired . . .
 ;;
 ;; M-x tumme = Create thumbnails of a directory
 ;;
-;; . . . In grep . . .
-;; C-` = Move to the next grep result
-;;
-;; . . . In the Auctex and RefTeX modes . . .
-;;
-;; C-c = Run LaTeX
-;; C-c = = RefTeX table of contents
-;; C-c ( = Insert RefTeX label
-;; C-c [ = Insert RefTeX citation
-;; C-c C-e = LaTeX-envirnment
-;; C-c C-j = LaTeX-insert-item
-;; C-c C-s = LaTeX section
-;; C-c C-t C-p = Toggle pdf/dvi mode
-;; C-c C-t C-s = Turn on source specials mode, so enable jumping straight to point in dvi viewer
-;; C-c C-v = TeX-view
-;; C-c C-p C-d = Preview
-;; C-c C-p C-c C-d = Remove preview
-;; C-v = invoke viewer
-;; C-[backspace] = backward-kill-word
-;; C-[down] = forward-paragraph
-;; C-[up] = backward-paragraph
-;;
-;; . . . In HTML mode . . .
-;;
-;; C-c C-c h = inserts a link
-;; C-c C-c i = html-image
-
 ;; . . . In Org mode . . .
-
+;;
 ;; C-c C-n = Move to next heading.
 ;; C-c C-p = move to previous heading.
 ;; C-c C-f = Move to next heading same level.
