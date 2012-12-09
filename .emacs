@@ -501,163 +501,18 @@
 ;; This is your old M-x.
 (global-set-key (kbd "C-c C-c M-x") 'execute-extended-command)
 
-;; (add-to-list 'load-path "~/.emacs.d/org-mode/contrib/lisp")
-;; (require 'org-install)
-;; (require 'org-drill)
-
 ;; PROGRAMMING LANGUAGES, ETC.
 
-;; GENERAL
-
-;; eldoc, how did I ever live without you?
-(add-hook 'clojure-mode-hook 'turn-on-eldoc-mode)
-(add-hook 'emacs-lisp-mode-hook 'turn-on-eldoc-mode)
-
-;;auto-complete
 (require 'auto-complete-config)
 (ac-config-default)
+(require 'custom-init-paredit)
 
-;; GENERALLY LISPY STUFF
+(require 'custom-init-elisp)
+(require 'custom-init-any-lisp)
+(require 'custom-init-clojure)
+(require 'custom-init-haskell)
+(require 'custom-init-js2)
+(require 'custom-init-python)
+(require 'custom-init-scheme)
+(require 'custom-init-web-mode)
 
-;; Make sure I have paredit everywhere, including the repl
-;; Merci: http://lispservice.posterous.com/paredit-in-the-slime-repl
-(autoload 'paredit-mode "paredit"
-  "Minor mode for pseudo-structurally editing Lisp code."
-  t)
-(mapc (lambda (mode)
-        (let ((hook (intern (concat (symbol-name mode)
-                                    "-mode-hook"))))
-          (add-hook hook (lambda () (paredit-mode +1)))))
-      '(emacs-lisp lisp inferior-lisp slime slime-repl))
-
-(defun eval-and-replace ()
-  "Replace the preceding sexp with its value.
-https://github.com/magnars/.emacs.d/blob/master/defuns/lisp-defuns.el"
-  (interactive)
-  (backward-kill-sexp)
-  (condition-case nil
-      (prin1 (eval (read (current-kill 0)))
-             (current-buffer))
-    (error (message "Invalid expression")
-           (insert (current-kill 0)))))
-
-;; And now nrepl stuff
-
-(require 'ac-nrepl)
-(add-hook 'nrepl-mode-hook 'ac-nrepl-setup)
-(add-hook 'clojure-nrepl-mode-hook 'ac-nrepl-setup)
-(eval-after-load "auto-complete"
-  '(add-to-list 'ac-modes 'nrepl-mode))
-
-;; CLOJURE
-
-
-(add-hook 'clojure-mode-hook
-          (lambda ()
-            (require 'midje-mode)
-            (require 'clojure-jump-to-file)
-            (imenu-add-menubar-index)
-            (local-set-key (kbd "C-c C-j") 'nrepl-jack-in)
-            (local-set-key (kbd "C-c C-,") 'midje-check-fact)
-            (local-set-key (kbd "C-z") 'nrepl-eval-expression-at-point)))
-
-;; Macs are odd; had to do this to get clojure-jack-in working
-(if *on-a-mac*
-    (setenv "PATH" (concat "~/bin:" (getenv "PATH"))))
-
-(setenv "PATH" (shell-command-to-string "echo $PATH"))
-
-;; Functions that make it even easier to interact with clojure in emacs.
-
-(defun symbol-at-point-to-string ()
-  (interactive)
-  (let* ((bounds (bounds-of-thing-at-point 'symbol))
-         (start (car bounds))
-         (end (cdr bounds)))
-    (buffer-substring-no-properties start end)))
-
-(defun get-symbols-in-buffer ()
-  (interactive)
-  (let ((symbols '()))
-    (save-excursion
-      (goto-char (point-min))
-      (while (forward-symbol 1)
-        (setq symbols (cons (symbol-at-point-to-string) symbols))))
-    symbols))
-
-(defun clojure-interns (string)
-  (let ((namespace-lookup (format "(map str (keys (ns-interns '%s)))" string)))
-    (nrepl-interactive-eval namespace-lookup)))
-
-(defun inspect-clojure-namespace (string)
-  (interactive (list (read-from-minibuffer "Namespace: ")))
-  (clojure-interns string))
-
-(defun inspect-clojure-namespace-at-point ()
-  (interactive)
-  (listp (clojure-interns (nrepl-symbol-at-point))))
-
-(defun clj-use ()
-  "This doesn't work yet"
-  (interactive)
-  (mapconcat 'identity (intersection (get-symbols-in-buffer) (inspect-clojure-namespace-at-point) :test 'string=) ""))
-
-;; ELISP
-(add-hook 'emacs-lisp-mode-hook 'eldoc-mode t)
-
-;; GO
-
-(require 'go-mode-load)
-
-;; HASKELL
-
-(add-hook 'haskell-mode-hook 'turn-on-haskell-doc-mode)
-(add-hook 'haskell-mode-hook 'turn-on-haskell-indent)
-
-(require 'auto-complete-haskell)
-
-;; JAVA
-
-(global-set-key (kbd "C-h C-j") 'javadoc-lookup)
-
-;; JAVASCRIPT
-
-(defun insert-comma-at-the-end-of-the-previous-line ()
-  (interactive)
-  (save-excursion
-    (previous-line)
-    (move-end-of-line nil)
-    (insert ",")))
-
-(setq-default js2-global-externs '("module" "require" "jQuery" "$" "_" "buster" "sinon" "assert" "refute" "setTimeout" "clearTimeout" "setInterval" "clearInterval" "location" "__dirname" "console" "JSON"))
-(setq-default js2-strict-inconsistent-return-warning nil)
-(setq-default js2-auto-indent-p t)
-
-(require 'js2-imenu-extras)
-(js2-imenu-extras-setup)
-
-(add-hook 'js2-mode-hook
-          (lambda ()
-            (imenu-add-menubar-index)
-            (local-set-key (kbd "C-c ,") 'insert-comma-at-the-end-of-the-previous-line)))
-
-
-(autoload 'js2-mode "js2-mode" nil t)
-(add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))
-
-;; PYTHON
-
-(require 'python-mode)
-(setq py-shell-name "ipython")
-(require 'ac-python)
-
-;; SCHEME
-
-(setq scheme-program-name
-      "/Applications/mit-scheme.app/Contents/Resources/mit-scheme")
-(require 'xscheme)
-
-;; WEB-MODE
-
-(require 'web-mode)
-(add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
