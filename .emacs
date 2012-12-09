@@ -138,159 +138,30 @@
 ;; sort-lines
 ;; re-builder (for building regular expressions)
 
-
 ;; PRELIMINARIES
+
+(require 'cl)
 
 (if (string-match "apple-darwin" system-configuration)
     (setq *on-a-mac* t))
 
-;; cl, to make life a little easier
+;; directory for most customizations
+(add-to-list 'load-path "~/.emacs.d/custom/")
 
-(require 'cl)
+(require 'custom-packages)
+(require 'custom-appearance)
 
-;; PACKAGE, for managing packages in elpa and marmalade, etc.
-
-(require 'package)
-(add-to-list 'package-archives
-             '("marmalade" . "http://marmalade-repo.org/packages/") t)
-
-(add-to-list 'package-archives
-             '("melpa" . "http://melpa.milkbox.net/packages/") t)
-
-(package-initialize)
-
-(defvar my-package-packages '(
-                              ac-nrepl
-                              ace-jump-mode
-                              auto-complete
-                              clojure-mode
-                              command-frequency
-                              csv-mode
-                              dash
-                              expand-region
-                              find-file-in-project
-                              go-mode
-                              iedit
-                              igrep
-                              javadoc-help
-                              js2-mode
-                              js2-refactor
-                              haskell-mode
-                              ispell
-                              magit
-                              markdown-mode
-                              maxframe
-                              midje-mode
-                              multi-term
-                              multiple-cursors
-                              nrepl
-                              paredit
-                              protobuf-mode
-                              python-mode
-                              pyregexp
-                              quack
-                              rainbow-delimiters
-                              repository-root
-                              smex
-                              slime-js
-                              starter-kit
-                              starter-kit-bindings
-                              starter-kit-js
-                              starter-kit-lisp
-                              undo-tree
-                              windmove
-                              wrap-region
-                              yasnippet
-                              zencoding-mode
-                              )
-  "A list of packages to ensure are installed at launch.")
-
-(setq my-packages-refreshed nil)
-
-(dolist (p my-package-packages)
-  (when (not (package-installed-p p))
-    (when (not my-packages-refreshed)
-      (package-refresh-contents)
-      (setq my-packages-refreshed t)) ;; expensive, so let's just do
-    ;; it once
-    (package-install p)))
-
-;; A place to put any packages not on elpa or marmalade
-(add-to-list 'load-path "~/.emacs.d/vendor/")
-
-;; EXTRA LOADPATHS
-;; Set by my install script
-(if (file-exists-p "~/.emacs.d/extra-loadpaths.el")
-    (load "~/.emacs.d/extra-loadpaths.el"))
-
-;; APPEARANCE
-
-;; Maxmize emacs
-
-(require 'maxframe)
-(add-hook 'window-setup-hook 'maximize-frame t)
-
-;; Show more info in taskbar/icon than just "Emacs"
-(setq frame-title-format '(buffer-file-name "%f" ("%b")))
-
-;; Get rid of the startup message
-(setq inhibit-startup-message t)
-
-;; Show the menu bar
-(menu-bar-mode t)
+;; BASIC BEHAVIOUR
 
 ;; Cause the region to be highlighted and prevent region-based
 ;; commands from running when the mark isn't active.
 (pending-delete-mode t)
 (setq transient-mark-mode t)
 
-;; Visual bell instead of annoying beep
-(setq visible-bell t)
-
-;; No need to see instructions in the scratch buffer
-(setq initial-scratch-message nil)
-
-;; Let's see column numbers.
-(column-number-mode t)
-
-;; Fonts are automatically highlighted.  For more information
-;; type M-x describe-mode font-lock-mode
-(global-font-lock-mode t)
-(set-face-bold-p 'font-lock-keyword-face t)
-(set-face-italic-p 'font-lock-comment-face t)
-
-;; font size . . .
-(set-face-attribute 'default t :family "Inconsolata" :height 160 :weight 'normal)
-
-;; Line numbers! Always!
-(require 'linum)
-(global-linum-mode 1)
-(line-number-mode t)
-
-;; highlight and colourize balanced parens always
-(show-paren-mode 1)
-(require 'rainbow-delimiters)
-(global-rainbow-delimiters-mode)
-(setq show-paren-style 'expression)
-
-;; Let's see when we go out of bounds
-(setq-default fill-column 79)
-(require 'highlight-beyond-fill-column)
-
-;; Ensures that same-name buffers have longer, sensible names.
-(require 'uniquify)
-(setq uniquify-buffer-name-style 'forward)
-
-;; Mac Appearance Stuff
-
-(if *on-a-mac*
-    (set-face-font 'default "Monaco-18")
-  (set-frame-font "Monospace-10"))
-
-;; BASIC BEHAVIOUR
 
 ;; Don't, for the love of Pete, make me type out "Yes" whenever I want
 ;; to quit emacs.  "y" and "n" will do.
+
 (setq kill-emacs-query-functions
       (list (function (lambda ()
                         (ding)
