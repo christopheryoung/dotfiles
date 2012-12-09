@@ -18,7 +18,6 @@
                               dash
                               expand-region
                               find-file-in-project
-                              go-mode
                               iedit
                               igrep
                               javadoc-help
