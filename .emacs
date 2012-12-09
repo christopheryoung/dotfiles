@@ -99,8 +99,6 @@
 (require 'custom-dired-init)
 
 
-
-
 (global-set-key [f2] 'comment-region)
 (global-set-key [(shift f2)] 'universal-argument) ;uncomment is Shift-F2 F2
 (global-set-key [f9] 'split-window-horizontally)
@@ -148,7 +146,6 @@
 (global-set-key "\C-cy" '(lambda ()
                            (interactive) (popup-menu 'yank-menu)))
 
-
 ;; breadcrumbs for nameless bookmarks
 (require 'breadcrumb)
 (global-set-key (kbd "M-`") 'bc-set) ;;
@@ -161,14 +158,6 @@
 (require 'smartscan)
 (global-set-key (kbd "<up>") 'smart-symbol-go-backward)
 (global-set-key (kbd "<down>") 'smart-symbol-go-forward)
-
-;; Allow for mark ring traversal without popping them off the stack.
-(setq set-mark-command-repeat-pop t)
-
-;; Windmove helps you move between open buffers when the screen is
-;; split
-(when (fboundp 'windmove-default-keybindings)
-  (windmove-default-keybindings))
 
 ;; Make it easy to switch buffers
 (global-set-key (kbd "<right>") 'next-buffer)
