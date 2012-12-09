@@ -114,9 +114,6 @@
 (global-set-key [f10] 'split-window-vertically)
 (global-set-key [f11] 'other-window)
 
-(require 'key-chord)
-(key-chord-mode 1)
-
 (autoload 'multi-term "multi-term" nil t)
 (autoload 'multi-term-next "multi-term" nil t)
 (setq multi-term-program "/bin/bash")
