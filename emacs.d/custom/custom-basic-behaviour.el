@@ -101,5 +101,16 @@
 (setq scroll-conservatively 1)
 (setq scroll-margin 2)
 
+;; Allow for mark ring traversal without popping them off the stack.
+(setq set-mark-command-repeat-pop t)
+
+;; Windmove helps you move between open buffers when the screen is
+;; split
+(when (fboundp 'windmove-default-keybindings)
+  (windmove-default-keybindings))
+
+;; Make searches case insensitive
+(setq case-fold-search t)
+
 
 (provide 'custom-basic-behaviour)
