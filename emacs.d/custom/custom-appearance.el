@@ -51,6 +51,10 @@
     (set-face-font 'default "Monaco-18")
   (set-frame-font "Monospace-10"))
 
+;; Let me *see* the marks
+(require 'visible-mark)
+(visible-mark-mode 1)
+
 
 (provide 'custom-appearance)
 
