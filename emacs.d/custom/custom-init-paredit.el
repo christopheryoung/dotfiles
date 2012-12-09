@@ -10,4 +10,9 @@
           (add-hook hook (lambda () (paredit-mode +1)))))
       '(emacs-lisp lisp inferior-lisp slime slime-repl))
 
+;; paredit hijacks my beloved C-j
+(eval-after-load 'paredit
+  '(progn
+     (define-key paredit-mode-map (kbd "C-j") 'delete-other-windows)))
+
 (provide 'custom-init-paredit)

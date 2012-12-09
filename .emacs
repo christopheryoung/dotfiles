@@ -169,10 +169,6 @@
 ;; and close other windows . . .
 ;; willing to part with C-j (new line and indent)
 (global-set-key (kbd "C-j") 'delete-other-windows)
-;; And make it work in paredit mode
-(eval-after-load 'paredit
-  '(progn
-     (define-key paredit-mode-map (kbd "C-j") 'delete-other-windows)))
 
 (require 'ace-jump-mode)
 (setq ace-jump-mode-case-sensitive-search nil)
