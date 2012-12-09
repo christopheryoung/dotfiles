@@ -449,6 +449,7 @@
 ;; yasnippet
 (require 'yasnippet)
 (setq yas/trigger-key "<C-tab>")
+(global-set-key (kbd "C-<tab>") 'yas-expand)
 (setq yas/prompt-functions '(yas/ido-prompt
                              yas/completing-prompt))
 (yas-load-directory "~/.emacs.d/snippets")
