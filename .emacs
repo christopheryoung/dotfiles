@@ -178,17 +178,8 @@
 (global-set-key (kbd "M-g") 'goto-line)
 
 ;; grep
+(require 'custom-grep-init)
 (global-set-key (kbd "C-c C-g") 'rgrep)
-(setq igrep-find-use-xargs nil) ;; os x's default xargs doesn't accept the -e option
-(eval-after-load "grep"
-  '(progn
-     ;; Don't recurse into some directories
-     (add-to-list 'grep-find-ignored-directories "libs")
-     (add-to-list 'grep-find-ignored-directories "node_modules")
-     (add-to-list 'grep-find-ignored-directories "vendor")))
-
-;; Make searches case insensitive
-(setq case-fold-search t)
 
 ;; easy searching across project
 (global-set-key (kbd "C-x f") 'find-file-in-project)
