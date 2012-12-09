@@ -1,4 +1,6 @@
 
+(require 'cl)
+
 ;; M-q is very handy for formatting text, but sometimes you want to remove the
 ;; formatting . . .
 (defun remove-line-breaks ()
@@ -62,6 +64,26 @@
     (delete-trailing-whitespace)
     (indent-region (point-min) (point-max) nil)
     (untabify (point-min) (point-max))))
+
+(setq cheatsheets '(("Clojure" "http://jafingerhut.github.com/cheatsheet-clj-1.3/cheatsheet-tiptip-cdocs-summary.html")
+                    ("ClojureDocs" "http://clojuredocs.org/")
+                    ("Elisp Cookbook" "http://www.emacswiki.org/emacs/ElispCookbook")
+                    ("HTML5" "http://www.nihilogic.dk/labs/canvas_sheet/HTML5_Canvas_Cheat_Sheet.pdf")
+                    ("Magit" "http://cheat.errtheblog.com/s/magit/")
+                    ("Paredit" "http://www.emacswiki.org/emacs/PareditCheatsheet")
+                    ("ZenCoding" "https://github.com/rooney/zencoding")
+                    ))
+
+(defun search-interwebs(query)
+  (interactive "sSearch for: ")
+  (browse-url (concat "https://duckduckgo.com/?q=" query)))
+
+(defun get-cheatsheet ()
+  (interactive)
+  (setq choice (ido-completing-read "Cheatsheet: " (maplist 'caar cheatsheets)))
+  (when choice
+    (let ((cheatsheet-url (car (cdr (assoc choice cheatsheets))))) ;; Seriously? Gotta learn elisp!
+      (browse-url cheatsheet-url))))
 
 ;; Make it easy to get to my worklog
 (defun open-worklog ()

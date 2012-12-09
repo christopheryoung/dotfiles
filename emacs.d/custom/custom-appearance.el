@@ -14,8 +14,7 @@
 ;; Show more info in taskbar/icon than just "Emacs"
 (setq frame-title-format '(buffer-file-name "%f" ("%b")))
 
-(require 'maxframe)
-(add-hook 'window-setup-hook 'maximize-frame t)
+
 
 ;; Fonts are automatically highlighted.  For more information
 ;; type M-x describe-mode font-lock-mode

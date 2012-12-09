@@ -61,29 +61,6 @@
 ;; C-c C-, = run all tests in buffer (clojure-test-mode)
 ;; C-c k = clear failing test overlays (clojure-test-mode)
 ;; C-c s = show reason for test failure (clojure-test-mode, my binding)
-;; M-. = jump to definition
-;;
-;; . . . In Magit
-;; In magit-status:
-;;   b - branch menu
-;;   f f - fetch
-;;   P - push
-;; When operating on hunks:
-;;   k - revert this hunk
-;;   n - next hunk
-;;   p - previous hunk
-;;   s - stage the hunk
-;;   u - unstage the hunk
-;;
-;; Other very helpful commands, not yet bound
-;; highlight-changes-mode
-;; indent-buffer
-;; sort-lines
-;; re-builder (for building regular expressions)
-
-;; PRELIMINARIES
-
-(require 'cl)
 
 (if (string-match "apple-darwin" system-configuration)
     (setq *on-a-mac* t))
@@ -91,196 +68,53 @@
 ;; directory for most customizations
 (add-to-list 'load-path "~/.emacs.d/custom/")
 
+;; install required packages
 (require 'custom-packages)
+
+;; customize appearance
 (require 'custom-appearance)
+(require 'maxframe)
+(add-hook 'window-setup-hook 'maximize-frame t)
+
+;; customize basic behaviour
 (require 'custom-basic-behaviour)
+
+;; useful elisp
 (require 'custom-defuns)
 
-(require 'custom-dired-init)
-
-
-(global-set-key [f2] 'comment-region)
-(global-set-key [(shift f2)] 'universal-argument) ;uncomment is Shift-F2 F2
-(global-set-key [f9] 'split-window-horizontally)
-(global-set-key [f10] 'split-window-vertically)
-(global-set-key [f11] 'other-window)
-
-(autoload 'multi-term "multi-term" nil t)
-(autoload 'multi-term-next "multi-term" nil t)
-(setq multi-term-program "/bin/bash")
-(global-set-key [f5] 'multi-term)
-
-;;TODO: Find binding for this.
-;;(global-set-key "\M-z" 'remove-line-breaks)
-
-(setq auto-mode-alist (cons '("README" . text-mode) auto-mode-alist))
-(setq auto-mode-alist (cons '("\\.txt$" . text-mode) auto-mode-alist))
-
-;; MOVING AND SEARCHING AND MANIPULATING THE REGION
-
-;; Sane scrolling
-(global-set-key (kbd "C-.") (lambda () (interactive) (scroll-up 1)))
-(global-set-key (kbd "C-,")   (lambda () (interactive) (scroll-down 1)))
-
-;; And make it easy to wrap a region with parens, etc.
+;; minor modes
+(require 'auto-complete-config)
+(ac-config-default)
+(require 'ace-jump-mode)
+(setq ace-jump-mode-case-sensitive-search nil)
+(require 'breadcrumb)
+(require 'custom-command-frequency-init) ;; Statistical omphaloskepsis
+(require 'custom-ido-mode-init)
+(require 'custom-init-paredit)
+(require 'custom-yasnippet-init)
+(require 'custom-zencoding-mode-init)
+(require 'expand-region)
+(require 'flyspell)
+(flyspell-prog-mode) ;; Checks spelling in comments and doc strings
+(setq-default ispell-program-name "/usr/local/bin/aspell")
+(require 'smartscan)
+(require 'tail)
+(require 'undo-tree)
+(global-undo-tree-mode)
 (require 'wrap-region)
 (wrap-region-mode t)
 
-(global-set-key (kbd "C-]") 'match-paren)
-
-;; Browse the kill ring easily
-(global-set-key "\C-cy" '(lambda ()
-                           (interactive) (popup-menu 'yank-menu)))
-
-;; breadcrumbs for nameless bookmarks
-(require 'breadcrumb)
-(global-set-key (kbd "M-`") 'bc-set) ;;
-(global-set-key (kbd "C-M-<up>") 'bc-previous) ;; jump to previous
-(global-set-key (kbd "C-M-<down>") 'bc-next) ;;jump to next
-;; bc-list to see menu list
-;; bc-clear to clear breadcrumbs
-
-;; smartscan
-(require 'smartscan)
-(global-set-key (kbd "<up>") 'smart-symbol-go-backward)
-(global-set-key (kbd "<down>") 'smart-symbol-go-forward)
-
-;; Make it easy to switch buffers
-(global-set-key (kbd "<right>") 'next-buffer)
-(global-set-key (kbd "<left>") 'previous-buffer)
-
-;; and kill them, cause I do that all day long
-(global-set-key [(control return)] 'ido-kill-buffer)
-
-;; and close other windows . . .
-;; willing to part with C-j (new line and indent)
-(global-set-key (kbd "C-j") 'delete-other-windows)
-
-(require 'ace-jump-mode)
-(setq ace-jump-mode-case-sensitive-search nil)
-(define-key global-map (kbd "C-o") 'ace-jump-mode) ;; was bound to <insertline>
-
-;; goto
-(global-set-key (kbd "M-g") 'goto-line)
-
-;; grep
+;; major modes, not programming languages
+(require 'custom-dired-init)
 (require 'custom-grep-init)
-(global-set-key (kbd "C-c C-g") 'rgrep)
-
-;; easy searching across project
-(global-set-key (kbd "C-x f") 'find-file-in-project)
-
-;; occur
-
-(global-set-key (kbd "C-c o") 'occur)
-
-;; Expand Region
-
-(require 'expand-region)
-(global-set-key (kbd "C-=") 'er/expand-region)
-
-;; imenu
-
-(global-set-key (kbd "M-i") 'imenu)
-
-;; iedit
-(global-set-key (kbd "C-c i") 'iedit-mode)
-
-;; undo tree
-
-(require 'undo-tree)
-(global-undo-tree-mode)
-;; C-x C-u originally: uppercase region
-(global-set-key (kbd "C-x C-u") 'undo-tree-visualize)
-
-;; ONLINE SEARCH AND HELP
-
-(setq cheatsheets '(("Clojure" "http://jafingerhut.github.com/cheatsheet-clj-1.3/cheatsheet-tiptip-cdocs-summary.html")
-                    ("ClojureDocs" "http://clojuredocs.org/")
-                    ("Elisp Cookbook" "http://www.emacswiki.org/emacs/ElispCookbook")
-                    ("HTML5" "http://www.nihilogic.dk/labs/canvas_sheet/HTML5_Canvas_Cheat_Sheet.pdf")
-                    ("Magit" "http://cheat.errtheblog.com/s/magit/")
-                    ("Paredit" "http://www.emacswiki.org/emacs/PareditCheatsheet")
-                    ("ZenCoding" "https://github.com/rooney/zencoding")
-                    ))
-
-(defun search-interwebs(query)
-  (interactive "sSearch for: ")
-  (browse-url (concat "https://duckduckgo.com/?q=" query)))
-
-(defun get-cheatsheet ()
-  (interactive)
-  (setq choice (ido-completing-read "Cheatsheet: " (maplist 'caar cheatsheets)))
-  (when choice
-    (let ((cheatsheet-url (car (cdr (assoc choice cheatsheets))))) ;; Seriously? Gotta learn elisp!
-      (browse-url cheatsheet-url))))
-
-(global-set-key (kbd "C-h C-b") 'browse-url)
-(global-set-key (kbd "C-h C-s") 'search-interwebs)
-(global-set-key (kbd "C-h C-c") 'get-cheatsheet)
-
-
-;; yasnippet
-(require 'yasnippet)
-(setq yas/trigger-key "<C-tab>")
-(global-set-key (kbd "C-<tab>") 'yas-expand)
-(setq yas/prompt-functions '(yas/ido-prompt
-                             yas/completing-prompt))
-(yas-load-directory "~/.emacs.d/snippets")
-(yas-global-mode 1)
-
-;; zencoding-mode
-(add-hook 'sgml-mode-hook 'zencoding-mode)
-(add-hook 'sgml-mode-hook ( lambda ()
-                            (local-set-key (kbd "C-c C-j") 'zencoding-expand-line)))
-
-;; Statistical omphaloskepsis
-(require 'command-frequency)
-(command-frequency-table-load)
-(command-frequency-mode 1)
-(command-frequency-autosave-mode 1)
-
-;; Tail
-(require 'tail)
-
-;; FLYSPELL
-
-;; Checks spelling in comments and doc strings
-(flyspell-prog-mode)
-
-;; ASPELL
-
-(setq-default ispell-program-name "/usr/local/bin/aspell")
-
-;; IDO
-;; Override a few settings in emacs starter kit
-(require 'ido)
-(ido-mode t)
-(setq ido-enable-flex-matching t)
-(setq ido-use-virtual-buffers t)
-
-;; TRAMP
-
-(setq tramp-default-method "ssh")
-
-;; MAGIT
-
+(require 'custom-multi-term-init)
+(require 'custom-text-mode-init)
 (require 'magit)
-(global-set-key (kbd "C-x m") 'magit-status)
-
-;; SMEX (better M-x)
 (require 'smex)
 (smex-initialize)
-(global-set-key (kbd "M-x") 'smex)
-;; This is your old M-x.
-(global-set-key (kbd "C-c C-c M-x") 'execute-extended-command)
+(setq tramp-default-method "ssh")
 
-;; PROGRAMMING LANGUAGES, ETC.
-
-(require 'auto-complete-config)
-(ac-config-default)
-(require 'custom-init-paredit)
-
+;; major modes, programming languages
 (require 'custom-init-elisp)
 (require 'custom-init-any-lisp)
 (require 'custom-init-clojure)
