@@ -112,5 +112,9 @@
 ;; Make searches case insensitive
 (setq case-fold-search t)
 
+;; Browse in new tabs instead of the current one
+;; Does not seem to work with chrome
+(setq browse-url-new-window-flag t)
+
 
 (provide 'custom-basic-behaviour)

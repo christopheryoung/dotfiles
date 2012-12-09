@@ -116,25 +116,11 @@
 (setq auto-mode-alist (cons '("README" . text-mode) auto-mode-alist))
 (setq auto-mode-alist (cons '("\\.txt$" . text-mode) auto-mode-alist))
 
-
 ;; MOVING AND SEARCHING AND MANIPULATING THE REGION
 
 ;; Sane scrolling
 (global-set-key (kbd "C-.") (lambda () (interactive) (scroll-up 1)))
 (global-set-key (kbd "C-,")   (lambda () (interactive) (scroll-down 1)))
-
-;; jump to matching paren
-;; Thanks to https://github.com/avar/dotemacs/blob/master/.emacs
-(defun match-paren (arg)
-  "Go to the matching  if on (){}[], similar to vi style of % "
-  (interactive "p")
-  ;; first, check for "outside of bracket" positions expected by forward-sexp, etc.
-  (cond ((looking-at "[\[\(\{]") (forward-sexp))
-        ((looking-back "[\]\)\}]" 1) (backward-sexp))
-        ;; now, try to succeed from inside of a bracket
-        ((looking-at "[\]\)\}]") (forward-char) (backward-sexp))
-        ((looking-back "[\[\(\{]" 1) (backward-char) (forward-sexp))
-        (t (self-insert-command (or arg 1)))))
 
 ;; And make it easy to wrap a region with parens, etc.
 (require 'wrap-region)
@@ -233,57 +219,6 @@
 (global-set-key (kbd "C-h C-s") 'search-interwebs)
 (global-set-key (kbd "C-h C-c") 'get-cheatsheet)
 
-;; Browse in new tabs instead of the current one
-;; Does not seem to work with chrome
-(setq browse-url-new-window-flag t)
-
-
-;; OTHER MODES AND TOOLS
-
-;; rename files and buffers
-
-;; source: http://steve.yegge.googlepages.com/my-dot-emacs-file
-(defun rename-file-and-buffer (new-name)
-  "Renames both current buffer and file it's visiting to NEW-NAME."
-  (interactive "sNew name: ")
-  (let ((name (buffer-name))
-        (filename (buffer-file-name)))
-    (if (not filename)
-        (message "Buffer '%s' is not visiting a file!" name)
-      (if (get-buffer new-name)
-          (message "A buffer named '%s' already exists!" new-name)
-        (progn
-          (rename-file name new-name 1)
-          (rename-buffer new-name)
-          (set-visited-file-name new-name)
-          (set-buffer-modified-p nil))))))
-
-(defun move-buffer-file (dir)
-  "Moves both current buffer and file it's visiting to DIR. All credit to Steve Yegge"
-  (interactive "DNew directory: ")
-  (let* ((name (buffer-name))
-         (filename (buffer-file-name))
-         (dir
-          (if (string-match dir "\\(?:/\\|\\\\)$")
-              (substring dir 0 -1) dir))
-         (newname (concat dir "/" name)))
-
-    (if (not filename)
-        (message "Buffer '%s' is not visiting a file!" name)
-      (progn
-        (copy-file filename newname 1)
-        (delete-file filename)
-        (set-visited-file-name newname)
-        (set-buffer-modified-p nil) t))))
-
-;; indent entire buffer
-(defun indent-buffer ()
-  "Indent the buffer"
-  (interactive)
-  (save-excursion
-    (delete-trailing-whitespace)
-    (indent-region (point-min) (point-max) nil)
-    (untabify (point-min) (point-max))))
 
 ;; yasnippet
 (require 'yasnippet)
@@ -355,3 +290,5 @@
 (require 'custom-init-scheme)
 (require 'custom-init-web-mode)
 
+;; Keybindings
+(require 'custom-global-keybindings)
