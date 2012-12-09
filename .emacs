@@ -94,19 +94,12 @@
 (require 'custom-packages)
 (require 'custom-appearance)
 (require 'custom-basic-behaviour)
+(require 'custom-defuns)
 
 (require 'custom-dired-init)
 
-;; Make it easy to get to my worklog
-(defun open-worklog ()
-  (interactive)
-  (find-file "~/Dropbox/cy/notes/worklog.txt"))
 
-;; Some more useful commands
 
-(defun worklog-date-stamp ()
-  (interactive)
-  (insert (format-time-string "%m/%d/%Y ")))
 
 (global-set-key [f2] 'comment-region)
 (global-set-key [(shift f2)] 'universal-argument) ;uncomment is Shift-F2 F2
@@ -118,13 +111,6 @@
 (autoload 'multi-term-next "multi-term" nil t)
 (setq multi-term-program "/bin/bash")
 (global-set-key [f5] 'multi-term)
-
-;; M-q is very handy for formatting text, but sometimes you want to remove the formatting . . .
-(defun remove-line-breaks ()
-  "Remove line endings in a paragraph."
-  (interactive)
-  (let ((fill-column (point-max)))
-    (fill-paragraph nil)))
 
 ;;TODO: Find binding for this.
 ;;(global-set-key "\M-z" 'remove-line-breaks)
