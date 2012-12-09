@@ -645,10 +645,6 @@ https://github.com/magnars/.emacs.d/blob/master/defuns/lisp-defuns.el"
 (autoload 'js2-mode "js2-mode" nil t)
 (add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))
 
-;; PROTOBUF
-
-(require 'protobuf-mode)
-
 ;; PYTHON
 
 (require 'python-mode)
