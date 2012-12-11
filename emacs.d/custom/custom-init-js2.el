@@ -13,7 +13,8 @@
 (add-hook 'js2-mode-hook
           (lambda ()
             (imenu-add-menubar-index)
-            (local-set-key (kbd "C-c ,") 'insert-comma-at-the-end-of-the-previous-line)))
+            (local-set-key (kbd "C-c ,") 'insert-comma-at-the-end-of-the-previous-line)
+            (local-set-key (kbd "C-c C-n") 'js2-next-error)))
 
 
 (autoload 'js2-mode "js2-mode" nil t)
