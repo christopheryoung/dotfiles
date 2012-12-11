@@ -110,6 +110,7 @@
 (require 'custom-multi-term-init)
 (require 'custom-text-mode-init)
 (require 'magit)
+(setq magit-status-buffer-switch-function 'switch-to-buffer)
 (require 'smex)
 (smex-initialize)
 (setq tramp-default-method "ssh")
