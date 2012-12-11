@@ -101,6 +101,9 @@
 (setq scroll-conservatively 1)
 (setq scroll-margin 2)
 
+;; flyspell start up
+(setq flyspell-issue-welcome-flag nil)
+
 ;; Allow for mark ring traversal without popping them off the stack.
 (setq set-mark-command-repeat-pop t)
 
