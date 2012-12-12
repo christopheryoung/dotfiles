@@ -33,6 +33,7 @@
                               multiple-cursors
                               nrepl
                               paredit
+                              perspective
                               protobuf-mode
                               python-mode
                               pyregexp

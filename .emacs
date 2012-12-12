@@ -97,6 +97,8 @@
 (require 'flyspell)
 (flyspell-prog-mode) ;; Checks spelling in comments and doc strings
 (setq-default ispell-program-name "/usr/local/bin/aspell")
+(require 'perspective)
+(persp-mode t)
 (require 'smartscan)
 (require 'tail)
 (require 'undo-tree)
