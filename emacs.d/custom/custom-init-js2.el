@@ -15,7 +15,10 @@
           (lambda ()
             (imenu-add-menubar-index)
             (local-set-key (kbd "C-c ,") 'insert-comma-at-the-end-of-the-previous-line)
-            (local-set-key (kbd "C-c C-n") 'js2-next-error)))
+            (local-set-key (kbd "C-c C-n") 'js2-next-error)
+            ;; for some reason js2 mode turns off idle-highlight-mode, so make
+            ;; sure it's on
+            (idle-highlight-mode t)))
 
 (require 'js2-imenu-extras)
 (js2-imenu-extras-setup)
