@@ -36,6 +36,9 @@
 (global-rainbow-delimiters-mode)
 (setq show-paren-style 'expression)
 
+;; and the symbol at point, elsewhere in the buffer
+(idle-highlight-mode t)
+
 ;; Let's see when we go out of bounds
 (setq-default fill-column 79)
 (require 'highlight-beyond-fill-column)
