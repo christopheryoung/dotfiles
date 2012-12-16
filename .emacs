@@ -86,14 +86,6 @@
 ;; install required packages
 (require 'custom-packages)
 
-;; customize appearance
-(require 'custom-appearance)
-(require 'maxframe)
-(add-hook 'window-setup-hook 'maximize-frame t)
-
-;; customize basic behaviour
-(require 'custom-basic-behaviour)
-
 ;; useful elisp
 (require 'custom-defuns)
 
@@ -140,7 +132,15 @@
 (require 'custom-init-js2)
 (require 'custom-init-python)
 (require 'custom-init-scheme)
-(require 'custom-init-web-mode)
+(eval-after-load 'web-mode '(require 'custom-init-web-mode))
+
+;; customize appearance
+(require 'custom-appearance)
+(require 'maxframe)
+(add-hook 'window-setup-hook 'maximize-frame t)
+
+;; customize basic behaviour
+(require 'custom-basic-behaviour)
 
 ;; Keybindings
 (require 'custom-global-keybindings)
