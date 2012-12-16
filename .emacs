@@ -83,6 +83,9 @@
 ;; directory for most customizations
 (add-to-list 'load-path "~/.emacs.d/custom/")
 
+;; custom loads
+(load "~/.emacs.d/vendor/typing-speed.el")
+
 ;; install required packages
 (require 'custom-packages)
 
@@ -116,9 +119,9 @@
 (require 'smart-forward)
 (require 'smartscan)
 (require 'tail)
+(turn-on-typing-speed)
 (require 'undo-tree)
 (global-undo-tree-mode)
-
 (require 'wrap-region)
 (wrap-region-global-mode t)
 (add-to-list 'wrap-region-except-modes 'magit-status-mode)
