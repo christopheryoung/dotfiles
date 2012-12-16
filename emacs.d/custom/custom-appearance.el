@@ -1,7 +1,9 @@
 
 (setq inhibit-startup-message t
       initial-scratch-message nil
-      visible-bell t)
+      visible-bell t
+      line-number-mode t
+      uniquify-buffer-name-style 'forward)
 
 (menu-bar-mode t)
 
@@ -27,7 +29,6 @@
 
 ;; Line numbers! Always!
 (global-linum-mode 1)
-(line-number-mode t)
 
 ;; highlight and colourize balanced parens always
 (show-paren-mode 1)
@@ -39,9 +40,6 @@
 
 ;; Let's see when we go out of bounds
 (setq-default fill-column 79)
-
-;; Ensures that same-name buffers have longer, sensible names.
-(setq uniquify-buffer-name-style 'forward)
 
 ;; Mac Appearance Stuff
 
