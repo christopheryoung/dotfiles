@@ -50,16 +50,6 @@
 (setq dotfiles-dir (file-name-directory
                     (or (buffer-file-name) load-file-name)))
 
-;; Thanks to Justine: https://github.com/jart/justinemacs/blob/master/lob-defuns.el
-(defun reload-dotemacs ()
-  "Save the .emacs buffer if needed, then reload .emacs."
-  (interactive)
-  (let ((dot-emacs (concat dotfiles-dir "/.emacs")))
-    (and (get-file-buffer dot-emacs)
-         (save-buffer (get-file-buffer dot-emacs)))
-    (load-file dot-emacs))
-  (message "Re-initialized!"))
-
 ;; directory for most customizations
 (add-to-list 'load-path "~/.emacs.d/custom/")
 
