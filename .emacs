@@ -3,18 +3,10 @@
 ;; 24 at the moment.
 
 ;; Commands I still haven't committed to muscle memory
-;; C-t = Transpose two letters
 ;; C-u <n> <command> = repeat the command n times
 ;; C-u M-! = inserts results of a shell command directly into the buffer
 ;; C-w = kill region (but in isearch will insert word after point into
 ;;the search)
-;; C-x d = Change directory
-;; C-x z = Redo last change
-;; C-x C-t = Transpose two lines
-;; C-x ( = Start macro definition
-;; C-x ) = End macro definition
-;; C-x RET = shell
-;; C-x C-SPC = pop-global-mark
 ;; C-x F1 = Show every command starting with C-x
 ;; C-<SPC> C-<SPC> - Push the mark onto the mark ring *without*
 ;; setting it
@@ -23,23 +15,12 @@
 ;; C-M-s = regular expression search forward
 ;; C-M-v = scroll other window
 ;; M-c = Capitalize word
-;; M-h = Highlight paragraph
-;; M-k = Kill sentence
 ;; M-m = Jump to first non-whitespace character in line
-;; M-t = Transpose two words
-;; M-u = Uppercase word
-;; M-x ispell-buffer = turns on spell checking for whole buffer
-;; M-x ispell-region = spell-checks highlighted region
 ;; M-z = Zap to char
-;; M-. = edit definition (jumps to definition when supported in mode)
 ;; M-$ = spell-check word
 ;; apropos-documentation -- search doc strings of functions and
 ;;                           variables
 ;; apropos -- searches all function and variables
-;;
-;; . . . Dired . . .
-;;
-;; M-x tumme = Create thumbnails of a directory
 ;;
 ;; . . . In Org mode . . .
 ;;
@@ -61,7 +42,6 @@
 ;; C-c C-, = run all tests in buffer (clojure-test-mode)
 ;; C-c k = clear failing test overlays (clojure-test-mode)
 ;; C-c s = show reason for test failure (clojure-test-mode, my binding)
-
 
 ;; setup info
 (if (string-match "apple-darwin" system-configuration)
