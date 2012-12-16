@@ -105,6 +105,7 @@
 (require 'flyspell)
 (flyspell-prog-mode) ;; Checks spelling in comments and doc strings
 (setq-default ispell-program-name "/usr/local/bin/aspell")
+(require 'highlight-beyond-fill-column)
 (require 'inline-string-rectangle) ;; requires mark-multiple
 (require 'jump-char)
 (require 'linum)

@@ -39,7 +39,6 @@
 
 ;; Let's see when we go out of bounds
 (setq-default fill-column 79)
-(require 'highlight-beyond-fill-column)
 
 ;; Ensures that same-name buffers have longer, sensible names.
 (setq uniquify-buffer-name-style 'forward)
