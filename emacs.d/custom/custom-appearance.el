@@ -45,7 +45,6 @@
 (require 'highlight-beyond-fill-column)
 
 ;; Ensures that same-name buffers have longer, sensible names.
-(require 'uniquify)
 (setq uniquify-buffer-name-style 'forward)
 
 ;; Mac Appearance Stuff

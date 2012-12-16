@@ -133,6 +133,7 @@
 (require 'smex)
 (smex-initialize)
 (setq tramp-default-method "ssh")
+(require 'uniquify)
 
 ;; major modes, programming languages
 (require 'custom-init-elisp)
