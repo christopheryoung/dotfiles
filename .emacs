@@ -105,18 +105,27 @@
 (require 'flyspell)
 (flyspell-prog-mode) ;; Checks spelling in comments and doc strings
 (setq-default ispell-program-name "/usr/local/bin/aspell")
+(require 'inline-string-rectangle) ;; requires mark-multiple
+(require 'jump-char)
+(require 'linum)
+(require 'multiple-cursors)
+(require 'rainbow-delimiters)
 (require 'perspective)
 (persp-mode t)
+(require 'smart-forward)
 (require 'smartscan)
 (require 'tail)
 (require 'undo-tree)
 (global-undo-tree-mode)
+
 (require 'wrap-region)
-(wrap-region-mode t)
+(wrap-region-global-mode t)
+(add-to-list 'wrap-region-except-modes 'magit-status-mode)
 
 ;; major modes, not programming languages
 (require 'custom-dired-init)
 (require 'custom-grep-init)
+(eval-after-load 'org '(require 'custom-org-mode-init))
 (require 'custom-multi-term-init)
 (require 'custom-text-mode-init)
 (require 'magit)
@@ -128,10 +137,10 @@
 ;; major modes, programming languages
 (require 'custom-init-elisp)
 (require 'custom-init-any-lisp)
-(require 'custom-init-clojure)
-(require 'custom-init-haskell)
-(require 'custom-init-js2)
-(require 'custom-init-python)
+(eval-after-load 'clojure-mode '(require 'custom-init-clojure))
+(eval-after-load 'haskell-mode '(require 'custom-init-haskell))
+(eval-after-load 'js2-mode '(require 'custom-init-js2))
+(eval-after-load 'python-mode '(require 'custom-init-python))
 (require 'custom-init-scheme)
 (eval-after-load 'web-mode '(require 'custom-init-web-mode))
 
@@ -145,3 +154,5 @@
 
 ;; Keybindings
 (require 'custom-global-keybindings)
+
+

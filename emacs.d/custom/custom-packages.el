@@ -13,9 +13,12 @@
                               ace-jump-mode
                               auto-complete
                               clojure-mode
+                              color-theme-solarized
                               command-frequency
                               csv-mode
                               dash
+                              diminish
+                              evil
                               expand-region
                               find-file-in-project
                               iedit
@@ -23,9 +26,11 @@
                               javadoc-help
                               js2-mode
                               js2-refactor
+                              jump-char
                               haskell-mode
                               ispell
                               magit
+                              mark-multiple
                               markdown-mode
                               maxframe
                               midje-mode
@@ -48,6 +53,7 @@
                               starter-kit-lisp
                               undo-tree
                               windmove
+                              wgrep
                               wrap-region
                               yasnippet
                               zencoding-mode

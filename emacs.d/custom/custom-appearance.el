@@ -19,8 +19,6 @@
 ;; Show more info in taskbar/icon than just "Emacs"
 (setq frame-title-format '(buffer-file-name "%f" ("%b")))
 
-
-
 ;; Fonts are automatically highlighted.  For more information
 ;; type M-x describe-mode font-lock-mode
 (global-font-lock-mode t)
@@ -31,13 +29,11 @@
 (set-face-attribute 'default t :family "Inconsolata" :height 160 :weight 'normal)
 
 ;; Line numbers! Always!
-(require 'linum)
 (global-linum-mode 1)
 (line-number-mode t)
 
 ;; highlight and colourize balanced parens always
 (show-paren-mode 1)
-(require 'rainbow-delimiters)
 (global-rainbow-delimiters-mode)
 (setq show-paren-style 'expression)
 

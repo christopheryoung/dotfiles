@@ -47,12 +47,23 @@
 (global-set-key (kbd "C-c i") 'iedit-mode)
 ;; imenu
 (global-set-key (kbd "M-i") 'imenu)
+;; inline-string-rectangle
+(global-set-key (kbd "C-x r t") 'inline-string-rectangle)
+;; jump char
+;; note: ";": jump-forward ",":" jump-backward
+(global-set-key [(meta m)] 'jump-char-forward)
+(global-set-key [(shift meta m)] 'jump-char-backward)
 ;; occur
 (global-set-key (kbd "C-c o") 'occur)
 ;; magit
 (global-set-key (kbd "C-x m") 'magit-status)
-;; multi-term
+;; multi-termHk
 (global-set-key [f5] 'multi-term)
+;; multiple cursors
+(global-set-key (kbd "C-S-c C-S-c") 'mc/edit-lines)
+(global-set-key (kbd "C->") 'mc/mark-next-like-this)
+(global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
+(global-set-key (kbd "C-c C-<") 'mc/mark-all-like-this)
 ;; smartscan
 (global-set-key (kbd "<up>") 'smart-symbol-go-backward)
 (global-set-key (kbd "<down>") 'smart-symbol-go-forward)

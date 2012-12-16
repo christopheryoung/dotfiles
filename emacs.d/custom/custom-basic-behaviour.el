@@ -48,8 +48,8 @@
 (global-auto-revert-mode t)
 
 ;; Don't make backup files or auto-save.
-(setq make-backup-files nil)
-(setq auto-save-default nil)
+(setq make-backup-files nil
+      auto-save-default nil)
 
 ;; Save the desktop
 (setq desktop-load-locked-desktop t)
@@ -97,9 +97,9 @@
 (setq delete-by-moving-to-trash t)
 
 ;; Better scrolling
-(setq scroll-step 1)
-(setq scroll-conservatively 1)
-(setq scroll-margin 2)
+(setq scroll-step 1
+      scroll-conservatively 1
+      scroll-margin 2)
 
 ;; flyspell start up
 (setq flyspell-issue-welcome-flag nil)
@@ -119,5 +119,12 @@
 ;; Does not seem to work with chrome
 (setq browse-url-new-window-flag t)
 
+ ;; Use regex searches by default. (Borrowed from emacs starter kit)
+  (global-set-key (kbd "C-s") 'isearch-forward-regexp)
+  (global-set-key (kbd "\C-r") 'isearch-backward-regexp)
+  (global-set-key (kbd "M-%") 'query-replace-regexp)
+  (global-set-key (kbd "C-M-s") 'isearch-forward)
+  (global-set-key (kbd "C-M-r") 'isearch-backward)
+  (global-set-key (kbd "C-M-%") 'query-replace)
 
 (provide 'custom-basic-behaviour)
