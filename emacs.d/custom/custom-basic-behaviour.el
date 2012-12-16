@@ -119,12 +119,4 @@
 ;; Does not seem to work with chrome
 (setq browse-url-new-window-flag t)
 
- ;; Use regex searches by default. (Borrowed from emacs starter kit)
-  (global-set-key (kbd "C-s") 'isearch-forward-regexp)
-  (global-set-key (kbd "\C-r") 'isearch-backward-regexp)
-  (global-set-key (kbd "M-%") 'query-replace-regexp)
-  (global-set-key (kbd "C-M-s") 'isearch-forward)
-  (global-set-key (kbd "C-M-r") 'isearch-backward)
-  (global-set-key (kbd "C-M-%") 'query-replace)
-
 (provide 'custom-basic-behaviour)

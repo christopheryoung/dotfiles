@@ -47,6 +47,14 @@
 (global-set-key (kbd "C-c i") 'iedit-mode)
 ;; imenu
 (global-set-key (kbd "M-i") 'imenu)
+;; isearch
+;; Use regex searches by default. (Borrowed from emacs starter kit)
+(global-set-key (kbd "C-s") 'isearch-forward-regexp)
+(global-set-key (kbd "\C-r") 'isearch-backward-regexp)
+(global-set-key (kbd "M-%") 'query-replace-regexp)
+(global-set-key (kbd "C-M-s") 'isearch-forward)
+(global-set-key (kbd "C-M-r") 'isearch-backward)
+(global-set-key (kbd "C-M-%") 'query-replace)
 ;; inline-string-rectangle
 (global-set-key (kbd "C-x r t") 'inline-string-rectangle)
 ;; jump char
