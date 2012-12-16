@@ -1,5 +1,8 @@
 
-(setq inhibit-startup-message t)
+(setq inhibit-startup-message t
+      initial-scratch-message nil
+      visible-bell t)
+
 (menu-bar-mode t)
 
 ;; Quieter modeline
@@ -7,14 +10,8 @@
                   yas-minor-mode
                   undo-tree-mode))
 
-;; No need to see instructions in the scratch buffer
-(setq initial-scratch-message nil)
-
 ;; Let's see column numbers.
 (column-number-mode t)
-
-;; Visual bell instead of annoying beep
-(setq visible-bell t)
 
 ;; Show more info in taskbar/icon than just "Emacs"
 (setq frame-title-format '(buffer-file-name "%f" ("%b")))
