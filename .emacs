@@ -134,6 +134,7 @@
 (smex-initialize)
 (setq tramp-default-method "ssh")
 (require 'uniquify)
+(require 'visible-mark)
 
 ;; major modes, programming languages
 (require 'custom-init-elisp)

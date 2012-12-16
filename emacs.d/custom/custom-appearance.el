@@ -51,7 +51,6 @@
   (set-frame-font "Monospace-10"))
 
 ;; Let me *see* the marks
-(require 'visible-mark)
 (visible-mark-mode 1)
 
 
