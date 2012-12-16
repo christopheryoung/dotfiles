@@ -2,6 +2,11 @@
 (setq inhibit-startup-message t)
 (menu-bar-mode t)
 
+;; Quieter modeline
+(mapc 'diminish '(wrap-region-mode
+                  yas-minor-mode
+                  undo-tree-mode))
+
 ;; No need to see instructions in the scratch buffer
 (setq initial-scratch-message nil)
 

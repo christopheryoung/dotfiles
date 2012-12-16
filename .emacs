@@ -100,6 +100,7 @@
 (require 'custom-init-paredit)
 (require 'custom-yasnippet-init)
 (require 'custom-zencoding-mode-init)
+(require 'diminish)
 (require 'expand-region)
 (require 'flyspell)
 (flyspell-prog-mode) ;; Checks spelling in comments and doc strings
