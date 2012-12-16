@@ -50,3 +50,4 @@ emacs.d/midje-mode
 emacs.d/org-mode
 emacs.d/.smex-items
 emacs.d/build/org-mode
+/emacs.d/.mc-lists.el
