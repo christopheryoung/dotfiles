@@ -119,4 +119,33 @@
 ;; Does not seem to work with chrome
 (setq browse-url-new-window-flag t)
 
+;; autocomplete
+(ac-config-default)
+
+; ace jump
+(setq ace-jump-mode-case-sensitive-search nil)
+
+(flyspell-prog-mode) ;; Checks spelling in comments and doc strings
+
+(setq-default ispell-program-name "/usr/local/bin/aspell")
+
+(persp-mode t)
+
+(turn-on-typing-speed)
+
+(global-undo-tree-mode)
+
+(wrap-region-global-mode t)
+
+(add-to-list 'wrap-region-except-modes 'magit-status-mode)
+
+(setq magit-status-buffer-switch-function 'switch-to-buffer)
+
+(smex-initialize)
+
+(setq tramp-default-method "ssh")
+
+(add-hook 'window-setup-hook 'maximize-frame t)
+
+
 (provide 'custom-basic-behaviour)

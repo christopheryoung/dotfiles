@@ -64,9 +64,7 @@
 
 ;; minor modes
 (require 'auto-complete-config)
-(ac-config-default)
 (require 'ace-jump-mode)
-(setq ace-jump-mode-case-sensitive-search nil)
 (require 'breadcrumb)
 (require 'custom-command-frequency-init) ;; Statistical omphaloskepsis
 (require 'custom-ido-mode-init)
@@ -76,25 +74,19 @@
 (require 'diminish)
 (require 'expand-region)
 (require 'flyspell)
-(flyspell-prog-mode) ;; Checks spelling in comments and doc strings
-(setq-default ispell-program-name "/usr/local/bin/aspell")
 (require 'highlight-beyond-fill-column)
-(require 'inline-string-rectangle) ;; requires mark-multiple
+(require 'inline-string-rectangle)
 (require 'jump-char)
 (require 'linum)
+(require 'maxframe)
 (require 'multiple-cursors)
 (require 'rainbow-delimiters)
 (require 'perspective)
-(persp-mode t)
 (require 'smart-forward)
 (require 'smartscan)
 (require 'tail)
-(turn-on-typing-speed)
 (require 'undo-tree)
-(global-undo-tree-mode)
 (require 'wrap-region)
-(wrap-region-global-mode t)
-(add-to-list 'wrap-region-except-modes 'magit-status-mode)
 
 ;; major modes, not programming languages
 (require 'custom-dired-init)
@@ -103,10 +95,7 @@
 (require 'custom-multi-term-init)
 (require 'custom-text-mode-init)
 (require 'magit)
-(setq magit-status-buffer-switch-function 'switch-to-buffer)
 (require 'smex)
-(smex-initialize)
-(setq tramp-default-method "ssh")
 (require 'uniquify)
 (require 'visible-mark)
 
@@ -117,18 +106,12 @@
 (eval-after-load 'haskell-mode '(require 'custom-init-haskell))
 (eval-after-load 'js2-mode '(require 'custom-init-js2))
 (eval-after-load 'python-mode '(require 'custom-init-python))
-(require 'custom-init-scheme)
+(eval-after-load 'scheme-mode (require 'custom-init-scheme))
 (eval-after-load 'web-mode '(require 'custom-init-web-mode))
 
-;; customize appearance
+;; Customizations
 (require 'custom-appearance)
-(require 'maxframe)
-(add-hook 'window-setup-hook 'maximize-frame t)
-
-;; customize basic behaviour
 (require 'custom-basic-behaviour)
-
-;; Keybindings
 (require 'custom-global-keybindings)
 
 
