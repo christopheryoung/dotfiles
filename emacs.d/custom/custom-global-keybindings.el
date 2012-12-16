@@ -32,6 +32,7 @@
 (global-set-key [(control return)] 'ido-kill-buffer)
 ;; and close other windows . . .
 ;; willing to part with C-j (new line and indent)
+
 (global-set-key (kbd "C-j") 'delete-other-windows)
 
 (global-set-key (kbd "M-g") 'goto-line)
@@ -65,7 +66,7 @@
 (global-set-key (kbd "C-c o") 'occur)
 ;; magit
 (global-set-key (kbd "C-x m") 'magit-status)
-;; multi-termHk
+;; multi-term
 (global-set-key [f5] 'multi-term)
 ;; multiple cursors
 (global-set-key (kbd "C-S-c C-S-c") 'mc/edit-lines)
@@ -83,6 +84,5 @@
 (global-set-key (kbd "C-x C-u") 'undo-tree-visualize)
 ;; yasnippet
 (global-set-key (kbd "C-<tab>") 'yas-expand)
-
 
 (provide 'custom-global-keybindings)
