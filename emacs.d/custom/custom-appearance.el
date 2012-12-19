@@ -11,6 +11,7 @@
 (mapc 'diminish '(wrap-region-mode
                   yas-minor-mode
                   undo-tree-mode))
+(eval-after-load 'elisp-slime-nav '(diminish 'elisp-slime-nav-mode))
 
 ;; Let's see column numbers.
 (column-number-mode t)
