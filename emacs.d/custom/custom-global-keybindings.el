@@ -21,9 +21,10 @@
 
 (global-set-key (kbd "C-.") (lambda () (interactive) (scroll-up 1)))
 (global-set-key (kbd "C-,")   (lambda () (interactive) (scroll-down 1)))
+
 ;; browse the kill ring easily
-(global-set-key "\C-cy" '(lambda ()
-                           (interactive) (popup-menu 'yank-menu)))
+(global-set-key "\C-cy" '(lambda () (interactive) (popup-menu 'yank-menu)))
+
 ;; Make it easy to switch buffers
 (global-set-key (kbd "<right>") 'next-buffer)
 (global-set-key (kbd "<left>") 'previous-buffer)
