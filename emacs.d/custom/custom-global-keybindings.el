@@ -83,6 +83,8 @@
 ;; undo-tree
 ;; C-x C-u originally: uppercase region
 (global-set-key (kbd "C-x C-u") 'undo-tree-visualize)
+;; webjump
+(global-set-key (kbd "C-x g") 'webjump)
 ;; yasnippet
 (global-set-key (kbd "C-<tab>") 'yas-expand)
 
