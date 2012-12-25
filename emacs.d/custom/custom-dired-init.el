@@ -5,4 +5,8 @@
 (setq dired-recursive-copies (quote always))
 (setq dired-recursive-deletes (quote top))
 
+(global-auto-revert-mode 1) ;; auto-refresh buffers
+(setq global-auto-revert-non-file-buffers t)
+(setq auto-revert-verbose nil)
+
 (provide 'custom-dired-init)
