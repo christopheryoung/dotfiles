@@ -18,6 +18,7 @@
                               csv-mode
                               dash
                               diminish
+                              dired-details
                               evil
                               expand-region
                               find-file-in-project
