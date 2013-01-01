@@ -90,6 +90,7 @@
 (require 'wrap-region)
 
 ;; major modes, not programming languages
+(require 'dired-details)
 (require 'custom-dired-init)
 (require 'custom-grep-init)
 (eval-after-load 'org '(require 'custom-org-mode-init))
