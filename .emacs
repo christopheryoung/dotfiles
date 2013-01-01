@@ -85,6 +85,7 @@
 (require 'smart-forward)
 (require 'smartscan)
 (require 'tail)
+(turn-on-typing-speed)
 (require 'undo-tree)
 (require 'wrap-region)
 
