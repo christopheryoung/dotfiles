@@ -26,3 +26,23 @@
         unstage = reset HEAD --
         last = log -1 HEAD
         lastp = log -1 -p HEAD
+
+[difftool "kdiff3"]
+    path = /usr/local/bin/kdiff3
+    trustExitCode = false
+[difftool]
+
+    prompt = false
+
+[diff]
+    tool = kdiff3
+
+[mergetool "kdiff3"]
+    path = /usr/local/bin/kdiff3
+    trustExitCode = false
+
+[mergetool]
+    keepBackup = false
+
+[merge]
+    tool = kdiff3
