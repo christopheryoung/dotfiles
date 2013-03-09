@@ -14,7 +14,6 @@
                               auto-complete
                               clojure-mode
                               color-theme-solarized
-                              command-frequency
                               csv-mode
                               dash
                               diminish
