@@ -71,6 +71,7 @@
                     ("HTML5" "http://www.nihilogic.dk/labs/canvas_sheet/HTML5_Canvas_Cheat_Sheet.pdf")
                     ("Magit" "http://cheat.errtheblog.com/s/magit/")
                     ("Paredit" "http://www.emacswiki.org/emacs/PareditCheatsheet")
+                    ("Underscore" "http://underscorejs.org/")
                     ("ZenCoding" "https://github.com/rooney/zencoding")
                     ))
 
