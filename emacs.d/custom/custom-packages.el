@@ -39,7 +39,6 @@
                               nrepl
                               paredit
                               perspective
-                              protobuf-mode
                               python-mode
                               pyregexp
                               quack
