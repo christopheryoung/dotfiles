@@ -21,7 +21,7 @@
                               dired-details
                               evil
                               expand-region
-                              find-file-in-project
+                              find-file-in-repository
                               iedit
                               igrep
                               javadoc-help

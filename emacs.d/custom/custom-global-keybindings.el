@@ -37,7 +37,7 @@
 (global-set-key (kbd "C-j") 'delete-other-windows)
 
 (global-set-key (kbd "M-g") 'goto-line)
-(global-set-key (kbd "C-x f") 'find-file-in-project)
+(global-set-key (kbd "C-x f") 'find-file-in-repository)
 
 ;; ace-jump-mode
 (define-key global-map (kbd "C-o") 'ace-jump-mode) ;; was bound to <insertline>
