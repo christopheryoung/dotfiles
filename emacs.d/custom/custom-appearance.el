@@ -51,6 +51,9 @@
 ;; Let me *see* the marks
 (visible-mark-mode 1)
 
+;; Themes
+
+;; (load-theme 'solarized-dark nil)
 
 (provide 'custom-appearance)
 
