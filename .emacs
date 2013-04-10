@@ -82,7 +82,6 @@
 (require 'multiple-cursors)
 (require 'rainbow-delimiters)
 (require 'perspective)
-(require 'smart-forward)
 (require 'smartscan)
 (require 'tail)
 (turn-on-typing-speed)
