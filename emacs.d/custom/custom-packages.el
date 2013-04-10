@@ -19,6 +19,7 @@
                               diminish
                               dired-details
                               evil
+                              exec-path-from-shell
                               expand-region
                               find-file-in-repository
                               iedit
