@@ -70,9 +70,16 @@ source ~/.aliases
 #want to just skip all my customizations
 alias emacs='emacs -q'
 
-# Home bin path
-
+# Fiddle with path
 export PATH=$PATH:~/bin
+export PATH=$PATH:/usr/local/share/npm/bin
+export PATH=$PATH:~/Library/Haskell/bin
+
+# Postgres.app path configuration, only necessary on OSX
+
+if [[ $OSTYPE == darwin* ]]; then
+    PATH="/Applications/Postgres.app/Contents/MacOS/bin:$PATH"
+fi
 
 # virtualenvwrapper
 
@@ -98,11 +105,3 @@ fi
 
 # z.sh for jumping around
 . ~/code/dotfiles/scripts/z.sh
-
-# Postgres.app path configuration, only necessary on OSX
-
-if [[ $OSTYPE == darwin* ]]; then
-    PATH="/Applications/Postgres.app/Contents/MacOS/bin:$PATH"
-fi
-
-
