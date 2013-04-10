@@ -27,7 +27,9 @@
                               javadoc-help
                               js2-mode
                               js2-refactor
+                              json-mode
                               jump-char
+                              ggtags
                               haskell-mode
                               ispell
                               magit
@@ -72,5 +74,8 @@
 
 ;; A place to put any packages not on elpa or marmalade
 (add-to-list 'load-path "~/.emacs.d/vendor/")
+
+(when (memq window-system '(mac ns))
+  (exec-path-from-shell-initialize))
 
 (provide 'custom-packages)
