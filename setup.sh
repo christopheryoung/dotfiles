@@ -67,9 +67,4 @@ echo "Setting up .lein"
 
 type lein2 >/dev/null 2>&1 || wget --no-check-certificate -O ~/bin/lein2 https://raw.github.com/technomancy/leiningen/preview/bin/lein && chmod 755 ~/bin/lein2
 
-rm ~/.lein/init.clj
-rm ~/.lein/profiles.clj
-ln -s $SETUP_SCRIPT_DIR_PATH/lein ~/.lein/init.clj
-ln -s $SETUP_SCRIPT_DIR_PATH/lein ~/.lein/profiles.clj
-
 echo "Done!"
