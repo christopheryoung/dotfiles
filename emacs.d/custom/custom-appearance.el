@@ -17,7 +17,10 @@
 (column-number-mode t)
 
 ;; Show more info in taskbar/icon than just "Emacs"
-(setq frame-title-format '(buffer-file-name "%f" ("%b")))
+(setq frame-title-format
+      '((:eval (if (buffer-file-name)
+                   (abbreviate-file-name (buffer-file-name))
+                 "%b"))))
 
 ;; Fonts are automatically highlighted.  For more information
 ;; type M-x describe-mode font-lock-mode
