@@ -17,7 +17,6 @@
                               csv-mode
                               dash
                               diminish
-                              dired-details
                               evil
                               exec-path-from-shell
                               expand-region
