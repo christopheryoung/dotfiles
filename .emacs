@@ -100,9 +100,10 @@
 (require 'uniquify)
 (require 'visible-mark)
 
-;; major modes, programming languages
+;; major modes, programming languages, etc.
 (require 'custom-init-elisp)
 (require 'custom-init-any-lisp)
+(require 'custom-markdown-mode)
 (eval-after-load 'clojure-mode '(require 'custom-init-clojure))
 (eval-after-load 'haskell-mode '(require 'custom-init-haskell))
 (eval-after-load 'js2-mode '(require 'custom-init-js2))
