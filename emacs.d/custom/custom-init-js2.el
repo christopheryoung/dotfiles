@@ -20,6 +20,9 @@
             ;; sure it's on
             (idle-highlight-mode t)))
 
+;; Use plain js-mode for json
+(setq auto-mode-alist (cons '("\\.json\\'" . js-mode) auto-mode-alist))
+
 (require 'js2-imenu-extras)
 (js2-imenu-extras-setup)
 (require 'js2-refactor)
