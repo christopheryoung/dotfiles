@@ -41,6 +41,8 @@
 
 ;; ace-jump-mode
 (define-key global-map (kbd "C-o") 'ace-jump-mode) ;; was bound to <insertline>
+;; dired-jump
+(define-key global-map "\C-x\C-j" 'dired-jump)
 ;; expand-region
 (global-set-key (kbd "C-=") 'er/expand-region)
 ;; grep
