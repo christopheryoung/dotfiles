@@ -8,7 +8,9 @@
      ;; Don't recurse into some directories
      (add-to-list 'grep-find-ignored-directories "libs")
      (add-to-list 'grep-find-ignored-directories "node_modules")
-     (add-to-list 'grep-find-ignored-directories "vendor")))
+     (add-to-list 'grep-find-ignored-directories "vendor")
+     (add-to-list 'grep-find-ignored-directories "_site")
+     (add-to-list 'grep-find-ignored-directories "_cache")))
 
 ;; Borrowed from the emacs starter kit
 (eval-after-load 'grep
