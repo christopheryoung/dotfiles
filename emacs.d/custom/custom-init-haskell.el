@@ -6,9 +6,6 @@
 
 (require 'auto-complete-haskell)
 
-(require 'hs-lint)
-(require 'haskell-ac)
-
 (custom-set-variables
  '(haskell-mode-hook '(turn-on-haskell-indentation)))
 
