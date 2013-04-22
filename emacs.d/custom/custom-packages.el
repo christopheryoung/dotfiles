@@ -17,6 +17,7 @@
                               csv-mode
                               dash
                               diminish
+                              erlang
                               evil
                               exec-path-from-shell
                               expand-region
