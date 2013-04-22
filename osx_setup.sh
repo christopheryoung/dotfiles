@@ -18,6 +18,9 @@ brew upgrade
 
 type wget >/dev/null 2>&1 || brew install wget
 type aspell >/dev/null 2>&1 || brew install aspell
+type findutils >/dev/null 2>&1 || brew install findutils
 type go >/dev/null 2>&1 || brew install go
-
-
+type erlang >/dev/null 2>&1 || brew install erlang
+type cabal >/dev/null 2>&1 || brew install cabal
+type node >/dev/null 2>&1 || brew install nodejs
+type npm >/dev/null 2>&1 || curl https://npmjs.org/install.sh | sh
