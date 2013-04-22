@@ -71,14 +71,15 @@ source ~/.aliases
 alias emacs='emacs -q'
 
 # Fiddle with path
-export PATH=$PATH:~/bin
-export PATH=$PATH:/usr/local/share/npm/bin
-export PATH=$PATH:~/Library/Haskell/bin
 
-# Postgres.app path configuration, only necessary on OSX
 
 if [[ $OSTYPE == darwin* ]]; then
-    PATH="/Applications/Postgres.app/Contents/MacOS/bin:$PATH"
+    export PATH=$PATH:~/bin
+    export PATH=$PATH:/usr/local/share/npm/bin
+    export PATH=$PATH:~/Library/Haskell/bin
+    export PATH=$PATH:/Applications/Postgres.app/Contents/MacOS/bin
+    export PATH=$PATH:~/Applications/adt-bundle-mac/sdk/platform-tools
+    export PATH=$PATH:~/Applications/adt-bundle-mac/sdk/tools
 fi
 
 # virtualenvwrapper
