@@ -1,4 +1,7 @@
 
+;; set coding system: Note that doing this explicitly fixes an obscure magit bug
+(prefer-coding-system 'utf-8)
+
 ;; Cause the region to be highlighted and prevent region-based
 ;; commands from running when the mark isn't active.
 (pending-delete-mode t)
