@@ -34,6 +34,7 @@
                               haskell-mode
                               ht
                               ispell
+                              loop
                               magit
                               mark-multiple
                               markdown-mode
