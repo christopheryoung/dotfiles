@@ -32,6 +32,7 @@
                               jump-char
                               ggtags
                               haskell-mode
+                              ht
                               ispell
                               magit
                               mark-multiple
