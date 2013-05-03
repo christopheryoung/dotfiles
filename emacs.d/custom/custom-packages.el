@@ -48,6 +48,7 @@
                               quack
                               rainbow-delimiters
                               repository-root
+                              s
                               smex
                               slime-js
                               starter-kit
