@@ -77,11 +77,6 @@
 (add-to-list 'desktop-modes-not-to-save 'info-lookup-mode)
 (add-to-list 'desktop-modes-not-to-save 'fundamental-mode)
 
-;; clean up whitespace on save
-
-(add-hook 'before-save-hook
-          (lambda () (whitespace-cleanup)))
-
 ;; https://github.com/magnars/.emacs.d/blob/master/sane-defaults.el
 ;; When popping the mark, continue popping until the cursor actually moves
 ;; Also, if the last command was a copy - skip past all the expand-region cruft.
