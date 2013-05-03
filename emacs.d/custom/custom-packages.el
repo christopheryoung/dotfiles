@@ -17,6 +17,7 @@
                               csv-mode
                               dash
                               diminish
+                              dired-details
                               erlang
                               evil
                               exec-path-from-shell
