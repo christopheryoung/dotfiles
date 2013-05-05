@@ -45,6 +45,8 @@
 (define-key global-map "\C-x\C-j" 'dired-jump)
 ;; expand-region
 (global-set-key (kbd "C-=") 'er/expand-region)
+;; erc
+(global-set-key (kbd "C-c C-c e") 'djcb-erc-start-or-switch)
 ;; grep
 (global-set-key (kbd "C-c C-g") 'rgrep)
 ;; iedit
