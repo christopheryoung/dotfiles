@@ -95,6 +95,7 @@
 (eval-after-load 'org '(require 'custom-org-mode-init))
 (require 'custom-multi-term-init)
 (require 'custom-text-mode-init)
+(require 'custom-init-erc)
 (require 'magit)
 (require 'smex)
 (require 'uniquify)
