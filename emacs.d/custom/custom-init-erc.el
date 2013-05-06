@@ -23,5 +23,6 @@
     (when (y-or-n-p "Start ERC? ") ;; no: maybe start ERC
       (erc :server "irc.freenode.net" :port 6667 :nick "chrisyoung" :full-name "Christopher M. Young"))))
 
+(setq erc-input-line-position -2)
 
 (provide 'custom-init-erc)
