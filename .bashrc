@@ -76,7 +76,6 @@ export PATH=$PATH:$HOME/bin
 export PATH=$PATH:/usr/local/bin
 
 if [[ $OSTYPE == darwin* ]]; then
-    echo "Setting mac-specific paths"
     export PATH=$PATH:/usr/local/share/npm/bin
     export PATH=$PATH:$HOME/Library/Haskell/bin
     export PATH=$PATH:/Library/Haskell/bin
@@ -86,7 +85,6 @@ if [[ $OSTYPE == darwin* ]]; then
 fi
 
 if [[ $OSTYPE == linux* ]]; then
-    echo "Setting linux-specific paths"
     export PATH=$PATH:$HOME/.cabal/bin
 fi
 
