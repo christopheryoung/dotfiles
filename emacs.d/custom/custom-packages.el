@@ -46,7 +46,6 @@
                               paredit
                               perspective
                               python-mode
-                              pyregexp
                               quack
                               rainbow-delimiters
                               repository-root
