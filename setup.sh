@@ -61,6 +61,7 @@ type grin >/dev/null 2>&1 || sudo easy_install grin
 
 echo "Setting up .lein"
 
+mkdir -p ~/bin/lein2
 type lein2 >/dev/null 2>&1 || wget --no-check-certificate -O ~/bin/lein2 https://raw.github.com/technomancy/leiningen/preview/bin/lein && chmod 755 ~/bin/lein2
 
 echo "Done!"
