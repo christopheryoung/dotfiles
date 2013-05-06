@@ -44,6 +44,7 @@
 ;; C-c s = show reason for test failure (clojure-test-mode, my binding)
 
 ;; setup info
+(setq *on-a-mac* nil)
 (if (string-match "apple-darwin" system-configuration)
     (setq *on-a-mac* t))
 
