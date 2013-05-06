@@ -66,10 +66,6 @@ export LSCOLORS=ExFxCxDxBxegedabagacad
 # Alias definitions.
 source ~/.aliases
 
-#I rarely use emacs in a terminal, but for those cases where I do, I
-#want to just skip all my customizations
-alias emacs='emacs -q'
-
 # Fiddle with path
 
 export PATH=$PATH:$HOME/bin
