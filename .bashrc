@@ -90,12 +90,6 @@ if [[ $OSTYPE == linux* ]]; then
     export PATH=$PATH:$HOME/.cabal/bin
 fi
 
-# virtualenvwrapper
-
-export WORKON_HOME=~/code/virtualenvs
-export PROJECT_HOME=~/code
-source /usr/local/bin/virtualenvwrapper.sh
-
 # Functions
 source ~/.functions
 
