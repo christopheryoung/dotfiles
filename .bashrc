@@ -70,6 +70,7 @@ source ~/.aliases
 
 export PATH=$PATH:$HOME/bin
 export PATH=$PATH:/usr/local/bin
+export PATH=$PATH:$HOME/.cabal/bin
 
 if [[ $OSTYPE == darwin* ]]; then
     export PATH=$PATH:/usr/local/share/npm/bin
@@ -78,10 +79,6 @@ if [[ $OSTYPE == darwin* ]]; then
     export PATH=$PATH:/Applications/Postgres.app/Contents/MacOS/bin
     export PATH=$PATH:$HOME/Applications/adt-bundle-mac/sdk/platform-tools
     export PATH=$PATH:$HOM/Applications/adt-bundle-mac/sdk/tools
-fi
-
-if [[ $OSTYPE == linux* ]]; then
-    export PATH=$PATH:$HOME/.cabal/bin
 fi
 
 # Functions
