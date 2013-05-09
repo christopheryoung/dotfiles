@@ -1,5 +1,7 @@
 
 -- The following courtesy of jekor (Chris Forno)
 
-let ghciEscapeShellArg arg = "'" ++ concatMap (\x -> if x == '\'' then "'\"'\"'" else [x]) arg ++ "'"                         :def! search return . (":! hoogle --color --count=20 " ++) . ghciEscapeShellArg                                               :def! doc return . (":! hoogle --info " ++) . ghciEscapeShellArg
+let ghciEscapeShellArg arg = "'" ++ concatMap (\x -> if x == '\'' then "'\"'\"'" else [x]) arg ++ "'"                         
+:def! search return . (":! hoogle --color --count=20 " ++) . ghciEscapeShellArg
+:def! doc return . (":! hoogle --info " ++) . ghciEscapeShellArg
 
