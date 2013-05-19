@@ -45,6 +45,7 @@
                               nrepl
                               paredit
                               perspective
+                              projectile
                               python-mode
                               quack
                               rainbow-delimiters
