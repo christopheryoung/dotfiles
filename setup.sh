@@ -48,6 +48,7 @@ ln -s $SETUP_SCRIPT_DIR_PATH/emacs.d ~/.emacs.d
 #Python stuff
 ########################################
 
+# Note: Requires easy_install
 echo "Checking for sitewide python packages."
 
 type pip >/dev/null 2>&1 || sudo easy_install pip
