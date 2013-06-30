@@ -21,6 +21,9 @@ alias ls='ls -a'
 
 alias mkdir='mkdir -p'
 
+# Scripts
+alias gh="python ~/code/dotfiles/scripts/github-lookup.py"
+
 #Leiningen project status
 alias cljst='lein outdated && lein eastwood && lein midje'
 
