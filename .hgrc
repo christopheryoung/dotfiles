@@ -18,6 +18,3 @@ cmd.kdiff3 = /usr/local/bin/kdiff3
 
 [merge-tools]
 kdiff3.args = $base $local $other -o $output
-
-%include ~/.hgrc_fingerprints
-
