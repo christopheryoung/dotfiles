@@ -1,13 +1,20 @@
 
+
+(require 'auto-complete-haskell)
+(require 'hsenv)
+
+(setenv "PATH" (concat "~/.cabal/bin:" (getenv "PATH")))
+
 (add-hook 'haskell-mode-hook 'turn-on-haskell-doc-mode)
 (add-hook 'haskell-mode-hook 'turn-on-haskell-indent)
 (add-hook 'haskell-mode-hook 'haskell-font-lock-symbols t)
 (add-to-list 'completion-ignored-extensions ".hi")
 
-(require 'auto-complete-haskell)
-
 (custom-set-variables
  '(haskell-mode-hook '(turn-on-haskell-indentation)))
+
+(define-key haskell-mode-map "\C-ch" 'haskell-hoogle)
+(setq haskell-hoogle-command "hoogle")
 
 (defun my-haskell-mode-hook ()
   "hs-lint binding, plus autocompletion and paredit."
