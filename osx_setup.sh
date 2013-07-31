@@ -3,6 +3,8 @@
 #Script for setting up a mac. Assumes that setup.sh has already moved
 #dotfiles to appropriate places
 
+#Setup locate
+sudo /usr/libexec/locate.updatedb
 
 ########################################
 #Homebrew stuff
