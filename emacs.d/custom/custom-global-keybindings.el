@@ -16,7 +16,7 @@
 (global-set-key (kbd "C-h C-b") 'browse-url)
 (global-set-key (kbd "C-h C-s") 'search-interwebs)
 (global-set-key (kbd "C-h C-c") 'get-cheatsheet)
-
+(global-set-key (kbd "C-c d") 'duplicate-current-line-or-region)
 (global-set-key (kbd "C-]") 'match-paren)
 
 (global-set-key (kbd "C-.") (lambda () (interactive) (scroll-up 1)))
