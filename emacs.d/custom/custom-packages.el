@@ -46,6 +46,7 @@
                               paredit
                               perspective
                               projectile
+                              pymacs
                               python-mode
                               quack
                               rainbow-delimiters
