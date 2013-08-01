@@ -23,6 +23,8 @@
                               exec-path-from-shell
                               expand-region
                               find-file-in-repository
+                              git-gutter+
+                              git-gutter-fringe+
                               iedit
                               igrep
                               javadoc-help

@@ -98,6 +98,8 @@
 (require 'custom-text-mode-init)
 (require 'custom-init-erc)
 (require 'magit)
+(global-git-gutter+-mode t)
+(require 'git-gutter-fringe+)
 (require 'smex)
 (require 'uniquify)
 (require 'visible-mark)
