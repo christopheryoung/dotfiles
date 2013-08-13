@@ -31,7 +31,6 @@
                               js2-refactor
                               json-mode
                               jump-char
-                              ggtags
                               haskell-mode
                               ht
                               ispell
