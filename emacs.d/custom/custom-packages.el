@@ -19,7 +19,6 @@
                               diminish
                               dired-details
                               erlang
-                              evil
                               exec-path-from-shell
                               expand-region
                               find-file-in-repository
