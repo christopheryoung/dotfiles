@@ -42,6 +42,7 @@ emacs.d/ac-comphist.dat
 emacs.d/auto-save-list
 emacs.d/backups
 emacs.d/bookmarks
+emacs.d/el-get
 emacs.d/elpa
 emacs.d/eshell
 emacs.d/places
