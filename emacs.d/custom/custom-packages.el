@@ -39,6 +39,7 @@
                               magit
                               ipython
                               ipython
+                              ipython
                               mark-multiple
                               markdown-mode
                               maxframe
@@ -52,6 +53,7 @@
                               pymacs
                               python-mode
                               quack
+                              python-pep8
                               rainbow-delimiters
                               repository-root
                               s
