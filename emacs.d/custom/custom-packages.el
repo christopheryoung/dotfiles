@@ -49,7 +49,6 @@
                               projectile
                               pymacs
                               python-mode
-                              quack
                               python-pep8
                               rainbow-delimiters
                               repository-root
