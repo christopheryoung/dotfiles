@@ -18,6 +18,7 @@
                               dash
                               diminish
                               dired-details
+                              ein
                               erlang
                               exec-path-from-shell
                               expand-region
