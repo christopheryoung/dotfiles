@@ -37,6 +37,8 @@
                               ispell
                               loop
                               magit
+                              ipython
+                              ipython
                               mark-multiple
                               markdown-mode
                               maxframe
