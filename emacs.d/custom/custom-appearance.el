@@ -38,8 +38,9 @@ This functions should be added to the hooks of major modes for programming."
 (set-face-bold-p 'font-lock-keyword-face t)
 (set-face-italic-p 'font-lock-comment-face t)
 
+
 ;; font size . . .
-(set-face-attribute 'default t :family "Inconsolata" :height 160 :weight 'normal)
+
 
 ;; Line numbers! Always!
 (global-linum-mode 1)
@@ -59,7 +60,7 @@ This functions should be added to the hooks of major modes for programming."
 
 (if *on-a-mac*
     (set-face-font 'default "Monaco-18")
-  (set-frame-font "Monospace-10"))
+  (set-face-attribute 'default nil :height 200))
 
 ;; Let me *see* the marks
 (visible-mark-mode 1)
