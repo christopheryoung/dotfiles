@@ -27,6 +27,7 @@
                               git-gutter-fringe+
                               iedit
                               igrep
+                              ipython
                               javadoc-help
                               js2-mode
                               js2-refactor
@@ -34,6 +35,7 @@
                               jump-char
                               haskell-mode
                               ht
+                              ipython
                               ispell
                               loop
                               magit
@@ -48,8 +50,11 @@
                               paredit
                               perspective
                               projectile
+                              pylint
                               pymacs
                               python-mode
+                              python-pylint
+                              ;;python-mode
                               python-pep8
                               rainbow-delimiters
                               repository-root
@@ -61,6 +66,7 @@
                               starter-kit-js
                               starter-kit-lisp
                               undo-tree
+                              virtualenv
                               windmove
                               wgrep
                               wrap-region
