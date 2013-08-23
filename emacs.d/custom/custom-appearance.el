@@ -26,6 +26,9 @@ This functions should be added to the hooks of major modes for programming."
 ;; Let's see column numbers.
 (column-number-mode t)
 
+;; and whitespace
+(whitespace-mode 1)
+
 ;; Show more info in taskbar/icon than just "Emacs"
 (setq frame-title-format
       '((:eval (if (buffer-file-name)
