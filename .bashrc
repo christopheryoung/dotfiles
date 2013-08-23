@@ -63,9 +63,6 @@ esac
 export CLICOLOR=1
 export LSCOLORS=ExFxCxDxBxegedabagacad
 
-# Alias definitions.
-source ~/.aliases
-
 # Fiddle with path
 
 export PATH=$PATH:$HOME/bin
@@ -80,6 +77,9 @@ if [[ $OSTYPE == darwin* ]]; then
     export PATH=$PATH:$HOME/Applications/adt-bundle-mac/sdk/platform-tools
     export PATH=$PATH:$HOM/Applications/adt-bundle-mac/sdk/tools
 fi
+
+# Alias definitions.
+source ~/.aliases
 
 # Functions
 source ~/.functions
