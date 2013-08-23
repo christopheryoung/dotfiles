@@ -99,3 +99,7 @@ fi
 
 # z.sh for jumping around
 . ~/code/dotfiles/scripts/z.sh
+
+if [[ $LOGNAME == 'young' ]]; then
+    source ~/.work.sh
+fi
