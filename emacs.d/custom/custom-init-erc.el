@@ -5,7 +5,7 @@
 
 (erc-autojoin-mode t)
 (setq erc-autojoin-channels-alist
-  '((".*\\.freenode.net" "#emacs" "#yesod" "#haskell" "#nycpython")))
+  '((".*\\.freenode.net" "#yesod" "#haskell" "#nycpython")))
 
 (erc-track-mode t)
 (setq erc-track-exclude-types '("JOIN" "NICK" "PART" "QUIT" "MODE"
