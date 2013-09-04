@@ -116,7 +116,9 @@ there's a region, all lines that region covers will be duplicated."
   (interactive)
   (insert (format-time-string "%m/%d/%Y ")))
 
-
+(defun search-all-buffers (regexp)
+   (interactive "sRegexp: ")
+   (multi-occur-in-matching-buffers "." regexp t))
 
 
 (provide 'custom-defuns)
