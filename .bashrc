@@ -25,7 +25,8 @@ export HISTCONTROL=ignoreboth
 # append to the history file, don't overwrite it
 shopt -s histappend
 
-# for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
+# The next line allows me to share history between different screen terminals
+PROMPT_COMMAND="history -n; history -a"
 
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
