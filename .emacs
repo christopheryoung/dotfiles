@@ -79,6 +79,7 @@
 (require 'inline-string-rectangle)
 (require 'jump-char)
 (require 'linum)
+(setq auto-mode-alist (cons '("\\.pro$" . makefile-mode) auto-mode-alist))
 (require 'maxframe)
 (require 'multiple-cursors)
 (require 'rainbow-delimiters)
