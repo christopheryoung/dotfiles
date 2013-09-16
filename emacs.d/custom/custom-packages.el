@@ -19,6 +19,7 @@
                               diminish
                               dired-details
                               ein
+                              elpy
                               erlang
                               exec-path-from-shell
                               expand-region
@@ -54,7 +55,7 @@
                               pymacs
                               python-mode
                               python-pylint
-                              ;;python-mode
+                              python-mode
                               python-pep8
                               rainbow-delimiters
                               repository-root
