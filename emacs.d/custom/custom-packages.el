@@ -26,21 +26,19 @@
                               find-file-in-repository
                               git-gutter+
                               git-gutter-fringe+
+                              haskell-mode
+                              ht
                               iedit
                               igrep
                               ipython
+                              ispell
                               javadoc-help
                               js2-mode
                               js2-refactor
                               json-mode
                               jump-char
-                              haskell-mode
-                              ht
-                              ipython
-                              ispell
                               loop
                               magit
-                              ipython
                               mark-multiple
                               markdown-mode
                               maxframe
@@ -53,26 +51,23 @@
                               projectile
                               pylint
                               pymacs
-                              python-mode
-                              python-pylint
-                              python-mode
                               python-pep8
+                              python-pylint
                               rainbow-delimiters
                               repository-root
                               s
-                              smex
                               slime-js
+                              smex
                               starter-kit
                               starter-kit-bindings
                               starter-kit-js
                               starter-kit-lisp
                               undo-tree
                               virtualenv
-                              windmove
                               wgrep
+                              windmove
                               wrap-region
                               yasnippet
-                              zencoding-mode
                               )
   "A list of packages to ensure are installed at launch.")
 
