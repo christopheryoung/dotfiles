@@ -26,7 +26,7 @@ export HISTCONTROL=ignoreboth
 shopt -s histappend
 
 # The next line allows me to share history between different screen terminals
-PROMPT_COMMAND="history -n; history -a"
+# PROMPT_COMMAND="history -n; history -a"
 
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
