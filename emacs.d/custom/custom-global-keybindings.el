@@ -80,6 +80,10 @@
 ;; smartscan
 (global-set-key (kbd "<up>") 'smart-symbol-go-backward)
 (global-set-key (kbd "<down>") 'smart-symbol-go-forward)
+;; these bindings are fine for smartscan until you're at a repl
+(add-hook 'comint-mode-hook
+          (lambda () (local-set-key (kbd "<up>") 'comint-previous-input)
+            (local-set-key (kbd "<down>") 'comint-next-input)))
 ;; smex
 (global-set-key (kbd "M-x") 'smex)
 (global-set-key (kbd "C-c C-c M-x") 'execute-extended-command) ;; old m-x
