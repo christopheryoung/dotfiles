@@ -125,5 +125,5 @@
 (require 'custom-global-keybindings)
 
 ;; At work
-(require 'custom-works nil 'noerror)
+(require 'custom-work nil 'noerror)
 
