@@ -125,5 +125,5 @@
 (require 'custom-global-keybindings)
 
 ;; At work
-(require 'custom-work nil 'noerror)
+(require 'schrodinger nil 'noerror)
 
