@@ -73,6 +73,10 @@
 (require 'custom-yasnippet-init)
 (require 'diminish)
 (require 'expand-region)
+(require 'fill-column-indicator)
+(define-globalized-minor-mode
+ global-fci-mode fci-mode (lambda () (fci-mode 1)))
+(global-fci-mode t)
 (require 'flyspell)
 (require 'highlight-beyond-fill-column)
 (require 'inline-string-rectangle)
