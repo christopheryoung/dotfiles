@@ -12,6 +12,7 @@
                               ac-nrepl
                               ace-jump-mode
                               auto-complete
+                              ebib
                               clojure-mode
                               color-theme-solarized
                               csv-mode
