@@ -93,7 +93,6 @@ there's a region, all lines that region covers will be duplicated."
                     ("Magit" "http://cheat.errtheblog.com/s/magit/")
                     ("Paredit" "http://www.emacswiki.org/emacs/PareditCheatsheet")
                     ("Underscore" "http://underscorejs.org/")
-                    ("ZenCoding" "https://github.com/rooney/zencoding")
                     ))
 
 (defun search-interwebs(query)

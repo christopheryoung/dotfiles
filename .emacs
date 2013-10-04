@@ -71,9 +71,12 @@
 (require 'custom-ido-mode-init)
 (require 'custom-init-paredit)
 (require 'custom-yasnippet-init)
-(require 'custom-zencoding-mode-init)
 (require 'diminish)
 (require 'expand-region)
+(require 'fill-column-indicator)
+(define-globalized-minor-mode
+ global-fci-mode fci-mode (lambda () (fci-mode 1)))
+(global-fci-mode t)
 (require 'flyspell)
 (require 'highlight-beyond-fill-column)
 (require 'inline-string-rectangle)
@@ -122,5 +125,5 @@
 (require 'custom-global-keybindings)
 
 ;; At work
-(require 'custom-works nil 'noerror)
+(require 'schrodinger nil 'noerror)
 

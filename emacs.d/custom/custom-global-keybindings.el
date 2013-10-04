@@ -1,6 +1,5 @@
 
-(global-set-key [f2] 'comment-region)
-(global-set-key [(shift f2)] 'universal-argument) ;uncomment is Shift-F2 F2
+(global-set-key [f2] 'comment-dwim)
 (global-set-key [f9] 'split-window-horizontally)
 (global-set-key [f10] 'split-window-vertically)
 (global-set-key [f11] 'other-window)
