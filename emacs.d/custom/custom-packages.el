@@ -11,14 +11,15 @@
 (defvar my-package-packages '(
                               ac-nrepl
                               ace-jump-mode
+                              auctex
                               auto-complete
-                              ebib
                               clojure-mode
                               color-theme-solarized
                               csv-mode
                               dash
                               diminish
                               dired-details
+                              ebib
                               ein
                               elpy
                               erlang
@@ -39,6 +40,7 @@
                               js2-refactor
                               json-mode
                               jump-char
+                              latex-extra
                               loop
                               magit
                               mark-multiple
