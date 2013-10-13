@@ -18,8 +18,14 @@
 (global-set-key (kbd "C-c d") 'duplicate-current-line-or-region)
 (global-set-key (kbd "C-]") 'match-paren)
 
+;; These are very nice bindings, though they don't work in a terminal
 (global-set-key (kbd "C-.") (lambda () (interactive) (scroll-up 1)))
 (global-set-key (kbd "C-,")   (lambda () (interactive) (scroll-down 1)))
+;; they need to be reset by some especially pushy modes
+(eval-after-load "flyspell"
+  '(define-key flyspell-mode-map (kbd "C-.") nil))
+(eval-after-load "flyspell"
+  '(define-key flyspell-mode-map (kbd "C-,") nil))
 
 ;; browse the kill ring easily
 (global-set-key "\C-cy" '(lambda () (interactive) (popup-menu 'yank-menu)))
