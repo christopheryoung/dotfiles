@@ -33,3 +33,4 @@ type erlang >/dev/null 2>&1 || brew install erlang
 type cabal >/dev/null 2>&1 || brew install cabal
 type node >/dev/null 2>&1 || brew install nodejs
 type npm >/dev/null 2>&1 || curl https://npmjs.org/install.sh | sh
+type dos2unix >/dev/null 2>&1 || brew install dos2unix
