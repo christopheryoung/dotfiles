@@ -1,5 +1,10 @@
 #!/bin/bash
 
+# Requirements:
+# First install skim manually
+# Then install mactex
+# TODO: Bail if not /Applications/Skim.app
+
 #Script for setting up a mac. Assumes that setup.sh has already moved
 #dotfiles to appropriate places
 
