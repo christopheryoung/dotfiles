@@ -13,7 +13,7 @@ sudo /usr/libexec/locate.updatedb
 #Make sure permissions on /usr/local are ok
 chown -R `whoami` /usr/local
 
-type brew >/dev/null 2>&1 || /usr/bin/ruby -e "$(/usr/bin/curl -fksSL https://raw.github.com/mxcl/homebrew/master/Library/Contributions/install_homebrew.rb)"
+type brew >/dev/null 2>&1 || ruby -e "$(curl -fsSL https://raw.github.com/mxcl/homebrew/go)"
 
 brew update
 brew upgrade
