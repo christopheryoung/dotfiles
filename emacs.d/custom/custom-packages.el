@@ -11,6 +11,7 @@
 (defvar my-package-packages '(
                               ac-nrepl
                               ace-jump-mode
+                              auctex
                               auto-complete
                               clojure-mode
                               color-theme-solarized
@@ -18,6 +19,7 @@
                               dash
                               diminish
                               dired-details
+                              ebib
                               ein
                               elpy
                               erlang
@@ -38,6 +40,7 @@
                               js2-refactor
                               json-mode
                               jump-char
+                              latex-extra
                               loop
                               magit
                               mark-multiple

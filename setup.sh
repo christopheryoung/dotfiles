@@ -56,6 +56,10 @@ type virtualenv >/dev/null 2>&1 || pip install virtualenv
 type ipython >/dev/null 2>&1 || pip install ipython
 type grin >/dev/null 2>&1 || sudo easy_install grin
 
+pip install flake8
+pip install rope
+pip install elpy
+
 ########################################
 #Leiningen
 ########################################
