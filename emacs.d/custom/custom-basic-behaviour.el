@@ -132,7 +132,7 @@
 
 (flyspell-prog-mode) ;; Checks spelling in comments and doc strings
 
-(setq-default ispell-program-name "/usr/local/bin/aspell")
+;;(setq-default ispell-program-name "/usr/local/bin/aspell")
 
 (persp-mode t)
 
