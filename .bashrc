@@ -104,3 +104,8 @@ fi
 if [[ $LOGNAME == 'young' ]]; then
     source ~/.work.sh
 fi
+
+if [ $(uname -s) == "Darwin" ]; then
+    type gls >/dev/null 2>&1 || brew install coreutils
+    alias ls='gls'
+fi
