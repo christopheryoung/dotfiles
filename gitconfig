@@ -28,6 +28,9 @@
         last = log -1 HEAD
         lastp = log -1 -p HEAD
 
+[push]
+        default = current
+
 [difftool "kdiff3"]
     path = /usr/local/bin/kdiff3
     trustExitCode = false
