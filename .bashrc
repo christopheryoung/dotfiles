@@ -101,8 +101,8 @@ fi
 # z.sh for jumping around
 . ~/code/dotfiles/scripts/z.sh
 
-if [[ $LOGNAME == 'young' ]]; then
-    source ~/.work.sh
+if [[ $USERNAME == 'young' ]]; then
+    source ~/code/dotfiles/schrodinger.sh
 fi
 
 if [ $(uname -s) == "Darwin" ]; then
