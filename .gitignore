@@ -38,18 +38,21 @@ Thumbs.db
 local_settings.py
 
 lein/*
+/emacs.d/tramp
+emacs.d/.emacs.desktop
+emacs.d/.emacs.desktop.lock
+emacs.d/custom/.emacs.desktop
+emacs.d/.mc-lists.el
+emacs.d/.smex-items
 emacs.d/ac-comphist.dat
 emacs.d/auto-save-list
 emacs.d/backups
 emacs.d/bookmarks
+emacs.d/build/org-mode
 emacs.d/el-get
 emacs.d/elpa
 emacs.d/eshell
-emacs.d/places
-emacs.d/url
 emacs.d/midje-mode
 emacs.d/org-mode
-emacs.d/.smex-items
-emacs.d/build/org-mode
-emacs.d/.mc-lists.el
-/emacs.d/tramp
+emacs.d/places
+emacs.d/url

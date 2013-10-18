@@ -15,7 +15,7 @@ SETUP_SCRIPT_DIR_PATH=`( cd "$MY_PATH" && pwd )`
 ########################################
 
 # list of files/folders to copy to homedir
-files="bashrc bash_profile emacs hgrc screenrc viper vimrc git-completion.sh osx functions aliases jslintrc inputrc ghci"
+files="bashrc bash_profile emacs hgrc screenrc viper vimrc git-completion.sh osx functions aliases jslintrc inputrc ghci pylintrc"
 
 echo "Creating symbolic links in home directory"
 for file in $files; do
