@@ -22,6 +22,7 @@
 (setq TeX-parse-self t)
 (setq-default TeX-master nil)
 (setq TeX-PDF-mode t)
+(add-hook 'LaTeX-mode-hook 'turn-on-reftex)
 
 ;; hide footnotes, etc., by default
 (add-hook 'LaTeX-mode-hook (lambda ()
