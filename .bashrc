@@ -66,14 +66,13 @@ export LSCOLORS=ExFxCxDxBxegedabagacad
 
 # Fiddle with path
 
+export PATH=$PATH:$HOME/.cabal/bin
 export PATH=$PATH:$HOME/bin
 export PATH=$PATH:/usr/local/bin
-export PATH=$PATH:$HOME/.cabal/bin
+export PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 
 if [[ $OSTYPE == darwin* ]]; then
     export PATH=$PATH:/usr/local/share/npm/bin
-    export PATH=$PATH:$HOME/Library/Haskell/bin
-    export PATH=$PATH:/Library/Haskell/bin
     export PATH=$PATH:/Applications/Postgres.app/Contents/MacOS/bin
     export PATH=$PATH:$HOME/Applications/adt-bundle-mac/sdk/platform-tools
     export PATH=$PATH:$HOM/Applications/adt-bundle-mac/sdk/tools
@@ -101,8 +100,8 @@ fi
 # z.sh for jumping around
 . ~/code/dotfiles/scripts/z.sh
 
-if [[ $LOGNAME == 'young' ]]; then
-    source ~/.work.sh
+if [[ $USERNAME == 'young' ]]; then
+    source ~/code/dotfiles/schrodinger.sh
 fi
 
 if [ $(uname -s) == "Darwin" ]; then

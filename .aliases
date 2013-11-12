@@ -15,9 +15,10 @@ alias h="cd ~/"
 alias g="git="
 
 # Listings
-# List all files colorized in long format, including dot files
-alias l="ls -Gla"
-alias lm='ls -al | more'    # pipe through 'more'
+# List all files colorized in long format, including hidden files, and sort by
+# time stamp
+alias l="ls -Glat"
+alias lm='l | more'    # pipe through 'more'
 alias ls='ls -a'
 
 alias mkdir='mkdir -p'

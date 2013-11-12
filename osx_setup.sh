@@ -33,6 +33,7 @@ brew install nodejs
 brew install dos2unix
 brew install imagemagick
 brew install wget
+brew install Xpdf
 
 echo "Outdated brew packages below: "
 brew outdated

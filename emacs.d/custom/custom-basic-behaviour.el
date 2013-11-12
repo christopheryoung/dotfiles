@@ -20,6 +20,7 @@
 
 ;; And let me just hit return for "yes" when I'm feeling really lazy.
 (define-key query-replace-map [return] 'act)
+(define-key query-replace-map [?\C-m] 'act)
 
 ;; No need to see byte compile warnings
 (setq byte-compile-warnings nil)
