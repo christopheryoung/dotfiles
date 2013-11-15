@@ -17,8 +17,9 @@ alias g="git="
 # Listings
 # List all files colorized in long format, including hidden files, and sort by
 # time stamp
-alias l="ls -Glat"
-alias lm='l | more'    # pipe through 'more'
+alias l="ls -Glath" # No group, long format, all files, ordered by time, with
+# size in human readable format
+alias lm='l | more' # pipe through 'more'
 alias ls='ls -a'
 
 alias mkdir='mkdir -p'
