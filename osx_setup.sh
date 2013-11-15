@@ -11,6 +11,7 @@
 #dotfiles to appropriate places
 
 #Setup locate
+sudo launchctl load -w /System/Library/LaunchDaemons/com.apple.locate.plist
 sudo /usr/libexec/locate.updatedb
 
 ########################################
@@ -32,6 +33,7 @@ brew install nodejs
 brew install dos2unix
 brew install imagemagick
 brew install wget
+brew install Xpdf
 
 echo "Outdated brew packages below: "
 brew outdated
