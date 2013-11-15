@@ -1,0 +1,8 @@
+readline
+flake8
+elpy
+rope
+jedi
+pep8
+ipython
+grin
