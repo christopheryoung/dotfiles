@@ -22,8 +22,7 @@
 
 (add-hook 'python-mode-hook
           '(lambda ()
-             (local-set-key (kbd "C-o") 'ace-jump-mode)
-             (elpy-mode)))
+             (local-set-key (kbd "C-o") 'ace-jump-mode)))
 
 (setq elpy-rpc-backend "jedi")
 (package-initialize)
