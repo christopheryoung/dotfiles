@@ -1,3 +1,4 @@
+#!/bin/bash
 
 platform='unknown'
 unamestr=$(uname)
@@ -21,8 +22,8 @@ function setvenv() {
         export SCHRODINGER='/scr/young/schrodinger'
         export SCHRODINGER_SRC='/scr/young/schrodinger_src'
     elif [[ $platform == 'mac' ]]; then
-        export SCHRODINGER='~/code/schrodinger'
-        export SCHRODINGER_SRC='~/code/schrodinger_src'
+        export SCHRODINGER='/Users/young/code/schrodinger'
+        export SCHRODINGER_SRC='/Users/young/code/schrodinger_src'
     fi
     reportenv
 }
@@ -35,8 +36,8 @@ function setaltenv() {
         export LDFLAGS='-L/home/young/.virtualenvs/alt/lib'
 
     elif [[ $platform == 'mac' ]]; then
-        export SCHRODINGER='~/code/alt_schrodinger'
-        export SCHRODINGER_SRC='~/code/alt_schrodinger'
+        export SCHRODINGER='/Users/young/code/alt_schrodinger'
+        export SCHRODINGER_SRC='/Users/young/code/alt_schrodinger'
         export LD_LIBRARY_PATH='/Users/young/.virtualenvs/alt/lib'
         export LDFLAGS='-L/Users/young/.virtualenvs/alt/lib'
     fi
@@ -48,7 +49,6 @@ function setaltenv() {
 setvenv
 
 export PATH=$PATH:/utils/bin
-export PATH=$PATH:/home/young/.local/bin
 export SCHRODINGER_LIB='/software/lib'
 export PATH=$PATH:/software/lib/common
 
@@ -56,12 +56,15 @@ alias buildinger=$SCHRODINGER_SRC/mmshare/build_tools/buildinger.sh
 alias pylint='/software/lib/common/pylint-0.28.0/pylint'
 alias maestro='$SCHRODINGER/maestro'
 alias run="$SCHRODINGER/run"
+alias src='cd $SCHRODINGER_SRC'
+alias sch='cd $SCHRODINGER'
+alias mm='cd $SCHRODINGER_SRC/mmshare'
 
 alias venv='setvenv && source ~/.virtualenvs/sch/bin/activate'
 alias venv_alt='setaltenv && source ~/.virtualenvs/alt/bin/activate'
 
 if [[ $platform == 'mac' ]]; then
-    export MAESTRO_SCRIPTS='~/code/maestro_scripts'
+    export MAESTRO_SCRIPTS='/Users/young/code/maestro_scripts'
 
 elif [[ $platform == 'linux' ]]; then
     export MAESTRO_SCRIPTS='/home/young/maestro_scripts'
@@ -90,4 +93,4 @@ if [[ $(hostname) == "nyc-bld-l02" ]]; then
     PS1='\[$red$bold\]\w\[$reset\]\[$ngreen$bold\]$(__git_ps1 " (%s)")\[$reset\]\$ '
 fi
 
-echo "sourced ~/code/dotfiles/schrodinger.sh"
+echo "sourced $HOME/code/dotfiles/schrodinger.sh"

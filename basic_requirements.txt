@@ -1,4 +1,4 @@
-readline
+#readline
 flake8
 elpy
 rope
