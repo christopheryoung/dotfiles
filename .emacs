@@ -112,7 +112,7 @@
 (require 'custom-markdown-mode)
 (eval-after-load 'clojure-mode '(require 'custom-init-clojure))
 (eval-after-load 'haskell-mode '(require 'custom-init-haskell))
-(eval-after-load 'js2-mode '(require 'custom-init-js2))
+;;(eval-after-load 'js2-mode '(require 'custom-init-js2))
 (require 'custom-latex)
 (eval-after-load 'python-mode '(require 'custom-init-python))
 (eval-after-load 'scheme-mode (require 'custom-init-scheme))
