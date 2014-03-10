@@ -6,3 +6,8 @@ jedi
 pep8
 ipython
 grin
+autopep8
+pexpect
+fabric
+rbtools
+conttest
