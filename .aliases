@@ -24,6 +24,8 @@ alias ls='ls -a'
 
 alias mkdir='mkdir -p'
 
+alias pp="git pull --rebase && git push"
+
 # Scripts
 alias gh="python ~/code/dotfiles/scripts/github-lookup.py"
 
