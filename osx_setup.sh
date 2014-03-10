@@ -34,6 +34,9 @@ brew install dos2unix
 brew install imagemagick
 brew install wget
 brew install Xpdf
+brew install cloc
+brew install tree
+brew install kdiff3
 
 echo "Outdated brew packages below: "
 brew outdated
