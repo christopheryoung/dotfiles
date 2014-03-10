@@ -4,7 +4,7 @@ import sys
 import filecmp
 
 
-MMSHARE_MODULES_TARGET='/scr/young/schrodinger/mmshare-v2.5/lib/Linux-x86_64/lib/python2.7/site-packages/schrodinger'
+MMSHARE_MODULES_TARGET='/scr/young/schrodinger/mmshare-v2.6/lib/Linux-x86_64/lib/python2.7/site-packages/schrodinger'
 MMSHARE_MODULES_REPO='/scr/young/schrodinger_src/mmshare/python/modules/schrodinger'
 
 
