@@ -103,7 +103,7 @@ fi
 # z.sh for jumping around
 . ~/code/dotfiles/scripts/z.sh
 
-if [[ $USERNAME == 'young' ]]; then
+if [[ $USER == 'young' ]]; then
     source ~/code/dotfiles/schrodinger.sh
 fi
 
