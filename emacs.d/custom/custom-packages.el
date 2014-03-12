@@ -27,8 +27,6 @@
                               expand-region
                               fill-column-indicator
                               find-file-in-repository
-                              git-gutter+
-                              git-gutter-fringe+
                               haskell-mode
                               ht
                               iedit
