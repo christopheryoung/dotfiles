@@ -1,20 +1,24 @@
 
-(setq ffip-project-root "/scr/young/schrodinger_src")
-(setq virtualenv-default-directory "/scr/young")
+(setq ffip-project-root "~/code/schrodinger_src")
 
-(setenv "PYTHONPATH" "/scr/young/virtualenv/bin/python")
-(setq python-shell-interpreter "/scr/young/virtualenv/bin/python")
+(setenv "PYTHONPATH" "/Users/young/.virtualenvs/sch/bin/python")
+(setq python-shell-interpreter "/Users/young/.virtualenvs/sch/bin/python")
 
-(defun set-exec-path-from-shell-PATH ()
-  (let ((path-from-shell (replace-regexp-in-string
-                          "[ \t\n]*$"
-                          ""
-                          (shell-command-to-string "$SHELL --login -i -c 'echo $PATH'"))))
-    (setenv "PATH" path-from-shell)
-    (setq exec-path (split-string path-from-shell path-separator))))
+;; (defun set-exec-path-from-shell-PATH ()
+;;   (let ((path-from-shell (replace-regexp-in-string
+;;                           "[ \t\n]*$"
+;;                           ""
+;;                           (shell-command-to-string "$SHELL --login -i -c 'echo $PATH'"))))
+;;     (setenv "PATH" path-from-shell)
+;;     (setq exec-path (split-string path-from-shell path-separator))))
 
 ;; (setq virtualenv-root "/scr/young/virtualenv/bin")
-;; (virtualenv-workon "/scr/young/virtualenv")
+;;(virtualenv-workon "~/.virtualenvs/sch")
+
+(setq python-check-command "/Users/young/.virtualenvs/sch/bin/pyflakes")
+(add-to-list 'exec-path "~/.virtualenvs/sch/bin")
+(when (memq window-system '(mac ns))
+  (exec-path-from-shell-initialize))
 
 (defun work-entry ()
   (interactive)
