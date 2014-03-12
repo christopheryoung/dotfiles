@@ -62,6 +62,7 @@ alias mm='cd $SCHRODINGER_SRC/mmshare'
 alias mmaestro='mmake && maestro'
 alias venv='setschvars && source ~/.virtualenvs/sch/bin/activate && export SCHRODINGER_PYTHON_PATH=~/.virtualenvs/sch/bin/python'
 alias venv_alt='setaltenv && source ~/.virtualenvs/alt/bin/activate'
+alias pep8_commit='git commit --author="autopep8 <christopher.young@schrodinger.com>" -m'
 
 if [[ $platform == 'mac' ]]; then
     export MAESTRO_SCRIPTS='/Users/young/code/maestro_scripts'
