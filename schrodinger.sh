@@ -16,7 +16,7 @@ function reportenv() {
     echo $SCHRODINGER_SRC
 }
 
-function setvenv() {
+function setschvars() {
 
     if [[ $platform == 'linux' ]]; then
         export SCHRODINGER='/scr/young/schrodinger'
@@ -46,7 +46,7 @@ function setaltenv() {
 
 # Common
 
-setvenv
+setschvars
 
 export PATH=$PATH:/utils/bin
 export SCHRODINGER_LIB='/software/lib'
@@ -59,12 +59,15 @@ alias run="$SCHRODINGER/run"
 alias src='cd $SCHRODINGER_SRC'
 alias sch='cd $SCHRODINGER'
 alias mm='cd $SCHRODINGER_SRC/mmshare'
-
-alias venv='setvenv && source ~/.virtualenvs/sch/bin/activate'
+alias mmaestro='mmake && maestro'
+alias venv='setschvars && source ~/.virtualenvs/sch/bin/activate && export SCHRODINGER_PYTHON_PATH=~/.virtualenvs/sch/bin/python'
 alias venv_alt='setaltenv && source ~/.virtualenvs/alt/bin/activate'
 
 if [[ $platform == 'mac' ]]; then
     export MAESTRO_SCRIPTS='/Users/young/code/maestro_scripts'
+    export QTDIR=/software/lib/Darwin-x86_64/qt-4.8.5
+    export DYLD_FRAMEWORK_PATH=$QTDIR/lib:$DYLD_FRAMEWORK_PATH
+    alias designer='open $QTDIR/bin/Designer.app'
 
 elif [[ $platform == 'linux' ]]; then
     export MAESTRO_SCRIPTS='/home/young/maestro_scripts'
