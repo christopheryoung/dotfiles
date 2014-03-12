@@ -17,4 +17,4 @@ Thumbs.db
 *.pyc
 local_settings.py
 .ropeproject
-
+.idea/*
