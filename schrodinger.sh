@@ -83,6 +83,7 @@ if [[ $(hostname) = "nyc-bld-l02" ]]; then
 fi
 
 function mwith() {
+    mmake
     maestro -c $MAESTRO_SCRIPTS/$1
 }
 
