@@ -35,7 +35,7 @@ alias cljst='lein outdated && lein eastwood && lein midje'
 #Linters
 alias jslint='~/bin/node_modules/jslint/bin/jslint.js'
 alias ok='find . -name "*.py" | xargs flake8 --config=/Users/young/bin/ok_config'
-alias fix='autopep8 --ignore=W6,E309 --in-place -a -a -a'
+alias fix='autopep8 --ignore=W6,E309,E261 --in-place -a -a -a'
 
 #simple http serve
 alias serve='python -m SimpleHTTPServer 8000'
