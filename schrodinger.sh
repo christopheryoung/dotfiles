@@ -19,8 +19,8 @@ function reportenv() {
 function setschvars() {
 
     if [[ $platform == 'linux' ]]; then
-        export SCHRODINGER='/scr/young/schrodinger'
-        export SCHRODINGER_SRC='/scr/young/schrodinger_src'
+        export SCHRODINGER='/scr2/young/schrodinger'
+        export SCHRODINGER_SRC='/scr2/young/schrodinger_src'
     elif [[ $platform == 'mac' ]]; then
         export SCHRODINGER='/Users/young/code/schrodinger'
         export SCHRODINGER_SRC='/Users/young/code/schrodinger_src'
