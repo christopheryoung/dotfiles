@@ -27,6 +27,7 @@
                               expand-region
                               fill-column-indicator
                               find-file-in-repository
+                              grizzl
                               haskell-mode
                               ht
                               iedit
