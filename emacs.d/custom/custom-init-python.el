@@ -15,7 +15,9 @@
 ;; this hook I'm disabling a different or improperly configured version of
 ;; el-doc that interferes with the one that elpy sets up for me?).
 (add-hook 'python-mode-hook '(lambda () (eldoc-mode)))
-(add-hook 'elpy-mode-hook '(lambda () (eldoc-mode))) 
+(add-hook 'elpy-mode-hook '(lambda ()
+                             (eldoc-mode)
+                             (local-set-key (kbd "C-h C-j") 'elpy-show-defun)))
 
 (package-initialize)
 ;; why do I need to do this again? elpy-enable doesn't
