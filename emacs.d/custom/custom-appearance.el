@@ -62,8 +62,8 @@ This functions should be added to the hooks of major modes for programming."
 ;; Mac Appearance Stuff
 
 (if *on-a-mac*
-    (set-face-font 'default "Monaco-18")
-  (set-face-attribute 'default nil :height 200))
+    (set-face-font 'default "Monaco-22")
+  (set-face-attribute 'default nil :height 220))
 
 ;; Let me *see* the marks
 (visible-mark-mode 1)
