@@ -71,6 +71,7 @@
 (require 'custom-ido-mode-init)
 (require 'custom-init-paredit)
 (require 'custom-yasnippet-init)
+(require 'custom-projectile)
 (require 'diminish)
 (require 'expand-region)
 (require 'fill-column-indicator)
