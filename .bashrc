@@ -62,6 +62,20 @@ xterm*|rxvt*)
     ;;
 esac
 
+
+## Autocomplete GHC commands
+_ghc()
+{
+    local envs=`ghc --show-options`
+    # get the word currently being completed
+    local cur=${COMP_WORDS[$COMP_CWORD]}
+
+    # the resulting completions should be put into this array
+    COMPREPLY=( $( compgen -W "$envs" -- $cur ) )
+}
+complete -F _ghc -o default ghc
+
+
 ##Colors for a mac
 
 export CLICOLOR=1
@@ -69,7 +83,7 @@ export LSCOLORS=ExFxCxDxBxegedabagacad
 
 # Fiddle with path
 
-export PATH=$PATH:$HOME/.cabal/bin
+export PATH=$HOME/.cabal/bin:$PATH
 export PATH=$PATH:$HOME/bin
 export PATH=$PATH:/usr/local/bin
 export PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
