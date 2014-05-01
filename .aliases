@@ -40,6 +40,9 @@ alias fix='autopep8 --ignore=W6,E309,E261 --in-place -a -a -a'
 #simple http serve
 alias serve='python -m SimpleHTTPServer 8000'
 
+#json pretty printing. To use: cat foo.json | ppjson
+alias ppjson="python -m json.tool"
+
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
     eval "`dircolors -b`"
