@@ -9,5 +9,5 @@ grin
 autopep8
 pexpect
 fabric
-rbtools
+rbtools==0.5
 conttest
