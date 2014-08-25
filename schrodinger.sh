@@ -16,7 +16,7 @@ function reportenv() {
     echo $SCHRODINGER_SRC
 }
 
-function setschvars() {
+function setenv() {
 
     if [[ $platform == 'linux' ]]; then
         export SCHRODINGER='/scr2/young/schrodinger'
@@ -29,24 +29,14 @@ function setschvars() {
 }
 
 function setaltenv() {
-    if [[ $platform == 'linux' ]]; then
-        export SCHRODINGER='/scr/young/alt'
-        export SCHRODINGER_SRC='/scr/young/alt_src'
-        export LD_LIBRARY_PATH='/home/young/.virtualenvs/alt/lib'
-        export LDFLAGS='-L/home/young/.virtualenvs/alt/lib'
-
-    elif [[ $platform == 'mac' ]]; then
-        export SCHRODINGER='/Users/young/code/alt_schrodinger'
-        export SCHRODINGER_SRC='/Users/young/code/alt_schrodinger'
-        export LD_LIBRARY_PATH='/Users/young/.virtualenvs/alt/lib'
-        export LDFLAGS='-L/Users/young/.virtualenvs/alt/lib'
-    fi
+    export SCHRODINGER='/Users/young/code/alt_schrodinger'
+    export SCHRODINGER_SRC='/Users/young/code/alt_schrodinger_src'
     reportenv
 }
 
 # Common
 
-setschvars
+setenv
 
 export PATH=$PATH:/utils/bin
 export SCHRODINGER_LIB='/software/lib'
@@ -59,9 +49,10 @@ alias run="$SCHRODINGER/run"
 alias src='cd $SCHRODINGER_SRC'
 alias sch='cd $SCHRODINGER'
 alias mm='cd $SCHRODINGER_SRC/mmshare'
+alias maesrc='cd $SCHRODINGER_SRC/maestro-src'
 alias mmaestro='mmake && maestro'
-alias venv='setschvars && source ~/.virtualenvs/sch/bin/activate && export SCHRODINGER_PYTHON_PATH=~/.virtualenvs/sch/bin/python'
-alias venv_alt='setaltenv && source ~/.virtualenvs/alt/bin/activate'
+alias venv='setenv && source ~/.virtualenvs/sch/bin/activate && export SCHRODINGER_PYTHON_PATH=~/.virtualenvs/sch/bin/python'
+alias venv_alt='setaltenv && source ~/.virtualenvs/alt/bin/activate && export SCHRODINGER_PYTHON_PATH=~/.virtualenvs/alt/bin/python'
 alias pep8_commit='git commit --author="autopep8 <christopher.young@schrodinger.com>" -m'
 alias sch_emacs='nohup /Applications/Emacs.app/Contents/MacOS/Emacs "$@" --debug-init &'
 
