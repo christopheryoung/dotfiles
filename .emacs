@@ -87,7 +87,6 @@
 (require 'maxframe)
 (require 'multiple-cursors)
 (require 'rainbow-delimiters)
-(require 'perspective)
 (require 'smartscan)
 (require 'tail)
 (turn-on-typing-speed)
