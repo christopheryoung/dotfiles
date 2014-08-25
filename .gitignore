@@ -56,3 +56,4 @@ emacs.d/midje-mode
 emacs.d/org-mode
 emacs.d/places
 emacs.d/url
+/emacs.d/projectile-bookmarks.eld
