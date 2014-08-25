@@ -56,6 +56,9 @@
       `(("." . ,(expand-file-name
                  (concat user-emacs-directory "backups")))))
 
+
+
+
 ;; Make backups of files, even when they're in version control
 (setq vc-make-backup-files t)
 
@@ -134,8 +137,6 @@
 (flyspell-prog-mode) ;; Checks spelling in comments and doc strings
 
 ;;(setq-default ispell-program-name "/usr/local/bin/aspell")
-
-(persp-mode t)
 
 (turn-on-typing-speed)
 
