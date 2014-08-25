@@ -26,6 +26,8 @@
                               expand-region
                               fill-column-indicator
                               find-file-in-repository
+                              git-timemachine
+                              git-gutter
                               grizzl
                               haskell-mode
                               ht
@@ -48,12 +50,12 @@
                               multiple-cursors
                               nrepl
                               paredit
-                              perspective
                               projectile
                               pylint
                               pymacs
                               python-pep8
                               python-pylint
+                              pyvenv
                               rainbow-delimiters
                               repository-root
                               s
@@ -64,7 +66,6 @@
                               starter-kit-js
                               starter-kit-lisp
                               undo-tree
-                              virtualenv
                               wgrep
                               windmove
                               wrap-region
