@@ -1,13 +1,11 @@
 #readline
 flake8
 elpy
-rope
 jedi
 pep8
 ipython
 grin
 autopep8
 pexpect
-fabric
 rbtools==0.5
 conttest
