@@ -14,7 +14,6 @@
                               auctex
                               auto-complete
                               clojure-mode
-                              color-theme-solarized
                               csv-mode
                               dash
                               diminish
