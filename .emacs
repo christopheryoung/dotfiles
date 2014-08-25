@@ -76,9 +76,11 @@
 (require 'expand-region)
 (require 'fill-column-indicator)
 (define-globalized-minor-mode
- global-fci-mode fci-mode (lambda () (fci-mode 1)))
+  global-fci-mode fci-mode (lambda () (fci-mode 1)))
 (global-fci-mode t)
 (require 'flyspell)
+(global-git-gutter-mode +1)
+(git-gutter:linum-setup)
 (require 'highlight-beyond-fill-column)
 (require 'inline-string-rectangle)
 (require 'jump-char)
