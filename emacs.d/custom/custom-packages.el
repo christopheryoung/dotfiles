@@ -33,7 +33,6 @@
                               igrep
                               ipython
                               ispell
-                              javadoc-help
                               ;; js2-mode
                               ;; js2-refactor
                               json-mode
