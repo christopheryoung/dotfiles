@@ -28,6 +28,7 @@
                               find-file-in-repository
                               git-timemachine
                               git-gutter
+                              git-messenger
                               grizzl
                               haskell-mode
                               ht
