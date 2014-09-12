@@ -1,5 +1,7 @@
-
 (global-set-key [f2] 'comment-dwim)
+(global-set-key [f6] 'hide-body)
+(global-set-key [f7] 'show-all)
+;; f8 is used in Haskell mode
 (global-set-key [f9] 'split-window-horizontally)
 (global-set-key [f10] 'split-window-vertically)
 (global-set-key [f11] 'other-window)
