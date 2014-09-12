@@ -11,8 +11,7 @@
 
 (add-hook 'python-mode-hook
           '(lambda ()
-             (local-set-key (kbd "C-o") 'ace-jump-mode)
-             ))
+             (local-set-key (kbd "C-o") 'ace-jump-mode)))
 (add-hook 'python-mode-hook 'jedi:setup)
 
 ;; look at C-h v : jedi:server-args
@@ -50,5 +49,20 @@
 
 (eval-after-load "helm-dash"
   '(defun helm-dash-actions (actions doc-item) `(("Go to doc" . eww))))
+
+(defun annotate-pdb ()
+  (interactive)
+  (highlight-lines-matching-regexp "import ipdb")
+  (highlight-lines-matching-regexp "ipdb.set_trace()"))
+
+(add-hook 'python-mode-hook 'annotate-pdb)
+
+;;----------
+;; Keybinding to add breakpoint:
+(defun python-add-breakpoint ()
+  (interactive)
+  (newline-and-indent)
+  (insert "import ipdb; ipdb.set_trace()")
+  (highlight-lines-matching-regexp "^[ ]*import ipdb; ipdb.set_trace()"))
 
 (provide 'custom-init-python)
