@@ -31,6 +31,7 @@
                               git-messenger
                               grizzl
                               haskell-mode
+                              helm
                               ht
                               iedit
                               igrep
