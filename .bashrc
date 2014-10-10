@@ -87,6 +87,7 @@ export PATH=$HOME/.cabal/bin:$PATH
 export PATH=$PATH:$HOME/bin
 export PATH=$PATH:/usr/local/bin
 export PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+export PATH=$PATH:$HOME/Library/Haskell/bin
 
 if [[ $OSTYPE == darwin* ]]; then
     export PATH=$PATH:/usr/local/share/npm/bin
