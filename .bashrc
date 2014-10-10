@@ -121,8 +121,3 @@ fi
 if [[ $USER == 'young' ]]; then
     source ~/code/dotfiles/schrodinger.sh
 fi
-
-if [ $(uname -s) == "Darwin" ]; then
-    type gls >/dev/null 2>&1 || brew install coreutils
-    alias ls='gls'
-fi
