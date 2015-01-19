@@ -87,6 +87,7 @@ export PATH=$HOME/.cabal/bin:$PATH
 export PATH=$PATH:$HOME/bin
 export PATH=$PATH:/usr/local/bin
 export PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+export PATH=$PATH:$HOME/Library/Haskell/bin
 
 if [[ $OSTYPE == darwin* ]]; then
     export PATH=$PATH:/usr/local/share/npm/bin
@@ -119,9 +120,4 @@ fi
 
 if [[ $USER == 'young' ]]; then
     source ~/code/dotfiles/schrodinger.sh
-fi
-
-if [ $(uname -s) == "Darwin" ]; then
-    type gls >/dev/null 2>&1 || brew install coreutils
-    alias ls='gls'
 fi
