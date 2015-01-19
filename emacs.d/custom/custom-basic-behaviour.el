@@ -152,7 +152,4 @@
 
 (setq tramp-default-method "ssh")
 
-(add-hook 'window-setup-hook 'maximize-frame t)
-
-
 (provide 'custom-basic-behaviour)
