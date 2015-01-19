@@ -70,7 +70,7 @@ This functions should be added to the hooks of major modes for programming."
 
 ;; Themes
 
-;; (load-theme 'solarized-dark nil)
+(load-theme 'leuven t)
 
 (provide 'custom-appearance)
 
