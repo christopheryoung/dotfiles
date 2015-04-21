@@ -29,18 +29,23 @@ function setenv() {
 }
 
 function setaltenv() {
-    export SCHRODINGER='/Users/young/code/alt_schrodinger'
-    export SCHRODINGER_SRC='/Users/young/code/alt_schrodinger_src'
+    export SCHRODINGER='/Users/young/code/schrodinger_branch'
+    export SCHRODINGER_SRC='/Users/young/code/schrodinger_src'
     reportenv
 }
 
-# Common
+# # Common
 
 setenv
 
 export PATH=$PATH:/utils/bin
 export SCHRODINGER_LIB='/software/lib'
 export PATH=$PATH:/software/lib/common
+
+function postr() {
+    branch=$(git rev-parse --abbrev-ref HEAD)
+    rbt post --bugs-closed=$branch --target-people=toh --description=""
+}
 
 alias buildinger=$SCHRODINGER_SRC/mmshare/build_tools/buildinger.sh
 alias pylint='/software/lib/common/pylint-0.28.0/pylint'
@@ -61,7 +66,8 @@ if [[ $platform == 'mac' ]]; then
     export QTDIR=/software/lib/Darwin-x86_64/qt-4.8.5
     export DYLD_FRAMEWORK_PATH=$QTDIR/lib:$DYLD_FRAMEWORK_PATH
     alias designer='open $QTDIR/bin/Designer.app'
-
+    alias run_msv='mmake && run $SCHRODINGER/mmshare-v*/lib/Darwin-x86_64/lib/python2.7/site-packages/schrodinger/application/msv/gui/msv_gui.py'
+    
 elif [[ $platform == 'linux' ]]; then
     export MAESTRO_SCRIPTS='/home/young/maestro_scripts'
     alias emacs='/utils/bin/emacs-24.3'
