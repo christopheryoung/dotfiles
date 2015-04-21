@@ -1,0 +1,16 @@
+#!/bin/bash                                                                                                                                                                                                                                    
+
+# All credit to: https://gist.github.com/kchodorow/99195fcfdd97ea7ab29f
+
+# Shows branches with descriptions                                                                                                                                                                                                             
+branches=$(git for-each-ref --format='%(refname)' refs/heads/ | sed 's|refs/heads/||')
+for branch in $branches; do
+  last_used=$(git show --pretty=format:"%Cgreen%cr%Creset" $branch | head -1)
+  desc=$(git config branch.$branch.description)
+  if [ $branch == $(git rev-parse --abbrev-ref HEAD) ]; then
+    branch="*\t$last_used\t\033[0;32m$branch\033[0m"
+  else
+    branch="\t$last_used\t$branch"
+  fi
+  echo -e "$branch \033[0;36m$desc\033[0m"
+done
