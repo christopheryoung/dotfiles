@@ -27,6 +27,8 @@
         unstage = reset HEAD --
         last = log -1 HEAD
         lastp = log -1 -p HEAD
+        pushbld = push --receive-pack /utils/bin/git-receive-pack bld
+        pullbld = pull --upload-pack /utils/bin/git-upload-pack bld
 
 [push]
         default = current
