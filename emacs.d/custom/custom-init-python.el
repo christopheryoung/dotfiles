@@ -11,7 +11,9 @@
 
 (add-hook 'python-mode-hook
           '(lambda ()
-             (local-set-key (kbd "C-o") 'ace-jump-mode)))
+             (local-set-key (kbd "C-o") 'ace-jump-mode)
+             (rainbows-delimiters-mode)))
+
 (add-hook 'python-mode-hook 'jedi:setup)
 
 ;; look at C-h v : jedi:server-args
@@ -27,10 +29,12 @@
 (add-hook 'python-mode-hook '(lambda () (eldoc-mode)))
 (add-hook 'elpy-mode-hook '(lambda ()
                              (eldoc-mode)
+                             (rainbows-delimiters-mode)
                              (local-set-key (kbd "C-h C-j") 'elpy-show-defun)))
 
-(add-to-list 'ac-sources 'ac-source-jedi-direct)
+;;(add-to-list 'ac-sources 'ac-source-jedi-direct)
 
+(setq python-fill-docstring-style 'django)
 
 (package-initialize)
 ;; why do I need to do this again? elpy-enable doesn't
@@ -50,7 +54,7 @@
 (eval-after-load "helm-dash"
   '(defun helm-dash-actions (actions doc-item) `(("Go to doc" . eww))))
 
-(defun annotate-pdb ()
+(defun annotate-ipdb ()
   (interactive)
   (highlight-lines-matching-regexp "import ipdb")
   (highlight-lines-matching-regexp "ipdb.set_trace()"))
