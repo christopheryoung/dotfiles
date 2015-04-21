@@ -48,9 +48,9 @@ This functions should be added to the hooks of major modes for programming."
 ;; Line numbers! Always!
 (global-linum-mode 1)
 
-;; highlight and colourize balanced parens always
+;; highlight and colourize balanced parens
+;; rainbow-delimiters-mode is turned on on a per-major-mode basis
 (show-paren-mode 1)
-(global-rainbow-delimiters-mode)
 (setq show-paren-style 'expression)
 
 ;; and the symbol at point, elsewhere in the buffer
