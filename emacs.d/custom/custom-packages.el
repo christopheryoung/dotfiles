@@ -9,8 +9,8 @@
 (package-initialize)
 
 (defvar my-package-packages '(
-                              ac-nrepl
                               ace-jump-mode
+                              ace-jump-zap
                               auctex
                               auto-complete
                               clojure-mode
@@ -18,8 +18,8 @@
                               dash
                               diminish
                               dired-details
+                              discover
                               ebib
-                              ein
                               elpy
                               erlang
                               exec-path-from-shell
@@ -31,8 +31,8 @@
                               git-messenger
                               grizzl
                               haskell-mode
-                              helm
                               ht
+                              hydra
                               iedit
                               igrep
                               ipython
@@ -42,6 +42,7 @@
                               json-mode
                               jump-char
                               latex-extra
+                              leuven-theme
                               loop
                               magit
                               mark-multiple
@@ -50,7 +51,6 @@
                               midje-mode
                               multi-term
                               multiple-cursors
-                              nrepl
                               paredit
                               projectile
                               pylint
@@ -61,7 +61,6 @@
                               rainbow-delimiters
                               repository-root
                               s
-                              slime-js
                               smex
                               starter-kit
                               starter-kit-bindings
