@@ -7,5 +7,6 @@ ipython
 grin
 autopep8
 pexpect
-rbtools==0.5
 conttest
+percol
+fabric
