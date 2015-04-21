@@ -73,6 +73,8 @@
 (require 'custom-yasnippet-init)
 (require 'custom-projectile)
 (require 'diminish)
+(require 'discover)
+(global-discover-mode 1)
 (require 'expand-region)
 (require 'fill-column-indicator)
 (define-globalized-minor-mode
