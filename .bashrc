@@ -49,7 +49,11 @@ green=$(tput setaf 2)
 blue=$(tput setaf 4)
 reset=$(tput sgr0)
 bold=$(tput bold)
-PS1='\[$blue$bold\]\w\[$reset\]\[$green$bold\]$(__git_ps1 " (%s)")\[$reset\]\$ '
+# PS1='\[$blue$bold\]\w\[$reset\]\[$green$bold\]$(__git_ps1 " (%s)")\[$reset\]\$ '
+
+if [ -f "$(brew --prefix)/opt/bash-git-prompt/share/gitprompt.sh" ]; then
+    source "$(brew --prefix)/opt/bash-git-prompt/share/gitprompt.sh"
+fi
 
 git config --global alias.lg "log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%C(bold blue)<%an>%Creset' --abbrev-commit"
 
