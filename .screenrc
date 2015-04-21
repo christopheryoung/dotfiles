@@ -34,15 +34,33 @@ shell -$SHELL
 
 # bind ' ' windowlist -b 
 
-screen -t shell
-# screen -t shell2
-
+screen -t src
 escape ``
 autodetach on
 vbell on
 vbell_msg "~~OH SNAP~~"
 startup_message off
-shelltitle "$|bash"
+
+screen -t test
+escape ``
+autodetach on
+vbell on
+vbell_msg "~~OH SNAP~~"
+startup_message off
+
+screen -t gui
+escape ``
+autodetach on
+vbell on
+vbell_msg "~~OH SNAP~~"
+startup_message off
+
+screen -t ipython
+escape ``
+autodetach on
+vbell on
+vbell_msg "~~OH SNAP~~"
+startup_message off
 
 bind ^w windowlist -m
 bind w windowlist -m
