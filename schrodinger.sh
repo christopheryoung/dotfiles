@@ -83,6 +83,7 @@ fi
 
 function mwith() {
     mmake
+    echo "Started at " $(date)
     maestro -c $MAESTRO_SCRIPTS/$1
 }
 
