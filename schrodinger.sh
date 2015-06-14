@@ -41,6 +41,7 @@ setenv
 export PATH=$PATH:/utils/bin
 export SCHRODINGER_LIB='/software/lib'
 export PATH=$PATH:/software/lib/common
+export INTEL_LICENSE_FILE=28518@ns4:28518@ns3
 
 function postr() {
     branch=$(git rev-parse --abbrev-ref HEAD)
