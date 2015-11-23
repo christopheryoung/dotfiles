@@ -10,3 +10,4 @@ pexpect
 conttest
 percol
 fabric
+jira
