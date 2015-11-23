@@ -1,14 +1,4 @@
 
-(defvar server-buffer-clients)
-(when (and (fboundp 'server-start) (string-equal (getenv "TERM") 'xterm))
-  (server-start)
-  (defun fp-kill-server-with-buffer-routine ()
-    (and server-buffer-clients (server-done)))
-  (add-hook 'kill-buffer-hook 'fp-kill-server-with-buffer-routine))
-
-;; Much help from here in setting up jedi and elpy:
-;; https://github.com/wernerandrew/jedi-starter/blob/master/jedi-starter.el
-
 (add-hook 'python-mode-hook
           '(lambda ()
              (local-set-key (kbd "C-o") 'ace-jump-mode)
@@ -20,8 +10,6 @@
 (defvar jedi-config:with-virtualenv "~/.virtualenvs/sch")
 (defvar jedi-config:vcs-root-sentinel ".git")
 
-;;(defvar jedi-config:use-system-python t)
-
 ;; getting errors unless I add this hook; eldoc is still on even with this
 ;; hook, which is good, since it then works, but also puzzling (perhaps with
 ;; this hook I'm disabling a different or improperly configured version of
@@ -29,10 +17,9 @@
 (add-hook 'python-mode-hook '(lambda () (eldoc-mode)))
 (add-hook 'elpy-mode-hook '(lambda ()
                              (eldoc-mode)
+                             (whitespace-mode t)
                              (rainbows-delimiters-mode)
                              (local-set-key (kbd "C-h C-j") 'elpy-show-defun)))
-
-;;(add-to-list 'ac-sources 'ac-source-jedi-direct)
 
 (setq python-fill-docstring-style 'django)
 
@@ -68,5 +55,7 @@
   (newline-and-indent)
   (insert "import ipdb; ipdb.set_trace()")
   (highlight-lines-matching-regexp "^[ ]*import ipdb; ipdb.set_trace()"))
+
+(elpy-enable)
 
 (provide 'custom-init-python)
