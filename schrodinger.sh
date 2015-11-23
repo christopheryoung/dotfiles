@@ -30,7 +30,7 @@ function setenv() {
 
 function setaltenv() {
     export SCHRODINGER='/Users/young/code/schrodinger_branch'
-    export SCHRODINGER_SRC='/Users/young/code/schrodinger_src'
+    export SCHRODINGER_SRC='/Users/young/code/alt_schrodinger_src'
     reportenv
 }
 
