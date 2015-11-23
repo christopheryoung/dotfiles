@@ -28,7 +28,7 @@ pow_detach_msg "Screen session of \$LOGNAME \$:cr:\$:nl:ended."
 caption always "%{kG}%?%-Lw%?%{bw}%n*%f %t%?(%u)%?%{kG}%?%+Lw%?"
 
 # # This makes it possible to actually scroll . . . 
-termcapinfo xterm ti@:te@
+termcapinfo xterm* ti@:te@
 
 shell -$SHELL
 
