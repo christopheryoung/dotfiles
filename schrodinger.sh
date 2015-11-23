@@ -61,6 +61,7 @@ alias venv='setenv && source ~/.virtualenvs/sch/bin/activate && export SCHRODING
 alias venv_alt='setaltenv && source ~/.virtualenvs/alt/bin/activate && export SCHRODINGER_PYTHON_PATH=~/.virtualenvs/alt/bin/python'
 alias pep8_commit='git commit --author="autopep8 <christopher.young@schrodinger.com>" -m'
 alias sch_emacs='nohup /Applications/Emacs.app/Contents/MacOS/Emacs "$@" --debug-init &'
+alias msv_yapf='yapf -i -r $SCHRODINGER_SRC/mmshare/python/modules/schrodinger/application/msv'
 
 if [[ $platform == 'mac' ]]; then
     export MAESTRO_SCRIPTS='/Users/young/code/maestro_scripts'
