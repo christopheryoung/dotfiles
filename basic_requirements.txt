@@ -1,4 +1,5 @@
 #readline
+gitpython
 flake8
 elpy
 jedi
