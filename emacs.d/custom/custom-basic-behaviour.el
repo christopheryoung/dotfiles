@@ -132,7 +132,7 @@
 (ac-config-default)
 
 ; ace jump
-(setq ace-jump-mode-case-sensitive-search nil)
+(setq ace-jump-mode-case-fold t)
 
 (flyspell-prog-mode) ;; Checks spelling in comments and doc strings
 
