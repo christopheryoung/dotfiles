@@ -17,8 +17,10 @@ function reportenv() {
 }
 
 function setenv() {
-
-    if [[ $platform == 'linux' ]]; then
+    if [[ $hostname == 'pdx-build-young-lv01.vmss.schrodinger.com' ]]; then
+	export SCHRODINGER='/home/young/code/schrodinger'
+	export SCHRODINGER_SRC='/home/young/code/schrodinger_src'
+    elif [[ $platform == 'linux' ]]; then
         export SCHRODINGER='/scr2/young/schrodinger'
         export SCHRODINGER_SRC='/scr2/young/schrodinger_src'
     elif [[ $platform == 'mac' ]]; then
