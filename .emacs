@@ -111,8 +111,8 @@
 (require 'visible-mark)
 
 ;; major modes, programming languages, etc.
-(require 'custom-init-elisp)
-(require 'custom-init-any-lisp)
+;; (require 'custom-init-elisp)
+;; (require 'custom-init-any-lisp)
 (require 'custom-markdown-mode)
 (eval-after-load 'clojure-mode '(require 'custom-init-clojure))
 (eval-after-load 'haskell-mode '(require 'custom-init-haskell))
@@ -126,6 +126,17 @@
 (require 'custom-appearance)
 (require 'custom-basic-behaviour)
 (require 'custom-global-keybindings)
+
+;; Hook function
+(defun clang-format-before-save ()
+  "Add this to .emacs to clang-format on save
+ (add-hook 'before-save-hook 'clang-format-before-save)."
+
+  (interactive)
+  (when (eq major-mode 'c++-mode) (clang-format-buffer)))
+
+;; Install hook to use clang-format on save
+(add-hook 'before-save-hook 'clang-format-before-save)
 
 ;; At work
 (require 'schrodinger nil 'noerror)

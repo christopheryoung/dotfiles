@@ -7,7 +7,7 @@
 (add-hook 'python-mode-hook 'jedi:setup)
 
 ;; look at C-h v : jedi:server-args
-(defvar jedi-config:with-virtualenv "~/.virtualenvs/sch")
+;; (defvar jedi-config:with-virtualenv "~/.virtualenvs/sch")
 (defvar jedi-config:vcs-root-sentinel ".git")
 
 ;; getting errors unless I add this hook; eldoc is still on even with this
@@ -19,15 +19,21 @@
                              (eldoc-mode)
                              (whitespace-mode t)
                              (rainbows-delimiters-mode)
+			     (flycheck-mode)
                              (local-set-key (kbd "C-h C-j") 'elpy-show-defun)))
 
 (setq python-fill-docstring-style 'django)
+
+
+(let ((workon-home (expand-file-name "~/.virtualenvs")))
+  (setenv "WORKON_HOME" workon-home)
+  (setenv "VIRTUALENVWRAPPER_HOOK_DIR" workon-home))
 
 (package-initialize)
 ;; why do I need to do this again? elpy-enable doesn't
 ;; seem to cooperate unless I do
 (elpy-enable)
-(setq elpy-rpc-backend "jedi")
+(setq elpy-rpc-backend "rope")
 
 (elpy-use-ipython)
 ;;(require 'pydoc-info)
