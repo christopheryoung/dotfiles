@@ -116,9 +116,6 @@ if [ -f /etc/bash_completion ]; then
     . /etc/bash_completion
 fi
 
-# z.sh for jumping around
-. ~/code/dotfiles/scripts/z.sh
-
 if [[ $USER == 'young' ]]; then
     source ~/code/dotfiles/schrodinger.sh
 fi
