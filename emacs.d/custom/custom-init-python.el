@@ -1,13 +1,11 @@
-
 (add-hook 'python-mode-hook
-          '(lambda ()
-             (local-set-key (kbd "C-o") 'ace-jump-mode)
-             (rainbows-delimiters-mode)))
+	  '(lambda ()
+	     (local-set-key (kbd "C-o") 'ace-jump-mode)
+	     (rainbows-delimiters-mode)))
 
 (add-hook 'python-mode-hook 'jedi:setup)
 
 ;; look at C-h v : jedi:server-args
-;; (defvar jedi-config:with-virtualenv "~/.virtualenvs/sch")
 (defvar jedi-config:vcs-root-sentinel ".git")
 
 ;; getting errors unless I add this hook; eldoc is still on even with this
@@ -16,11 +14,11 @@
 ;; el-doc that interferes with the one that elpy sets up for me?).
 (add-hook 'python-mode-hook '(lambda () (eldoc-mode)))
 (add-hook 'elpy-mode-hook '(lambda ()
-                             (eldoc-mode)
-                             (whitespace-mode t)
-                             (rainbows-delimiters-mode)
+			     (eldoc-mode)
+			     (whitespace-mode t)
+			     (rainbows-delimiters-mode)
 			     (flycheck-mode)
-                             (local-set-key (kbd "C-h C-j") 'elpy-show-defun)))
+			     (local-set-key (kbd "C-h C-j") 'elpy-show-defun)))
 
 (setq python-fill-docstring-style 'django)
 
