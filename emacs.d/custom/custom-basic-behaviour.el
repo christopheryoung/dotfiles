@@ -151,6 +151,7 @@
 (smex-initialize)
 
 (whitespace-mode t)
+(add-hook 'before-save-hook 'whitespace-cleanup)
 
 (setq tramp-default-method "ssh")
 
