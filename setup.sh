@@ -44,6 +44,13 @@ cat ~/.git_private >> ~/.gitconfig
 rm -rf ~/.emacs.d
 ln -s $SETUP_SCRIPT_DIR_PATH/emacs.d ~/.emacs.d
 
+########################################
+# .vimrc
+########################################
+
+rm -rf ~/.vim
+ln -s $SETUP_SCRIPT_DIR_PATH/.vim ~/.vim
+
 #########################################
 # Haskell
 #########################################
