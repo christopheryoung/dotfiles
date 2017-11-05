@@ -44,31 +44,10 @@ cat ~/.git_private >> ~/.gitconfig
 rm -rf ~/.emacs.d
 ln -s $SETUP_SCRIPT_DIR_PATH/emacs.d ~/.emacs.d
 
-########################################
-#Python stuff
-########################################
+#########################################
+# Haskell
+#########################################
+curl -sSL https://get.haskellstack.org/ | sh
 
-# Note: Requires easy_install
-echo "Checking for sitewide python packages."
-
-type pip >/dev/null 2>&1 || sudo easy_install pip
-type virtualenv >/dev/null 2>&1 || pip install virtualenv
-# install readline before ipython
-easy_install readline
-type ipython >/dev/null 2>&1 || easy_install ipython
-type grin >/dev/null 2>&1 || sudo easy_install grin
-
-pip install flake8
-pip install rope
-pip install elpy
-
-########################################
-#Leiningen
-########################################
-
-echo "Setting up .lein"
-
-mkdir -p ~/bin/lein2
-type lein2 >/dev/null 2>&1 || wget --no-check-certificate -O ~/bin/lein2 https://raw.github.com/technomancy/leiningen/preview/bin/lein && chmod 755 ~/bin/lein2
 
 echo "Done!"

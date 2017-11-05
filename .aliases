@@ -51,6 +51,10 @@ if [ -x /usr/bin/dircolors ]; then
     alias grep='grep --color=auto'
 fi
 
+# Press F1 to open the file with less without leaving fzfi
+# Press CTRL-Y to copy the line to clipboard and aborts fzf (requires pbcopy)
+alias fzf="fzf --bind 'f1:execute(less -f {}),ctrl-y:execute-silent(echo {} | pbcopy)+abort'"
+
 # Enhanced WHOIS lookups
 alias whois="whois -h whois-servers.net"
 

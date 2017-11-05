@@ -23,6 +23,8 @@ sudo chown -R `whoami` /usr/local
 
 type brew >/dev/null 2>&1 || ruby -e "$(curl -fsSL https://raw.github.com/mxcl/homebrew/go)"
 
+xcode-select --install
+
 brew update
 
 brew install coreutils
@@ -36,7 +38,9 @@ brew install wget
 brew install Xpdf
 brew install cloc
 brew install tree
-brew install kdiff3
+brew install fzf
+brew install tmux
+brew install yank
 
 echo "Outdated brew packages below: "
 brew outdated
