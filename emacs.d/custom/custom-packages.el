@@ -1,19 +1,18 @@
 
 (require 'package)
 (add-to-list 'package-archives
-             '("marmalade" . "http://marmalade-repo.org/packages/") t)
+             '("marmalade" . "https://marmalade-repo.org/packages/") t)
 
 (add-to-list 'package-archives
-             '("melpa" . "http://melpa.milkbox.net/packages/") t)
+             '("melpa" . "https://melpa.org/packages/") t)
 
 (package-initialize)
 
 (defvar my-package-packages '(
                               ace-jump-mode
-                              ace-jump-zap
                               auctex
                               auto-complete
-                              clojure-mode
+			      clang-format
                               csv-mode
                               dash
                               diminish
@@ -26,6 +25,7 @@
                               expand-region
                               fill-column-indicator
                               find-file-in-repository
+			      flycheck
                               git-timemachine
                               git-gutter
                               git-messenger
@@ -34,11 +34,10 @@
                               ht
                               hydra
                               iedit
+			      idle-highlight-mode
                               igrep
                               ipython
                               ispell
-                              ;; js2-mode
-                              ;; js2-refactor
                               json-mode
                               jump-char
                               latex-extra
@@ -62,10 +61,6 @@
                               repository-root
                               s
                               smex
-                              starter-kit
-                              starter-kit-bindings
-                              starter-kit-js
-                              starter-kit-lisp
                               undo-tree
                               wgrep
                               windmove

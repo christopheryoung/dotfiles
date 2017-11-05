@@ -26,7 +26,9 @@ export HISTCONTROL=ignoreboth
 shopt -s histappend
 
 # The next line allows me to share history between different screen terminals
-# PROMPT_COMMAND="history -n; history -a"
+# Thank you https://spin.atomicobject.com/2016/05/28/log-bash-history/
+mkdir -p ~/.logs
+export PROMPT_COMMAND='if [ "$(id -u)" -ne 0 ]; then echo "$(date "+%Y-%m-%d.%H:%M:%S") $(pwd) $(history 1)" >> ~/.logs/bash-history-$(date "+%Y-%m-%d").log; fi'
 
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
@@ -49,23 +51,22 @@ green=$(tput setaf 2)
 blue=$(tput setaf 4)
 reset=$(tput sgr0)
 bold=$(tput bold)
-# PS1='\[$blue$bold\]\w\[$reset\]\[$green$bold\]$(__git_ps1 " (%s)")\[$reset\]\$ '
 
-if [ -f "$(brew --prefix)/opt/bash-git-prompt/share/gitprompt.sh" ]; then
-    source "$(brew --prefix)/opt/bash-git-prompt/share/gitprompt.sh"
-fi
+
+source ~/code/dotfiles/vendor/git-prompt.sh
+
+PS1='\[$blue$bold\]\w\[$reset\]\[$green$bold\]$(__git_ps1 " (%s)")\[$reset\]\$ '
 
 git config --global alias.lg "log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%C(bold blue)<%an>%Creset' --abbrev-commit"
 
-# If this is an xterm set the title to user@host:dir
-case "$TERM" in
-xterm*|rxvt*)
-    PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\u@\h: \w\a\]$PS1"
-    ;;
-*)
-    ;;
-esac
-
+# # If this is an xterm set the title to user@host:dir
+# case "$TERM" in
+# xterm*|rxvt*)
+#     PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\u@\h: \w\a\]$PS1"
+#     ;;
+# *)
+#     ;;
+# esac
 
 ## Autocomplete GHC commands
 _ghc()
@@ -78,22 +79,19 @@ _ghc()
     COMPREPLY=( $( compgen -W "$envs" -- $cur ) )
 }
 complete -F _ghc -o default ghc
-
+eval "$(stack --bash-completion-script stack)"
 
 ##Colors for a mac
 
 export CLICOLOR=1
 export LSCOLORS=ExFxCxDxBxegedabagacad
 
-# Fiddle with path
-
-export PATH=$HOME/.cabal/bin:$PATH
-export PATH=$PATH:$HOME/bin
-export PATH=$PATH:/usr/local/bin
-export PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
-export PATH=$PATH:$HOME/Library/Haskell/bin
-
 if [[ $OSTYPE == darwin* ]]; then
+    export PATH=$HOME/.cabal/bin:$PATH
+    export PATH=$PATH:$HOME/bin
+    export PATH=$PATH:/usr/local/bin
+    export PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+    export PATH=$PATH:$HOME/Library/Haskell/bin
     export PATH=$PATH:/usr/local/share/npm/bin
     export PATH=$PATH:/Applications/Postgres.app/Contents/MacOS/bin
     export PATH=$PATH:$HOME/Applications/adt-bundle-mac/sdk/platform-tools
@@ -119,9 +117,8 @@ if [ -f /etc/bash_completion ]; then
     . /etc/bash_completion
 fi
 
-# z.sh for jumping around
-. ~/code/dotfiles/scripts/z.sh
-
 if [[ $USER == 'young' ]]; then
     source ~/code/dotfiles/schrodinger.sh
 fi
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash

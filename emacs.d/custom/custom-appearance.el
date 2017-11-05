@@ -16,12 +16,19 @@ This functions should be added to the hooks of major modes for programming."
       uniquify-buffer-name-style 'forward)
 
 (menu-bar-mode t)
+(tool-bar-mode -1)
 
 ;; Quieter modeline
 (mapc 'diminish '(wrap-region-mode
                   yas-minor-mode
+		  projectile-mode
+		  auto-complete
+		  abbrev-mode
+		  auto-revert-mode
                   undo-tree-mode))
 (eval-after-load 'elisp-slime-nav '(diminish 'elisp-slime-nav-mode))
+(eval-after-load 'auto-complete '(diminish 'auto-complete))
+(custom-set-variables '(git-gutter:lighter ""))
 
 ;; Let's see column numbers.
 (column-number-mode t)
@@ -67,10 +74,6 @@ This functions should be added to the hooks of major modes for programming."
 
 ;; Let me *see* the marks
 (visible-mark-mode 1)
-
-;; Themes
-
-(load-theme 'leuven t)
 
 (provide 'custom-appearance)
 

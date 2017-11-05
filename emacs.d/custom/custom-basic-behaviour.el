@@ -132,7 +132,7 @@
 (ac-config-default)
 
 ; ace jump
-(setq ace-jump-mode-case-sensitive-search nil)
+(setq ace-jump-mode-case-fold t)
 
 (flyspell-prog-mode) ;; Checks spelling in comments and doc strings
 
@@ -151,6 +151,7 @@
 (smex-initialize)
 
 (whitespace-mode t)
+(add-hook 'before-save-hook 'whitespace-cleanup)
 
 (setq tramp-default-method "ssh")
 
