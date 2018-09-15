@@ -152,8 +152,15 @@
 
 (smex-initialize)
 
-(whitespace-mode t)
-(add-hook 'before-save-hook 'whitespace-cleanup)
+(whitespace-mode 0)
+
+(add-hook 'c-mode-common-hook
+	  (function (lambda ()
+		      (add-hook 'before-save-hook
+				'clang-format-buffer nil 'make-it-local)
+		      (add-hook 'before-save-hook 'whitespace-cleanup nil 'make-it-local))))
+
+(setq clang-format-executable "/software/lib/Darwin-x86_64/llvm+clang-3.7.1/bin/clang-format")
 
 (setq tramp-default-method "ssh")
 
