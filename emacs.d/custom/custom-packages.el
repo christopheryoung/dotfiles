@@ -1,72 +1,72 @@
-
 (require 'package)
 (add-to-list 'package-archives
-             '("marmalade" . "https://marmalade-repo.org/packages/") t)
+	     '("marmalade" . "https://marmalade-repo.org/packages/") t)
 
 (add-to-list 'package-archives
-             '("melpa" . "https://melpa.org/packages/") t)
-
-(package-initialize)
+	     '("melpa" . "https://melpa.org/packages/") t)
 
 (defvar my-package-packages '(
-                              ace-jump-mode
-                              auctex
-                              auto-complete
+			      ace-jump-mode
+			      auctex
+			      auto-complete
 			      clang-format
-                              csv-mode
-                              dash
-                              diminish
-                              dired-details
-                              discover
-                              ebib
-                              elpy
-                              erlang
-                              exec-path-from-shell
-                              expand-region
-                              fill-column-indicator
-                              find-file-in-repository
+			      cquery
+			      csv-mode
+			      dash
+			      diminish
+			      dired-details
+			      discover
+			      ebib
+			      elpy
+			      erlang
+			      exec-path-from-shell
+			      expand-region
+			      fill-column-indicator
+			      find-file-in-repository
 			      flycheck
-                              git-timemachine
-                              git-gutter
-                              git-messenger
-                              grizzl
-                              haskell-mode
-                              ht
-                              hydra
-                              iedit
+			      git-timemachine
+			      git-gutter
+			      git-messenger
+			      grizzl
+			      haskell-mode
+			      ht
+			      hydra
+			      iedit
 			      idle-highlight-mode
-                              igrep
-                              ipython
-                              ispell
-                              json-mode
-                              jump-char
-                              latex-extra
-                              leuven-theme
-                              loop
-                              magit
-                              mark-multiple
-                              markdown-mode
-                              maxframe
-                              midje-mode
-                              multi-term
-                              multiple-cursors
-                              paredit
-                              projectile
-                              pylint
-                              pymacs
-                              python-pep8
-                              python-pylint
-                              pyvenv
-                              rainbow-delimiters
-                              repository-root
-                              s
-                              smex
-                              undo-tree
-                              wgrep
-                              windmove
-                              wrap-region
-                              yasnippet
-                              )
+			      igrep
+			      intero
+			      ipython
+			      ispell
+			      json-mode
+			      jump-char
+			      latex-extra
+			      leuven-theme
+			      loop
+			      lsp-mode
+			      magit
+			      mark-multiple
+			      markdown-mode
+			      maxframe
+			      midje-mode
+			      multi-term
+			      multiple-cursors
+			      paredit
+			      projectile
+			      pylint
+			      pymacs
+			      python-pep8
+			      python-pylint
+			      pyvenv
+			      rainbow-delimiters
+			      repository-root
+			      s
+			      smex
+			      undo-tree
+			      wgrep
+			      windmove
+			      wrap-region
+			      yasnippet
+			      )
   "A list of packages to ensure are installed at launch.")
 
 (setq my-packages-refreshed nil)
