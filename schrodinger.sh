@@ -16,17 +16,9 @@ function reportenv() {
     echo $SCHRODINGER_SRC
 }
 
-function setenv() {
-    if [ $(hostname -s) = "pdx-build-young-lv01" ]; then
-	export SCHRODINGER='/home/young/code/schrodinger'
-	export SCHRODINGER_SRC='/home/young/code/schrodinger_src'
-    elif [[ $platform == 'linux' ]]; then
-        export SCHRODINGER='/scr2/young/schrodinger'
-        export SCHRODINGER_SRC='/scr2/young/schrodinger_src'
-    elif [[ $platform == 'mac' ]]; then
-        export SCHRODINGER='/Users/young/code/schrodinger'
-        export SCHRODINGER_SRC='/Users/young/code/schrodinger_src'
-    fi
+function workon() {
+    export SCHRODINGER=/scr/young/builds/$1/build
+    export SCHRODINGER_SRC=/scr/young/builds/$1/source
     reportenv
 }
 
@@ -34,15 +26,7 @@ if [[ $(hostname) = "nyc-bld-l02" ]]; then
     export CCACHE_DIR='/scr2/young/.ccache'
 fi
 
-function setaltenv() {
-    export SCHRODINGER='/Users/young/code/schrodinger_branch'
-    export SCHRODINGER_SRC='/Users/young/code/alt_schrodinger_src'
-    reportenv
-}
-
 # # Common
-
-setenv
 
 export PATH=$PATH:/utils/bin
 export SCHRODINGER_LIB='/software/lib'
@@ -54,25 +38,25 @@ function postr() {
     rbt post --bugs-closed=$branch --description "" --summary ""
 }
 
-alias buildinger=$SCHRODINGER_SRC/mmshare/build_tools/buildinger.sh
+alias buildinger='$SCHRODINGER_SRC/mmshare/build_tools/buildinger.sh'
 alias ssch='source $SCHRODINGER_SRC/mmshare/build_env'
-alias maestro='$SCHRODINGER/maestro -printenv'
+alias check='ssch && pre-commit run --source @{u} --origin HEAD'
+alias maestro='$SCHRODINGER/maestro -console -printenv'
 alias run="$SCHRODINGER/run"
 alias src='cd $SCHRODINGER_SRC'
 alias sch='cd $SCHRODINGER'
 alias mm='cd $SCHRODINGER_SRC/mmshare'
 alias mae='cd $SCHRODINGER_SRC/maestro-src'
 alias mmaestro='mmake && maestro'
-alias venv='setenv && source ~/.virtualenvs/sch/bin/activate && export SCHRODINGER_PYTHON_PATH=~/.virtualenvs/sch/bin/python'
-alias venv_alt='setaltenv && source ~/.virtualenvs/alt/bin/activate && export SCHRODINGER_PYTHON_PATH=~/.virtualenvs/alt/bin/python'
 alias sch_emacs='nohup /Applications/Emacs.app/Contents/MacOS/Emacs "$@" --debug-init &'
 alias maelog='less $SCHRODINGER/maestro-v*/make_maestro-src_all.log'
 alias mmlog='less $SCHRODINGER/mmshare-v*/make_mmshare_all.log'
 
+
 if [[ $platform == 'mac' ]]; then
     alias synclib='rm -rf /tmp/schrodinger_lib_sync ; mkdir -p /tmp/schrodinger_lib_sync && cd /tmp/schrodinger_lib_sync && wget -r -np -nd http://cgit/cgit/mmshare/plain/build_tools/schrodinger_lib_sync/ && bash copy_schrodinger_lib.sh -v $SCHRODINGER_LIB NYC Darwin-x86_64 && cd -'
     export MAESTRO_SCRIPTS='/Users/young/code/maestro_scripts'
-    alias designer='$SCHRODINGER_LIB/Darwin-x86_64/qt-5.6.2/bin/Designer.app/Contents/MacOS/Designer'
+    alias designer='$SCHRODINGER_LIB/Darwin-x86_64/qt-5.9.*/bin/Designer.app/Contents/MacOS/Designer'
     alias run_msv='mmake && run $SCHRODINGER/mmshare-v*/lib/Darwin-x86_64/lib/python2.7/site-packages/schrodinger/application/msv/gui/msv_gui.py'
 
 elif [[ $platform == 'linux' ]]; then
