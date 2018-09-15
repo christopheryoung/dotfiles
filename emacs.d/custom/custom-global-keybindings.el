@@ -6,13 +6,6 @@
 (global-set-key [f10] 'split-window-vertically)
 (global-set-key [f11] 'other-window)
 
-;; breadcrumbs
-(global-set-key (kbd "M-`") 'bc-set) ;;
-(global-set-key (kbd "C-M-<up>") 'bc-previous) ;; jump to previous
-(global-set-key (kbd "C-M-<down>") 'bc-next) ;;jump to next
-;; bc-list to see menu list
-;; bc-clear to clear breadcrumbs
-
 ;; custom defuns
 (global-set-key (kbd "C-h C-b") 'browse-url)
 (global-set-key (kbd "C-h C-s") 'search-interwebs)
