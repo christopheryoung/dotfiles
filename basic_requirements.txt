@@ -1,12 +1,8 @@
 #readline
 gitpython
-flake8
 elpy
 jedi
-pep8
-ipython
 grin
-autopep8
 pexpect
 conttest
 percol
