@@ -14,24 +14,25 @@
 	ii = auto
 
 [alias]
-        st = status
-        ci = commit
-        br = branch
-        co = checkout
-        count   = !git shortlog -sn
-        df = diff
-        stg = diff --staged
-        logb = log --graph --decorate # branch log
-        logd = log -p                 # diff log
-        logf = log --stat             # file log
-        unstage = reset HEAD --
-        last = log -1 HEAD
-        lastp = log -1 -p HEAD
-        pushbld = push --receive-pack /utils/bin/git-receive-pack bld
-        pullbld = pull --upload-pack /utils/bin/git-upload-pack bld
+	st = status
+	ci = commit
+	br = branch
+	co = checkout
+	fold = commit --amend --no-edit
+	count   = !git shortlog -sn
+	df = diff
+	stg = diff --staged
+	logb = log --graph --decorate # branch log
+	logd = log -p                 # diff log
+	logf = log --stat             # file log
+	unstage = reset HEAD --
+	last = log -1 HEAD
+	lastp = log -1 -p HEAD
+	pushbld = push --receive-pack /utils/bin/git-receive-pack bld
+	pullbld = pull --upload-pack /utils/bin/git-upload-pack bld
 
 [push]
-        default = current
+	default = current
 
 [difftool "kdiff3"]
     path = /usr/local/bin/kdiff3
