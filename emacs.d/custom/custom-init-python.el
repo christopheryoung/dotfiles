@@ -22,12 +22,27 @@
 
 (setq python-fill-docstring-style 'django)
 
+(setq python-yapf-path "/Users/young/code/schrodinger/buildvenv/*/bin/yapf")
+
+(defun tidy-up-python-file ()
+  (interactive)
+  (message "Tidying up Python file")
+  (shell-command (format "%s -i %s" python-yapf-path buffer-file-name))
+  (whitespace-cleanup))
+
+(add-hook 'python-mode-hook 'tidy-up-python-file nil 'make-it-local)
+
+;; (add-hook 'python-mode-hook
+;; 	  (function (lambda ()
+;; 		      (add-hook 'before-save-hook
+;; 				'whitespace-cleanup nil 'make-it-local)
+;; 		      (add-hook 'before-save-hook
+;; 				'custom-yapf-it nil 'make-it-local))))
 
 (let ((workon-home (expand-file-name "~/.virtualenvs")))
   (setenv "WORKON_HOME" workon-home)
   (setenv "VIRTUALENVWRAPPER_HOOK_DIR" workon-home))
 
-(package-initialize)
 ;; why do I need to do this again? elpy-enable doesn't
 ;; seem to cooperate unless I do
 (elpy-enable)
@@ -59,6 +74,10 @@
   (newline-and-indent)
   (insert "import ipdb; ipdb.set_trace()")
   (highlight-lines-matching-regexp "^[ ]*import ipdb; ipdb.set_trace()"))
+
+(add-hook 'python-mode-hook
+	  (function (lambda ()
+		    (add-hook 'before-save-hook 'whitespace-cleanup))))
 
 (elpy-enable)
 
