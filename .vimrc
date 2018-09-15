@@ -9,10 +9,9 @@ Plug 'junegunn/fzf.vim'
 
 call plug#end()
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => General
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
 syntax on
 filetype plugin indent on
 
@@ -21,8 +20,17 @@ filetype plugin indent on
 
 set sw=4
 set sts=4
-set expandtab
 set si
+
+set number              " show line numbers
+set showcmd             " show command in bottom bar
+set cursorline          " highlight current line
+" set cursorcolumn
+set listchars=tab:>-,trail:· " show whitespace
+set list
+
+match ErrorMsg '\%>80v.\+'
+match ErrorMsg '\s\+$'
 
 " Sets how many lines of history VIM has to remember
 set history=500
@@ -61,14 +69,39 @@ set mat=2
 " Set utf8 as standard encoding and en_US as the standard language
 set encoding=utf8
 
+set wildmenu            " visual autocomplete for command menu
+set lazyredraw          " redraw only when we need to.
+set showmatch           " highlight matching [{()}]
+set incsearch           " search as characters are entered
+set hlsearch            " highlight matches
+
+set foldenable          " enable folding
+set foldlevelstart=10   " open most folds by default
+set foldnestmax=10      " 10 nested fold max
+nnoremap <space> za     " space open/closes folds
+set foldmethod=syntax   " fold based on indent level
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Backup
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+set backup
+set backupdir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
+set backupskip=/tmp/*,/private/tmp/*
+set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
+set writebackup
+
+
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Text, tab and indent related
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Use spaces instead of tabs
-set expandtab
+set softtabstop=4 " number of spaces in tab when editing
 
-" Be smart when using tabs
-set smarttab
+set expandtab " Use spaces instead of tabs
+
+set smarttab " Be smart when using tabs
 
 " 1 tab == 4 spaces
 set shiftwidth=4
@@ -81,9 +114,6 @@ set wrap "Wrap lines
 """"""""""""""""""""""""""""""
 " => Status line
 """"""""""""""""""""""""""""""
-
-" Format the status line
-set statusline=\ %{HasPaste()}%F%m%r%h\ %w\ \ CWD:\ %r%{getcwd()}%h\ \ \Line:\ %l\ \ Column:\ %c
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -102,7 +132,6 @@ endfun
 if has("autocmd")
     autocmd BufWritePre *.txt,*.js,*.py,*.wiki,*.sh,*.coffee :call CleanExtraSpaces()
 endif
-
 
 
 autocmd FileType python set omnifunc=pythoncomplete#Complete
