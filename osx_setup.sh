@@ -27,19 +27,20 @@ xcode-select --install
 
 brew update
 
-brew install coreutils
-brew install ccache
-brew install aspell
-brew install findutils
-brew install nodejs
-brew install dos2unix
-brew install imagemagick
-brew install wget
 brew install Xpdf
+brew install aspell
+brew install ccache
 brew install cloc
-brew install tree
+brew install coreutils
+brew install dos2unix
+brew install doxygen
+brew install findutils
 brew install fzf
+brew install imagemagick
+brew install nodejs
 brew install tmux
+brew install tree
+brew install wget
 brew install yank
 
 echo "Outdated brew packages below: "
