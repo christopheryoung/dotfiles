@@ -1,11 +1,11 @@
-
-;; Thanks: http://emacsredux.com/blog/2013/07/24/highlight-comment-annotations/
+;
+; Thanks: http://emacsredux.com/blog/2013/07/24/highlight-comment-annotations/
 (defun font-lock-comment-annotations ()
   "Highlight a bunch of well known comment annotations.
 This functions should be added to the hooks of major modes for programming."
   (font-lock-add-keywords
    nil '(("\\<\\(FIX\\(ME\\)?\\|TODO\\|OPTIMIZE\\|HACK\\|REFACTOR\\|NOTE\\):"
-          1 font-lock-warning-face t))))
+	  1 font-lock-warning-face t))))
 
 (add-hook 'prog-mode-hook 'font-lock-comment-annotations)
 
@@ -20,12 +20,12 @@ This functions should be added to the hooks of major modes for programming."
 
 ;; Quieter modeline
 (mapc 'diminish '(wrap-region-mode
-                  yas-minor-mode
+		  yas-minor-mode
 		  projectile-mode
 		  auto-complete
 		  abbrev-mode
 		  auto-revert-mode
-                  undo-tree-mode))
+		  undo-tree-mode))
 (eval-after-load 'elisp-slime-nav '(diminish 'elisp-slime-nav-mode))
 (eval-after-load 'auto-complete '(diminish 'auto-complete))
 (custom-set-variables '(git-gutter:lighter ""))
@@ -33,14 +33,16 @@ This functions should be added to the hooks of major modes for programming."
 ;; Let's see column numbers.
 (column-number-mode t)
 
-;; and whitespace
-(whitespace-mode 1)
+;; and when we've gone too far
+(require 'fill-column-indicator)
+(define-globalized-minor-mode global-fci-mode fci-mode (lambda () (fci-mode 1)))
+(global-fci-mode 1)
 
 ;; Show more info in taskbar/icon than just "Emacs"
 (setq frame-title-format
       '((:eval (if (buffer-file-name)
-                   (abbreviate-file-name (buffer-file-name))
-                 "%b"))))
+		   (abbreviate-file-name (buffer-file-name))
+		 "%b"))))
 
 ;; Fonts are automatically highlighted.  For more information
 ;; type M-x describe-mode font-lock-mode
