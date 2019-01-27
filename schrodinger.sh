@@ -54,7 +54,6 @@ alias mmlog='less $SCHRODINGER/mmshare-v*/make_mmshare_all.log'
 
 
 if [[ $platform == 'mac' ]]; then
-    alias synclib='rm -rf /tmp/schrodinger_lib_sync ; mkdir -p /tmp/schrodinger_lib_sync && cd /tmp/schrodinger_lib_sync && wget -r -np -nd http://cgit/cgit/mmshare/plain/build_tools/schrodinger_lib_sync/ && bash copy_schrodinger_lib.sh -v $SCHRODINGER_LIB NYC Darwin-x86_64 && cd -'
     export MAESTRO_SCRIPTS='/Users/young/code/maestro_scripts'
     alias designer='$SCHRODINGER_LIB/Darwin-x86_64/qt-5.9.*/bin/Designer.app/Contents/MacOS/Designer'
     alias run_msv='mmake && run $SCHRODINGER/mmshare-v*/lib/Darwin-x86_64/lib/python2.7/site-packages/schrodinger/application/msv/gui/msv_gui.py'
