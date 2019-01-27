@@ -48,4 +48,7 @@
 ;; Note the excellent keybinding C-c C-a, which compiles until done
 (eval-after-load 'latex '(latex/setup-keybinds))
 
+;; (setenv "PATH" (concat "/usr/texbin:/Library/TeX/texbin:" (getenv "PATH")))
+;; (setq exec-path (append '("/usr/texbin" "/Library/TeX/texbin") exec-path)
+
 (provide 'custom-latex)
