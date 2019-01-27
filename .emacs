@@ -123,6 +123,7 @@
 (eval-after-load 'python-mode '(require 'custom-init-python))
 (eval-after-load 'scheme-mode (require 'custom-init-scheme))
 (eval-after-load 'web-mode '(require 'custom-init-web-mode))
+(eval-after-load 'c-mode '(require 'custom-init-cpp))
 
 ;; Customizations
 (require 'custom-appearance)
