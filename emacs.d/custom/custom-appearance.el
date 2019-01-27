@@ -1,8 +1,7 @@
-;
-; Thanks: http://emacsredux.com/blog/2013/07/24/highlight-comment-annotations/
+;; Thanks: http://emacsredux.com/blog/2013/07/24/highlight-comment-annotations/
 (defun font-lock-comment-annotations ()
-  "Highlight a bunch of well known comment annotations.
-This functions should be added to the hooks of major modes for programming."
+;;  "Highlight a bunch of well known comment annotations.
+;;This functions should be added to the hooks of major modes for programming."
   (font-lock-add-keywords
    nil '(("\\<\\(FIX\\(ME\\)?\\|TODO\\|OPTIMIZE\\|HACK\\|REFACTOR\\|NOTE\\):"
 	  1 font-lock-warning-face t))))
@@ -50,12 +49,9 @@ This functions should be added to the hooks of major modes for programming."
 (set-face-bold-p 'font-lock-keyword-face t)
 (set-face-italic-p 'font-lock-comment-face t)
 
-
-;; font size . . .
-
-
-;; Line numbers! Always!
-(global-linum-mode 1)
+;; Line numbers!
+(when (version<= "26.0.50" emacs-version )
+  (global-display-line-numbers-mode))
 
 ;; highlight and colourize balanced parens
 ;; rainbow-delimiters-mode is turned on on a per-major-mode basis
@@ -69,7 +65,6 @@ This functions should be added to the hooks of major modes for programming."
 (setq-default fill-column 79)
 
 ;; Mac Appearance Stuff
-
 (if *on-a-mac*
     (set-face-font 'default "Monaco-22")
   (set-face-attribute 'default nil :height 220))
@@ -78,4 +73,3 @@ This functions should be added to the hooks of major modes for programming."
 (visible-mark-mode 1)
 
 (provide 'custom-appearance)
-

@@ -30,11 +30,6 @@
 ;; Sentences don't need a double space to end
 (set-default 'sentence-end-double-space nil)
 
-;; SavePlace- this puts the cursor in the last place you edited
-;; a particular file. This is very useful for large files.
-(require 'saveplace)
-(setq-default save-place t)
-
 ;; When we save a buffer to a file, if the path contains dirs that
 ;; don't exist yet, just create them for me
 (add-hook 'before-save-hook
@@ -57,9 +52,6 @@
 (setq backup-directory-alist
       `(("." . ,(expand-file-name
                  (concat user-emacs-directory "backups")))))
-
-
-
 
 ;; Make backups of files, even when they're in version control
 (setq vc-make-backup-files t)
@@ -138,10 +130,6 @@
 
 (flyspell-prog-mode) ;; Checks spelling in comments and doc strings
 
-;;(setq-default ispell-program-name "/usr/local/bin/aspell")
-
-(turn-on-typing-speed)
-
 (global-undo-tree-mode)
 
 (wrap-region-global-mode t)
@@ -159,8 +147,6 @@
 		      (add-hook 'before-save-hook
 				'clang-format-buffer nil 'make-it-local)
 		      (add-hook 'before-save-hook 'whitespace-cleanup nil 'make-it-local))))
-
-(setq clang-format-executable "/software/lib/Darwin-x86_64/llvm+clang-3.7.1/bin/clang-format")
 
 (setq tramp-default-method "ssh")
 
