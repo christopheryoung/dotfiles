@@ -73,8 +73,6 @@
 ;; minor modes
 (require 'auto-complete-config)
 (require 'ace-jump-mode)
-(require 'breadcrumb)
-(require 'custom-command-frequency-init) ;; Statistical omphaloskepsis
 (require 'custom-ido-mode-init)
 (require 'custom-init-paredit)
 (require 'custom-yasnippet-init)
