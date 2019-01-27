@@ -18,3 +18,5 @@ Thumbs.db
 local_settings.py
 .ropeproject
 .idea/*
+CMakeLists.txt
+cmake-build-debug
