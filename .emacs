@@ -144,3 +144,18 @@
 ;; At work
 (require 'schrodinger nil 'noerror)
 
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(git-gutter:lighter "")
+ '(package-selected-packages
+   (quote
+    (wrap-region wgrep undo-tree smex s repository-root rainbow-delimiters python-pylint python-pep8 pymacs pylint projectile paredit multiple-cursors multi-term midje-mode maxframe markdown-mode mark-multiple magit loop leuven-theme latex-extra jump-char json-mode ipython intero igrep iedit idle-highlight-mode hydra ht helm-gtags grizzl git-timemachine git-messenger git-gutter ggtags find-file-in-repository fill-column-indicator expand-region exec-path-from-shell erlang elpy ebib discover dired-details diminish csv-mode cquery clang-format auto-complete ace-jump-mode))))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
