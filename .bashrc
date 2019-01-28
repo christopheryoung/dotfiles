@@ -75,7 +75,7 @@ _ghc()
     COMPREPLY=( $( compgen -W "$envs" -- $cur ) )
 }
 complete -F _ghc -o default ghc
-eval "$(stack --bash-completion-script stack)"
+type stack >/dev/null 2>&1 || eval "$(stack --bash-completion-script stack)"
 
 ##Colors for a mac
 
