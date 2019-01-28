@@ -8,7 +8,7 @@ if [[ "$unamestr" == "Linux" ]]; then
 elif [[ "$unamestr" == "Darwin" ]]; then
     platform='mac'
     echo "Sourcing schrodinger.sh on a mac"
-elif [[ "$unmestr" == "MINGW64_NT-10.0"]]; then
+elif [[ "$unamestr" == "MINGW64_NT-10.0" ]]; then
     platform='win'
     echo "Sourcing schrodinger.sh on windows"
 fi
