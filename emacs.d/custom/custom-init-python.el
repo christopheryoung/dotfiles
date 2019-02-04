@@ -24,21 +24,6 @@
 
 (setq python-yapf-path "/Users/young/code/schrodinger/buildvenv/*/bin/yapf")
 
-(defun tidy-up-python-file ()
-  (interactive)
-  (message "Tidying up Python file")
-  (shell-command (format "%s -i %s" python-yapf-path buffer-file-name))
-  (whitespace-cleanup))
-
-(add-hook 'python-mode-hook 'tidy-up-python-file nil 'make-it-local)
-
-;; (add-hook 'python-mode-hook
-;; 	  (function (lambda ()
-;; 		      (add-hook 'before-save-hook
-;; 				'whitespace-cleanup nil 'make-it-local)
-;; 		      (add-hook 'before-save-hook
-;; 				'custom-yapf-it nil 'make-it-local))))
-
 (let ((workon-home (expand-file-name "~/.virtualenvs")))
   (setenv "WORKON_HOME" workon-home)
   (setenv "VIRTUALENVWRAPPER_HOOK_DIR" workon-home))
@@ -49,31 +34,9 @@
 (setq elpy-rpc-backend "rope")
 
 (elpy-use-ipython)
-;;(require 'pydoc-info)
-
-(defun python-helm-docs ()
-  (interactive)
-  (setq-local helm-dash-docsets '("Python_2")))
-
-(add-hook 'python-mode-hook 'python-helm-docs)
-
-(eval-after-load "helm-dash"
-  '(defun helm-dash-actions (actions doc-item) `(("Go to doc" . eww))))
-
-(defun annotate-ipdb ()
-  (interactive)
-  (highlight-lines-matching-regexp "import ipdb")
-  (highlight-lines-matching-regexp "ipdb.set_trace()"))
-
-(add-hook 'python-mode-hook 'annotate-pdb)
 
 ;;----------
 ;; Keybinding to add breakpoint:
-(defun python-add-breakpoint ()
-  (interactive)
-  (newline-and-indent)
-  (insert "import ipdb; ipdb.set_trace()")
-  (highlight-lines-matching-regexp "^[ ]*import ipdb; ipdb.set_trace()"))
 
 (add-hook 'python-mode-hook
 	  (function (lambda ()
