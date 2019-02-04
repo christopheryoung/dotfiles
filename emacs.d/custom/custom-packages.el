@@ -24,6 +24,7 @@
 			      fill-column-indicator
 			      find-file-in-repository
 			      flycheck
+			      flx-ido
 			      git-timemachine
 			      git-gutter
 			      git-messenger
@@ -32,6 +33,7 @@
 			      hydra
 			      iedit
 			      idle-highlight-mode
+			      ido-vertical-mode
 			      igrep
 			      intero
 			      ipython
