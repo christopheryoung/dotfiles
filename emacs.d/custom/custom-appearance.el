@@ -11,7 +11,6 @@
 (setq inhibit-startup-message t
       initial-scratch-message nil
       visible-bell t
-      line-number-mode t
       uniquify-buffer-name-style 'forward)
 
 (menu-bar-mode t)
@@ -50,6 +49,7 @@
 (set-face-italic-p 'font-lock-comment-face t)
 
 ;; Line numbers!
+
 (when (version<= "26.0.50" emacs-version )
   (global-display-line-numbers-mode))
 
