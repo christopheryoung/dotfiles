@@ -84,11 +84,15 @@
 
 (require 'flyspell)
 (global-git-gutter-mode +1)
-(git-gutter:linum-setup)
 (require 'highlight-beyond-fill-column)
+(require 'ido-vertical-mode)
+(ido-vertical-mode 1)
+;; todo: move this stuff and the appearance stuff into custom-ido-vertical
+(setq ido-vertical-define-keys 'C-n-and-C-p-only)
+(setq ido-vertical-define-keys 'C-n-C-p-up-and-down)
 (require 'inline-string-rectangle)
 (require 'jump-char)
-(require 'linum)
+
 (setq auto-mode-alist (cons '("\\.pro$" . makefile-mode) auto-mode-alist))
 (require 'maxframe)
 (require 'multiple-cursors)
