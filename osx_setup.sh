@@ -39,6 +39,7 @@ brew install fzf
 brew install imagemagick
 brew install nodejs
 brew install pandoc
+brew install pandoc-citeproc
 brew install tmux
 brew install tree
 brew install wget
