@@ -40,6 +40,7 @@ brew install imagemagick
 brew install nodejs
 brew install pandoc
 brew install pandoc-citeproc
+brew cask install mactex
 brew install tmux
 brew install tree
 brew install wget
