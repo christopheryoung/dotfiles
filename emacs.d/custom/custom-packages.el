@@ -27,7 +27,6 @@
 			      git-timemachine
 			      git-gutter
 			      git-messenger
-			      grizzl
 			      haskell-mode
 			      ht
 			      hydra
