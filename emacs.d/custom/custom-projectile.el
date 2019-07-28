@@ -1,7 +1,7 @@
 
 (projectile-global-mode)
 
-(setq projectile-completion-system 'grizzl)
+(setq projectile-completion-system 'ivy)
 (define-key projectile-mode-map [?\s-f] 'projectile-find-file)
 (define-key projectile-mode-map [?\s-g] 'projectile-grep)
 
