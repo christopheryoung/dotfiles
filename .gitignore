@@ -57,3 +57,8 @@ emacs.d/org-mode
 emacs.d/places
 emacs.d/url
 /emacs.d/projectile-bookmarks.eld
+emacs.d/ido.last
+emacs.d/network-security.data
+emacs.d/recentf
+emacs.d/smex-items
+emacs.d/transient/
