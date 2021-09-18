@@ -105,6 +105,13 @@ source ~/.aliases
 # Functions
 source ~/.functions
 
+# Prevent pip from installing into system Python . . .
+export PIP_REQUIRE_VIRTUALENV=true
+# but make it possible to override this if necessary
+gpip() {
+    PIP_REQUIRE_VIRTUALENV="" pip "$@"
+}
+
 # Many thanks: https://raw.github.com/mathiasbynens/dotfiles/master/.bash_profile
 # Add tab completion for SSH hostnames based on ~/.ssh/config, ignoring wildcards
 [ -e "$HOME/.ssh/config" ] && complete -o "default" -o "nospace" -W "$(grep "^Host" ~/.ssh/config | grep -v "[?*]" | cut -d " " -f2)" scp sftp ssh
