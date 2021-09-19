@@ -53,6 +53,7 @@
 (when (version<= "26.0.50" emacs-version )
   (global-display-line-numbers-mode))
 
+
 ;; highlight and colourize balanced parens
 ;; rainbow-delimiters-mode is turned on on a per-major-mode basis
 (show-paren-mode 1)
@@ -66,8 +67,9 @@
 
 ;; Mac Appearance Stuff
 (if *on-a-mac*
-    (set-face-font 'default "Monaco-22")
+    (set-face-font 'default "Monaco-19")
   (set-face-attribute 'default nil :height 220))
+
 
 ;; Let me *see* the marks
 (visible-mark-mode 1)
@@ -75,11 +77,11 @@
 ;; For ido-vertical-mode
 (setq ido-use-faces t)
 (set-face-attribute 'ido-vertical-first-match-face nil
-                    :background "#e5b7c0")
+		    :background "#e5b7c0")
 (set-face-attribute 'ido-vertical-only-match-face nil
-                    :background "#e52b50"
-                    :foreground "white")
+		    :background "#e52b50"
+		    :foreground "white")
 (set-face-attribute 'ido-vertical-match-face nil
-                    :foreground "#b00000")
+		    :foreground "#b00000")
 
 (provide 'custom-appearance)
