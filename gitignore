@@ -20,3 +20,4 @@ local_settings.py
 .idea/*
 CMakeLists.txt
 cmake-build-debug
+.ipynb_checkpoints
