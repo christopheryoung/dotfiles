@@ -1,10 +1,5 @@
 gitpython
+invoke
 elpy
 jedi
-grin
-pexpect
-conttest
-percol
-fabric
 jira
-unittest2pytest
