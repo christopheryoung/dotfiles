@@ -63,7 +63,10 @@
 			      repository-root
 			      s
 			      smex
+			      sqlite
 			      undo-tree
+			      use-package
+			      visual-fill-column
 			      wgrep
 			      windmove
 			      wrap-region
