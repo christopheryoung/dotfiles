@@ -14,8 +14,8 @@
 
 (setq kill-emacs-query-functions
       (list (function (lambda ()
-                        (ding)
-                        (y-or-n-p "Really quit? ")))))
+			(ding)
+			(y-or-n-p "Really quit? ")))))
 
 ;; Answer y or n instead of yes or no at minibar prompts.
 (defalias 'yes-or-no-p 'y-or-n-p)
@@ -33,9 +33,9 @@
 ;; When we save a buffer to a file, if the path contains dirs that
 ;; don't exist yet, just create them for me
 (add-hook 'before-save-hook
-          '(lambda ()
-             (or (file-exists-p (file-name-directory buffer-file-name))
-                 (make-directory (file-name-directory buffer-file-name) t))))
+	  '(lambda ()
+	     (or (file-exists-p (file-name-directory buffer-file-name))
+		 (make-directory (file-name-directory buffer-file-name) t))))
 
 ;; Changes default mode to Text (instead of Fundamental)
 (setq default-major-mode 'text-mode)
@@ -51,7 +51,7 @@
 ;; Write backup files to own directory
 (setq backup-directory-alist
       `(("." . ,(expand-file-name
-                 (concat user-emacs-directory "backups")))))
+		 (concat user-emacs-directory "backups")))))
 
 ;; Make backups of files, even when they're in version control
 (setq vc-make-backup-files t)
@@ -68,8 +68,8 @@
 
 (setq desktop-buffers-not-to-save
       (concat "\\(" "^nn\\.a[0-9]+\\|\\.log\\|(ftp)\\|^tags\\|^TAGS"
-              "\\|\\.emacs.*\\|\\.diary\\|\\.newsrc-dribble\\|\\.bbdb"
-              "\\)$"))
+	      "\\|\\.emacs.*\\|\\.diary\\|\\.newsrc-dribble\\|\\.bbdb"
+	      "\\)$"))
 (add-to-list 'desktop-modes-not-to-save 'dired-mode)
 (add-to-list 'desktop-modes-not-to-save 'Info-mode)
 (add-to-list 'desktop-modes-not-to-save 'info-lookup-mode)
