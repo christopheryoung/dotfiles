@@ -125,6 +125,9 @@
 ;; autocomplete
 (ac-config-default)
 
+;; dumb jump
+(add-hook 'xref-backend-functions #'dumb-jump-xref-activate)
+
 ; ace jump
 (setq ace-jump-mode-case-fold t)
 
@@ -139,14 +142,6 @@
 (setq magit-status-buffer-switch-function 'switch-to-buffer)
 
 (smex-initialize)
-
-(whitespace-mode 0)
-
-(add-hook 'c-mode-common-hook
-	  (function (lambda ()
-		      (add-hook 'before-save-hook
-				'clang-format-buffer nil 'make-it-local)
-		      (add-hook 'before-save-hook 'whitespace-cleanup nil 'make-it-local))))
 
 (setq tramp-default-method "ssh")
 
