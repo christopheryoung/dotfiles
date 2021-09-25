@@ -52,8 +52,6 @@
 (global-set-key (kbd "C-c C-g") 'rgrep)
 ;; iedit
 (global-set-key (kbd "C-c i") 'iedit-mode)
-;; imenu
-(global-set-key (kbd "M-i") 'imenu)
 ;; isearch
 ;; Use regex searches by default. (Borrowed from emacs starter kit)
 (global-set-key (kbd "C-s") 'isearch-forward-regexp)
