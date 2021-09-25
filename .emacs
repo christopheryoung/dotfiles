@@ -95,6 +95,7 @@
 (turn-on-typing-speed)
 (require 'undo-tree)
 (require 'wrap-region)
+(require 'custom-helm-swoop)
 
 ;; major modes, not programming languages
 (require 'dired-details)
