@@ -108,35 +108,20 @@
 (require 'smex)
 (require 'uniquify)
 (require 'visible-mark)
+(require 'custom-org-roam)
 
 ;; major modes, programming languages, etc.
-;; (require 'custom-init-elisp)
-;; (require 'custom-init-any-lisp)
 (require 'custom-markdown-mode)
-(eval-after-load 'clojure-mode '(require 'custom-init-clojure))
-(eval-after-load 'haskell-mode '(require 'custom-init-haskell))
-;;(eval-after-load 'js2-mode '(require 'custom-init-js2))
 (require 'custom-latex)
-(eval-after-load 'python-mode '(require 'custom-init-python))
-(eval-after-load 'scheme-mode (require 'custom-init-scheme))
+(require 'custom-init-python)
 (eval-after-load 'web-mode '(require 'custom-init-web-mode))
-(eval-after-load 'c-mode '(require 'custom-init-cpp))
+(require 'custom-init-cpp)
+
 
 ;; Customizations
 (require 'custom-appearance)
 (require 'custom-basic-behaviour)
 (require 'custom-global-keybindings)
-
-;; Hook function
-(defun clang-format-before-save ()
-  "Add this to .emacs to clang-format on save
- (add-hook 'before-save-hook 'clang-format-before-save)."
-
-  (interactive)
-  (when (eq major-mode 'c++-mode) (clang-format-buffer)))
-
-;; Install hook to use clang-format on save
-(add-hook 'before-save-hook 'clang-format-before-save)
 
 ;; At work
 (require 'schrodinger nil 'noerror)

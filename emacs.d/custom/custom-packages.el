@@ -51,6 +51,7 @@
 			      midje-mode
 			      multi-term
 			      multiple-cursors
+			      org-roam
 			      paredit
 			      projectile
 			      pylint
