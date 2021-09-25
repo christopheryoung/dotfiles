@@ -55,7 +55,7 @@
     (setq *on-a-mac* t))
 
 (setq dotfiles-dir (file-name-directory
-                    (or (buffer-file-name) load-file-name)))
+		    (or (buffer-file-name) load-file-name)))
 
 ;; directory for most customizations
 (add-to-list 'load-path "~/.emacs.d/custom/")
