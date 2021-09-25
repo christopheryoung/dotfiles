@@ -72,7 +72,6 @@
 ;; minor modes
 (require 'auto-complete-config)
 (require 'ace-jump-mode)
-(require 'ivy)
 (require 'custom-init-paredit)
 (require 'custom-yasnippet-init)
 (require 'custom-projectile)
