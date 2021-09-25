@@ -84,13 +84,19 @@ export LSCOLORS=ExFxCxDxBxegedabagacad
 
 if [[ $OSTYPE == darwin* ]]; then
     export PATH=$PATH:$HOME/bin
+    export PATH=$PATH:/Users/young/.local/bin
+    export PATH=$PATH:/usr/local/opt/ccache/libexec
     export PATH=$PATH:/usr/local/bin
     export PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
     export PATH=$PATH:/usr/local/share/npm/bin
+    export PATH=$PATH:/Users/young/.local/bin/stack
     export PATH=$PATH:/Applications/Postgres.app/Contents/MacOS/bin
     export PATH=$PATH:$HOME/Applications/adt-bundle-mac/sdk/platform-tools
     export PATH=$PATH:$HOME/Applications/adt-bundle-mac/sdk/tools
-    export PAHT=$PATH:/Library/TeX/texbin/
+    export PATH=$PATH:/Library/TeX/texbin/
+    export PATH=$PATH:/usr/local/opt/findutils/libexec/gnubin
+    export PGDATA='/usr/local/var/postgres'
+    # export PATH="/usr/local/opt/llvm/bin:$PATH
 fi
 
 # Alias definitions.
