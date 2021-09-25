@@ -101,6 +101,9 @@
 (require 'dired-details)
 (require 'custom-dired-init)
 (require 'custom-grep-init)
+
+(setq org-goto-interface 'outline-path-completion)
+(setq reftex-default-bibliography '("~/code/chrisyoung/site/biblio/files.bib"))
 (eval-after-load 'org '(require 'custom-org-mode-init))
 (require 'custom-multi-term-init)
 (require 'custom-text-mode-init)
