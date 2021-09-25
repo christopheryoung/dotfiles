@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: qtpdb
+# key: qtpdb
+# --
+import pdb;from schrodinger.Qt import QtCore;QtCore.pyqtRemoveInputHook();pdb.set_trace()
