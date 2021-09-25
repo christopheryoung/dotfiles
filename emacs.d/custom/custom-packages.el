@@ -71,6 +71,8 @@
 			      )
   "A list of packages to ensure are installed at launch.")
 
+(add-to-list 'package-archives '("org" . "https://orgmode.org/elpa/") t)
+
 (setq my-packages-refreshed nil)
 
 (dolist (p my-package-packages)
