@@ -25,6 +25,9 @@ type brew >/dev/null 2>&1 || ruby -e "$(curl -fsSL https://raw.github.com/mxcl/h
 
 xcode-select --install
 
+# tmux plugins
+# git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+
 brew update
 
 brew install Xpdf
@@ -34,6 +37,7 @@ brew install cloc
 brew install coreutils
 brew install dos2unix
 brew install doxygen
+brew install fd
 brew install findutils
 brew install fzf
 brew install imagemagick
@@ -41,10 +45,15 @@ brew install nodejs
 brew install pandoc
 brew install pandoc-citeproc
 brew cask install mactex
+brew install ripgrep
+brew install stack
 brew install tmux
 brew install tree
 brew install wget
 brew install yank
+brew install bat
+brew tap homebrew/cask-fonts
+brew install --cask font-hack-nerd-font
 
 echo "Outdated brew packages below: "
 brew outdated
