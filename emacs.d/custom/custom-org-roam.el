@@ -10,6 +10,7 @@
 	 ("C-c n g" . org-roam-graph)
 	 ("C-c n i" . org-roam-node-insert)
 	 ("C-c n c" . org-roam-capture)
+	 ("C-c n r" . org-roam-node-random)
 	 :map org-mode-map
 	 ("C-M-i" . completion-at-point))
   :config
