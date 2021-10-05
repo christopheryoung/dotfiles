@@ -72,6 +72,12 @@
 ;; minor modes
 (require 'auto-complete-config)
 (require 'ace-jump-mode)
+(require 'custom-ido-mode-init)
+(require 'ido-vertical-mode)
+(ido-vertical-mode 1)
+;; todo: move this stuff and the appearance stuff into custom-ido-vertical
+(setq ido-vertical-define-keys 'C-n-and-C-p-only)
+(setq ido-vertical-define-keys 'C-n-C-p-up-and-down)
 (require 'custom-init-paredit)
 (require 'custom-yasnippet-init)
 (require 'custom-projectile)
