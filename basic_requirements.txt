@@ -1,5 +1,4 @@
 gitpython
 invoke
-elpy
-jedi
 jira
+python-language-server[all]
