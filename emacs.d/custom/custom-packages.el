@@ -13,10 +13,8 @@
 			      csv-mode
 			      dash
 			      diminish
-			      dired-details
 			      discover
 			      ebib
-			      elpy
 			      erlang
 			      exec-path-from-shell
 			      expand-region
@@ -28,14 +26,15 @@
 			      git-gutter
 			      git-messenger
 			      haskell-mode
+			      helm
+			      helm-swoop
 			      ht
 			      hydra
 			      iedit
 			      idle-highlight-mode
 			      ido-vertical-mode
-			      igrep
-			      intero
-			      ipython
+			      ;; intero
+			      ;; ipython
 			      ispell
 			      json-mode
 			      jump-char
@@ -55,12 +54,12 @@
 			      paredit
 			      projectile
 			      pylint
-			      pymacs
-			      python-pep8
-			      python-pylint
+			      ;;pymacs
+			      ;; python-pep8
+			      ;; python-pylint
 			      pyvenv
 			      rainbow-delimiters
-			      repository-root
+			      ;; repository-root
 			      s
 			      smex
 			      sqlite

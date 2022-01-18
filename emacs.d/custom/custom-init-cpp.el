@@ -21,7 +21,7 @@
 (require 'cquery)
 
 
-(require 'lsp-ui)
-(add-hook 'lsp-mode-hook 'lsp-ui-mode)
+;; (require 'lsp-ui)
+;; (add-hook 'lsp-mode-hook 'lsp-ui-mode)
 
 (provide 'custom-init-cpp)
