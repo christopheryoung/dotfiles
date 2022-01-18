@@ -104,7 +104,6 @@
 (require 'custom-helm-swoop)
 
 ;; major modes, not programming languages
-(require 'dired-details)
 (require 'custom-dired-init)
 (require 'custom-grep-init)
 
