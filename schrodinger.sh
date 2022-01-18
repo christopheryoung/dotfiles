@@ -82,7 +82,6 @@ alias sch='cd $SCHRODINGER'
 alias mm='cd $SCHRODINGER_SRC/mmshare'
 alias mae='cd $SCHRODINGER_SRC/maestro-src'
 alias mmaestro='mmake && maestro'
-alias sch_emacs='nohup /Applications/Emacs.app/Contents/MacOS/Emacs "$@" --debug-init &'
 alias maelog='less $SCHRODINGER/maestro-v*/make_maestro-src_all.log'
 alias mmlog='less $SCHRODINGER/mmshare-v*/make_mmshare_all.log'
 
