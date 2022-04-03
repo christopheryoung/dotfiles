@@ -27,6 +27,7 @@
 			      git-messenger
 			      haskell-mode
 			      helm
+			      helm-bibtex
 			      helm-swoop
 			      ht
 			      hydra
@@ -51,6 +52,7 @@
 			      multiple-cursors
 			      org-ref
 			      org-roam
+			      org-roam-ui
 			      paredit
 			      projectile
 			      pylint
