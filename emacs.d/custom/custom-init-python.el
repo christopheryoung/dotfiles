@@ -60,11 +60,11 @@
 
 ;;;;;;;
 
-(use-package elpy
-  :ensure t
-  :defer t
-  :init
-  (advice-add 'python-mode :before 'elpy-enable))
+;; (use-package elpy
+;;   :ensure t
+;;   :defer t
+;;   :init
+;;   (advice-add 'python-mode :before 'elpy-enable))
 
 (add-hook 'python-mode-hook
 	  '(lambda ()
