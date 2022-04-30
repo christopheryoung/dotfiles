@@ -119,9 +119,9 @@
 ;; org mode
 (require 'org-ref)
 (setq org-goto-interface 'outline-path-completion)
-(setq reftex-default-bibliography '("~/code/chrisyoung/site/biblio/files.bib"))
-(setq bibtex-completion-bibliography '("~/code/chrisyoung/site/biblio/files.bib"))
-(setq org-ref-default-bibliography '("~/code/chrisyoung/site/biblio/files.bib"))
+(setq reftex-default-bibliography '("~/code/historia/bibliography.bib"))
+(setq bibtex-completion-bibliography '("~/code/historia/bibliography.bib"))
+(setq org-ref-default-bibliography '("~/code/historia/bibliography.bib"))
 (setq org-startup-with-inline-images t)
 (require 'custom-org-roam)
 
