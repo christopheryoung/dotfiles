@@ -100,6 +100,7 @@
 (require 'tail)
 (turn-on-typing-speed)
 (require 'undo-tree)
+(setq undo-tree-history-directory-alist '(("." . "~/.emacs.d/undo")))
 (require 'wrap-region)
 (require 'custom-helm-swoop) ;; todo: ???? Change to generic helm customization?
 
