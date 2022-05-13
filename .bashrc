@@ -7,6 +7,8 @@
 # If not running interactively, don't do anything
 [ -z "$PS1" ] && return
 
+eval "$(/opt/homebrew/bin/brew shellenv)"
+
 # Expand the history size
 
 HISTFILESIZE=100000000

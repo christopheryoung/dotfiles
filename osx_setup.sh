@@ -21,7 +21,7 @@ sudo /usr/libexec/locate.updatedb
 #Make sure permissions on /usr/local are ok
 sudo chown -R `whoami` /usr/local
 
-type brew >/dev/null 2>&1 || ruby -e "$(curl -fsSL https://raw.github.com/mxcl/homebrew/go)"
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
 xcode-select --install
 
