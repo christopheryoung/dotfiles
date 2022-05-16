@@ -17,6 +17,7 @@ function reportenv() {
     echo "set SCHRODINGER and SCHRODINGER_SRC"
     echo $SCHRODINGER
     echo $SCHRODINGER_SRC
+    echo $SCHRODINGER_LIB
 }
 
 # Sneak a yapf fix into the latest commit
@@ -50,6 +51,7 @@ fi
 function workon() {
     export SCHRODINGER=$code_base/$1/build
     export SCHRODINGER_SRC=$code_base/$1/source
+    export SCHRODINGER_LIB=$code_base/software/lib
     reportenv
 }
 
