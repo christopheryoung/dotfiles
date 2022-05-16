@@ -87,6 +87,7 @@ export LSCOLORS=ExFxCxDxBxegedabagacad
 if [[ $OSTYPE == darwin* ]]; then
     export PATH=$PATH:$HOME/bin
     export PATH=$PATH:/Users/young/.local/bin
+    export PATH=$PATH:/opt/homebrew/opt
     export PATH=$PATH:/usr/local/opt/ccache/libexec
     export PATH=$PATH:/usr/local/bin
     export PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
