@@ -62,8 +62,8 @@ fi
 # # Common
 
 export PATH=$PATH:/utils/bin
-export SCHRODINGER_LIB='/software/lib'
-export PATH=$PATH:/software/lib/common
+export SCHRODINGER_LIB='/Users/young/builds/software/lib'
+export PATH=$PATH:$SCHRODINGER_LIB/common
 export SCHRODINGER_SHOW_QT_MESSAGES=1
 
 function postr() {
