@@ -63,6 +63,11 @@
 (setq desktop-load-locked-desktop t)
 (desktop-save-mode 1)
 
+;; sort lines should be case insensitive
+
+(custom-set-variables
+ '(sort-fold-case t t))
+
 ;; . . . or at least, most of the desktop.  We don't need to load
 ;; everything up.
 
