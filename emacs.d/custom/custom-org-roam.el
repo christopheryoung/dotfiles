@@ -30,9 +30,9 @@
 (add-to-list 'display-buffer-alist
 	     '("\\*org-roam\\*"
 	       (display-buffer-in-direction)
-	       (direction . right)
+	       (direction . below)
 	       (window-width . 0.33)
-	       (window-height . fit-window-to-buffer)))
+	       (window-height . 0.5)))
 
 (use-package org-roam-ui
     :after org-roam
