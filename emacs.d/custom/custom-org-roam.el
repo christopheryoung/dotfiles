@@ -32,7 +32,7 @@
 	       (display-buffer-in-direction)
 	       (direction . below)
 	       (window-width . 0.33)
-	       (window-height . 0.5)))
+	       (window-min-height . 0.5)))
 
 (use-package org-roam-ui
     :after org-roam
