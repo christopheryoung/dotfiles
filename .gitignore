@@ -67,3 +67,4 @@ emacs.d/network-security.data
 emacs.d/recentf
 emacs.d/smex-items
 emacs.d/transient/
+emacs.d/straight

@@ -98,8 +98,9 @@
 (require 'rainbow-delimiters)
 (require 'smartscan)
 (require 'tail)
-(turn-on-typing-speed)
 (require 'undo-tree)
+(global-undo-tree-mode)
+(setq undo-tree-auto-save-history t)
 (setq undo-tree-history-directory-alist '(("." . "~/.emacs.d/undo")))
 (require 'wrap-region)
 (require 'custom-helm-swoop) ;; todo: ???? Change to generic helm customization?
