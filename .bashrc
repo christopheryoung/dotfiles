@@ -66,6 +66,8 @@ git config --global alias.lg "log --color --graph --pretty=format:'%Cred%h%Crese
 #     ;;
 # esac
 
+eval "$(/opt/homebrew/bin/brew shellenv)"
+
 ## Autocomplete GHC commands
 _ghc()
 {
@@ -77,7 +79,7 @@ _ghc()
     COMPREPLY=( $( compgen -W "$envs" -- $cur ) )
 }
 complete -F _ghc -o default ghc
-type stack >/dev/null 2>&1 || eval "$(stack --bash-completion-script stack)"
+#type stack >/dev/null 2>&1 || eval "$(stack --bash-completion-script stack)"
 
 ##Colors for a mac
 
@@ -92,7 +94,6 @@ if [[ $OSTYPE == darwin* ]]; then
     export PATH=$PATH:/usr/local/bin
     export PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
     export PATH=$PATH:/usr/local/share/npm/bin
-    export PATH=$PATH:/Users/young/.local/bin/stack
     export PATH=$PATH:/Applications/Postgres.app/Contents/MacOS/bin
     export PATH=$PATH:$HOME/Applications/adt-bundle-mac/sdk/platform-tools
     export PATH=$PATH:$HOME/Applications/adt-bundle-mac/sdk/tools
@@ -128,7 +129,9 @@ if [ -f /etc/bash_completion ]; then
     . /etc/bash_completion
 fi
 
-if [[ $USER == 'young' ]]; then
+if test -f ".personal_machine"; then
+    echo "personal machine"
+else
     source ~/code/dotfiles/schrodinger.sh
 fi
 
