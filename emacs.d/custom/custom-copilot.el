@@ -13,4 +13,7 @@
   (delq 'company-preview-if-just-one-frontend company-frontends))
 
 (define-key copilot-completion-map (kbd "<tab>") 'copilot-accept-completion)
-(define-key copilot-completion-map (kbd "TAB") 'copilot-accept-completion) # 41EA-1726
+(define-key copilot-completion-map (kbd "TAB") 'copilot-accept-completion)
+
+(provide 'custom-copilot)
+
