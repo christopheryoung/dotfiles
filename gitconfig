@@ -53,3 +53,8 @@
 
 [merge]
     tool = kdiff3
+
+# Lets me do git clone sdgr:mmshare.git, because I never remember that
+# full path.
+[url "ssh://pdx-git.schrodinger.com/var/git/repos/"]
+    insteadOf = sdgr:
