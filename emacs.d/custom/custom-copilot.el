@@ -15,6 +15,6 @@
 (define-key copilot-completion-map (kbd "<tab>") 'copilot-accept-completion)
 (define-key copilot-completion-map (kbd "TAB") 'copilot-accept-completion)
 
-(setq copilot-idle-delay 2.0)
+(setq copilot-idle-delay 1.0)
 
 (provide 'custom-copilot)
