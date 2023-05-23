@@ -58,6 +58,7 @@ emacs.d/org-mode
 emacs.d/org-roam.db
 emacs.d/places
 emacs.d/smex-items
+emacs.d/straight
 emacs.d/transient
 emacs.d/url
 emacs.d/undo
