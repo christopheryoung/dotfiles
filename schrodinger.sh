@@ -49,11 +49,31 @@ fi
 
 
 function workon() {
-    export SCHRODINGER=$code_base/$1/build
-    export SCHRODINGER_SRC=$code_base/$1/source
+    if [ -z "$1" ]; then
+	SESSION_NAME=$(tmux_session_name);
+    else
+	SESSION_NAME=$1
+    fi
+    export SCHRODINGER=$code_base/$SESSION_NAME/build
+    export SCHRODINGER_SRC=$code_base/$SESSION_NAME/source
     export SCHRODINGER_LIB=$code_base/software/lib
     reportenv
 }
+
+function check_tmux_and_workon() {
+    if [ -n "$TMUX" ]; then
+	# We're inside a tmux session.
+	SESSION_NAME=$(tmux_session_name)
+	if [ -n "$SESSION_NAME" ]; then
+	    # The session name is not empty, call workon.
+	    workon "$SESSION_NAME"
+	fi
+    fi
+}
+
+# Call the function
+check_tmux_and_workon
+
 
 if [[ $(hostname) = "nyc-bld-l02" ]]; then
     export CCACHE_DIR='/scr2/young/.ccache'
