@@ -31,8 +31,12 @@
 	     '("\\*org-roam\\*"
 	       (display-buffer-in-direction)
 	       (direction . below)
-	       (window-width . 0.33)
 	       (window-min-height . 0.5)))
+
+(add-hook 'org-roam-mode-hook
+	  (lambda ()
+	    (add-hook 'before-save-hook 'whitespace-cleanup nil t)))
+
 
 (use-package org-roam-ui
     :after org-roam
