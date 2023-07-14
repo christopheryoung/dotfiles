@@ -6,6 +6,11 @@
 (define-key global-map "\C-ca" 'org-agenda)
 (setq org-log-done t)
 
+(add-hook 'org-mode-hook
+          (lambda ()
+            (add-hook 'before-save-hook 'whitespace-cleanup nil t)))
+
+
 (define-key org-mode-map (kbd "C-c ]") 'org-ref-insert-link)
 
 (setq org-goto-interface 'outline-path-completion)
