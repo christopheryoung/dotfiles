@@ -127,6 +127,11 @@
 ;; Does not seem to work with chrome
 (setq browse-url-new-window-flag t)
 
+(add-hook 'before-save-hook
+	  (lambda ()
+	    (unless (eq major-mode 'fundamental-mode)
+	      (whitespace-cleanup))))
+
 ;; autocomplete
 (ac-config-default)
 
