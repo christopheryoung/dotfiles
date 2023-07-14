@@ -32,6 +32,7 @@ brew update
 
 brew install Xpdf
 brew install aspell
+brew install bib-tool
 brew install ccache
 brew install cloc
 brew install coreutils
