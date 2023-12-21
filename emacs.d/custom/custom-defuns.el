@@ -119,5 +119,10 @@ there's a region, all lines that region covers will be duplicated."
    (interactive "sRegexp: ")
    (multi-occur-in-matching-buffers "." regexp t))
 
+(defun snapshot ()
+  "Run the 'snapshot' script."
+  (interactive)
+  (save-some-buffers t)
+  (shell-command "snapshot"))
 
 (provide 'custom-defuns)
