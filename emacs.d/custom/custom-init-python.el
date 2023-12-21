@@ -12,13 +12,6 @@
 
 (setq python-fill-docstring-style 'django)
 
-(use-package company-jedi
-  :ensure t
-  :config
-  (defun my/python-mode-hook ()
-    (add-to-list 'company-backends 'company-jedi))
-  (add-hook 'python-mode-hook 'my/python-mode-hook))
-
 (defun custom-find-python-func ()
   "Finds the Python function definitions in the project"
   (interactive)
@@ -26,7 +19,6 @@
 
 ;; Elpy
 
-(eval-after-load "elpy" '(define-key elpy-mode-map (kbd "C-c C-d") 'custom-find-python-func))
 (eval-after-load "python" '(define-key python-mode-map (kbd "C-c C-d") 'custom-find-python-func))
 
 (defvar jedi-config:vcs-root-sentinel ".git")
