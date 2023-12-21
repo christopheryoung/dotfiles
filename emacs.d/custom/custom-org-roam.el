@@ -27,11 +27,21 @@
 
 (setq org-roam-graph-viewer "/Applications/Firefox.app/Contents/MacOS/firefox")
 
+(defun display-half-frame (buffer-name)
+  "Ensure the buffer named BUFFER-NAME occupies half the frame vertically."
+  (let ((buf (get-buffer-create buffer-name)))
+    (unless (get-buffer-window buf)
+      (split-window-vertically))
+    (set-window-buffer (next-window) buf)
+    (balance-windows)))
+
+;; Modify the display-buffer-alist to use our custom function.
 (add-to-list 'display-buffer-alist
 	     '("\\*org-roam\\*"
-	       (display-buffer-in-direction)
-	       (direction . below)
-	       (window-min-height . 0.5)))
+	       (lambda (buffer alist)
+		 (display-half-frame "*org-roam*")
+		 ;; Return the window displaying *org-roam*.
+		 (get-buffer-window "*org-roam*"))))
 
 (add-hook 'org-roam-mode-hook
 	  (lambda ()
