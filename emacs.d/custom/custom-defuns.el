@@ -123,6 +123,7 @@ there's a region, all lines that region covers will be duplicated."
   "Run the 'snapshot' script."
   (interactive)
   (save-some-buffers t)
-  (shell-command "snapshot"))
+  (shell-command "snapshot")
+  (switch-to-buffer "*Messages*"))
 
 (provide 'custom-defuns)
