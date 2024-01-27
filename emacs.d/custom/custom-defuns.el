@@ -126,4 +126,9 @@ there's a region, all lines that region covers will be duplicated."
   (shell-command "snapshot")
   (switch-to-buffer "*Messages*"))
 
+(defun capture-website (url)
+  "Capture a website using the 'capture' script that just wraps monolith"
+  (interactive "sEnter URL to capture: ")
+  (shell-command (concat "capture " url)))
+
 (provide 'custom-defuns)

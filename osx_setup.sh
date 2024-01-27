@@ -53,6 +53,7 @@ brew install tree
 brew install wget
 brew install yank
 brew install bat
+brew install monolith
 brew tap homebrew/cask-fonts
 brew install --cask font-hack-nerd-font
 
