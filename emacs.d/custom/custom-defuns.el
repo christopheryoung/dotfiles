@@ -8,6 +8,28 @@
   (let ((fill-column (point-max)))
     (fill-paragraph nil)))
 
+;; . . . or remove the formatting in the entire buffer . . .
+(defun remove-line-breaks-in-buffer ()
+  "Remove line endings in every line of the buffer."
+  (interactive)
+  (save-excursion
+    (goto-char (point-min))
+    (while (< (point) (point-max))
+      (let ((fill-column (point-max)))
+	(fill-paragraph nil)
+	(forward-paragraph)))))
+
+;;  . . . or add it back afterwards . . .
+(defun add-line-breaks-in-buffer ()
+  "Apply `org-fill-paragraph` to every line in the buffer."
+  (interactive)
+  (save-excursion
+    (goto-char (point-min))
+    (while (< (point) (point-max))
+      (org-fill-paragraph nil)
+      (forward-paragraph))))
+
+
 ;; Thanks: http://tuxicity.se/emacs/elisp/2010/03/11/duplicate-current-line-or-region-in-emacs.html
 (defun duplicate-current-line-or-region (arg)
   "Duplicates the current line or region ARG times.
