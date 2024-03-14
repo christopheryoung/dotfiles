@@ -20,12 +20,10 @@
 (mapc 'diminish '(wrap-region-mode
 		  yas-minor-mode
 		  projectile-mode
-		  auto-complete
 		  abbrev-mode
 		  auto-revert-mode
 		  undo-tree-mode))
 (eval-after-load 'elisp-slime-nav '(diminish 'elisp-slime-nav-mode))
-(eval-after-load 'auto-complete '(diminish 'auto-complete))
 (custom-set-variables '(git-gutter:lighter ""))
 
 ;; Let's see column numbers.

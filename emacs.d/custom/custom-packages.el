@@ -7,7 +7,6 @@
 (defvar my-package-packages '(
 			      ace-jump-mode
 			      auctex
-			      auto-complete
 			      clang-format
 			      cquery
 			      csv-mode

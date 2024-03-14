@@ -6,6 +6,7 @@
 	     (local-set-key (kbd "M-i") 'helm-swoop)
 	     (local-set-key (kbd "C-c M-i") 'helm-multi-swoop)
 	     (local-set-key (kbd "C-c C-f") 'custom-find-python-func)
+	     (auto-complete-mode -1)
 	     (setq python-fill-docstring-style 'django)
 	     (add-hook 'before-save-hook 'whitespace-cleanup)
 	     ))
