@@ -13,6 +13,7 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 
 HISTFILESIZE=100000000
 HISTSIZE=100000
+HISTTIMEFORMAT="%F %T " # for e.g. “1999-02-29 23:59:59”
 
 # Not everything in history is interesting
 
