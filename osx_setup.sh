@@ -57,5 +57,7 @@ brew install monolith
 brew tap homebrew/cask-fonts
 brew install --cask font-hack-nerd-font
 
+$(brew --prefix)/opt/fzf/install
+
 echo "Outdated brew packages below: "
 brew outdated
