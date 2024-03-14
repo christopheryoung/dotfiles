@@ -18,7 +18,7 @@
 	ci = commit
 	br = branch
 	co = checkout
-	fold = commit --amend --no-edit
+	cram = commit --amend --no-edit
 	count   = !git shortlog -sn
 	df = diff
 	stg = diff --staged
@@ -28,8 +28,8 @@
 	unstage = reset HEAD --
 	last = log -1 HEAD
 	lastp = log -1 -p HEAD
-	pushbld = push --receive-pack /utils/bin/git-receive-pack bld
-	pullbld = pull --upload-pack /utils/bin/git-upload-pack bld
+	cor = !"f() { git checkout $(git reflog | grep -o 'checkout: moving from .* to .*' | awk '!seen[$NF]++ {print $NF}' | fzf ); }; f"
+
 
 [push]
 	default = current
