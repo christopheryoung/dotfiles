@@ -45,7 +45,7 @@ brew install imagemagick
 brew install nodejs
 brew install pandoc
 brew install pandoc-citeproc
-brew cask install mactex
+brew install --cask mactex
 brew install ripgrep
 brew install stack
 brew install tmux
