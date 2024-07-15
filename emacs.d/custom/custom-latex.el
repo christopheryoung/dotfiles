@@ -17,10 +17,10 @@
 ;; Enable syntax highlighting for LaTeX blocks
 (setq org-src-fontify-natively t)
 
-;; Associate LaTeX with org-mode LaTeX blocks
+;; Associate LaTeX with org-mode src blocks
 (add-to-list 'org-src-lang-modes '("latex" . latex))
 
-;; Automatically switch to LaTeX mode for LaTeX blocks
+;; Automatically switch to LaTeX mode for LaTeX src blocks
 (defun my/org-latex-mode-setup ()
   (when (string-equal (org-element-property :language (org-element-at-point)) "latex")
     (LaTeX-mode)))
@@ -37,5 +37,14 @@
 
 ;; Bind the function to a key combination, e.g., C-c C-l
 (define-key org-mode-map (kbd "C-c C-l") 'my/org-insert-latex-block)
+
+(defun my/export-latex ()
+  "Call the Python script org_to_pdf_pipeline.py with the full path of the current buffer as an argument."
+  (interactive)
+  (let ((buffer-path (buffer-file-name))
+	(script-path (expand-file-name "~/code/historia/org_to_pdf_pipeline.py")))
+    (if buffer-path
+	(start-process "python-script" "*Python Script Output*" "python3" script-path buffer-path)
+      (message "Buffer is not visiting a file!"))))
 
 (provide 'custom-latex)
