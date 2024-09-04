@@ -28,15 +28,10 @@ alias pp="git pull --rebase && git push"
 # Scripts
 alias gh="python ~/code/dotfiles/scripts/github-lookup.py"
 
-#Leiningen project status
-alias cljst='lein outdated && lein eastwood && lein midje'
-
-#Linters
-alias jslint='~/bin/node_modules/jslint/bin/jslint.js'
-alias ok='find . -name "*.py" | xargs flake8 --config=/Users/young/bin/ok_config'
-
-#simple http serve
-alias serve='python -m SimpleHTTPServer 8000'
+# tmux aliases
+alias ta='tmux attach -t'
+alias tls='tmux ls'
+alias tn='tmux new -s'
 
 #json pretty printing. To use: cat foo.json | ppjson
 alias ppjson="python -m json.tool"
@@ -52,9 +47,6 @@ fi
 # Press F1 to open the file with less without leaving fzfi
 # Press CTRL-Y to copy the line to clipboard and aborts fzf (requires pbcopy)
 alias fzf="fzf --bind 'f1:execute(less -f {}),ctrl-y:execute-silent(echo {} | pbcopy)+abort'"
-
-# Enhanced WHOIS lookups
-alias whois="whois -h whois-servers.net"
 
 # Flush Directory Service cache
 alias flush="dscacheutil -flushcache"
