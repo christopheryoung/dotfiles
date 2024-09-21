@@ -41,6 +41,7 @@ brew install coreutils
 brew install dos2unix
 brew install doxygen
 brew install fd
+brew install ffmpeg
 brew install findutils
 brew install fzf
 brew install imagemagick
@@ -48,6 +49,8 @@ brew install monolith
 brew install nodejs
 brew install pandoc
 brew install pandoc-citeproc
+brew install poppler
+brew install rga
 brew install ripgrep
 brew install stack
 brew install tmux
