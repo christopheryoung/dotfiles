@@ -30,8 +30,10 @@ xcode-select --install
 
 brew update
 
-brew install Xpdf
+brew install --cask font-hack-nerd-font
+brew install --cask mactex
 brew install aspell
+brew install bat
 brew install bib-tool
 brew install ccache
 brew install cloc
@@ -42,20 +44,18 @@ brew install fd
 brew install findutils
 brew install fzf
 brew install imagemagick
+brew install monolith
 brew install nodejs
 brew install pandoc
 brew install pandoc-citeproc
-brew install --cask mactex
 brew install ripgrep
 brew install stack
 brew install tmux
 brew install tree
 brew install wget
+brew install Xpdf
 brew install yank
-brew install bat
-brew install monolith
 brew tap homebrew/cask-fonts
-brew install --cask font-hack-nerd-font
 
 $(brew --prefix)/opt/fzf/install
 
