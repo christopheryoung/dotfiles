@@ -51,6 +51,12 @@ function marks {
     ls -l "$MARKPATH" | sed 's/  / /g' | cut -d' ' -f9- | sed 's/ -/\t-/g' && echo
 }
 
+# Remove the branch on github and locally
+function delete_branch {
+    git push -d github $1 && git branch -D $1
+
+}
+
 _completemarks() {
   local curw=${COMP_WORDS[COMP_CWORD]}
   local wordlist=$(find $MARKPATH -type l -printf "%f\n")
