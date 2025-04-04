@@ -8,7 +8,7 @@
 	     (local-set-key (kbd "C-c C-f") 'custom-find-python-func)
 	     (auto-complete-mode -1)
 	     (setq python-fill-docstring-style 'django)
-	     (add-hook 'before-save-hook 'whitespace-cleanup)
+	     (add-hook 'before-save-hook 'whitespace-cleanup nil t)
 	     ))
 
 (setq python-fill-docstring-style 'django)
