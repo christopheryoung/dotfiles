@@ -25,7 +25,7 @@
 
 (org-roam-db-autosync-mode)
 
-(setq org-roam-graph-viewer "/Applications/Firefox.app/Contents/MacOS/firefox")
+(setq org-roam-ui-open-on-start nil)
 
 (defun display-half-frame (buffer-name)
   "Ensure the buffer named BUFFER-NAME occupies half the frame vertically."
@@ -46,18 +46,5 @@
 (add-hook 'org-roam-mode-hook
 	  (lambda ()
 	    (add-hook 'before-save-hook 'whitespace-cleanup nil t)))
-
-
-(use-package org-roam-ui
-    :after org-roam
-;;         normally we'd recommend hooking orui after org-roam, but since org-roam does not have
-;;         a hookable mode anymore, you're advised to pick something yourself
-;;         if you don't care about startup time, use
-;;  :hook (after-init . org-roam-ui-mode)
-    :config
-    (setq org-roam-ui-sync-theme t
-	  org-roam-ui-follow t
-	  org-roam-ui-update-on-save t
-	  org-roam-ui-open-on-start t))
 
 (provide 'custom-org-roam)
