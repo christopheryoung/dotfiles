@@ -155,4 +155,9 @@
 
 (setq tramp-default-method "ssh")
 
+(require 'openwith)
+(setq openwith-associations
+      '(("\\.pdf\\'" "open" ("-a" "Preview" file))))
+(openwith-mode 1)
+
 (provide 'custom-basic-behaviour)
