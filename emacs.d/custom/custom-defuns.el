@@ -153,4 +153,17 @@ there's a region, all lines that region covers will be duplicated."
   (interactive "sEnter URL to capture: ")
   (shell-command (concat "capture " url)))
 
+(defun my-dired-move-file-to-library ()
+  "Move the selected file in Dired to ~/Dropbox/library."
+  (interactive)
+  (let* ((file (dired-get-file-for-visit))
+	 (destination-directory "~/Dropbox/library/")
+	 (destination (expand-file-name (file-name-nondirectory file) destination-directory)))
+    (dired-rename-file file destination nil)
+    (message "Moved '%s' to '%s'" (file-name-nondirectory file) destination)))
+
+;; Bind this function to a key in Dired mode
+;;(define-key dired-mode-map (kbd "C-c m") 'my-dired-move-file-to-library)
+
+
 (provide 'custom-defuns)
