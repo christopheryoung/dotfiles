@@ -52,6 +52,7 @@ brew install ripgrep
 brew install stack
 brew install tmux
 brew install tree
+brew install uv
 brew install wget
 brew install Xpdf
 brew install yank
