@@ -49,6 +49,7 @@
 			      midje-mode
 			      multi-term
 			      multiple-cursors
+			      openwith
 			      org-ref
 			      org-roam
 			      org-roam-ui
