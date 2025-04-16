@@ -7,19 +7,16 @@
 (defvar my-package-packages '(
 			      ace-jump-mode
 			      auctex
-			      clang-format
-			      cquery
+			      auto-complete
 			      csv-mode
 			      dash
 			      diminish
 			      discover
 			      ebib
-			      erlang
 			      exec-path-from-shell
 			      expand-region
 			      fill-column-indicator
 			      find-file-in-repository
-			      flycheck
 			      flx-ido
 			      git-timemachine
 			      git-gutter
@@ -33,8 +30,6 @@
 			      iedit
 			      idle-highlight-mode
 			      ido-vertical-mode
-			      ;; intero
-			      ;; ipython
 			      ispell
 			      json-mode
 			      jump-char
@@ -46,22 +41,16 @@
 			      mark-multiple
 			      markdown-mode
 			      maxframe
-			      midje-mode
 			      multi-term
 			      multiple-cursors
 			      openwith
 			      org-ref
 			      org-roam
-			      org-roam-ui
 			      paredit
 			      projectile
 			      pylint
-			      ;;pymacs
-			      ;; python-pep8
-			      ;; python-pylint
 			      pyvenv
 			      rainbow-delimiters
-			      ;; repository-root
 			      s
 			      smex
 			      sqlite
