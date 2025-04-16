@@ -21,3 +21,4 @@ local_settings.py
 CMakeLists.txt
 cmake-build-debug
 .ipynb_checkpoints
+*.~undo-tree~
