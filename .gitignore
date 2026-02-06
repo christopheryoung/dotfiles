@@ -38,6 +38,7 @@ Thumbs.db
 local_settings.py
 
 lein/*
+emacs.d/history
 /emacs.d/tramp
 emacs.d/.emacs.desktop
 emacs.d/.emacs.desktop.lock
