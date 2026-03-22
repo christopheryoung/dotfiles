@@ -48,6 +48,7 @@ brew install monolith
 brew install nodejs
 brew install pandoc
 brew install pandoc-citeproc
+brew install pkg-config
 brew install ripgrep
 brew install stack
 brew install tmux
