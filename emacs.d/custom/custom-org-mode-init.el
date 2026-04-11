@@ -25,5 +25,6 @@
 (setq org-goto-interface 'outline-path-completion)
 (setq org-outline-path-complete-in-steps nil)
 (setq org-goto-max-level 1)
+(setq org-use-sub-superscripts 1)
 
 (provide 'custom-org-mode-init)
