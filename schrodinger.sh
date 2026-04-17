@@ -85,6 +85,8 @@ export PATH=$PATH:/utils/bin
 export SCHRODINGER_LIB='/Users/young/builds/software/lib'
 export PATH=$PATH:$SCHRODINGER_LIB/common
 export SCHRODINGER_SHOW_QT_MESSAGES=1
+export CLOUD_ML_REGION=global
+export ANTHROPIC_SMALL_FAST_MODEL=claude-haiku-4-5@20251001
 
 function postr() {
     branch=$(git rev-parse --abbrev-ref HEAD)
@@ -135,5 +137,29 @@ if [[ $(hostname) == "nyc-bld-l02" ]]; then
     bold=$(tput bold)
     PS1='\[$red$bold\]\w\[$reset\]\[$ngreen$bold\]$(__git_ps1 " (%s)")\[$reset\]\$ '
 fi
+
+export CLAUDE_CODE_USE_VERTEX=1
+export CLOUD_ML_REGION=us-east5
+export ANTHROPIC_VERTEX_PROJECT_ID=vertex-code-454718
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/young/Downloads/google-cloud-sdk/path.bash.inc' ]; then . '/Users/young/Downloads/google-cloud-sdk/path.bash.inc'; fi
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/young/Downloads/google-cloud-sdk/completion.bash.inc' ]; then . '/Users/young/Downloads/google-cloud-sdk/completion.bash.inc'; fi
+# Setting PATH for Python 3.12
+# The original version is saved in .bash_profile.pysave
+PATH="/Library/Frameworks/Python.framework/Versions/3.12/bin:${PATH}"
+export PATH
+
+
+# >>> claude-setup >>>
+export PATH="$HOME/.local/bin:$PATH"
+export CLAUDE_CODE_USE_VERTEX=1
+export CLOUD_ML_REGION=us-east5
+export ANTHROPIC_VERTEX_PROJECT_ID=vertex-code-454718
+export CLAUDE_CODE_SKIP_VERTEX_AUTH=1
+export ANTHROPIC_VERTEX_BASE_URL=https://vertex-proxy.sdgr.app/v1
+export CLAUDE_CODE_API_KEY_HELPER_TTL_MS=1800000
+# <<< claude-setup <<<
+
 
 echo "sourced $HOME/code/dotfiles/schrodinger.sh"
