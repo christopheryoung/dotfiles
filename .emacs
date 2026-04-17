@@ -84,12 +84,7 @@
 
 ;; minor modes
 (require 'ace-jump-mode)
-(require 'custom-ido-mode-init)
-(require 'ido-vertical-mode)
-(ido-vertical-mode 1)
-;; todo: move this stuff and the appearance stuff into custom-ido-vertical
-(setq ido-vertical-define-keys 'C-n-and-C-p-only)
-(setq ido-vertical-define-keys 'C-n-C-p-up-and-down)
+(require 'custom-completion-init)
 (require 'custom-init-paredit)
 (require 'custom-yasnippet-init)
 (require 'custom-projectile)
@@ -125,7 +120,6 @@
 (require 'custom-text-mode-init)
 (require 'custom-init-erc)
 (require 'magit)
-(require 'smex)
 (require 'uniquify)
 (require 'visible-mark)
 

@@ -84,9 +84,6 @@
 (add-hook 'comint-mode-hook
           (lambda () (local-set-key (kbd "<up>") 'comint-previous-input)
             (local-set-key (kbd "<down>") 'comint-next-input)))
-;; smex
-(global-set-key (kbd "M-x") 'smex)
-(global-set-key (kbd "C-c C-c M-x") 'execute-extended-command) ;; old m-x
 ;; undo-tree
 ;; C-x C-u originally: uppercase region
 (global-set-key (kbd "C-x C-u") 'undo-tree-visualize)

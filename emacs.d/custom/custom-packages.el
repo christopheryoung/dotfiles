@@ -7,11 +7,15 @@
 (defvar my-package-packages '(
 			      ace-jump-mode
 			      auctex
-			      auto-complete
+			      clang-format
+			      consult
+			      cquery
 			      csv-mode
 			      dash
 			      diminish
 			      discover
+			      embark
+			      embark-consult
 			      ebib
 			      exec-path-from-shell
 			      expand-region
@@ -28,7 +32,6 @@
 			      hydra
 			      iedit
 			      idle-highlight-mode
-			      ido-vertical-mode
 			      ispell
 			      json-mode
 			      jump-char
@@ -37,12 +40,14 @@
 			      loop
 			      lsp-mode
 			      magit
+			      marginalia
 			      mark-multiple
 			      markdown-mode
 			      maxframe
 			      multi-term
 			      multiple-cursors
 			      openwith
+			      orderless
 			      org-ref
 			      org-roam
 			      paredit
@@ -51,10 +56,10 @@
 			      pyvenv
 			      rainbow-delimiters
 			      s
-			      smex
 			      sqlite
 			      undo-tree
 			      use-package
+			      vertico
 			      visual-fill-column
 			      wgrep
 			      windmove
