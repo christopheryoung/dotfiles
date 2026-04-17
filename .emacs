@@ -131,8 +131,6 @@
 (require 'uniquify)
 (require 'visible-mark)
 
-(require 'custom-copilot)
-
 ;; org mode
 (require 'org-ref)
 (setq org-goto-interface 'outline-path-completion)
