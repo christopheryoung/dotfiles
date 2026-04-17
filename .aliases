@@ -26,7 +26,7 @@ alias mkdir='mkdir -p'
 alias pp="git pull --rebase && git push"
 
 # Scripts
-alias gh="python ~/code/dotfiles/scripts/github-lookup.py"
+alias gh_lookupX="python ~/code/dotfiles/scripts/github-lookup.py"
 
 # tmux aliases
 alias ta='tmux attach -t'
