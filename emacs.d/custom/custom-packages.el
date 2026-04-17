@@ -24,7 +24,6 @@
 			      haskell-mode
 			      helm
 			      helm-bibtex
-			      helm-swoop
 			      ht
 			      hydra
 			      iedit

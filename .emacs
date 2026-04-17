@@ -83,7 +83,6 @@
 (require 'custom-defuns)
 
 ;; minor modes
-(require 'auto-complete-config)
 (require 'ace-jump-mode)
 (require 'custom-ido-mode-init)
 (require 'ido-vertical-mode)
@@ -116,7 +115,6 @@
 (setq undo-tree-auto-save-history t)
 (setq undo-tree-history-directory-alist '(("." . "~/.emacs.d/undo")))
 (require 'wrap-region)
-(require 'custom-helm-swoop) ;; todo: ???? Change to generic helm customization?
 
 ;; major modes, not programming languages
 (require 'custom-dired-init)
@@ -163,7 +161,8 @@
  ;; If there is more than one, they won't work right.
  '(git-gutter:lighter "")
  '(package-selected-packages
-   '(org-roam-ui helm-bibtex helm-org python-mode org-ref webfeeder deft use-package sqlite3 org-roam dumb-jump helm-swoop alert lsp-ui wrap-region wgrep undo-tree smex s repository-root rainbow-delimiters python-pylint python-pep8 pymacs pylint projectile paredit multiple-cursors multi-term midje-mode maxframe markdown-mode mark-multiple magit loop leuven-theme latex-extra jump-char json-mode ipython intero igrep iedit idle-highlight-mode hydra ht helm-gtags grizzl git-timemachine git-messenger git-gutter ggtags find-file-in-repository fill-column-indicator expand-region exec-path-from-shell erlang elpy ebib discover dired-details diminish csv-mode cquery clang-format auto-complete ace-jump-mode)))
+   '(org-roam-ui helm-bibtex helm-org python-mode org-ref webfeeder deft use-package sqlite3 org-roam dumb-jump alert lsp-ui wrap-region wgrep undo-tree smex s repository-root rainbow-delimiters python-pylint python-pep8 pymacs pylint projectile paredit multiple-cursors multi-term maxframe markdown-mode mark-multiple magit loop leuven-theme latex-extra jump-char json-mode ipython intero igrep iedit idle-highlight-mode hydra ht helm-gtags grizzl git-timemachine git-messenger git-gutter ggtags find-file-in-repository fill-column-indicator expand-region exec-path-from-shell erlang elpy ebib discover dired-details diminish csv-mode cquery clang-format auto-complete ace-jump-mode))
+ '(sort-fold-case t))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

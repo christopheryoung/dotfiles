@@ -127,8 +127,10 @@
 ;; Does not seem to work with chrome
 (setq browse-url-new-window-flag t)
 
-;; autocomplete
-(ac-config-default)
+(add-hook 'before-save-hook
+	  (lambda ()
+	    (unless (eq major-mode 'fundamental-mode)
+	      (whitespace-cleanup))))
 
 ;; dumb jump
 (add-hook 'xref-backend-functions #'dumb-jump-xref-activate)
