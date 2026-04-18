@@ -132,6 +132,10 @@
 (setq org-startup-with-inline-images t)
 (require 'custom-org-roam)
 
+;; LLM integration (personal machine only)
+(when (file-exists-p "~/.personal_machine")
+  (require 'custom-llm))
+
 ;; major modes, programming languages, etc.
 (require 'custom-markdown-mode)
 (require 'custom-latex)
