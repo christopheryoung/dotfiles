@@ -46,16 +46,18 @@
 FILENAME is used to instruct the model on output format."
   (format
    "You are a proofreader. The user will send you the contents \
-of a file. Identify typos, spelling mistakes, grammatical \
-errors, and stylistic infelicities. For each issue, output \
-exactly one line in this format:
+of a file. Each line is prefixed with its line number followed \
+by a colon (e.g. \"42: some text\"). Identify typos, spelling \
+mistakes, grammatical errors, and stylistic infelicities. For \
+each issue, output exactly one line in this format:
 
 %s:LINE_NUMBER: DESCRIPTION
 
-LINE_NUMBER is the 1-based line number where the issue occurs. \
-DESCRIPTION is a brief explanation of the problem and a \
-suggested fix. Output nothing else—no preamble, no summary. \
-If there are no issues, output the single line: No issues found."
+Use the line number shown at the start of the line where the \
+issue occurs. DESCRIPTION is a brief explanation of the problem \
+and a suggested fix. Output nothing else—no preamble, no \
+summary. If there are no issues, output the single line: \
+No issues found."
    filename))
 
 (defun custom-llm--proofread-callback
@@ -74,14 +76,26 @@ _INFO is ignored."
       (display-buffer buf)
       (message "Proofreading complete."))))
 
+(defun custom-llm--numbered-buffer-contents ()
+  "Return the current buffer contents with line numbers prepended."
+  (let ((lines (split-string
+                (buffer-substring-no-properties
+                 (point-min) (point-max))
+                "\n"))
+        (n 1)
+        result)
+    (dolist (line lines)
+      (push (format "%d: %s" n line) result)
+      (setq n (1+ n)))
+    (string-join (nreverse result) "\n")))
+
 (defun custom-llm-proofread-buffer ()
   "Send the current buffer to an LLM for proofreading.
 Results appear in a *Proofread* buffer in compilation mode."
   (interactive)
   (let ((filename (or (buffer-file-name)
                       (buffer-name)))
-        (content (buffer-substring-no-properties
-                  (point-min) (point-max))))
+        (content (custom-llm--numbered-buffer-contents)))
     (message "Proofreading %s..." filename)
     (gptel-request content
       :system (custom-llm--proofread-prompt filename)
