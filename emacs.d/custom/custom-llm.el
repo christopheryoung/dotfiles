@@ -39,5 +39,55 @@
 (global-set-key (kbd "C-c g r") 'gptel-rewrite)
 (global-set-key (kbd "C-c g a") 'gptel-add)
 
+;; --- Proofreading via LLM ---
+
+(defun custom-llm--proofread-prompt (filename)
+  "Return the system prompt for proofreading.
+FILENAME is used to instruct the model on output format."
+  (format
+   "You are a proofreader. The user will send you the contents \
+of a file. Identify typos, spelling mistakes, grammatical \
+errors, and stylistic infelicities. For each issue, output \
+exactly one line in this format:
+
+%s:LINE_NUMBER: DESCRIPTION
+
+LINE_NUMBER is the 1-based line number where the issue occurs. \
+DESCRIPTION is a brief explanation of the problem and a \
+suggested fix. Output nothing else—no preamble, no summary. \
+If there are no issues, output the single line: No issues found."
+   filename))
+
+(defun custom-llm--proofread-callback
+    (response _info)
+  "Handle the proofreading RESPONSE from gptel.
+_INFO is ignored."
+  (if (not response)
+      (message "Proofread: no response from LLM.")
+    (let ((buf (get-buffer-create "*Proofread*")))
+      (with-current-buffer buf
+        (let ((inhibit-read-only t))
+          (erase-buffer)
+          (insert response)
+          (goto-char (point-min))
+          (compilation-mode)))
+      (display-buffer buf)
+      (message "Proofreading complete."))))
+
+(defun custom-llm-proofread-buffer ()
+  "Send the current buffer to an LLM for proofreading.
+Results appear in a *Proofread* buffer in compilation mode."
+  (interactive)
+  (let ((filename (or (buffer-file-name)
+                      (buffer-name)))
+        (content (buffer-substring-no-properties
+                  (point-min) (point-max))))
+    (message "Proofreading %s..." filename)
+    (gptel-request content
+      :system (custom-llm--proofread-prompt filename)
+      :callback #'custom-llm--proofread-callback)))
+
+(global-set-key (kbd "C-c g p") 'custom-llm-proofread-buffer)
+
 (provide 'custom-llm)
 ;;; custom-llm.el ends here
