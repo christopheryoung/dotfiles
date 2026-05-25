@@ -61,11 +61,12 @@ No issues found."
    filename))
 
 (defun custom-llm--proofread-callback
-    (response _info)
+    (response info)
   "Handle the proofreading RESPONSE from gptel.
-_INFO is ignored."
+INFO is a plist with request metadata; used for error reporting."
   (if (not response)
-      (message "Proofread: no response from LLM.")
+      (message "Proofread error: %s"
+               (plist-get info :status))
     (let ((buf (get-buffer-create "*Proofread*")))
       (with-current-buffer buf
         (let ((inhibit-read-only t))
