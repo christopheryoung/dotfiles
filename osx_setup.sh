@@ -43,6 +43,7 @@ brew install doxygen
 brew install fd
 brew install findutils
 brew install fzf
+brew install gh
 brew install imagemagick
 brew install monolith
 brew install nodejs
