@@ -7,13 +7,15 @@
 #
 #     brew bundle install --file=Brewfile --no-upgrade
 #
+# Brewfile.personal holds the heavier research and writing stack and is
+# applied only on machines with ~/.personal_machine.
+#
 # brew bundle is idempotent, so re-running it installs only what is
 # missing. `brew bundle cleanup --file=Brewfile` lists anything installed
 # that is not named here.
 
 # Fonts moved into the main cask repository; homebrew/cask-fonts is gone.
 cask "font-hack-nerd-font"
-cask "mactex"
 
 # Shell and file tools
 brew "bat"                # cat with syntax highlighting
@@ -35,9 +37,7 @@ brew "git-delta"          # syntax-highlighted diffs, wired up in gitconfig
 # Writing and research
 brew "aspell"
 brew "enchant"            # spell-checking library behind Emacs jinx
-brew "bib-tool"
 brew "imagemagick"
-brew "monolith"           # single-file web page capture, used by capture-website
 brew "pandoc"             # --citeproc is built in; pandoc-citeproc is gone
 brew "poppler"            # pdftotext and friends. Replaces xpdf, which
                           # provides the same binaries and so cannot be

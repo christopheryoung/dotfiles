@@ -1,0 +1,11 @@
+# Applied only on machines with ~/.personal_machine, on top of Brewfile.
+#
+#     brew bundle install --file=Brewfile.personal --no-upgrade
+#
+# This is the research and writing stack. It is deliberately separate:
+# MacTeX alone is several gigabytes, and none of it is wanted on a work
+# machine.
+
+cask "mactex"             # LaTeX, for org export and the historia pipeline
+brew "bib-tool"           # bibliography wrangling
+brew "monolith"           # single-file web page capture, used by capture-website
