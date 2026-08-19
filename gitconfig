@@ -11,7 +11,7 @@
 	status = auto
 	branch = auto
 	# Use colors in Git commands that are capable of colored output when outputting to the terminal
-	ii = auto
+	ui = auto
 
 [alias]
 	st = status
@@ -26,35 +26,63 @@
 	logd = log -p                 # diff log
 	logf = log --stat             # file log
 	unstage = reset HEAD --
+	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%C(bold blue)<%an>%Creset' --abbrev-commit
 	last = log -1 HEAD
 	lastp = log -1 -p HEAD
 	cor = !"f() { git checkout $(git reflog | grep -o 'checkout: moving from .* to .*' | awk '!seen[$NF]++ {print $NF}' | fzf ); }; f"
 
 
+[core]
+	# setup.sh symlinks ~/.gitignore to this repo's gitignore, but git
+	# only consults ~/.config/git/ignore unless pointed elsewhere, so the
+	# file had never actually taken effect.
+	excludesfile = ~/.gitignore
+
+# Uncomment after `brew bundle` installs git-delta, for syntax
+# highlighted, side-by-side diffs. Left off by default because pointing
+# core.pager at a missing binary breaks paging everywhere.
+# [core]
+#     pager = delta
+# [interactive]
+#     diffFilter = delta --color-only
+# [delta]
+#     navigate = true
+#     line-numbers = true
+# [merge]
+#     conflictstyle = zdiff3
+
 [push]
 	default = current
 
-[difftool "kdiff3"]
-    path = /usr/local/bin/kdiff3
-    trustExitCode = false
-
+# kdiff3 was configured here for years but is not installed, which left
+# difftool and mergetool broken. Emacs is already the editor, so use its
+# ediff for both; `git difftool` and `git mergetool` now work again.
 [difftool]
     prompt = false
 
-[diff]
-    tool = kdiff3
+[difftool "ediff"]
+    cmd = emacsclient --eval "(ediff-files \"$LOCAL\" \"$REMOTE\")"
 
-[mergetool "kdiff3"]
-    path = /usr/local/bin/kdiff3
-    trustExitCode = false
+[diff]
+    tool = ediff
 
 [mergetool]
     keepBackup = false
 
+[mergetool "ediff"]
+    cmd = emacsclient --eval "(ediff-merge-files-with-ancestor \"$LOCAL\" \"$REMOTE\" \"$BASE\" nil \"$MERGED\")"
+
 [merge]
-    tool = kdiff3
+    tool = ediff
 
 # Lets me do git clone sdgr:mmshare.git, because I never remember that
 # full path.
 [url "ssh://pdx-git.schrodinger.com/var/git/repos/"]
     insteadOf = sdgr:
+
+# Machine-local and private settings (credentials, work identity) live
+# outside this repo. setup.sh used to concatenate ~/.git_private onto a
+# *copy* of this file, which meant edits here never reached ~/.gitconfig.
+# Including it keeps ~/.gitconfig a symlink, so changes propagate.
+[include]
+	path = ~/.git_private

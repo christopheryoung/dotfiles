@@ -1,4 +1,0 @@
-gitpython
-invoke
-jira
-python-language-server[all]

@@ -22,3 +22,20 @@ CMakeLists.txt
 cmake-build-debug
 .ipynb_checkpoints
 *.~undo-tree~
+
+# Editor and tool state #
+#########################
+.claude/settings.local.json
+*.~undo-tree~
+
+# Python #
+##########
+__pycache__/
+.venv/
+.mypy_cache/
+.ruff_cache/
+.pytest_cache/
+
+# Node #
+########
+node_modules/

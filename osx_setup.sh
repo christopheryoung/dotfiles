@@ -1,11 +1,9 @@
 #!/bin/bash
 
 # Manual installs:
-  # Emacs: emacsforosx.com
-  # skim
-  # mactex
-  # XQuartz: https://xquartz.macosforge.org
-  # Haskell Platform
+  # Emacs: https://emacsformacosx.com
+  # Skim
+  # XQuartz: https://www.xquartz.org
 
 #Script for setting up a mac. Assumes that setup.sh has already moved
 #dotfiles to appropriate places
@@ -30,35 +28,8 @@ xcode-select --install
 
 brew update
 
-brew install --cask font-hack-nerd-font
-brew install --cask mactex
-brew install aspell
-brew install bat
-brew install bib-tool
-brew install ccache
-brew install cloc
-brew install coreutils
-brew install dos2unix
-brew install doxygen
-brew install fd
-brew install findutils
-brew install fzf
-brew install gh
-brew install imagemagick
-brew install monolith
-brew install nodejs
-brew install pandoc
-brew install pandoc-citeproc
-brew install pkg-config
-brew install ripgrep
-brew install stack
-brew install tmux
-brew install tree
-brew install uv
-brew install wget
-brew install Xpdf
-brew install yank
-brew tap homebrew/cask-fonts
+# Package list lives in Brewfile so it can be diffed and re-applied.
+brew bundle --file="$(dirname "$0")/Brewfile"
 
 $(brew --prefix)/opt/fzf/install
 

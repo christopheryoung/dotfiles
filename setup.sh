@@ -1,60 +1,67 @@
 #!/bin/bash
 ################################################################################
-#Sets up my environment, including dot files
+# Sets up my environment, including dot files.
+#
+# Safe to re-run: every link is replaced in place, and nothing is deleted
+# that this script did not create.
 ################################################################################
 
+set -euo pipefail
+
+DOTFILES="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+
+link() {
+    local src="$DOTFILES/$1" dest="$2"
+    if [ ! -e "$src" ]; then
+        echo "  skip $dest (no $src)"
+        return
+    fi
+    mkdir -p "$(dirname "$dest")"
+    ln -sfn "$src" "$dest"
+    echo "  $dest -> $src"
+}
 
 ########################################
-#Directories
+# Dotfiles
 ########################################
 
-SETUP_SCRIPT_DIR_PATH=`( cd "$MY_PATH" && pwd )`
+echo "Linking dotfiles into $HOME"
 
-########################################
-#Dotfiles
-########################################
-
-# list of files/folders to copy to homedir
-files="bashrc bash_profile emacs hgrc screenrc viper vimrc git-completion.sh osx functions aliases jslintrc inputrc ghci pylintrc tmux.conf"
-
-echo "Creating symbolic links in home directory"
-for file in $files; do
-    rm ~/.$file
-    echo "Creating symbolic link to .$file to home directory."
-    ln -s $SETUP_SCRIPT_DIR_PATH/.$file ~/.$file
+for f in bashrc bash_profile aliases functions inputrc tmux.conf vimrc emacs; do
+    link ".$f" "$HOME/.$f"
 done
 
-rm ~/.gitignore
-ln -s $SETUP_SCRIPT_DIR_PATH/gitignore ~/.gitignore
+link ".vim"    "$HOME/.vim"
+link "emacs.d" "$HOME/.emacs.d"
 
-#gitconfig has special stuff, so we copy it over
-cp -f $SETUP_SCRIPT_DIR_PATH/gitconfig ~/.gitconfig
+# gitconfig is a symlink like everything else; anything private or
+# machine-specific goes in ~/.git_private, which gitconfig pulls in with
+# an [include] directive. It used to be *copied* here with ~/.git_private
+# concatenated onto it, which meant edits to this repo never reached
+# ~/.gitconfig at all.
+link "gitconfig" "$HOME/.gitconfig"
+link "gitignore" "$HOME/.gitignore"
+
+if [ ! -f "$HOME/.git_private" ]; then
+    cat > "$HOME/.git_private" <<'PRIVATE'
+# Machine-local git settings. Not tracked in the dotfiles repo.
+# [user]
+#     email = you@example.com
+PRIVATE
+    echo "  created $HOME/.git_private"
+fi
 
 ########################################
-#Privacy preserving dotfiles surgery
+# Machine type
 ########################################
 
-echo "Stitching together .gitconfig file with local private info"
-cat ~/.git_private >> ~/.gitconfig
+# The work machine is the one *without* this marker; .bashrc and .emacs
+# both key off it.
+if [ ! -f "$HOME/.personal_machine" ]; then
+    echo
+    echo "Note: $HOME/.personal_machine does not exist, so this is treated"
+    echo "as a work machine. Run 'touch ~/.personal_machine' if that is wrong."
+fi
 
-########################################
-#.emacs.d
-########################################
-
-rm -rf ~/.emacs.d
-ln -s $SETUP_SCRIPT_DIR_PATH/emacs.d ~/.emacs.d
-
-########################################
-# .vimrc
-########################################
-
-rm -rf ~/.vim
-ln -s $SETUP_SCRIPT_DIR_PATH/.vim ~/.vim
-
-#########################################
-# Haskell
-#########################################
-curl -sSL https://get.haskellstack.org/ | sh
-
-
-echo "Done!"
+echo
+echo "Done. Run ./osx_setup.sh on a new Mac to install packages."
