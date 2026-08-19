@@ -122,10 +122,6 @@
       scroll-conservatively 1
       scroll-margin 2)
 
-;; flyspell start up
-(setq flyspell-issue-welcome-flag nil)
-(flyspell-prog-mode) ;; Checks spelling in comments and doc strings
-
 ;; Windmove helps you move between open buffers when the screen is split
 (windmove-default-keybindings)
 

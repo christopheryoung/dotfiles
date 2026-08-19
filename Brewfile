@@ -2,6 +2,11 @@
 #
 #     brew bundle --file=Brewfile
 #
+# Use --no-upgrade to install what is missing without upgrading
+# everything else:
+#
+#     brew bundle install --file=Brewfile --no-upgrade
+#
 # brew bundle is idempotent, so re-running it installs only what is
 # missing. `brew bundle cleanup --file=Brewfile` lists anything installed
 # that is not named here.
@@ -25,17 +30,18 @@ brew "yank"
 
 # Git
 brew "gh"
-brew "git"                # newer than Apple's, and ships completions
-brew "git-delta"          # syntax-highlighted diffs; see gitconfig to enable
-brew "lazygit"            # terminal UI for status/staging/history
+brew "git-delta"          # syntax-highlighted diffs, wired up in gitconfig
 
 # Writing and research
 brew "aspell"
+brew "enchant"            # spell-checking library behind Emacs jinx
 brew "bib-tool"
 brew "imagemagick"
 brew "monolith"           # single-file web page capture, used by capture-website
 brew "pandoc"             # --citeproc is built in; pandoc-citeproc is gone
-brew "xpdf"
+brew "poppler"            # pdftotext and friends. Replaces xpdf, which
+                          # provides the same binaries and so cannot be
+                          # linked alongside it; `brew uninstall xpdf`
 
 # Development
 brew "cloc"

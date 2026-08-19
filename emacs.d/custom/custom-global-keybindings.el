@@ -18,10 +18,7 @@
 ;; These are very nice bindings, though they don't work in a terminal
 (global-set-key (kbd "C-.") (lambda () (interactive) (scroll-up 1)))
 (global-set-key (kbd "C-,") (lambda () (interactive) (scroll-down 1)))
-;; they need to be reset by some especially pushy modes
-(with-eval-after-load 'flyspell
-  (define-key flyspell-mode-map (kbd "C-.") nil)
-  (define-key flyspell-mode-map (kbd "C-,") nil))
+;; flyspell used to claim these; jinx does not, so nothing to undo now.
 
 ;; Make it easy to switch buffers
 (global-set-key (kbd "<right>") 'next-buffer)

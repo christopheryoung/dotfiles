@@ -24,6 +24,7 @@
     expand-region
     idle-highlight-mode
     iedit
+    jinx
     jump-char
     multiple-cursors
     paredit

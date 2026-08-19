@@ -64,7 +64,7 @@
 (require 'custom-projectile)
 (require 'diminish)
 (require 'expand-region)
-(require 'flyspell)
+(require 'custom-spelling)
 (require 'jump-char)
 (require 'multiple-cursors)
 (require 'rainbow-delimiters)
