@@ -1,7 +1,8 @@
+;;; custom-appearance.el --- Look and feel  -*- lexical-binding: t -*-
+
 ;; Thanks: http://emacsredux.com/blog/2013/07/24/highlight-comment-annotations/
 (defun font-lock-comment-annotations ()
-;;  "Highlight a bunch of well known comment annotations.
-;;This functions should be added to the hooks of major modes for programming."
+  "Highlight well known comment annotations in the current buffer."
   (font-lock-add-keywords
    nil '(("\\<\\(FIX\\(ME\\)?\\|TODO\\|OPTIMIZE\\|HACK\\|REFACTOR\\|NOTE\\):"
 	  1 font-lock-warning-face t))))
@@ -10,10 +11,9 @@
 
 (setq inhibit-startup-message t
       initial-scratch-message nil
-      visible-bell t
       uniquify-buffer-name-style 'forward)
 
-(menu-bar-mode t)
+(menu-bar-mode 1)
 (tool-bar-mode -1)
 
 ;; Quieter modeline
@@ -23,16 +23,13 @@
 		  abbrev-mode
 		  auto-revert-mode
 		  undo-tree-mode))
-(eval-after-load 'elisp-slime-nav '(diminish 'elisp-slime-nav-mode))
-(custom-set-variables '(git-gutter:lighter ""))
 
 ;; Let's see column numbers.
 (column-number-mode t)
 
 ;; and when we've gone too far
-(require 'fill-column-indicator)
-(define-globalized-minor-mode global-fci-mode fci-mode (lambda () (fci-mode 1)))
-(global-fci-mode 1)
+(setq-default fill-column 79)
+(global-display-fill-column-indicator-mode 1)
 
 ;; Show more info in taskbar/icon than just "Emacs"
 (setq frame-title-format
@@ -43,33 +40,27 @@
 ;; Fonts are automatically highlighted.  For more information
 ;; type M-x describe-mode font-lock-mode
 (global-font-lock-mode t)
-(set-face-bold-p 'font-lock-keyword-face t)
-(set-face-italic-p 'font-lock-comment-face t)
+(set-face-bold 'font-lock-keyword-face t)
+(set-face-italic 'font-lock-comment-face t)
 
 ;; Line numbers!
-
-(when (version<= "26.0.50" emacs-version )
-  (global-display-line-numbers-mode))
-
+(global-display-line-numbers-mode)
 
 ;; highlight and colourize balanced parens
-;; rainbow-delimiters-mode is turned on on a per-major-mode basis
 (show-paren-mode 1)
 (setq show-paren-style 'expression)
+(add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
 
 ;; and the symbol at point, elsewhere in the buffer
-(idle-highlight-mode t)
-
-;; Let's see when we go out of bounds
-(setq-default fill-column 79)
+(add-hook 'prog-mode-hook 'idle-highlight-mode)
 
 ;; Mac Appearance Stuff
 (if *on-a-mac*
     (set-face-font 'default "Monaco-19")
   (set-face-attribute 'default nil :height 220))
 
-
 ;; Let me *see* the marks
 (visible-mark-mode 1)
 
 (provide 'custom-appearance)
+;;; custom-appearance.el ends here

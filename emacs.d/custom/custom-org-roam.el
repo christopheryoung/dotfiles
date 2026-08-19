@@ -1,3 +1,5 @@
+;;; custom-org-roam.el --- Zettelkasten  -*- lexical-binding: t -*-
+
 (use-package org-roam
   :ensure t
   :init
@@ -23,8 +25,6 @@
 	    #'org-roam-reflinks-section
 	    ))
 
-(org-roam-db-autosync-mode)
-
 (setq org-roam-ui-open-on-start nil)
 
 (defun display-half-frame (buffer-name)
@@ -48,3 +48,4 @@
 	    (add-hook 'before-save-hook 'whitespace-cleanup nil t)))
 
 (provide 'custom-org-roam)
+;;; custom-org-roam.el ends here

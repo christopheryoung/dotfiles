@@ -1,18 +1,17 @@
+;;; custom-init-paredit.el --- Paredit for Lisp editing  -*- lexical-binding: t -*-
 
-;; Make sure I have paredit everywhere, including the repl
-;; Merci: http://lispservice.posterous.com/paredit-in-the-slime-repl
 (autoload 'paredit-mode "paredit"
   "Minor mode for pseudo-structurally editing Lisp code."
   t)
-(mapc (lambda (mode)
-        (let ((hook (intern (concat (symbol-name mode)
-                                    "-mode-hook"))))
-          (add-hook hook (lambda () (paredit-mode +1)))))
-      '(emacs-lisp lisp inferior-lisp slime slime-repl))
+
+(dolist (hook '(emacs-lisp-mode-hook
+		lisp-interaction-mode-hook
+		ielm-mode-hook))
+  (add-hook hook (lambda () (paredit-mode +1))))
 
 ;; paredit hijacks my beloved C-j
-(eval-after-load 'paredit
-  '(progn
-     (define-key paredit-mode-map (kbd "C-j") 'delete-other-windows)))
+(with-eval-after-load 'paredit
+  (define-key paredit-mode-map (kbd "C-j") 'delete-other-windows))
 
 (provide 'custom-init-paredit)
+;;; custom-init-paredit.el ends here

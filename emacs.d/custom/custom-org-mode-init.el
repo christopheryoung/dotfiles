@@ -1,4 +1,4 @@
-;; Just a stub at the moment
+;;; custom-org-mode-init.el --- Org mode  -*- lexical-binding: t -*-
 
 (add-to-list 'auto-mode-alist '("\\.org$" . org-mode))
 (define-key global-map "\C-cl" 'org-store-link)
@@ -28,3 +28,4 @@
 (setq org-use-sub-superscripts 1)
 
 (provide 'custom-org-mode-init)
+;;; custom-org-mode-init.el ends here

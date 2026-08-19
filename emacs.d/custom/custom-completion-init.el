@@ -1,3 +1,5 @@
+;;; custom-completion-init.el --- Completion UI  -*- lexical-binding: t -*-
+
 ;; Modern completion framework
 ;; Uses Vertico + Consult + Orderless + Marginalia + Embark
 
@@ -59,13 +61,5 @@
 (global-set-key (kbd "C-;") 'embark-act)
 (global-set-key (kbd "C-h B") 'embark-bindings)
 
-;; Keep ido enabled for certain contexts if desired
-;; (ido will be used where vertico doesn't apply)
-(setq ido-enable-flex-matching t)
-(setq ido-everywhere nil)  ; Let vertico handle most completions
-
-;; Configure completion to work well with org-ref
-;; org-ref uses completing-read which vertico will handle automatically
-(setq org-ref-completion-library 'org-ref-ivy-cite)
-
 (provide 'custom-completion-init)
+;;; custom-completion-init.el ends here

@@ -1,3 +1,5 @@
+;;; custom-latex.el --- LaTeX  -*- lexical-binding: t -*-
+
 (require 'tex-site)
 (require 'font-latex)
 (require 'org)
@@ -48,3 +50,4 @@
       (message "Buffer is not visiting a file!"))))
 
 (provide 'custom-latex)
+;;; custom-latex.el ends here

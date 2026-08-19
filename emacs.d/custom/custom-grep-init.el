@@ -1,20 +1,14 @@
+;;; custom-grep-init.el --- grep tweaks  -*- lexical-binding: t -*-
 
 ;; note: C-c C-p to make grep buffer writable, C-c C-e to apply changes to buffers
 (require 'wgrep)
 
-(setq igrep-find-use-xargs nil) ;; os x's default xargs doesn't accept the -e option
-(eval-after-load "grep"
-  '(progn
-     ;; Don't recurse into some directories
-     (add-to-list 'grep-find-ignored-directories "libs")
-     (add-to-list 'grep-find-ignored-directories "node_modules")
-     (add-to-list 'grep-find-ignored-directories "vendor")
-     (add-to-list 'grep-find-ignored-directories "_site")
-     (add-to-list 'grep-find-ignored-directories "_cache")))
-
-;; Borrowed from the emacs starter kit
-(eval-after-load 'grep
-  '(when (boundp 'grep-find-ignored-files)
-     (add-to-list 'grep-find-ignored-files "*.class")))
+(with-eval-after-load 'grep
+  ;; Don't recurse into some directories
+  (dolist (dir '("libs" "node_modules" "vendor" "_site" "_cache"
+		 ".venv" "__pycache__" ".mypy_cache" ".ruff_cache"))
+    (add-to-list 'grep-find-ignored-directories dir))
+  (add-to-list 'grep-find-ignored-files "*.pyc"))
 
 (provide 'custom-grep-init)
+;;; custom-grep-init.el ends here
