@@ -3,6 +3,20 @@
 ;; straight.el itself is bootstrapped in ~/.emacs, which must happen
 ;; before this file is loaded.  Everything below is installed from
 ;; source and pinned by the lockfile in straight/versions/.
+;;
+;; IMPORTANT: straight tracks each package's git HEAD, and a growing
+;; number of packages now target Emacs 31 -- they call `incf'/`decf'
+;; unprefixed, or pass the Emacs 31 argument list to `seconds-to-string'.
+;; On Emacs 30 those blow up at runtime rather than at build time, so the
+;; breakage shows up as a broken command, not a failed install.  magit,
+;; vertico, consult, embark and marginalia have each been rolled back to
+;; the newest release that still runs on Emacs 30; the exact commits live
+;; in straight/versions/default.el.
+;;
+;; So: do NOT run `straight-pull-all'.  To update deliberately, pull one
+;; package, exercise it, and re-run `straight-freeze-versions'.  To get
+;; back to a known-good state, run `straight-thaw-versions'.  Once this
+;; machine is on Emacs 31, these rollbacks can be revisited.
 
 (defvar my-packages
   '(;; Editing and navigation
