@@ -108,6 +108,12 @@
 (require 'custom-basic-behaviour)
 (require 'custom-global-keybindings)
 
+;; Work machine extras, the Emacs counterpart to schrodinger.sh in
+;; .bashrc.  Loaded only if the file is present, so this is a no-op here.
+;; The tracked copy used to be an empty stub; drop a real
+;; emacs.d/custom/schrodinger.el on the work machine and it is picked up.
+(require 'schrodinger nil 'noerror)
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
