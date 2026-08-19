@@ -1,8 +1,6 @@
 # Aliases, some borrowed from here: https://github.com/mathiasbynens/dotfiles/blob/master/.aliases
 # Programs
 
-alias mit-scheme='/Applications/mit-scheme.app/Contents/Resources/mit-scheme'
-
 # Navigation
 alias ..="cd .."
 alias ...="cd ../.."
@@ -11,7 +9,7 @@ alias .....="cd ../../../.."
 alias c="cd ~/code"
 alias d="cd ~/Dropbox"
 alias h="cd ~/"
-alias g="git="
+alias g="git"
 
 # Listings
 # List all files colorized in long format, including hidden files, and sort by
@@ -25,16 +23,13 @@ alias mkdir='mkdir -p'
 
 alias pp="git pull --rebase && git push"
 
-# Scripts
-alias gh_lookupX="python ~/code/dotfiles/scripts/github-lookup.py"
-
 # tmux aliases
 alias ta='tmux attach -t'
 alias tls='tmux ls'
 alias tn='tmux new -s'
 
 #json pretty printing. To use: cat foo.json | ppjson
-alias ppjson="python -m json.tool"
+alias ppjson="python3 -m json.tool"
 
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
@@ -52,5 +47,5 @@ alias fzf="fzf --bind 'f1:execute(less -f {}),ctrl-y:execute-silent(echo {} | pb
 alias flush="dscacheutil -flushcache"
 
 # View HTTP traffic
-alias sniff="sudo ngrep -d 'en1' -t '^(GET|POST) ' 'tcp and port 80'"
-alias httpdump="sudo tcpdump -i en1 -n -s 0 -w - | grep -a -o -E \"Host\: .*|GET \/.*\""
+alias sniff="sudo ngrep -d 'en0' -t '^(GET|POST) ' 'tcp and port 80'"
+alias httpdump="sudo tcpdump -i en0 -n -s 0 -w - | grep -a -o -E \"Host\: .*|GET \/.*\""

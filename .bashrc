@@ -1,34 +1,44 @@
 # ~/.bashrc: executed by bash(1) for non-login shells.
-# see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
-# for examples
 
-# This is Chris Young's .bashrc.  Almost everything here is ripped off from somewhere else.
+# This is Chris Young's .bashrc.  Almost everything here is ripped off
+# from somewhere else.  It is shared between machines, so it must stay
+# compatible with the bash macOS ships (3.2) and must not assume a Mac.
 
 # If not running interactively, don't do anything
 [ -z "$PS1" ] && return
 
-eval "$(/opt/homebrew/bin/brew shellenv)"
+########################################
+# Homebrew
+########################################
 
-# Expand the history size
+# Apple silicon keeps brew in /opt/homebrew, Intel in /usr/local, and a
+# Linux box may not have it at all.
+for _brew in /opt/homebrew/bin/brew /usr/local/bin/brew; do
+    if [ -x "$_brew" ]; then
+        eval "$("$_brew" shellenv)"
+        break
+    fi
+done
+unset _brew
+
+########################################
+# History
+########################################
 
 HISTFILESIZE=100000000
 HISTSIZE=100000
-HISTTIMEFORMAT="%F %T " # for e.g. “1999-02-29 23:59:59”
+HISTTIMEFORMAT="%F %T " # for e.g. "1999-02-29 23:59:59"
 
 # Not everything in history is interesting
-
 HISTIGNORE="cd:ls:clear:exit"
 
-# don't put duplicate lines in the history. See bash(1) for more options
-# don't overwrite GNU Midnight Commander's setting of `ignorespace'.
-export HISTCONTROL=$HISTCONTROL${HISTCONTROL+,}ignoredups
-# ... or force ignoredups and ignorespace
+# don't put duplicate lines or lines starting with a space in the history
 export HISTCONTROL=ignoreboth
 
 # append to the history file, don't overwrite it
 shopt -s histappend
 
-# The next line allows me to share history between different screen terminals
+# The next line allows me to share history between different terminals
 # Thank you https://spin.atomicobject.com/2016/05/28/log-bash-history/
 mkdir -p ~/.logs
 export PROMPT_COMMAND='if [ "$(id -u)" -ne 0 ]; then echo "$(date "+%Y-%m-%d.%H:%M:%S") $(pwd) $(history 1)" >> ~/.logs/bash-history-$(date "+%Y-%m-%d").log; fi'
@@ -37,11 +47,55 @@ export PROMPT_COMMAND='if [ "$(id -u)" -ne 0 ]; then echo "$(date "+%Y-%m-%d.%H:
 # update the values of LINES and COLUMNS.
 shopt -s checkwinsize
 
-# make less more friendly for non-text input files, see lesspipe(1)
-[ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
+########################################
+# PATH
+########################################
 
+# Add a directory to PATH, but only if it exists and is not already there.
+path_add() {
+    [ -d "$1" ] || return 0
+    case ":$PATH:" in
+        *":$1:"*) ;;
+        *) PATH="$PATH:$1" ;;
+    esac
+}
 
-# Git stuff
+path_add "$HOME/bin"
+path_add "$HOME/.local/bin"
+path_add "$HOME/.elan/bin"        # Lean
+path_add /Library/TeX/texbin
+export PATH
+
+########################################
+# Git prompt and completion
+########################################
+
+# git ships these itself; where it puts them depends on the platform.
+_git_share=""
+if [ -z "$_git_share" ] && command -v xcode-select >/dev/null 2>&1; then
+    _git_share="$(xcode-select -p 2>/dev/null)/usr/share/git-core"
+fi
+
+for _f in \
+    "$_git_share/git-prompt.sh" \
+    /usr/share/git-core/contrib/completion/git-prompt.sh \
+    "$(brew --prefix 2>/dev/null)/etc/bash_completion.d/git-prompt.sh"
+do
+    if [ -r "$_f" ]; then . "$_f"; break; fi
+done
+
+for _f in \
+    "$_git_share/git-completion.bash" \
+    /usr/share/bash-completion/completions/git \
+    "$(brew --prefix 2>/dev/null)/etc/bash_completion.d/git-completion.bash"
+do
+    if [ -r "$_f" ]; then . "$_f"; break; fi
+done
+unset _f _git_share
+
+# Keep PS1 working even where git-prompt.sh was not found.
+type __git_ps1 >/dev/null 2>&1 || __git_ps1() { :; }
+
 GIT_PS1_SHOWDIRTYSTATE=1
 GIT_PS1_SHOWSTASHSTATE=1
 GIT_PS1_SHOWUNTRACKEDFILES=1
@@ -51,59 +105,25 @@ blue=$(tput setaf 4)
 reset=$(tput sgr0)
 bold=$(tput bold)
 
-
-source ~/code/dotfiles/vendor/git-prompt.sh
-
 PS1='\[$blue$bold\]\w\[$reset\]\[$green$bold\]$(__git_ps1 " (%s)")\[$reset\]\$ '
 
-git config --global alias.lg "log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%C(bold blue)<%an>%Creset' --abbrev-commit"
-
-if [[ -n $TMUX ]]; then
-    TMOUT=0
-fi
-
-eval "$(/opt/homebrew/bin/brew shellenv)"
-
-## Autocomplete GHC commands
-_ghc()
-{
-    local envs=`ghc --show-options`
-    # get the word currently being completed
-    local cur=${COMP_WORDS[$COMP_CWORD]}
-
-    # the resulting completions should be put into this array
-    COMPREPLY=( $( compgen -W "$envs" -- $cur ) )
-}
-complete -F _ghc -o default ghc
-#type stack >/dev/null 2>&1 || eval "$(stack --bash-completion-script stack)"
-
-##Colors for a mac
+########################################
+# Colours
+########################################
 
 export CLICOLOR=1
 export LSCOLORS=ExFxCxDxBxegedabagacad
 
-if [[ $OSTYPE == darwin* ]]; then
-    export PATH=$PATH:$HOME/bin
-    export PATH=$PATH:/Users/young/.local/bin
-    export PATH=$PATH:/opt/homebrew/opt
-    export PATH=$PATH:/usr/local/opt/ccache/libexec
-    export PATH=$PATH:/usr/local/bin
-    export PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
-    export PATH=$PATH:/usr/local/share/npm/bin
-    export PATH=$PATH:/Applications/Postgres.app/Contents/MacOS/bin
-    export PATH=$PATH:$HOME/Applications/adt-bundle-mac/sdk/platform-tools
-    export PATH=$PATH:$HOME/Applications/adt-bundle-mac/sdk/tools
-    export PATH=$PATH:/Library/TeX/texbin/
-    export PATH=$PATH:/usr/local/opt/findutils/libexec/gnubin
-    export PGDATA='/usr/local/var/postgres'
-    # export PATH="/usr/local/opt/llvm/bin:$PATH
-fi
+########################################
+# Aliases and functions
+########################################
 
-# Alias definitions.
 source ~/.aliases
-
-# Functions
 source ~/.functions
+
+########################################
+# Python
+########################################
 
 # Prevent pip from installing into system Python . . .
 export PIP_REQUIRE_VIRTUALENV=true
@@ -112,23 +132,39 @@ gpip() {
     PIP_REQUIRE_VIRTUALENV="" pip "$@"
 }
 
-# Many thanks: https://raw.github.com/mathiasbynens/dotfiles/master/.bash_profile
-# Add tab completion for SSH hostnames based on ~/.ssh/config, ignoring wildcards
-[ -e "$HOME/.ssh/config" ] && complete -o "default" -o "nospace" -W "$(grep "^Host" ~/.ssh/config | grep -v "[?*]" | cut -d " " -f2)" scp sftp ssh
+########################################
+# Completion
+########################################
 
-# enable programmable completion features (you don't need to enable
-# this, if it's already enabled in /etc/bash.bashrc and /etc/profile
-# sources /etc/bash.bashrc).
-source ~/.git-completion.sh
+# Add tab completion for SSH hostnames based on ~/.ssh/config, ignoring
+# wildcards.  Many thanks:
+# https://raw.github.com/mathiasbynens/dotfiles/master/.bash_profile
+[ -e "$HOME/.ssh/config" ] && complete -o "default" -o "nospace" \
+    -W "$(grep "^Host" ~/.ssh/config | grep -v "[?*]" | cut -d " " -f2)" \
+    scp sftp ssh
 
 if [ -f /etc/bash_completion ]; then
     . /etc/bash_completion
 fi
 
-if test -f ".personal_machine"; then
-    echo "personal machine"
-else
-    source ~/code/dotfiles/schrodinger.sh
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
+########################################
+# tmux
+########################################
+
+if [ -n "$TMUX" ]; then
+    TMOUT=0
 fi
 
-[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+########################################
+# Work
+########################################
+
+# Everything above is shared.  The work machine has no ~/.personal_machine
+# and picks up its extras here.  Note the $HOME: testing a bare
+# ".personal_machine" checked the *current directory*, so any shell not
+# started in $HOME sourced the work config on the personal machine.
+if [ ! -f "$HOME/.personal_machine" ] && [ -r ~/code/dotfiles/schrodinger.sh ]; then
+    source ~/code/dotfiles/schrodinger.sh
+fi
