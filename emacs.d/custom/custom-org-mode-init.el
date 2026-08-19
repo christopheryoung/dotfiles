@@ -11,7 +11,7 @@
 
 
 (require 'ox-latex)
-(setq org-latex-listings 'minted)
+(setq org-latex-src-block-backend 'minted)
 (add-to-list 'org-latex-packages-alist '("" "minted"))
 (setq org-latex-pdf-process
       '("pdflatex -shell-escape -interaction nonstopmode -output-directory %o %f"

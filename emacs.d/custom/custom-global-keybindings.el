@@ -36,8 +36,8 @@
 (global-set-key (kbd "M-g") 'goto-line)
 (global-set-key (kbd "C-x f") 'find-file-in-repository)
 
-;; ace-jump-mode
-(global-set-key (kbd "C-o") 'ace-jump-mode) ;; was bound to <insertline>
+;; avy (see custom-avy.el for the prefix argument submodes)
+(global-set-key (kbd "C-o") 'custom-avy-jump) ;; was bound to <insertline>
 ;; dired-jump
 (global-set-key (kbd "C-x C-j") 'dired-jump)
 ;; expand-region

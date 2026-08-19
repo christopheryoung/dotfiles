@@ -44,7 +44,7 @@ there's a region, all lines that region covers will be duplicated."
 	(exchange-point-and-mark))
     (setq end (line-end-position))
     (let ((region (buffer-substring-no-properties beg end)))
-      (dotimes (i arg)
+      (dotimes (_ arg)
 	(goto-char end)
 	(newline)
 	(insert region)
@@ -95,14 +95,14 @@ there's a region, all lines that region covers will be duplicated."
    (multi-occur-in-matching-buffers "." regexp t))
 
 (defun snapshot ()
-  "Run the 'snapshot' script."
+  "Run the `snapshot' script."
   (interactive)
   (save-some-buffers t)
   (shell-command "snapshot")
   (switch-to-buffer "*Messages*"))
 
 (defun capture-website (url)
-  "Capture a website using the 'capture' script that just wraps monolith"
+  "Capture a website with the `capture' script, a wrapper around monolith."
   (interactive "sEnter URL to capture: ")
   (shell-command (concat "capture " url)))
 

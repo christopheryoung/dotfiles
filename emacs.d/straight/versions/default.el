@@ -1,5 +1,4 @@
 (("Emacs-wgrep" . "49f09ab9b706d2312cab1199e1eeb1bcd3f27f6f")
- ("ace-jump-mode" . "8351e2df4fbbeb2a4003f2fb39f46d33803f3dac")
  ("auctex" . "00f1538bee4197a259e2464c4cbc4d54b0c5e4ea")
  ("avy" . "933d1f36cca0f71e4acb5fac707e9ae26c536264")
  ("biblio.el" . "bb9d6b4b962fb2a4e965d27888268b66d868766b")

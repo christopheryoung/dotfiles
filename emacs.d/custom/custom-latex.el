@@ -41,7 +41,7 @@
 (define-key org-mode-map (kbd "C-c C-l") 'my/org-insert-latex-block)
 
 (defun my/export-latex ()
-  "Call the Python script org_to_pdf_pipeline.py with the full path of the current buffer as an argument."
+  "Run org_to_pdf_pipeline.py on the file this buffer is visiting."
   (interactive)
   (let ((buffer-path (buffer-file-name))
 	(script-path (expand-file-name "~/code/historia/org_to_pdf_pipeline.py")))

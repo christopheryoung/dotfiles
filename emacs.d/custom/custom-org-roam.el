@@ -20,10 +20,9 @@
   (require 'org-roam-protocol))
 
 
-(setq org-roam-mode-section-functions
+(setq org-roam-mode-sections
       (list #'org-roam-backlinks-section
-	    #'org-roam-reflinks-section
-	    ))
+	    #'org-roam-reflinks-section))
 
 (setq org-roam-ui-open-on-start nil)
 

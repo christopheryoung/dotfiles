@@ -6,7 +6,7 @@
 
 (defvar my-packages
   '(;; Editing and navigation
-    ace-jump-mode
+    avy
     expand-region
     idle-highlight-mode
     iedit

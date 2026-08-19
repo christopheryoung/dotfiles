@@ -83,14 +83,14 @@
 ;; https://github.com/magnars/.emacs.d/blob/master/sane-defaults.el
 ;; When popping the mark, continue popping until the cursor actually moves
 ;; Also, if the last command was a copy - skip past all the expand-region cruft.
-(defadvice pop-to-mark-command (around ensure-new-position activate)
+(define-advice pop-to-mark-command (:around (original) ensure-new-position)
   (let ((p (point)))
     (when (eq last-command 'save-region-or-current-line)
-      ad-do-it
-      ad-do-it
-      ad-do-it)
+      (funcall original)
+      (funcall original)
+      (funcall original))
     (dotimes (_ 10)
-      (when (= p (point)) ad-do-it))))
+      (when (= p (point)) (funcall original)))))
 
 ;; Allow for mark ring traversal without popping them off the stack.
 (setq set-mark-command-repeat-pop t)
@@ -126,9 +126,6 @@
 
 ;; dumb jump
 (add-hook 'xref-backend-functions #'dumb-jump-xref-activate)
-
-;; ace jump
-(setq ace-jump-mode-case-fold t)
 
 (wrap-region-global-mode t)
 (add-to-list 'wrap-region-except-modes 'magit-status-mode)

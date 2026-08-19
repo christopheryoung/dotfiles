@@ -12,7 +12,7 @@
 
 (add-hook 'python-mode-hook
 	  (lambda ()
-	    (local-set-key (kbd "C-o") 'ace-jump-mode)
+	    (local-set-key (kbd "C-o") 'custom-avy-jump)
 	    (local-set-key (kbd "M-i") 'consult-line)
 	    (local-set-key (kbd "C-c C-f") 'custom-find-python-func)
 	    (add-hook 'before-save-hook 'whitespace-cleanup nil t)))

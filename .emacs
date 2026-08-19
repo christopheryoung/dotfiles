@@ -57,7 +57,7 @@
 (require 'custom-defuns)
 
 ;; minor modes
-(require 'ace-jump-mode)
+(require 'custom-avy)
 (require 'custom-completion-init)
 (require 'custom-init-paredit)
 (require 'custom-yasnippet-init)
