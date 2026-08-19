@@ -64,6 +64,9 @@
     magit
 
     ;; Org, notes and bibliography
+    ;; bibtex-completion arrives with org-ref, but the config sets
+    ;; bibtex-completion-bibliography directly, so name it here too.
+    bibtex-completion
     ebib
     markdown-mode
     org-ref

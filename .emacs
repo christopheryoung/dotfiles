@@ -86,9 +86,13 @@
 (eval-after-load 'org '(require 'custom-org-mode-init))
 (setq org-startup-with-inline-images t)
 (require 'org-ref)
+;; org-ref v3 resolves citation keys through bibtex-completion, and falls
+;; back to `bibtex-completion-bibliography' for buffers that do not carry
+;; their own bibliography: link.  Without it every key renders red.  Note
+;; that `org-ref-default-bibliography' is a v2 variable that v3 ignores.
 (let ((bib '("~/code/historia/bibliography.bib")))
-  (setq reftex-default-bibliography bib
-	org-ref-default-bibliography bib))
+  (setq bibtex-completion-bibliography bib
+	reftex-default-bibliography bib))
 (require 'custom-org-roam)
 
 ;; LLM integration (personal machine only)
