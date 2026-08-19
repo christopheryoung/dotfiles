@@ -96,9 +96,14 @@ unset _f _git_share
 # Keep PS1 working even where git-prompt.sh was not found.
 type __git_ps1 >/dev/null 2>&1 || __git_ps1() { :; }
 
+# What the prompt marks after the branch name:
+#   *  unstaged changes        +  staged changes
+#   %  untracked files         $  something stashed
+#   <  behind upstream         >  ahead        <> diverged   = in sync
 GIT_PS1_SHOWDIRTYSTATE=1
 GIT_PS1_SHOWSTASHSTATE=1
 GIT_PS1_SHOWUNTRACKEDFILES=1
+GIT_PS1_SHOWUPSTREAM="auto"
 
 green=$(tput setaf 2)
 blue=$(tput setaf 4)

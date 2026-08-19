@@ -14,7 +14,8 @@
 	ui = auto
 
 [alias]
-	st = status
+	st = status --short --branch
+	status-long = status
 	ci = commit
 	br = branch
 	co = checkout
@@ -38,18 +39,16 @@
 	# file had never actually taken effect.
 	excludesfile = ~/.gitignore
 
-# Uncomment after `brew bundle` installs git-delta, for syntax
-# highlighted, side-by-side diffs. Left off by default because pointing
-# core.pager at a missing binary breaks paging everywhere.
-# [core]
-#     pager = delta
-# [interactive]
-#     diffFilter = delta --color-only
-# [delta]
-#     navigate = true
-#     line-numbers = true
-# [merge]
-#     conflictstyle = zdiff3
+# delta, installed via the Brewfile, for syntax highlighted diffs.
+[core]
+	pager = delta
+[interactive]
+	diffFilter = delta --color-only
+[delta]
+	navigate = true
+	line-numbers = true
+[merge]
+	conflictstyle = zdiff3
 
 [push]
 	default = current
