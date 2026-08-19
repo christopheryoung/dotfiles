@@ -67,6 +67,16 @@
 (setq undo-tree-auto-save-history t
       undo-tree-history-directory-alist '(("." . "~/.emacs.d/undo")))
 
+;; When a file changes on disk outside Emacs, its saved undo history no
+;; longer matches and undo-tree says so, one line per buffer.  Restoring
+;; a desktop of several hundred buffers turns that into a wall of echo
+;; area noise, and there is nothing to act on: the buffer simply starts a
+;; fresh undo history.  Keep the reports in *Messages*, out of the echo
+;; area.
+(define-advice undo-tree-load-history-from-hook (:around (original) quietly)
+  (let ((inhibit-message t))
+    (funcall original)))
+
 ;; Save the desktop . . .
 (setq desktop-load-locked-desktop t)
 (desktop-save-mode 1)
