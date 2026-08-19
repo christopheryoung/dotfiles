@@ -59,7 +59,8 @@ emacs.d/org-mode
 emacs.d/org-roam.db
 emacs.d/places
 emacs.d/smex-items
-emacs.d/straight
+emacs.d/straight/*
+!emacs.d/straight/versions
 emacs.d/transient
 emacs.d/url
 emacs.d/undo
@@ -71,6 +72,5 @@ emacs.d/recentf
 emacs.d/recentf~
 emacs.d/smex-items
 emacs.d/transient/
-emacs.d/straight
 emacs.d/undo
 emacs.d/projects

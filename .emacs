@@ -41,8 +41,6 @@
       (eval-print-last-sexp)))
   (load bootstrap-file nil 'nomessage))
 
-(package-initialize)
-
 (defvar *on-a-mac* (and (string-match "apple-darwin" system-configuration) t)
   "Non-nil when running on macOS.")
 

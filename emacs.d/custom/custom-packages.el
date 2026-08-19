@@ -1,89 +1,77 @@
-(require 'package)
+;;; custom-packages.el --- Package installation via straight.el  -*- lexical-binding: t -*-
 
+;; straight.el itself is bootstrapped in ~/.emacs, which must happen
+;; before this file is loaded.  Everything below is installed from
+;; source and pinned by the lockfile in straight/versions/.
 
-(add-to-list 'package-archives
-	     '("melpa" . "https://melpa.org/packages/") t)
+(defvar my-packages
+  '(;; Editing and navigation
+    ace-jump-mode
+    expand-region
+    idle-highlight-mode
+    iedit
+    jump-char
+    multiple-cursors
+    paredit
+    rainbow-delimiters
+    smartscan
+    undo-tree
+    visible-mark
+    wrap-region
+    yasnippet
 
-(defvar my-package-packages '(
-			      ace-jump-mode
-			      auctex
-			      clang-format
-			      consult
-			      cquery
-			      csv-mode
-			      dash
-			      diminish
-			      discover
-			      embark
-			      embark-consult
-			      ebib
-			      exec-path-from-shell
-			      expand-region
-			      fill-column-indicator
-			      find-file-in-repository
-			      flx-ido
-			      git-timemachine
-			      git-gutter
-			      git-messenger
-			      haskell-mode
-			      helm
-			      helm-bibtex
-			      ht
-			      hydra
-			      iedit
-			      idle-highlight-mode
-			      ispell
-			      json-mode
-			      jump-char
-			      latex-extra
-			      leuven-theme
-			      loop
-			      lsp-mode
-			      magit
-			      marginalia
-			      mark-multiple
-			      markdown-mode
-			      maxframe
-			      multi-term
-			      multiple-cursors
-			      openwith
-			      orderless
-			      org-ref
-			      org-roam
-			      paredit
-			      projectile
-			      pylint
-			      pyvenv
-			      rainbow-delimiters
-			      s
-			      sqlite
-			      undo-tree
-			      use-package
-			      vertico
-			      visual-fill-column
-			      wgrep
-			      windmove
-			      wrap-region
-			      yasnippet
-			      )
-  "A list of packages to ensure are installed at launch.")
+    ;; Buffers, files, projects
+    diminish
+    dumb-jump
+    exec-path-from-shell
+    find-file-in-repository
+    multi-term
+    openwith
+    projectile
+    wgrep
 
-(add-to-list 'package-archives '("org" . "https://orgmode.org/elpa/") t)
+    ;; Completion: vertico stack
+    consult
+    embark
+    embark-consult
+    marginalia
+    orderless
+    vertico
 
-(setq my-packages-refreshed nil)
+    ;; Git
+    ;; magit declares its dependencies in a multi-line Package-Requires
+    ;; header that straight does not parse, so list them explicitly.
+    cond-let
+    llama
+    transient
+    with-editor
+    git-gutter
+    git-timemachine
+    magit
 
-(dolist (p my-package-packages)
-  (when (not (package-installed-p p))
-    (when (not my-packages-refreshed)
-      (package-refresh-contents)
-      (setq my-packages-refreshed t)) ;; expensive, so let's just do
-    ;; it once
-    (package-install p)))
+    ;; Org, notes and bibliography
+    ebib
+    markdown-mode
+    org-ref
+    org-roam
+    org-roam-ui
 
-;; A place to put any packages not on elpa or marmalade
-(add-to-list 'load-path "~/.emacs.d/vendor/")
+    ;; LaTeX
+    auctex
+    latex-extra
+
+    ;; Programming languages
+    csv-mode
+    haskell-mode
+    pyvenv
+    web-mode)
+  "Packages installed with straight.el at startup.")
+
+(dolist (package my-packages)
+  (straight-use-package package))
 
 (when (memq window-system '(mac ns))
   (exec-path-from-shell-initialize))
 
 (provide 'custom-packages)
+;;; custom-packages.el ends here

@@ -68,8 +68,8 @@
 (global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
 (global-set-key (kbd "C-c C-<") 'mc/mark-all-like-this)
 ;; smartscan
-(global-set-key (kbd "<up>") 'smart-symbol-go-backward)
-(global-set-key (kbd "<down>") 'smart-symbol-go-forward)
+(global-set-key (kbd "<up>") 'smartscan-symbol-go-backward)
+(global-set-key (kbd "<down>") 'smartscan-symbol-go-forward)
 ;; these bindings are fine for smartscan until you're at a repl
 (add-hook 'comint-mode-hook
 	  (lambda ()

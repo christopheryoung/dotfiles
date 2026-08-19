@@ -1,7 +1,7 @@
 ;;; custom-org-roam.el --- Zettelkasten  -*- lexical-binding: t -*-
 
 (use-package org-roam
-  :ensure t
+  :demand t
   :init
   (setq org-roam-v2-ack t)
   :custom
