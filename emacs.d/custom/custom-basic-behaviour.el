@@ -79,6 +79,12 @@
 
 ;; Save the desktop . . .
 (setq desktop-load-locked-desktop t)
+;; . . . but restore it lazily.  Several hundred buffers are visited on
+;; every start; this reads the first few immediately and fills in the
+;; rest while Emacs is idle, so the frame is usable straight away.
+(setq desktop-restore-eager 15
+      desktop-lazy-verbose nil
+      desktop-lazy-idle-delay 3)
 (desktop-save-mode 1)
 
 ;; . . . or at least, most of the desktop.  We don't need to load

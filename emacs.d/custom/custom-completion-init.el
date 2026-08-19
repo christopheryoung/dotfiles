@@ -61,5 +61,34 @@
 (global-set-key (kbd "C-;") 'embark-act)
 (global-set-key (kbd "C-h B") 'embark-bindings)
 
+;; which-key: show what follows a prefix key.  Built in since Emacs 30,
+;; and a better version of what the old `discover' package was for.
+(which-key-mode 1)
+(setq which-key-idle-delay 0.6)
+
+;; Corfu: in-buffer completion.  Nothing has filled this role since
+;; auto-complete was dropped years ago; corfu is the in-buffer companion
+;; to vertico and uses the same completion styles.
+(require 'corfu)
+(global-corfu-mode 1)
+(setq corfu-auto t
+      corfu-auto-prefix 2
+      corfu-auto-delay 0.2
+      corfu-cycle t
+      corfu-quit-no-match 'separator)
+
+;; Let corfu complete in the minibuffer too, where vertico is not active.
+(defun custom-corfu-enable-in-minibuffer ()
+  "Enable Corfu in the minibuffer when completion-at-point is available."
+  (when (and (not (bound-and-true-p vertico--input))
+	     (where-is-internal #'completion-at-point (list (current-local-map))))
+    (corfu-mode 1)))
+(add-hook 'minibuffer-setup-hook #'custom-corfu-enable-in-minibuffer)
+
+;; Orderless is aimed at the minibuffer; in-buffer completion wants
+;; ordinary prefix matching so that TAB behaves predictably in code.
+(add-to-list 'completion-category-overrides
+	     '(eglot (styles orderless basic)))
+
 (provide 'custom-completion-init)
 ;;; custom-completion-init.el ends here

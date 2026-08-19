@@ -46,6 +46,7 @@
 
     ;; Completion: vertico stack
     consult
+    corfu
     embark
     embark-consult
     marginalia
