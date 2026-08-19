@@ -143,8 +143,19 @@
 ;; dumb jump
 (add-hook 'xref-backend-functions #'dumb-jump-xref-activate)
 
-(wrap-region-global-mode t)
-(add-to-list 'wrap-region-except-modes 'magit-status-mode)
+;; electric-pair-mode is built in and replaces wrap-region, which was
+;; last touched in 2014 and was the final package pulling in the
+;; deprecated cl library.
+(electric-pair-mode 1)
+
+;; Version control gutter.  diff-hl replaces git-gutter and knows how to
+;; refresh itself after magit operations.
+(require 'diff-hl)
+(global-diff-hl-mode 1)
+(diff-hl-margin-mode 1)          ; works in the terminal too
+(with-eval-after-load 'magit
+  (add-hook 'magit-pre-refresh-hook #'diff-hl-magit-pre-refresh)
+  (add-hook 'magit-post-refresh-hook #'diff-hl-magit-post-refresh))
 
 (setq magit-status-buffer-switch-function 'switch-to-buffer)
 

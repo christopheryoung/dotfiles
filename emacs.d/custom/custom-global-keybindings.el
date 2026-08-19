@@ -2,7 +2,7 @@
 
 (global-set-key [f2] 'comment-dwim)
 (global-set-key [f4] 'worklog-date-stamp)
-(global-set-key [f5] 'multi-term)
+(global-set-key [f5] 'custom-terminal)
 (global-set-key [f6] 'outline-hide-body)
 (global-set-key [f7] 'outline-show-all)
 (global-set-key [f9] 'split-window-horizontally)

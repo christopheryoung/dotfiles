@@ -17,8 +17,7 @@
 (tool-bar-mode -1)
 
 ;; Quieter modeline
-(mapc 'diminish '(wrap-region-mode
-		  yas-minor-mode
+(mapc 'diminish '(yas-minor-mode
 		  projectile-mode
 		  abbrev-mode
 		  auto-revert-mode

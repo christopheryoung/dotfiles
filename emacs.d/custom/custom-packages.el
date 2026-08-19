@@ -31,15 +31,14 @@
     smartscan
     undo-tree
     visible-mark
-    wrap-region
     yasnippet
 
     ;; Buffers, files, projects
     diminish
     dumb-jump
+    eat
     exec-path-from-shell
     find-file-in-repository
-    multi-term
     openwith
     projectile
     wgrep
@@ -54,13 +53,13 @@
     vertico
 
     ;; Git
+    diff-hl
     ;; magit declares its dependencies in a multi-line Package-Requires
     ;; header that straight does not parse, so list them explicitly.
     cond-let
     llama
     transient
     with-editor
-    git-gutter
     git-timemachine
     magit
 

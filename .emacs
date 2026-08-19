@@ -65,18 +65,16 @@
 (require 'diminish)
 (require 'expand-region)
 (require 'flyspell)
-(global-git-gutter-mode +1)
 (require 'jump-char)
 (require 'multiple-cursors)
 (require 'rainbow-delimiters)
 (require 'smartscan)
 (require 'undo-tree)
-(require 'wrap-region)
 
 ;; major modes, not programming languages
 (require 'custom-dired-init)
 (require 'custom-grep-init)
-(require 'custom-multi-term-init)
+(require 'custom-term-init)
 (require 'custom-text-mode-init)
 (require 'magit)
 (require 'uniquify)
@@ -115,7 +113,6 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(git-gutter:lighter "")
  '(sort-fold-case t t))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
