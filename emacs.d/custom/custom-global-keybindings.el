@@ -75,9 +75,11 @@
 	  (lambda ()
 	    (local-set-key (kbd "<up>") 'comint-previous-input)
 	    (local-set-key (kbd "<down>") 'comint-next-input)))
-;; undo-tree
+;; undo
 ;; C-x C-u originally: uppercase region
-(global-set-key (kbd "C-x C-u") 'undo-tree-visualize)
+(global-set-key (kbd "C-x C-u") 'vundo)
+;; undo-tree bound M-_ to redo; undo-redo is the built-in equivalent
+(global-set-key (kbd "M-_") 'undo-redo)
 ;; webjump
 (global-set-key (kbd "C-x g") 'webjump)
 ;; yasnippet

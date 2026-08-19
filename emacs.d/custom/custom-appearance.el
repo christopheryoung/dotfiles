@@ -20,8 +20,7 @@
 (mapc 'diminish '(yas-minor-mode
 		  projectile-mode
 		  abbrev-mode
-		  auto-revert-mode
-		  undo-tree-mode))
+		  auto-revert-mode))
 
 ;; Let's see column numbers.
 (column-number-mode t)

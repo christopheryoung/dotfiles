@@ -29,8 +29,8 @@
     paredit
     rainbow-delimiters
     smartscan
-    undo-tree
     visible-mark
+    vundo
     yasnippet
 
     ;; Buffers, files, projects

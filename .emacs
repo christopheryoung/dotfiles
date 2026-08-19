@@ -69,7 +69,7 @@
 (require 'multiple-cursors)
 (require 'rainbow-delimiters)
 (require 'smartscan)
-(require 'undo-tree)
+(require 'vundo)
 
 ;; major modes, not programming languages
 (require 'custom-dired-init)

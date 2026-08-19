@@ -62,20 +62,15 @@
       make-backup-files nil
       auto-save-default nil)
 
-;; Undo history that survives across sessions
-(global-undo-tree-mode 1)
-(setq undo-tree-auto-save-history t
-      undo-tree-history-directory-alist '(("." . "~/.emacs.d/undo")))
-
-;; When a file changes on disk outside Emacs, its saved undo history no
-;; longer matches and undo-tree says so, one line per buffer.  Restoring
-;; a desktop of several hundred buffers turns that into a wall of echo
-;; area noise, and there is nothing to act on: the buffer simply starts a
-;; fresh undo history.  Keep the reports in *Messages*, out of the echo
-;; area.
-(define-advice undo-tree-load-history-from-hook (:around (original) quietly)
-  (let ((inhibit-message t))
-    (funcall original)))
+;; Undo.  vundo visualises Emacs' own undo history rather than keeping a
+;; parallel tree of its own, so there are no history files to go stale --
+;; which is what all the undo-tree noise at startup was about.  The
+;; trade-off is that undo history is per-session.
+;;
+;; Keep a generous in-memory history, since that is now all there is.
+(setq undo-limit (* 4 1024 1024)          ; 4MB, default 160KB
+      undo-strong-limit (* 6 1024 1024)
+      undo-outer-limit (* 48 1024 1024))
 
 ;; Save the desktop . . .
 (setq desktop-load-locked-desktop t)
