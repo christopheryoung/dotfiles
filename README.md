@@ -69,17 +69,51 @@ first cloned, and the second reads them from the now-pinned melpa. The
 script reports anything straight is using that the lockfile does not
 name, which would mean a package is running unpinned.
 
+## Checking the configuration
+
+    emacs --batch -l ~/.emacs.d/check-config.el
+
+Loads the configuration and checks the things that have actually broken
+here: bindings pointing at renamed commands, modes that should or should
+not be on, packages that have moved to Emacs 31 idioms, and the handful
+of settings that once stopped being read without saying so. Exits
+non-zero on failure, so it can gate an update.
+
+Batch mode cannot exercise anything needing a window, a command loop or
+an idle timer, so those are checked one layer down, at the function the
+timer or hook would have called.
+
 ## Updating packages
 
 Do not run `straight-pull-all`. Several packages are held at older
 releases for Emacs 30 compatibility, and it would move all of them to
-HEAD. Update one at a time:
+HEAD at once -- which is how magit, vertico, consult and jinx each broke.
 
-    M-x straight-pull-package RET <name> RET
-    ... use it, confirm it still works ...
+There is no need to update on a schedule. Nothing here is
+security-sensitive, an out-of-date package costs nothing, and updates
+have a habit of failing quietly at install time and surfacing days later
+in the middle of real work. Update when there is a reason: a bug that
+annoys you, a feature you want, or a new Emacs.
+
+When you do, do it where a broken editor is an inconvenience rather than
+a disaster -- not first thing on a working morning:
+
+    git commit -am "wip"                       # lockfile is the rollback
+    M-x straight-pull-package RET <name> RET   # one, or a few related
     M-x straight-freeze-versions
+    emacs --batch -l ~/.emacs.d/check-config.el
+    ... then use it for a few days ...
 
-`M-x straight-thaw-versions` restores everything to the lockfile.
+To roll back, `M-x straight-thaw-versions` restores the lockfile, or
+`git checkout emacs.d/straight/versions/default.el` first to go back
+further.
+
+### Packages held back for Emacs 30
+
+magit, vertico, consult, embark, marginalia and jinx are pinned to
+releases that predate their move to Emacs 31 idioms. On Emacs 31 these
+holds can be lifted; `check-config.el` reports the running version, and
+the bare incf/decf check is what would catch a regression.
 
 ## Personal vs work
 
