@@ -35,7 +35,7 @@
  ("ht.el" . "1c49aad1c820c86f7ee35bf9fff8429502f60fef")
  ("htmlize" . "fa644880699adea3770504f913e6dddbec90c076")
  ("iedit" . "14161daa295332a49dda92b97c00d62efd38acfe")
- ("jinx" . "23f6d028decb6081ee30659e7e841f6046e5f511")
+ ("jinx" . "61bed3f77d37ae02100e8a2ec1cfb849d649fa5d")
  ("jump-char" . "6d7e7b090c4c5af77626f45e64e0677f356fce5b")
  ("latex-extra" . "81507c1b63eb3898b654818de047544f662c1f73")
  ("let-alist" . "a331a39b02da002c6c570c4960106454f88a99a5")
