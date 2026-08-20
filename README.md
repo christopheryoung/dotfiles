@@ -48,6 +48,27 @@ The Python tree-sitter grammar is compiled on demand; if
 `python-ts-mode` is not being used, run `M-x
 treesit-install-language-grammar` and choose python.
 
+## Pinned versions
+
+Every Emacs package is pinned to an exact git commit in
+`emacs.d/straight/versions/default.el`, which is tracked in this
+repository. It is the equivalent of a lockfile, and it covers more than
+the packages named in `custom-packages.el`:
+
+- the 47 declared packages
+- their transitive dependencies
+- the recipe repositories themselves (melpa, gnu-elpa-mirror and the
+  rest), so the package *definitions* are pinned as well, not just the
+  packages
+
+A new machine therefore gets exactly these versions rather than whatever
+is current. `osx_setup.sh` applies them by running
+`emacs.d/bootstrap-packages.el`, which it deliberately runs twice: the
+first pass has to resolve recipes from whatever melpa is at when it is
+first cloned, and the second reads them from the now-pinned melpa. The
+script reports anything straight is using that the lockfile does not
+name, which would mean a package is running unpinned.
+
 ## Updating packages
 
 Do not run `straight-pull-all`. Several packages are held at older

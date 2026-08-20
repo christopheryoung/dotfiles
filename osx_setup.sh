@@ -128,6 +128,14 @@ elif [ -d "$HOME/.emacs.d/straight/build" ]; then
     skip "straight packages present (see README to update them)"
 else
     echo "    installing packages and pinning them to the lockfile"
+    # Twice, deliberately. The first pass has to resolve recipes from
+    # whatever the melpa recipe repository is at when it is first cloned,
+    # because the lockfile cannot pin melpa until melpa exists. If a
+    # recipe has since moved to a different repository, that first pass
+    # clones the wrong one and leaves the package unpinned. The second
+    # pass reads recipes from the now-pinned melpa and settles it. It is
+    # quick, since everything is already in place.
+    run "$EMACS" --batch -l "$DOTFILES/emacs.d/bootstrap-packages.el"
     run "$EMACS" --batch -l "$DOTFILES/emacs.d/bootstrap-packages.el"
 fi
 

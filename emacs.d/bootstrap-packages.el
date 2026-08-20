@@ -43,18 +43,20 @@
 (when (file-exists-p "~/.personal_machine")
   (straight-use-package 'gptel))
 
-(let* ((lockfile (expand-file-name "straight/versions/default.el"
-				   user-emacs-directory))
-       (repos-dir (expand-file-name "straight/repos/" user-emacs-directory))
-       (pinned (when (file-exists-p lockfile)
-		 (with-temp-buffer
-		   (insert-file-contents lockfile)
-		   (goto-char (point-min))
-		   (read (current-buffer)))))
-       (done 0) (missing 0) (failed 0))
-  (if (null pinned)
-      (message "No lockfile at %s; packages are left at their default branches"
-	       lockfile)
+(defun bootstrap--pin-to-lockfile ()
+  "Check every repository out at the commit recorded in the lockfile.
+Returns a plist of counts.  Uses git directly rather than
+`straight-thaw-versions', which routes through a confirmation layer that
+cannot run in batch mode."
+  (let* ((lockfile (expand-file-name "straight/versions/default.el"
+				     user-emacs-directory))
+	 (repos-dir (expand-file-name "straight/repos/" user-emacs-directory))
+	 (pinned (when (file-exists-p lockfile)
+		   (with-temp-buffer
+		     (insert-file-contents lockfile)
+		     (goto-char (point-min))
+		     (read (current-buffer)))))
+	 (done 0) (missing 0) (failed 0))
     (dolist (entry pinned)
       (let* ((repo (car entry))
 	     (commit (cdr entry))
@@ -67,13 +69,41 @@
 	  (setq done (1+ done)))
 	 (t
 	  (setq failed (1+ failed))
-	  (message "Could not check out %s at %s" repo commit)))))
-    (message "Pinned %d repositories (%d not cloned, %d failed)"
-	     done missing failed))
+	  (message "  could not check out %s at %s" repo commit)))))
+    (list :pinned done :missing missing :failed failed :total (length pinned))))
 
-  ;; Force a rebuild so the byte-compiled files match the pinned sources.
-  (let ((cache (expand-file-name "straight/build-cache.el" user-emacs-directory)))
-    (when (file-exists-p cache) (delete-file cache)))
-  (message "Done. Start Emacs normally; it will rebuild at these versions."))
+(let ((counts (bootstrap--pin-to-lockfile)))
+  (if (zerop (plist-get counts :total))
+      (message "No lockfile; packages are left at their default branches")
+    (message "Pinned %d of %d repositories (%d not cloned, %d failed)"
+	     (plist-get counts :pinned) (plist-get counts :total)
+	     (plist-get counts :missing) (plist-get counts :failed))))
+
+;; Anything straight is using that the lockfile does not name is running
+;; unpinned. That normally means a recipe changed upstream and now points
+;; at a different repository -- straight resolved it from whatever melpa
+;; was cloned at, before the lockfile could pin melpa itself. Running
+;; this file a second time resolves recipes from the now-pinned melpa and
+;; settles it; anything still listed here needs a look.
+(let (unpinned
+      (lockfile (expand-file-name "straight/versions/default.el"
+				  user-emacs-directory)))
+  (let ((names (when (file-exists-p lockfile)
+		 (mapcar #'car (with-temp-buffer
+				 (insert-file-contents lockfile)
+				 (goto-char (point-min))
+				 (read (current-buffer)))))))
+    (maphash (lambda (repo _v)
+	       (unless (member repo names) (push repo unpinned)))
+	     straight--repo-cache)
+    (when unpinned
+      (message "Not pinned by the lockfile: %s"
+	       (mapconcat #'identity (sort unpinned #'string<) ", ")))))
+
+;; Force a rebuild so the byte-compiled files match the pinned sources.
+(let ((cache (expand-file-name "straight/build-cache.el" user-emacs-directory)))
+  (when (file-exists-p cache) (delete-file cache)))
+
+(message "Done. Start Emacs normally; it will rebuild at these versions.")
 
 ;;; bootstrap-packages.el ends here
