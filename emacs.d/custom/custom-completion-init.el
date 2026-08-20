@@ -69,11 +69,12 @@
 ;; Corfu: in-buffer completion.  Nothing has filled this role since
 ;; auto-complete was dropped years ago; corfu is the in-buffer companion
 ;; to vertico and uses the same completion styles.
+;; Deliberately not automatic: corfu appears when completion is asked
+;; for (C-M-i, i.e. M-TAB) and stays out of the way otherwise.  Set
+;; corfu-auto to t for a popup as you type.
 (require 'corfu)
 (global-corfu-mode 1)
-(setq corfu-auto t
-      corfu-auto-prefix 2
-      corfu-auto-delay 0.2
+(setq corfu-auto nil
       corfu-cycle t
       corfu-quit-no-match 'separator)
 
