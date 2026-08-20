@@ -24,5 +24,20 @@
 (keymap-global-set "C-c $" #'jinx-mode)
 (keymap-global-set "C-M-$" #'jinx-languages)
 
+;; The desktop file records which minor modes were on in each buffer, and
+;; this one was written while jinx-mode was still enabled by hooks: it
+;; names jinx-mode for 264 buffers, every one of which would switch it
+;; back on and quietly defeat the default above.
+;;
+;; Two different variables are involved, which is easy to get wrong.
+;; desktop consults `desktop-minor-mode-handlers' when *restoring* and
+;; falls back to calling the mode function; `desktop-minor-mode-table'
+;; only affects what gets *saved*. So the handler stops the existing
+;; desktop file from turning jinx on, and the table entry keeps it out of
+;; the file next time it is written.
+(with-eval-after-load 'desktop
+  (add-to-list 'desktop-minor-mode-handlers '(jinx-mode . ignore))
+  (add-to-list 'desktop-minor-mode-table '(jinx-mode nil)))
+
 (provide 'custom-spelling)
 ;;; custom-spelling.el ends here
